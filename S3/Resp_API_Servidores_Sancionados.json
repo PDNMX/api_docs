@@ -1,13 +1,24 @@
 {
   "pagination": {
-    "pageSize": 100,
+    "pageSize": 1,
     "page": 1,
     "total": 77523
   },
 
-  "results":[
+  "results": [
     {
 
+
+      "documentos":[
+        {
+          "id": "doc-1",
+          "tipo": "Resolución",
+          "titulo": "Resolución de proceso de sanción...",
+          "descripcion": "Descripción del documento",
+          "url": "https://ejemplo.mx/archivo/documento.pdf",
+          "fecha": "2019-11-20"
+        }
+      ]
     }
   ]
 }

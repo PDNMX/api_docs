@@ -1,13 +1,25 @@
 {
   "pagination": {
-    "pageSize": 100,
+    "pageSize": 1,
     "page": 1,
     "total": 77523
   },
 
   "results":[
     {
-
+      "expediente": "",
+      "sistema_origen": "",
+      "rfc": "",
+      "nombre": "",
+      "apellido_paterno": "",
+      "apellido_materno": "",
+      "genero": "M",
+      "institucion_dependencia": "",
+      "puesto": "",
+      "tipo_area": "",
+      "nive_responsabilidad": [
+        "A", "T", "R"
+      ]
     }
   ]
 }

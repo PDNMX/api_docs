@@ -13,11 +13,11 @@
       "telefono": "552123244",
       "tipo_sancion": "MI",
       "institucion_dependencia": "Secretaría de Hacienda y Crédito Público",
-      "tipo_falta": "",
-      "causa_motivo": "",
-      "objeto_social": "",
-      "objeto_contrato": "",
-      "responsable": "",
+      "tipo_falta": "Contratación indebida",
+      "causa_motivo": "Causa o motivo de la sanción",
+      "objeto_social": "Objeto social de la empresa",
+      "objeto_contrato": "Servicio de telefonía fija",
+      "responsable": "Juan Pérez Mendez",
       "resolucion": {
         "url": "https://ejemplo.mx/archivo/documento.pdf",
         "fecha": "2019-11-20"

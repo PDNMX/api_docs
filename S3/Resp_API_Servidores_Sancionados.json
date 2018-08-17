@@ -7,33 +7,34 @@
 
   "results": [
     {
-      "rfc": "",
-      "curp": "",
-      "nombre": "",
-      "apellido_paterno": "",
-      "apellido_materno": "",
-      "genero": "",
-      "institucion_dependencia": "",
-      "puesto": "",
-      "autoridad": "",
+      "rfc": "ABCD780814MDFAXL7F9",
+      "curp": "ABCD780814MDFAXL",
+      "nombre": "Juan",
+      "apellido_paterno": "Pérez",
+      "apellido_materno": "López",
+      "genero": "M",
+      "institucion_dependencia": "Secretaría de Hacienda y Crédito Público",
+      "puesto": "Director de área",
+      "autoridad_sancionadora": "Organo Interno de Control",
       "denunciante": "",
-      "tipo_sancion": "",
-      "tipo_falta": "",
-      "causa": "",
-      "expediente": "",
+      "tipo_sancion": "M",
+      "tipo_falta": "AG",
+      "causa": "ABUSO DE AUTORIDAD",
+      "origen": "Denuncia penal",
+      "expediente": "0047/2016",
       "resolucion": {
-        "url": "",
-        "fecha_notificacion": ""
+        "url": "https://ejemplo.mx/archivo/documento.pdf",
+        "fecha_notificacion": "2018-05-21"
       },
       "multa": {
         "monto": 3000000,
-        "multa_unidad_moneda": "MXN"
+        "unidad_moneda": "MXN"
       },
       "inhabilitacion": {
-        "inhabilitacion_plazo": "",
-        "inhabilitacion_fecha_inicial": "",
-        "inhabilitacion_fecha_final": "",
-        "inhabilitacion_observaciones": "",
+        "plazo": "3 meses",
+        "fecha_inicial": "2018-08-17",
+        "fecha_final": "2018-11-17",
+        "observaciones": "ABC",
       },
       "documentos":[
         {

@@ -6,32 +6,32 @@
   },
   "results":[
     {
-      "numero_expediente": "",
-      "sistema_origen": "",
-      "nombre_razon_social": "",
-      "rfc": "",
-      "telefono": "",
-      "tipo_sancion": "",
-      "institucion_dependencia": "Instituto Federal de Telecomunicaciones",
+      "numero_expediente": "ABC123",
+      "sistema_origen": "Directorio de Sancionados, Secretaría de la Función Pública",
+      "nombre_razon_social": "PATITO TELECOM S.A. de C.V.",
+      "rfc": "PAT21343213",
+      "telefono": "552123244",
+      "tipo_sancion": "MI",
+      "institucion_dependencia": "Secretaría de Hacienda y Crédito Público",
       "tipo_falta": "",
       "causa_motivo": "",
       "objeto_social": "",
       "objeto_contrato": "",
       "responsable": "",
       "resolucion": {
-        "url" : "",
-        "fecha" : ""
+        "url": "https://ejemplo.mx/archivo/documento.pdf",
+        "fecha": "2019-11-20"
       },
       "multa": {
         "monto": 5000000,
         "unidad_moneda": "MXN"
       },
       "inhabilitacion": {
-        "plazo": "",
-        "fecha_inicial": "",
-        "fecha_final": ""
+        "plazo": "2 años",
+        "fecha_inicial": "2019-01-01",
+        "fecha_final": "2020-12-31"
       },
-      "observaciones": "",
+      "observaciones": "Observaciones sobre el proceso de sanción",
       "documentos": [
         {
           "id": "doc-1",

@@ -21,8 +21,10 @@
       "tipo_falta": "",
       "causa": "",
       "expediente": "",
-      "resolucion_url": "",
-      "resolucion_fecha_notificacion": "",
+      "resolucion": {
+        "url": "",
+        "fecha_notificacion": ""
+      },
       "multa": {
         "monto": 3000000,
         "multa_unidad_moneda": "MXN"

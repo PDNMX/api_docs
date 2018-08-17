@@ -7,19 +7,20 @@
 
   "results":[
     {
-      "expediente": "",
-      "sistema_origen": "",
-      "rfc": "",
-      "nombre": "",
-      "apellido_paterno": "",
-      "apellido_materno": "",
+      "expediente": "ABC123",
+      "sistema_origen": "RENIRESP",
+      "rfc": "JPM851111C44",
+      "nombre": "Juan",
+      "apellido_paterno": "Pérez",
+      "apellido_materno": "Mendez",
       "genero": "M",
-      "institucion_dependencia": "",
-      "puesto": "",
-      "tipo_area": "",
-      "nive_responsabilidad": [
+      "institucion_dependencia": "Secretaría de Hacienda y Crédito Público",
+      "puesto": "Director de area",
+      "tipo_area": "Técnica",
+      "nivel_responsabilidad": [
         "A", "T", "R"
-      ]
+      ],
+      "tipo_procedimiento":"C"
     }
   ]
 }

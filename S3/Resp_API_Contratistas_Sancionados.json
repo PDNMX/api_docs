@@ -4,7 +4,6 @@
     "page": 1,
     "total": 77523
   },
-
   "results":[
     {
       "numero_expediente": "",
@@ -17,7 +16,7 @@
       "causa_motivo": "",
       "objeto_social": "",
       "objeto_contrato": "",
-      "responsable": ""
+      "responsable": "",
       "resolucion": {
         "url" : "",
         "fecha" : ""
@@ -32,7 +31,6 @@
         "fecha_final": ""
       },
       "observaciones": "",
-
       "documentos": [
         {
           "id": "doc-1",

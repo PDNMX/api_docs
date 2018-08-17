@@ -7,8 +7,32 @@
 
   "results": [
     {
-
-
+      "rfc": "",
+      "curp": "",
+      "nombre": "",
+      "apellido_paterno": "",
+      "apellido_materno": "",
+      "genero": "",
+      "institucion_dependencia": "",
+      "puesto": "",
+      "autoridad": "",
+      "denunciante": "",
+      "tipo_sancion": "",
+      "tipo_falta": "",
+      "causa": "",
+      "expediente": "",
+      "resolucion_url": "",
+      "resolucion_fecha_notificacion": "",
+      "multa": {
+        "monto": 3000000,
+        "multa_unidad_moneda": "MXN"
+      },
+      "inhabilitacion": {
+        "inhabilitacion_plazo": "",
+        "inhabilitacion_fecha_inicial": "",
+        "inhabilitacion_fecha_final": "",
+        "inhabilitacion_observaciones": "",
+      },
       "documentos":[
         {
           "id": "doc-1",

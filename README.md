@@ -1,2 +1,2 @@
-# APIs anticorrupción
+# API anticorrupción
 Documentación y ejemplos

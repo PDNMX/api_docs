@@ -4,10 +4,12 @@
     "page": 1,
     "total": 77523
   },
-
   "results":[
     {
       "expediente": "ABC123",
+      "ejercicio": "2018",
+      "id_ramo": 23, 
+      "ramo": "Provisiones salariales y económicas",
       "sistema_origen": "RENIRESP",
       "rfc": "JPM851111C44",
       "nombre": "Juan",

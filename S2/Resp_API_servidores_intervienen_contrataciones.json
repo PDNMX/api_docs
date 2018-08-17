@@ -18,7 +18,7 @@
       "genero": "M",
       "institucion_dependencia": "Secretaría de Hacienda y Crédito Público",
       "puesto": "Director de area",
-      "tipo_area": "Técnica",
+      "tipo_area": ["T","C"],
       "nivel_responsabilidad": [
         "A", "T", "R"
       ],

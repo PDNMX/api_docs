@@ -6,6 +6,7 @@
   },
   "results":[
     {
+      "fecha_captura": "20180820T00:00:00Z",
       "numero_expediente": "ABC123",
       "sistema_origen": "Directorio de Sancionados, Secretaría de la Función Pública",
       "nombre_razon_social": "PATITO TELECOM S.A. de C.V.",

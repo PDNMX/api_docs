@@ -8,7 +8,10 @@
     {
       "fecha_captura": "20180820T00:00:00Z",
       "expediente": "ABC123",
-      "ejercicio": "2018",
+      "periodo_ejercicio": {
+        "fecha_inicial":"2018-01-01",
+        "fecha_final":"2018-12-31"
+      },
       "id_ramo": 23, 
       "ramo": "Provisiones salariales y económicas",
       "sistema_origen": "RENIRESP",
@@ -17,11 +20,19 @@
       "apellido_paterno": "Pérez",
       "apellido_materno": "Mendez",
       "genero": "M",
-      "institucion_dependencia": "Secretaría de Hacienda y Crédito Público",
+      "institucion_dependencia": {
+        "nombre": "Secretaría de Hacienda y Crédito Público",
+        "SIGLAS": "SHCP"
+      },
       "puesto": "Director de area",
-      "tipo_area": ["T","C"],
+      "tipo_area": [
+        "T",
+        "C"
+      ],
       "nivel_responsabilidad": [
-        "A", "T", "R"
+        "A", 
+        "T",
+        "R"
       ],
       "tipo_procedimiento": 1
     }

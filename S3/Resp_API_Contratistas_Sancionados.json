@@ -12,8 +12,14 @@
       "nombre_razon_social": "PATITO TELECOM S.A. de C.V.",
       "rfc": "PAT21343213",
       "telefono": "552123244",
-      "tipo_sancion": "MI",
-      "institucion_dependencia": "Secretaría de Hacienda y Crédito Público",
+      "tipo_sancion": [
+        "M",
+        "I"
+      ],
+      "institucion_dependencia": {
+        "nombre":"Secretaría de Hacienda y Crédito Público",
+        "siglas": "SHCP"
+      },
       "tipo_falta": "Contratación indebida",
       "causa_motivo": "Causa o motivo de la sanción",
       "objeto_social": "Objeto social de la empresa",
@@ -32,7 +38,7 @@
         "fecha_inicial": "2019-01-01",
         "fecha_final": "2020-12-31"
       },
-      "observaciones": "Observaciones sobre el proceso de sanción",
+      "observaciones": "Se multo e inhabilitó al proveedor PATITO TELECOM S.A de C.V. por ...",
       "documentos": [
         {
           "id": "doc-1",

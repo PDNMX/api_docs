@@ -14,7 +14,10 @@
       "apellido_paterno": "Pérez",
       "apellido_materno": "López",
       "genero": "M",
-      "institucion_dependencia": "Secretaría de Hacienda y Crédito Público",
+      "institucion_dependencia": {
+        "nombre": "Secretaría de Hacienda y Crédito Público",
+        "siglas": "SHCP"
+      },
       "puesto": "Director de área",
       "autoridad_sancionadora": "Organo Interno de Control",
       "denunciante": "",

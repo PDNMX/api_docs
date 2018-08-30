@@ -10,7 +10,7 @@
   },
   "curp": "PEGJ851231HVZRVR05",
   "rfc": {
-    "rfc": "PEGJ851231",
+    "valor": "PEGJ851231",
     "homoclave": "C33"
   },
   "fecha_nacimiento": "1985-12-31",
@@ -52,11 +52,11 @@
   },
   "estado_civil_situacion_personal": {
     "codigo": "CA",
-    "estado": "Casado (a)"
+    "valor": "Casado (a)"
   },
   "regimen_matrimonial": {
     "codigo": "SB",
-    "regimen": "separación de bienes"
+    "valor": "separación de bienes"
   },
   "Fecha_declaracion":"2018-08-30"
 }

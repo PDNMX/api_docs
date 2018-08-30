@@ -1,0 +1,17 @@
+{
+  "pagination": {
+    "pageSize": 1,
+    "page": 1,
+    "total": 77523
+  },
+  "results":[
+    {
+      "id": "id de declaración",
+      "informacion_personal": {},
+      "intereses":{},
+      "ingresos":{},
+      "activos":{},
+      "pasivos":{}
+    }
+  ]
+}

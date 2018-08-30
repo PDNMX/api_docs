@@ -1,45 +1,62 @@
 {
-
-  "nombres": "",
-  "primer_apellido": "",
-  "segundo_apellido": "",
-  "nacionalidad":"",
-  "pais_nacimiento":"MX",
-  "entidad_federativa_nacimiento":{
-    /* campos Marco Geo*/
+  "nombres": "Juan",
+  "primer_apellido": "Pérez",
+  "segundo_apellido": "García",
+  "nacionalidad": "Mexicana",
+  "pais_nacimiento": "MX",
+  "entidad_federativa_nacimiento": {
+    "nom_ent": "México",
+    "cve_ent": "15"
   },
-  "curp": "",
+  "curp": "PEGJ851231HVZRVR05",
   "rfc": {
-    "rfc": "",
-    "homoclave": ""
+    "rfc": "PEGJ851231",
+    "homoclave": "C33"
   },
-  "fecha_nacimiento": "",
-  "numero_identificacion_oficial": "",
+  "fecha_nacimiento": "1985-12-31",
+  "numero_identificacion_oficial": "11111111111111",
   "correo_electronico": {
-    "personal": "",
-    "laboral": ""
+    "personal": "jperez@ejemplo.com.mx",
+    "laboral": "juan.perez@dependencia.gob.mx"
   },
   "telefono": {
-    "laboral": "",
-    "personal": "",
-    "celular": ""
+    "laboral": "5555555551",
+    "personal": "5555555552",
+    "celular": "5555555553"
   },
   "domicilio": {
     "pais": "MX",
-    "entidad_federativa": "",
-    "municipio":"",
-    "codigo_postal":"",
-    "Colonia": "",
-    via: {
-      "tipo": "",
-      "nombre": ""
+    "entidad_federativa": {
+      "nom_ent": "México",
+      "cve_ent": "15"
     },
-    "numero":{
-     "exterior":"",
-      "interior":""
+    "municipio":{
+      "nom_mun": "Ecatepec de Morelos",
+      "cve_mun": "033"
+    },
+    "cp": "55018",
+    "localidad": {
+      "nom_loc": "Ecatepec de Morelos",
+      "cve_loc": "0001"
+    },
+    "vialidad": {
+      "tipo_vial": "CALLE",
+      "nom_vial": "El Rosal"
+    },
+    "numExt": {
+      "numExt_num": 24
+    },
+    "numInt": {
+      "numInt_alf": "S/N"
     }
   },
-  "Estado civil o situación personal": "",
-  "regimen_matrimonial":"",
-  "Fecha_declaracion":""
+  "estado_civil_situacion_personal": {
+    "codigo": "CA",
+    "estado": "Casado (a)"
+  },
+  "regimen_matrimonial": {
+    "codigo": "SB",
+    "regimen": "separación de bienes"
+  },
+  "Fecha_declaracion":"2018-08-30"
 }

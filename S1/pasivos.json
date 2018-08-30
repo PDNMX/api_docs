@@ -1,0 +1,150 @@
+{
+  "deudas": [
+    {
+      "id": 1,
+      "titular": {
+        "id": "1",
+        "valor": "Declarante"
+      },
+      "tipo_operacion": {
+        "id": "1",
+        "valor:": "Incorporación"
+      },
+      "tipo_acreedor": {
+        "id": "1",
+        "valor": "Institución Financiera"
+      },
+      "tipo_adeudo": {
+        "id": "1",
+        "valor": "Compra de vehículo"
+      },
+      "identificador_deuda": "CONT12354",
+      "nacionalExtranjero": {
+        "id": "1",
+        "valor": "Nacional"
+      },
+      "identificador_acreedor": "PNBKSRIBAS S.A. DE C.V",
+      "rfc_acreedor": "PNKSD780710RH7",
+      "sector_industria": {
+        "id": "9",
+        "valor": "Servicios financieros y seguros"
+      },
+      "domicilio_acreedor": {
+        "entidad_federativa": {
+          "nom_ent": "México",
+          "cve_ent": "15"
+        },
+        "municipio": {
+          "nom_mun": "Ecatepec de Morelos",
+          "cve_mun": "033"
+        },
+        "cp": "55018",
+        "localidad": {
+          "nom_loc": "Ecatepec de Morelos",
+          "cve_loc": "0001"
+        },
+        "vialidad": {
+          "tipo_vial": "CALLE",
+          "nom_vial": "El Rosal"
+        },
+        "numExt": {
+          "numExt_num": 24
+        },
+        "numInt": {
+          "numInt_alf": "S/N"
+        }
+      },
+      "fecha_adeudo": "2016-12-14",
+      "monto_original": "277900",
+      "tipo_moneda": "MXN",
+      "tasa_interes": 12,
+      "saldo_pendiente": 28000,
+      "plazo_adeudo": 24,
+      "unidad_medida_adeudo": {
+        "id": 3,
+        "valor": "meses"
+      },
+      "titularidad_deuda": {
+        "id": "1",
+        "valor": "Declarante"
+      },
+      "porcentaje_adeudo_titular": 100,
+      "garantia": false,
+      "observaciones": "xxxx"
+    }
+  ],
+  "otras_obligaciones": [
+    {
+      "id":1,
+      "titular":{
+        "id":"1",
+        "valor":"declarante"
+      },
+      "tipo_operacion": {
+        "id": "1",
+        "valor:": "Incorporación"
+      },
+      "tipo_acreedor": {
+        "id": "1",
+        "valor": "Institución Financiera"
+      },
+      "tipo_obligacion":{
+        "id":"3",
+        "valor":"Crédito Hipotecario"
+      },
+      "identificador_obligacion":"FONAET8945",
+      "nacionalExtranjero":{
+        "id":"1",
+        "valor":"México"
+      },
+      "identificador_acrreedor":"INFONAVIT",
+      "rfc_acreedor":"NHJR89ASS5R5",
+      "sector_industria": {
+        "id": "9",
+        "valor": "Servicios financieros y seguros"
+      },
+      "domicilio_acreedor": {
+        "entidad_federativa": {
+          "nom_ent": "México",
+          "cve_ent": "15"
+        },
+        "municipio": {
+          "nom_mun": "Ecatepec de Morelos",
+          "cve_mun": "033"
+        },
+        "cp": "55018",
+        "localidad": {
+          "nom_loc": "Ecatepec de Morelos",
+          "cve_loc": "0001"
+        },
+        "vialidad": {
+          "tipo_vial": "CALLE",
+          "nom_vial": "El Rosal"
+        },
+        "numExt": {
+          "numExt_num": 24
+        },
+        "numInt": {
+          "numInt_alf": "S/N"
+        }
+      },
+      "fecha_obligacion":"2018-03-14",
+      "monto_original":300000,
+      "tipo_moneda":"MXN",
+      "tasa_interes":12,
+      "saldo_pendiente":297000,
+      "plazo_obligacion":360,
+      "unidad_medida_plazo":{
+        "id":"2",
+        "valor":"meses"
+      },
+      "titularidad_obligacion": {
+        "id": "1",
+        "valor": "Declarante"
+      },
+      "porcentaje_obligacion_titular": 100,
+      "garantia": false,
+      "observaciones": "xxxx"
+    }
+  ]
+}

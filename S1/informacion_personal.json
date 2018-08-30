@@ -1,0 +1,45 @@
+{
+
+  "nombres": "",
+  "primer_apellido": "",
+  "segundo_apellido": "",
+  "nacionalidad":"",
+  "pais_nacimiento":"MX",
+  "entidad_federativa_nacimiento":{
+    /* campos Marco Geo*/
+  },
+  "curp": "",
+  "rfc": {
+    "rfc": "",
+    "homoclave": ""
+  },
+  "fecha_nacimiento": "",
+  "numero_identificacion_oficial": "",
+  "correo_electronico": {
+    "personal": "",
+    "laboral": ""
+  },
+  "telefono": {
+    "laboral": "",
+    "personal": "",
+    "celular": ""
+  },
+  "domicilio": {
+    "pais": "MX",
+    "entidad_federativa": "",
+    "municipio":"",
+    "codigo_postal":"",
+    "Colonia": "",
+    via: {
+      "tipo": "",
+      "nombre": ""
+    },
+    "numero":{
+     "exterior":"",
+      "interior":""
+    }
+  },
+  "Estado civil o situación personal": "",
+  "regimen_matrimonial":"",
+  "Fecha_declaracion":""
+}

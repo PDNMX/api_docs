@@ -1,0 +1,322 @@
+{
+  "empresasSociedadesAsociaciones": [
+    {
+      "id": 1,
+      "titular": {
+        "id": "1",
+        "valor": "Declarante"
+      },
+      "nombreEmpesaSociedadAsociacion": "DataIQ",
+      "paisRegistro": {
+        "pais": "México",
+        "codigo": "MX"
+      },
+      "fechaConsitutcion": "2015-05-10",
+      "numeroRegistro": "ABC123",
+      "rfc": "GOAP780710RH7",
+      "domicilio": {
+        "entidad_federativa": {
+          "nom_ent": "México",
+          "cve_ent": "15"
+        },
+        "municipio": {
+          "nom_mun": "Ecatepec de Morelos",
+          "cve_mun": "033"
+        },
+        "cp": "55018",
+        "localidad": {
+          "nom_loc": "Ecatepec de Morelos",
+          "cve_loc": "0001"
+        },
+        "vialidad": {
+          "tipo_vial": "CALLE",
+          "nom_vial": "El Rosal"
+        },
+        "numExt": {
+          "numExt_num": 24
+        },
+        "numInt": {
+          "numInt_alf": "S/N"
+        }
+      },
+      "rol": {
+        "id": "1",
+        "valor": "Dueño"
+      },
+      "actividad_Economica": true,
+      "sector_industria": {
+        "id": "6",
+        "valor": "Comercio al por mayor"
+      },
+      "porcentaje_participacion": 70
+    }
+  ],
+  "membresias": [
+    {
+      "id": 1,
+      "titular": {
+        "id": "2",
+        "valor": "Cónyuge"
+      },
+      "tipo_institucion": {
+        "id": "2",
+        "valor": "Asociaciones civiles"
+      },
+      "nombre_institucion": "Asociacion A.C",
+      "naturaleza_membresia": {
+        "id": "3",
+        "valor": "Civil"
+      },
+      "domicilio": {
+        "entidad_federativa": {
+          "nom_ent": "México",
+          "cve_ent": "15"
+        },
+        "municipio": {
+          "nom_mun": "Ecatepec de Morelos",
+          "cve_mun": "033"
+        },
+        "cp": "55018",
+        "localidad": {
+          "nom_loc": "Ecatepec de Morelos",
+          "cve_loc": "0001"
+        },
+        "vialidad": {
+          "tipo_vial": "CALLE",
+          "nom_vial": "El Rosal"
+        },
+        "numExt": {
+          "numExt_num": 24
+        },
+        "numInt": {
+          "numInt_alf": "S/N"
+        }
+      },
+      "sector_industria": {
+        "id": "6",
+        "valor": "Comercio al por mayor"
+      },
+      "rol": {
+        "id": "1",
+        "valor": "Dueño"
+      },
+      "fecha_inicio": "2018-05-14",
+      "pagado": true,
+      "observaciones": "XXX"
+    }
+  ],
+  "apoyosBeneficiosPublicos": [
+    {
+      "id": 1,
+      "titular": {
+        "id": "5",
+        "valor": "Dependiente económico"
+      },
+      "es_beneficiario": true,
+      "programa": {
+        "nombre_programa": "Programa de Estímulos Económicos a Deportistas del Distrito Federal",
+        "institucion_otorgante": {
+          "id": "21",
+          "valor": "Instituto del Deporte del Distrito Federal "
+        },
+        "nivelOrden_gobierno": {
+          "id": "2",
+          "valor": "Federal"
+        },
+        "tipo_apoyo": {
+          "id": "3",
+          "valor": "Estimulo económico"
+        },
+        "valor_apoyo": "7500"
+      },
+      "observaciones": "xxx"
+    }
+  ],
+  "representacion_activa": [
+    {
+      "id": 1,
+      "titular": {
+        "id": "3",
+        "valor": "Fidel Gómez Urrutia"
+      },
+      "tipo_representacion": {
+        "id": "4",
+        "valor": "Apoderado"
+      },
+      "nombre_parte": "Cecilia Gómez Urrutia",
+      "curp_parte": "BEML920313HMCLNS09",
+      "rfc_parte": "GOAP780710RH7",
+      "fecha_nacimiento_parte": "1956-08-15",
+      "sector_industria": {
+        "id": "6",
+        "valor": "Comercio al por mayor"
+      },
+      "fecha_inicio": "2017-08-12",
+      "pagado": true,
+      "observaciones": "xxx"
+    }
+  ],
+  "representacion_pasiva": [
+    {
+      "id": 1,
+      "titular": {
+        "id": "2",
+        "valor": "Cecilia Gómez Urrutia"
+      },
+      "tipo_representacion": {
+        "id": "3",
+        "valor": "Apoderado"
+      },
+      "nombre_representante": "Augusto Fernández Castro",
+      "fecha_inicio_representacion": "2016-05-12",
+      "nacionalidad_representante": {
+        "pais": "México",
+        "codigo": "MX"
+      },
+      "curp_representante": "BEML920313HMCLNS09",
+      "rfc_representante": "GOAP780710RH7",
+      "tiene_intereses": true,
+      "ocupacionProfesion": {
+        "id": "3",
+        "valor": "Contador"
+      },
+      "sector_industria": {
+        "id": "6",
+        "valor": "Comercio al por mayor"
+      },
+      "observaciones": "xxx"
+    }
+  ],
+  "socios_comerciales": [
+    {
+      "id": 1,
+      "titular": {
+        "id": "2",
+        "valor": "Cecilia Gómez Urrutia"
+      },
+      "nombre_actividad": "",
+      "tipo_vinculo": {
+        "id": "1",
+        "valor": "Socio"
+      },
+      "antiguedad_vinculo": "2017-05-14",
+      "rfc_entidad": "GOAP780710RH7",
+      "nombre_socio": "Armando Rodríguez Saes",
+      "curp_socio": "BEML920313HMCLNS09",
+      "rfc_socio": "GOAP780710RH7",
+      "lugar_nacimiento_socio": {
+        "pais": "México",
+        "codigo": "MX"
+      },
+      "porcentaje_participacion": 70,
+      "sector_industria": {
+        "id": "6",
+        "valor": "Comercio al por mayor"
+      },
+      "observaciones": "xxx"
+    }
+  ],
+  "clientes_principales": [
+    {
+      "id": 1,
+      "titular": {
+        "id": "2",
+        "valor": "Cecilia Gómez Urritia"
+      },
+      "nombreNaturaleza_negocio": {
+        "id": "3",
+        "valor": "XXXX"
+      },
+      "numero_Registro": "HTC896DSFA",
+      "dueñoEncargado": "Salvador Hernández Torres",
+      "nombreDenominacion_social_cliente": "",
+      "rfc_cliente": "GOAP780710RH7",
+      "domicilio_cliente": {
+        "entidad_federativa": {
+          "nom_ent": "México",
+          "cve_ent": "15"
+        },
+        "municipio": {
+          "nom_mun": "Ecatepec de Morelos",
+          "cve_mun": "033"
+        },
+        "cp": "55018",
+        "localidad": {
+          "nom_loc": "Ecatepec de Morelos",
+          "cve_loc": "0001"
+        },
+        "vialidad": {
+          "tipo_vial": "CALLE",
+          "nom_vial": "El Rosal"
+        },
+        "numExt": {
+          "numExt_num": 24
+        },
+        "numInt": {
+          "numInt_alf": "S/N"
+        }
+      },
+      "sector_industria": {
+        "id": "6",
+        "valor": "Comercio al por mayor"
+      },
+      "porcentaje_facturacion": 20,
+      "observaciones": "xxx"
+    }
+  ],
+  "otras_partes": [
+    {
+      "id": 1,
+      "titular": {
+        "id": "4",
+        "valor": "Sergio Rosas Reyes"
+      },
+      "tipo_parte": {
+        "id": "2",
+        "valor": "Garantes de Préstamos Recibidos"
+      },
+      "nombreDenominacion_parte": "",
+      "fecha_inicio_relacion": "2016-05-08",
+      "nacionalidad": {
+        "pais": "México",
+        "codigo": "MX"
+      },
+      "curp": "BEML920313HMCLNS09",
+      "rfc": "GOAP780710RH7",
+      "fecha_nacimiento": "1979-08-23",
+      "ocupacionProfesion": {
+        "id": "54",
+        "valor": "Administrador de empresas"
+      },
+      "tiene_intereses": true,
+      "sector_industria": {
+        "id": "6",
+        "valor": "Comercio al por mayor"
+      },
+      "observaciones": "xxx"
+    }
+  ],
+  "beneficios_gratuitos": [
+    {
+      "id": "1",
+      "titular": {
+        "id": "1",
+        "valor": "Declarante"
+      },
+      "tipo_beneficio": {
+        "id": "2",
+        "valor": "Tarjetas o monederos electrónicos"
+      },
+      "origen_beneficio": {
+        "id": "3",
+        "valor": "Prestación laboral"
+      },
+      "sector_industria": {
+        "id": "6",
+        "valor": "Comercio al por mayor"
+      },
+      "valor_beneficio": 1256,
+      "observaciones": "xxx"
+    }
+  ]
+}

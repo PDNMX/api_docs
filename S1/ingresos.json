@@ -1,0 +1,446 @@
+{
+  "ingreso": [{
+    "id": 1,
+    "sueldos_y_salarios_publicos": {
+      "titular": "Sergio Rodríguez",
+      "ente_publico": "",
+      "rfc": "GOAP780710RH7",
+      "ingreso_bruto_anual": {
+        "valor": 10000,
+        "moneda": "MXN",
+        "unidad_temporal": "semanas",
+        "duracion_frecuencia": 10,
+        "fecha_transaccion": "2016-12-14"
+      },
+      "observaciones_comentarios": "no hay observaciones"
+    },
+    "sueldos_salarios_otros_empleos": {
+      "titular": "Sergio Rodríguez",
+      "nombre_denominacion_razon_social": "Max Power Inc.",
+      "rfc": "PNKSD780710RH7",
+      "curp": "PEGJ851231HVZRVR05",
+      "sector_industria": {
+        "id": "9",
+        "valor": "Servicios financieros y seguros"
+      },
+      "tipo_actividad_servicio": "Sector público",
+      "descripcion_actividad_servicio": "Servicio profesional de TI",
+      "domicilio_persona_recibe_ingreso": {
+        "entidad_federativa": {
+          "nom_ent": "México",
+          "cve_ent": "15"
+        },
+        "municipio": {
+          "nom_mun": "Ecatepec de Morelos",
+          "cve_mun": "033"
+        },
+        "cp": "55018",
+        "localidad": {
+          "nom_loc": "Ecatepec de Morelos",
+          "cve_loc": "0001"
+        },
+        "vialidad": {
+          "tipo_vial": "CALLE",
+          "nom_vial": "El Rosal"
+        },
+        "numExt": {
+          "numExt_num": 24
+        },
+        "numInt": {
+          "numInt_alf": "S/N"
+        }
+      },
+      "ingreso_bruto_anual": {
+        "valor": 20000,
+        "moneda": "MXN",
+        "unidad_temporal": "Semanas",
+        "duracion_frecuencia": 10,
+        "fecha_transaccion": "2016-12-14"
+      },
+      "observaciones_comentarios": "no hay observaciones"
+    },
+    "actividad_profesional": {
+      "titular": "Juan Tovar",
+      "nombre_denominacion_razon_social": "",
+      "rfc": "PEGJ851231",
+      "curp": "PEGJ851231HVZRVR05",
+      "sector_industria": {
+        "id": "9",
+        "valor": "Servicios financieros y seguros"
+      },
+      "tipo_actividad_servicio": "Sector Público",
+      "descripcion_actividad_servicio": "Descripción del servicio",
+      "domicilio_persona_recibe_ingreso": {
+        "pais": "MX",
+        "entidad_federativa": {
+          "nom_ent": "México",
+          "cve_ent": "15"
+        },
+        "municipio": {
+          "nom_mun": "Ecatepec de Morelos",
+          "cve_mun": "033"
+        },
+        "cp": "55018",
+        "localidad": {
+          "nom_loc": "Ecatepec de Morelos",
+          "cve_loc": "0001"
+        },
+        "vialidad": {
+          "tipo_vial": "CALLE",
+          "nom_vial": "El Rosal"
+        },
+        "numExt": {
+          "numExt_num": 24
+        },
+        "numInt": {
+          "numInt_alf": "S/N"
+        }
+      },
+      "ingreso_bruto_anual": {
+        "valor": 20000,
+        "moneda": "MXN",
+        "unidad_temporal": "Semanas",
+        "duracion_frecuencia": 10,
+        "fecha_transaccion": "2016-12-14"
+      },
+      "observaciones_comentarios": "no hay observaciones"
+    },
+    "actividad_empresarial": {
+      "titular": {
+        "id": "1",
+        "valor": "Declarante"
+      },
+      "nombre_denominacion_razon_social": "",
+      "rfc": "PNKSD780710RH7",
+      "curp": "PEGJ851231HVZRVR05",
+      "sector_industria": {
+        "id": "9",
+        "valor": "Servicios financieros y seguros"
+      },
+      "tipo_actividad_servicio": "Sector público",
+      "descripcion_actividad_servicio": "Descripción del servicio",
+      "domicilio_persona_recibe_ingreso": {
+        "pais": "MX",
+        "entidad_federativa": {
+          "nom_ent": "México",
+          "cve_ent": "15"
+        },
+        "municipio": {
+          "nom_mun": "Ecatepec de Morelos",
+          "cve_mun": "033"
+        },
+        "cp": "55018",
+        "localidad": {
+          "nom_loc": "Ecatepec de Morelos",
+          "cve_loc": "0001"
+        },
+        "vialidad": {
+          "tipo_vial": "CALLE",
+          "nom_vial": "El Rosal"
+        },
+        "numExt": {
+          "numExt_num": 24
+        },
+        "numInt": {
+          "numInt_alf": "S/N"
+        }
+      },
+      "ingreso_bruto_anual": {
+        "valor": 20000,
+        "moneda": "MXN",
+        "unidad_temporal": "Semanas",
+        "duracion_frecuencia": 10,
+        "fecha_transaccion": "2016-12-14"
+      },
+      "observaciones_comentarios": "no hay observaciones"
+    },
+    "actividad_economica_menor": {
+      "titular": {
+        "id": "1",
+        "valor": "Declarante"
+      },
+      "nombre_denominacion_razon_social": "",
+      "rfc": "PNKSD780710RH7",
+      "curp": "PEGJ851231HVZRVR05",
+      "sector_industria": {
+        "id": "9",
+        "valor": "Servicios financieros y seguros"
+      },
+      "tipo_actividad_servicio": "Sector público",
+      "descripcion_actividad_servicio": "Descripción del servicio",
+      "domicilio_persona_recibe_ingreso": {
+        "entidad_federativa": {
+          "nom_ent": "México",
+          "cve_ent": "15"
+        },
+        "municipio": {
+          "nom_mun": "Ecatepec de Morelos",
+          "cve_mun": "033"
+        },
+        "cp": "55018",
+        "localidad": {
+          "nom_loc": "Ecatepec de Morelos",
+          "cve_loc": "0001"
+        },
+        "vialidad": {
+          "tipo_vial": "CALLE",
+          "nom_vial": "El Rosal"
+        },
+        "numExt": {
+          "numExt_num": 24
+        },
+        "numInt": {
+          "numInt_alf": "S/N"
+        }
+      },
+      "ingreso_bruto_anual": {
+        "valor": 20000,
+        "moneda": "MXN",
+        "unidad_temporal": "Semanas",
+        "duracion_frecuencia": 10,
+        "fecha_transaccion": "2016-12-14"
+      },
+      "observaciones_comentarios": "no hay observaciones"
+    },
+    "arrendamiento": {
+      "titular": {
+        "id": "1",
+        "valor": "Declarante"
+      },
+      "nombre_denominacion_razon_social": "",
+      "rfc": "PNKSD780710RH7",
+      "curp": "PEGJ851231HVZRVR05",
+      "sector_industria": {
+        "id": "9",
+        "valor": "Servicios financieros y seguros"
+      },
+      "tipo_actividad_servicio": "Sector público",
+      "descripcion_actividad_servicio": "Descripción del servicio",
+      "domicilio_persona_recibe_ingreso": {
+        "entidad_federativa": {
+          "nom_ent": "México",
+          "cve_ent": "15"
+        },
+        "municipio": {
+          "nom_mun": "Ecatepec de Morelos",
+          "cve_mun": "033"
+        },
+        "cp": "55018",
+        "localidad": {
+          "nom_loc": "Ecatepec de Morelos",
+          "cve_loc": "0001"
+        },
+        "vialidad": {
+          "tipo_vial": "CALLE",
+          "nom_vial": "El Rosal"
+        },
+        "numExt": {
+          "numExt_num": 24
+        },
+        "numInt": {
+          "numInt_alf": "S/N"
+        }
+      },
+      "ingreso_bruto_anual": {
+        "valor": 20000,
+        "moneda": "MXN",
+        "unidad_temporal": "Semanas",
+        "duracion_frecuencia": 10,
+        "fecha_transaccion": "2016-12-14"
+      },
+      "observaciones_comentarios": "no hay observaciones"
+    },
+    "intereses": {
+      "titular": {
+        "id": "1",
+        "valor": "Declarante"
+      },
+      "nombre_denominacion_razon_social": "",
+      "rfc": "PNKSD780710RH7",
+      "curp": "PEGJ851231HVZRVR05",
+      "sector_industria": {
+        "id": "9",
+        "valor": "Servicios financieros y seguros"
+      },
+      "tipo_actividad_servicio": "Sector público",
+      "descripcion_actividad_servicio": "Descripción del servicio",
+      "domicilio_persona_recibe_ingreso": {
+        "entidad_federativa": {
+          "nom_ent": "México",
+          "cve_ent": "15"
+        },
+        "municipio": {
+          "nom_mun": "Ecatepec de Morelos",
+          "cve_mun": "033"
+        },
+        "cp": "55018",
+        "localidad": {
+          "nom_loc": "Ecatepec de Morelos",
+          "cve_loc": "0001"
+        },
+        "vialidad": {
+          "tipo_vial": "CALLE",
+          "nom_vial": "El Rosal"
+        },
+        "numExt": {
+          "numExt_num": 24
+        },
+        "numInt": {
+          "numInt_alf": "S/N"
+        }
+      },
+      "ingreso_bruto_anual": {
+        "valor": 20000,
+        "moneda": "MXN",
+        "unidad_temporal": "Semanas",
+        "duracion_frecuencia": 10,
+        "fecha_transaccion": "2016-12-14"
+      },
+      "observaciones_comentarios": "no hay observaciones"
+    },
+    "premios": {
+      "titular": {
+        "id": "1",
+        "valor": "Declarante"
+      },
+      "nombre_denominacion_razon_social": "",
+      "rfc": "PNKSD780710RH7",
+      "curp": "PEGJ851231HVZRVR05",
+      "sector_industria": {
+        "id": "9",
+        "valor": "Servicios financieros y seguros"
+      },
+      "tipo_actividad_servicio": "Sector público",
+      "descripcion_actividad_servicio": "Descripción del servicio",
+      "domicilio_persona_recibe_ingreso": {
+        "entidad_federativa": {
+          "nom_ent": "México",
+          "cve_ent": "15"
+        },
+        "municipio": {
+          "nom_mun": "Ecatepec de Morelos",
+          "cve_mun": "033"
+        },
+        "cp": "55018",
+        "localidad": {
+          "nom_loc": "Ecatepec de Morelos",
+          "cve_loc": "0001"
+        },
+        "vialidad": {
+          "tipo_vial": "CALLE",
+          "nom_vial": "El Rosal"
+        },
+        "numExt": {
+          "numExt_num": 24
+        },
+        "numInt": {
+          "numInt_alf": "S/N"
+        }
+      },
+      "ingreso_bruto_anual": {
+        "valor": 20000,
+        "moneda": "MXN",
+        "unidad_temporal": "Semanas",
+        "duracion_frecuencia": 10,
+        "fecha_transaccion": "2016-12-14"
+      },
+      "observaciones_comentarios": "no hay observaciones"
+    },
+    "enajenacion_bienes": {
+      "titular": {
+        "id": "1",
+        "valor": "Declarante"
+      },
+      "nombre_denominacion_razon_social": "",
+      "rfc": "PNKSD780710RH7",
+      "curp": "PEGJ851231HVZRVR05",
+      "sector_industria": {
+        "id": "9",
+        "valor": "Servicios financieros y seguros"
+      },
+      "tipo_actividad_servicio": "Sector público",
+      "descripcion_actividad_servicio": "Descripción del servicio",
+      "domicilio_persona_recibe_ingreso": {
+        "entidad_federativa": {
+          "nom_ent": "México",
+          "cve_ent": "15"
+        },
+        "municipio": {
+          "nom_mun": "Ecatepec de Morelos",
+          "cve_mun": "033"
+        },
+        "cp": "55018",
+        "localidad": {
+          "nom_loc": "Ecatepec de Morelos",
+          "cve_loc": "0001"
+        },
+        "vialidad": {
+          "tipo_vial": "CALLE",
+          "nom_vial": "El Rosal"
+        },
+        "numExt": {
+          "numExt_num": 24
+        },
+        "numInt": {
+          "numInt_alf": "S/N"
+        }
+      },
+      "ingreso_bruto_anual": {
+        "valor": 20000,
+        "moneda": "MXN",
+        "unidad_temporal": "Semanas",
+        "duracion_frecuencia": 10,
+        "fecha_transaccion": "2016-12-14"
+      },
+      "observaciones_comentarios": "no hay observaciones"
+    },
+    "otros_ingresos": {
+      "titular": {
+        "id": "1",
+        "valor": "Declarante"
+      },
+      "nombre_denominacion_razon_social": "",
+      "rfc": "PNKSD780710RH7",
+      "curp": "PEGJ851231HVZRVR05",
+      "sector_industria": {
+        "id": "9",
+        "valor": "Servicios financieros y seguros"
+      },
+      "tipo_actividad_servicio": "Sector público",
+      "descripcion_actividad_servicio": "Descripción del servicio",
+      "domicilio_persona_recibe_ingreso": {
+        "entidad_federativa": {
+          "nom_ent": "México",
+          "cve_ent": "15"
+        },
+        "municipio": {
+          "nom_mun": "Ecatepec de Morelos",
+          "cve_mun": "033"
+        },
+        "cp": "55018",
+        "localidad": {
+          "nom_loc": "Ecatepec de Morelos",
+          "cve_loc": "0001"
+        },
+        "vialidad": {
+          "tipo_vial": "CALLE",
+          "nom_vial": "El Rosal"
+        },
+        "numExt": {
+          "numExt_num": 24
+        },
+        "numInt": {
+          "numInt_alf": "S/N"
+        }
+      },
+      "ingreso_bruto_anual": {
+        "valor": 20000,
+        "moneda": "MXN",
+        "unidad_temporal": "Semanas",
+        "duracion_frecuencia": 10,
+        "fecha_transaccion": "2016-12-14"
+      },
+      "observaciones_comentarios": "no hay observaciones"
+    }
+  }]
+}

@@ -1,18 +1,18 @@
 {
-  "empresasSociedadesAsociaciones": [
+  "empresas_sociedades_asociaciones": [
     {
       "id": 1,
       "titular": {
         "id": "1",
         "valor": "Declarante"
       },
-      "nombreEmpesaSociedadAsociacion": "DataIQ",
-      "paisRegistro": {
+      "nombre_empesa_sociedad_asociacion": "DataIQ",
+      "pais_registro": {
         "pais": "México",
         "codigo": "MX"
       },
-      "fechaConsitutcion": "2015-05-10",
-      "numeroRegistro": "ABC123",
+      "fecha_consitutcion": "2015-05-10",
+      "numero_registro": "ABC123",
       "rfc": "GOAP780710RH7",
       "domicilio": {
         "entidad_federativa": {
@@ -119,7 +119,7 @@
           "id": "21",
           "valor": "Instituto del Deporte del Distrito Federal "
         },
-        "nivelOrden_gobierno": {
+        "nivel_orden_gobierno": {
           "id": "2",
           "valor": "Federal"
         },
@@ -176,7 +176,7 @@
       "curp_representante": "BEML920313HMCLNS09",
       "rfc_representante": "GOAP780710RH7",
       "tiene_intereses": true,
-      "ocupacionProfesion": {
+      "ocupacion_profesion": {
         "id": "3",
         "valor": "Contador"
       },
@@ -223,13 +223,13 @@
         "id": "2",
         "valor": "Cecilia Gómez Urritia"
       },
-      "nombreNaturaleza_negocio": {
+      "nombre_naturaleza_negocio": {
         "id": "3",
         "valor": "XXXX"
       },
       "numero_Registro": "HTC896DSFA",
-      "dueñoEncargado": "Salvador Hernández Torres",
-      "nombreDenominacion_social_cliente": "",
+      "dueño_encargado": "Salvador Hernández Torres",
+      "nombre_denominacion_social_cliente": "",
       "rfc_cliente": "GOAP780710RH7",
       "domicilio_cliente": {
         "entidad_federativa": {
@@ -275,7 +275,7 @@
         "id": "2",
         "valor": "Garantes de Préstamos Recibidos"
       },
-      "nombreDenominacion_parte": "",
+      "nombre_denominacion_parte": "",
       "fecha_inicio_relacion": "2016-05-08",
       "nacionalidad": {
         "pais": "México",
@@ -284,7 +284,7 @@
       "curp": "BEML920313HMCLNS09",
       "rfc": "GOAP780710RH7",
       "fecha_nacimiento": "1979-08-23",
-      "ocupacionProfesion": {
+      "ocupacion_profesion": {
         "id": "54",
         "valor": "Administrador de empresas"
       },

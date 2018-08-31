@@ -19,7 +19,7 @@
         "valor": "Compra de vehículo"
       },
       "identificador_deuda": "CONT12354",
-      "nacionalExtranjero": {
+      "nacional_extranjero": {
         "id": "1",
         "valor": "Nacional"
       },
@@ -93,11 +93,11 @@
         "valor":"Crédito Hipotecario"
       },
       "identificador_obligacion":"FONAET8945",
-      "nacionalExtranjero":{
+      "nacional_extranjero":{
         "id":"1",
         "valor":"México"
       },
-      "identificador_acrreedor":"INFONAVIT",
+      "identificador_acreedor":"INFONAVIT",
       "rfc_acreedor":"NHJR89ASS5R5",
       "sector_industria": {
         "id": "9",

@@ -20,11 +20,9 @@
       },
       "puesto": "Director de área",
       "autoridad_sancionadora": "Organo Interno de Control",
-      "denunciante": "",
       "tipo_sancion": "M",
       "tipo_falta": "AG",
       "causa": "ABUSO DE AUTORIDAD",
-      "origen": "Denuncia penal",
       "expediente": "0047/2016",
       "resolucion": {
         "url": "https://ejemplo.mx/archivo/documento.pdf",

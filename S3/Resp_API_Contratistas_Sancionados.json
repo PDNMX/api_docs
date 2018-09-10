@@ -21,11 +21,13 @@
         "siglas": "SHCP"
       },
       "tipo_falta": "Contratación indebida",
-      "causa_motivo": "Causa o motivo de la sanción",
+      "causa_motivo_hechos": "Causa o motivo de la sanción",
       "objeto_social": "Objeto social de la empresa",
       "objeto_contrato": "Servicio de telefonía fija",
+      "autoridad_sancionadora": "OIC",
       "responsable": "Juan Pérez Mendez",
       "resolucion": {
+        "sentido": "Sansionatoria con multa",
         "url": "https://ejemplo.mx/archivo/documento.pdf",
         "fecha": "2019-11-20"
       },

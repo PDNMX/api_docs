@@ -41,8 +41,8 @@
       "documentos":[
         {
           "id": "doc-1",
-          "tipo": "Resolución",
-          "titulo": "Resolución de proceso de sanción...",
+          "tipo": "CONSTANCIA_SANCION",
+          "titulo": "Constancia de sanción...",
           "descripcion": "Descripción del documento",
           "url": "https://ejemplo.mx/archivo/documento.pdf",
           "fecha": "2019-11-20"

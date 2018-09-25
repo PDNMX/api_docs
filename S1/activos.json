@@ -1,550 +1,554 @@
 {
-  "activos": [
-    {
+  "bienes_inmuebles": [{
+    "id": 1,
+    "titular": {
       "id": 1,
-      "bienes_inmuebles": {
-        "titular": {
-          "id": 1,
-          "nombres": "Alma",
-          "primer_apellido" : "Rosales",
-          "segundo_apellido" : "Trueba"
-        },
-        "tipo_operacion": {
-          "codigo": "INCP",
-          "valor:": "Incorporación"
-        },
-        "tipo_bien": {
-          "codigo": "VEH",
-          "valor:": "Vehículo"
-        },
-        "superficie_terreno": 300,
-        "superficie_construccion": 100,
-        "porcentaje_propiedad": 100,
-        "nombre_copropietario": {
-          "nombres": "Juan",
-          "primer_apellido": "Pérez",
-          "segundo_apellido": "García"
-        },
-        "identificacion_bien": {
-          "numero_escritura_publica": 202020,
-          "numero_registro_publico_propiedad": 404040,
-          "folio_real": "jsjs74747",
-          "fecha_contrato_compra-venta_privado": "1985-12-31"
-        },
-        "domicilio_donde_ubica_bien": {
-          "pais": "MX",
-          "entidad_federativa": {
-            "nom_ent": "México",
-            "cve_ent": "15"
-          },
-          "municipio": {
-            "nom_mun": "Ecatepec de Morelos",
-            "cve_mun": "033"
-          },
-          "cp": "55018",
-          "localidad": {
-            "nom_loc": "Ecatepec de Morelos",
-            "cve_loc": "0001"
-          },
-          "vialidad": {
-            "tipo_vial": "CALLE",
-            "nom_vial": "El Rosal"
-          },
-          "numExt": {
-            "numExt_num": 24
-          },
-          "numInt": {
-            "numInt_alf": "S/N"
-          }
-        },
-        "forma_adquisicion": {
-          "codigo": "CONY",
-          "valor:": "Cónyuge"
-        },
-        "nombre_denominacion_razon_social_quien_adquirio": "Monster Inc.",
-        "rfc_quien_adquirio": "PEGJ851231C33",
-        "curp_quien_adquirio": "PEGJ851231HVZRVR05",
-        "relacion_con_persona_quien_adquirio_inmueble": {
-          "codigo": "",
-          "valor:": ""
-        },
-        "sector_industria": {
-          "codigo": "MINE",
-          "valor:": "Minería"
-        },
-        "fecha_adquisicion": "1985-12-31",
-        "precio_adquisicion": {
-          "valor": 4000,
-          "moneda": "MXN"
-        },
-        "valor_catastral": 800.00,
-        "observaciones_comentarios": "No hay comentarios"
+      "nombres": "Alma",
+      "primer_apellido": "Rosales",
+      "segundo_apellido": "Trueba"
+    },
+    "tipo_operacion": {
+      "codigo": "INCP",
+      "valor:": "Incorporación"
+    },
+    "tipo_bien": {
+      "codigo": "VEH",
+      "valor:": "Vehículo"
+    },
+    "superficie_terreno": 300,
+    "superficie_construccion": 100,
+    "porcentaje_propiedad": 100,
+    "nombre_copropietario": {
+      "nombres": "Juan",
+      "primer_apellido": "Pérez",
+      "segundo_apellido": "García"
+    },
+    "identificacion_bien": {
+      "numero_escritura_publica": 202020,
+      "numero_registro_publico_propiedad": 404040,
+      "folio_real": "jsjs74747",
+      "fecha_contrato_compra-venta_privado": "1985-12-31"
+    },
+    "domicilio_donde_ubica_bien": {
+      "pais": "MX",
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
       },
-      "bienes_muebles_registrables": {
-        "titular": {
-          "id": 1,
-          "nombres": "Alma",
-          "primer_apellido" : "Rosales",
-          "segundo_apellido" : "Trueba"
-        },
-        "tipo_operacion": {
-          "codigo": "INCP",
-          "valor:": "Incorporación"
-        },
-        "tipo_bien_mueble": {
-          "codigo": "VEH",
-          "valor:": "Vehículo"
-        },
-        "marca": "NISSAN",
-        "submarca_linea_tipo": "RS-122234",
-        "modelo": "2018",
-        "numero_serie": "6545243-4334",
-        "lugar_registro": {
-          "codigo": "MX",
-          "valor:": "México"
-        },
-        "porcentaje_propiedad": 99,
-        "nombres_copropietarios": [{
-          "nombres": "Juan",
-          "primer_apellido": "Pérez",
-          "segundo_apellido": "García"
-        }, {
-          "nombres": "Manuel",
-          "primer_apellido": "Tenorio",
-          "segundo_apellido": "García"
-        }],
-        "numero_registro_publico_vehicular": 455000,
-        "forma_adquisicion": {
-          "codigo": "CES",
-          "valor:": "Cesión"
-        },
-        "nombre_denominacion_razon_social_quien_adquirio": "Monstr Inc.",
-        "rfc_quien_adquirio": "PEGJ851231C33",
-        "curp_quien_adquirio": "PEGJ851231HVZRVR05",
-        "relacion_con_persona_quien_adquirio_inmueble": {
-          "codigo": "DEC",
-          "valor:": "Dependiente económico"
-        },
-        "sector_industria": {
-          "codigo": "MINE",
-          "valor:": "Minería"
-        },
-        "fecha_adquisicion": "1985-12-31",
-        "precio_adquisicion": {
-          "valor": 4000,
-          "mmoneda": "MXN"
-        },
-        "valor_catastral": 4500,
-        "observaciones_comentarios": "No hay comentarios"
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
       },
-      "bienes_muebles_no_registrables": {
-        "titular": {
-          "id": 1,
-          "nombres": "Alma",
-          "primer_apellido" : "Rosales",
-          "segundo_apellido" : "Trueba"
-        },
-        "tipo_operacion": {
-          "codigo": "INCP",
-          "valor:": "Incorporación"
-        },
-        "tipo_bien": {
-          "codigo": "BAR",
-          "valor:": "Barco"
-        },
-        "descripcion": "sin descripción",
-        "numero_registro": 458800,
-        "lugar_registro": "MX",
-        "nombres_copropietarios": [{
-          "nombres": "Juan",
-          "primer_apellido": "Pérez",
-          "segundo_apellido": "García"
-        }, {
-          "nombres": "Manuel",
-          "primer_apellido": "Tenorio",
-          "segundo_apellido": "García"
-        }],
-        "forma_adquisicion": {
-          "codigo": "CES",
-          "valor:": "Cesión"
-        },
-        "nombre_denominacion_razon_social_quien_adquirio": "Tesl Mtr Inc.",
-        "relacion_con_persona_quien_adquirio": {
-          "codigo": "CONY",
-          "valor:": "Cónyuge"
-        },
-        "fecha_adquisicion": "1995-12-31",
-        "precio_adquisicion": {
-          "valor": 4000,
-          "moneda": "MXN"
-        },
-        "observaciones_comentarios": "No hay comentarios"
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
       },
-      "inversiones_cuentas_valores": {
-        "titular": {
-          "id": 1,
-          "nombres": "Alma",
-          "primer_apellido" : "Rosales",
-          "segundo_apellido" : "Trueba"
-        },
-        "tipo_operacion": {
-          "codigo": "INCP",
-          "valor:": "Incorporación"
-        },
-        "tipo_inversion": {
-          "codigo": "VENT",
-          "valor:": "Venta"
-        },
-        "tipo_especifico_inversion": {
-          "codigo": "ACCS",
-          "valor:": "Acciones"
-        },
-        "numero_cuenta_contrato_inversion": "GFHRTY788778",
-        "nacional_extranjero": {
-          "codigo": "MEX",
-          "valor:": "México"
-        },
-        "nombre_institucion": "Bank Inkc",
-        "rfc_institucion": "PEGJ851231C33",
-        "sector_industria": {
-          "codigo": "MINE",
-          "valor:": "Minería"
-        },
-        "domicilio_institucion": {
-          "pais": "MX",
-          "entidad_federativa": {
-            "nom_ent": "México",
-            "cve_ent": "15"
-          },
-          "municipio": {
-            "nom_mun": "Ecatepec de Morelos",
-            "cve_mun": "033"
-          },
-          "cp": "55018",
-          "localidad": {
-            "nom_loc": "Ecatepec de Morelos",
-            "cve_loc": "0001"
-          },
-          "vialidad": {
-            "tipo_vial": "CALLE",
-            "nom_vial": "El Rosal"
-          },
-          "numExt": {
-            "numExt_num": 24
-          },
-          "numInt": {
-            "numInt_alf": "S/N"
-          }
-        },
-        "forma_adquisicion": {
-          "codigo": "CES",
-          "valor:": "Cesión"
-        },
-        "fecha_inicio": "1985-12-31",
-        "monto_original": 80000,
-        "tipo_moneda": "USD",
-        "tasa_interes": 10.00,
-        "saldo_anual": 5000,
-        "plazo": 6,
-        "unidad_medida_plazo": {
-          "codigo": "DIAS",
-          "valor:": "Días"
-        },
-        "porcentaje_inversion": 99.9,
-        "observaciones_comentarios": "No hay comentarios"
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
       },
-      "efectivo_metales": {
-        "titular": {
-          "id": 1,
-          "nombres": "Alma",
-          "primer_apellido" : "Rosales",
-          "segundo_apellido" : "Trueba"
-        },
-        "tipo_operacion": {
-          "codigo": "INCP",
-          "valor:": "Incorporación"
-        },
-        "tipo_moneda": "USD",
-        "monto": 78555,
-        "tipo_metal": {
-          "codigo": "ORO",
-          "valor:": "Oro"
-        },
-        "unidades": "gramos",
-        "forma_adquisicion": {
-          "codigo": "CES",
-          "valor:": "Cesión"
-        },
-        "observaciones_comentarios": "No hay comentarios"
+      "numExt": {
+        "numExt_num": 24
       },
-      "fideicomisos": {
-        "titular": {
-          "id": 1,
-          "nombres": "Alma",
-          "primer_apellido" : "Rosales",
-          "segundo_apellido" : "Trueba"
-        },
-        "tipo_operacion": {
-          "codigo": "INCP",
-          "valor:": "Incorporación"
-        },
-        "nombre_identificador": "93232",
-        "tipo_fideicomiso": {
-          "codigo": "GARNT",
-          "valor:": "Garantía"
-        },
-        "objetivo": "Objetivo del fideicomiso",
-        "numero_registro": 788544,
-        "fecha_creacion": "2005-12-31",
-        "vigencia": "2006-12-31",
-        "residencia": {
-          "codigo": "MEX",
-          "valor:": "México"
-        },
-        "valor": 78555555,
-        "moneda": "MXN",
-        "porcentaje_propiedad_derechos_fiduciarios": 99,
-        "ingreso_monetario_obtenido": 56666,
-        "institucion_fiduciaria": "Banco de México",
-        "nombre_denominacion_razon_social_fideicomitente": "Banco Robmen1",
-        "nombre_denominacion_razon_social_fideicomisario": "Banco Robmen2",
-        "nombre_denominacion_razon_social_fiduciario": "Banco Robmenos2",
-        "rfc_fideicomitente": "ZEGJ851231C33",
-        "rfc_fideicomsario": "YEGJ851231C33",
-        "rfc_fiduciario": "XEGJ851231C33",
-        "curp_fideicomitente": "ZEGJ851231HVZRVR05",
-        "curp_fideicomisario": "YEGJ851231HVZRVR05",
-        "curp_fiduciario": "XEGJ851231HVZRVR05",
-        "domicilio_fideicomitente": {
-          "pais": "MX",
-          "entidad_federativa": {
-            "nom_ent": "México",
-            "cve_ent": "15"
-          },
-          "municipio": {
-            "nom_mun": "Ecatepec de Morelos",
-            "cve_mun": "033"
-          },
-          "cp": "55018",
-          "localidad": {
-            "nom_loc": "Ecatepec de Morelos",
-            "cve_loc": "0001"
-          },
-          "vialidad": {
-            "tipo_vial": "CALLE",
-            "nom_vial": "El Rosal"
-          },
-          "numExt": {
-            "numExt_num": 24
-          },
-          "numInt": {
-            "numInt_alf": "S/N"
-          }
-        },
-        "domicilio_fideicomisario": {
-          "pais": "MX",
-          "entidad_federativa": {
-            "nom_ent": "México",
-            "cve_ent": "15"
-          },
-          "municipio": {
-            "nom_mun": "Ecatepec de Morelos",
-            "cve_mun": "033"
-          },
-          "cp": "55018",
-          "localidad": {
-            "nom_loc": "Ecatepec de Morelos",
-            "cve_loc": "0001"
-          },
-          "vialidad": {
-            "tipo_vial": "CALLE",
-            "nom_vial": "El Rosal"
-          },
-          "numExt": {
-            "numExt_num": 24
-          },
-          "numInt": {
-            "numInt_alf": "S/N"
-          }
-        },
-        "domicilio_fiduciario": {
-          "pais": "MX",
-          "entidad_federativa": {
-            "nom_ent": "México",
-            "cve_ent": "15"
-          },
-          "municipio": {
-            "nom_mun": "Ecatepec de Morelos",
-            "cve_mun": "033"
-          },
-          "cp": "55018",
-          "localidad": {
-            "nom_loc": "Ecatepec de Morelos",
-            "cve_loc": "0001"
-          },
-          "vialidad": {
-            "tipo_vial": "CALLE",
-            "nom_vial": "El Rosal"
-          },
-          "numExt": {
-            "numExt_num": 24
-          },
-          "numInt": {
-            "numInt_alf": "S/N"
-          }
-        },
-        "fecha_nacimiento_constitucion_fideicomitente": "1995-12-31",
-        "fecha_nacimiento_constitucion_fideicomisario": "1994-12-31",
-        "fecha_nacimiento_constitucion_fiduciario": "1985-12-31",
-        "observaciones_comentarios": "no hay comentarios"
-      },
-      "bienes_intangibles": {
-        "titular": {
-          "id": 1,
-          "nombres": "Alma",
-          "primer_apellido" : "Rosales",
-          "segundo_apellido" : "Trueba"
-        },
-        "tipo_operacion": {
-          "codigo": "INCP",
-          "valor:": "Incorporación"
-        },
-        "propietario_registrado": "Sergio Perez",
-        "descripcion": "Aquí va una descripción breve",
-        "ente_publico_encargado_registro": {
-          "nombres": "Raúl",
-          "primer_apellido": "Segura",
-          "segundo_apellido": "García"
-        },
-        "numero_registro": 754444,
-        "fecha_registro": "1985-12-31",
-        "sector_industria": {
-          "codigo": "MINE",
-          "valor:": "Minería"
-        },
-        "precio_adquisicion": {
-          "valor": 4000,
-          "moneda": "MXN"
-        },
-        "forma_adquisicion": {
-          "codigo": "CES",
-          "valor:": "Cesión"
-        },
-        "fecha_vencimiento": "1985-12-31",
-        "porcentaje_propiedad_caso_copropiedad": 90,
-        "precio_total_adquisicion_caso_copropiedad": {
-          "valor": 4000,
-          "moneda": "MXN"
-        },
-        "nombre_denominacion_razon_social_copropietario": "Vien Inc,",
-        "porcentaje_propiedad_copropietario": 10,
-        "observaciones_comentarios": "No hay comentarios"
-      },
-      "cuentas_por_cobrar": {
-        "titular": {
-          "id": 1,
-          "nombres": "Alma",
-          "primer_apellido" : "Rosales",
-          "segundo_apellido" : "Trueba"
-        },
-        "nombre_prestatario": {
-          "nombres": "Manuel",
-          "primer_apellido": "Tenorio",
-          "segundo_apellido": "García"
-        },
-        "numero_registro": 488755,
-        "domicilio_prestatarios": {
-          "pais": "MX",
-          "entidad_federativa": {
-            "nom_ent": "México",
-            "cve_ent": "15"
-          },
-          "municipio": {
-            "nom_mun": "Ecatepec de Morelos",
-            "cve_mun": "033"
-          },
-          "cp": "55018",
-          "localidad": {
-            "nom_loc": "Ecatepec de Morelos",
-            "cve_loc": "0001"
-          },
-          "vialidad": {
-            "tipo_vial": "CALLE",
-            "nom_vial": "El Rosal"
-          },
-          "numExt": {
-            "numExt_num": 24
-          },
-          "numInt": {
-            "numInt_alf": "S/N"
-          }
-        },
-        "sector_industria": {
-          "codigo": "MINE",
-          "valor:": "Minería"
-        },
-        "fecha_prestamo": "1985-12-31",
-        "monto_original_prestamo": 488844,
-        "tasa_interes": 10.01,
-        "saldo_pendiente": 4555,
-        "fecha_vencimiento": "1985-12-31",
-        "porcentaje_propiedad_caso_copropiedad": "",
-        "nombre_copropietario": {
-          "nombres": "Luis",
-          "primer_apellido": "Peralta",
-          "segundo_apellido": "García"
-        },
-        "observacione_comentarios": "aquí más comentarios"
-      },
-      "uso_beneficios_especie_propiedad_de_tercero": {
-        "titular": {
-          "id": 1,
-          "nombres": "Alma",
-          "primer_apellido" : "Rosales",
-          "segundo_apellido" : "Trueba"
-        },
-        "tipo_bien_servicio": "inmueble",
-        "valor_mercado_aproximado": {
-          "valor": 4000,
-          "moneda": "MXN"
-        },
-        "nombre_denominacion_razon_social": "Marca Inc.",
-        "rfc_tercero_propietario": "PEGJ851231C33",
-        "curp_tercero_propietario": "PEGJ851231HVZRVR05",
-        "sector_industria": "Servicios financieros y seguros",
-        "relacion_persona": {
-          "codigo": "CONY",
-          "valor:": "Cónyuge"
-        },
-        "fecha_inicio": "1985-12-31",
-        "domicilio_persona": {
-          "pais": "MX",
-          "entidad_federativa": {
-            "nom_ent": "México",
-            "cve_ent": "15"
-          },
-          "municipio": {
-            "nom_mun": "Ecatepec de Morelos",
-            "cve_mun": "033"
-          },
-          "cp": "55018",
-          "localidad": {
-            "nom_loc": "Ecatepec de Morelos",
-            "cve_loc": "0001"
-          },
-          "vialidad": {
-            "tipo_vial": "CALLE",
-            "nom_vial": "El Rosal"
-          },
-          "numExt": {
-            "numExt_num": 24
-          },
-          "numInt": {
-            "numInt_alf": "S/N"
-          }
-        },
-        "observaciones_comentarios": "Aquí comentarios u observaciones"
+      "numInt": {
+        "numInt_alf": "S/N"
       }
-    }
-  ]
+    },
+    "forma_adquisicion": {
+      "codigo": "CONY",
+      "valor:": "Cónyuge"
+    },
+    "nombre_denominacion_razon_social_quien_adquirio": "Monster Inc.",
+    "rfc_quien_adquirio": "PEGJ851231C33",
+    "curp_quien_adquirio": "PEGJ851231HVZRVR05",
+    "relacion_con_persona_quien_adquirio_inmueble": {
+      "codigo": "",
+      "valor:": ""
+    },
+    "sector_industria": {
+      "codigo": "MINE",
+      "valor:": "Minería"
+    },
+    "fecha_adquisicion": "1985-12-31",
+    "precio_adquisicion": {
+      "valor": 4000,
+      "moneda": "MXN"
+    },
+    "valor_catastral": 800.00,
+    "observaciones_comentarios": "No hay comentarios"
+  }],
+  "bienes_muebles_registrables": [{
+    "id": 1,
+    "titular": {
+      "id": 1,
+      "nombres": "Alma",
+      "primer_apellido": "Rosales",
+      "segundo_apellido": "Trueba"
+    },
+    "tipo_operacion": {
+      "codigo": "INCP",
+      "valor:": "Incorporación"
+    },
+    "tipo_bien_mueble": {
+      "codigo": "VEH",
+      "valor:": "Vehículo"
+    },
+    "marca": "NISSAN",
+    "submarca_linea_tipo": "RS-122234",
+    "modelo": "2018",
+    "numero_serie": "6545243-4334",
+    "lugar_registro": {
+      "codigo": "MX",
+      "valor:": "México"
+    },
+    "porcentaje_propiedad": 99,
+    "nombres_copropietarios": [{
+      "nombres": "Juan",
+      "primer_apellido": "Pérez",
+      "segundo_apellido": "García"
+    }, {
+      "nombres": "Manuel",
+      "primer_apellido": "Tenorio",
+      "segundo_apellido": "García"
+    }],
+    "numero_registro_publico_vehicular": 455000,
+    "forma_adquisicion": {
+      "codigo": "CES",
+      "valor:": "Cesión"
+    },
+    "nombre_denominacion_razon_social_quien_adquirio": "Monstr Inc.",
+    "rfc_quien_adquirio": "PEGJ851231C33",
+    "curp_quien_adquirio": "PEGJ851231HVZRVR05",
+    "relacion_con_persona_quien_adquirio_inmueble": {
+      "codigo": "DEC",
+      "valor:": "Dependiente económico"
+    },
+    "sector_industria": {
+      "codigo": "MINE",
+      "valor:": "Minería"
+    },
+    "fecha_adquisicion": "1985-12-31",
+    "precio_adquisicion": {
+      "valor": 4000,
+      "mmoneda": "MXN"
+    },
+    "valor_catastral": 4500,
+    "observaciones_comentarios": "No hay comentarios"
+  }],
+  "bienes_muebles_no_registrables": [{
+    "id": 1,
+    "titular": {
+      "id": 1,
+      "nombres": "Alma",
+      "primer_apellido": "Rosales",
+      "segundo_apellido": "Trueba"
+    },
+    "tipo_operacion": {
+      "codigo": "INCP",
+      "valor:": "Incorporación"
+    },
+    "tipo_bien": {
+      "codigo": "BAR",
+      "valor:": "Barco"
+    },
+    "descripcion": "sin descripción",
+    "numero_registro": 458800,
+    "lugar_registro": "MX",
+    "nombres_copropietarios": [{
+      "nombres": "Juan",
+      "primer_apellido": "Pérez",
+      "segundo_apellido": "García"
+    }, {
+      "nombres": "Manuel",
+      "primer_apellido": "Tenorio",
+      "segundo_apellido": "García"
+    }],
+    "forma_adquisicion": {
+      "codigo": "CES",
+      "valor:": "Cesión"
+    },
+    "nombre_denominacion_razon_social_quien_adquirio": "Tesl Mtr Inc.",
+    "relacion_con_persona_quien_adquirio": {
+      "codigo": "CONY",
+      "valor:": "Cónyuge"
+    },
+    "fecha_adquisicion": "1995-12-31",
+    "precio_adquisicion": {
+      "valor": 4000,
+      "moneda": "MXN"
+    },
+    "observaciones_comentarios": "No hay comentarios"
+  }],
+  "inversiones_cuentas_valores": [{
+    "id": 1,
+    "titular": {
+      "id": 1,
+      "nombres": "Alma",
+      "primer_apellido": "Rosales",
+      "segundo_apellido": "Trueba"
+    },
+    "tipo_operacion": {
+      "codigo": "INCP",
+      "valor:": "Incorporación"
+    },
+    "tipo_inversion": {
+      "codigo": "VENT",
+      "valor:": "Venta"
+    },
+    "tipo_especifico_inversion": {
+      "codigo": "ACCS",
+      "valor:": "Acciones"
+    },
+    "numero_cuenta_contrato_inversion": "GFHRTY788778",
+    "nacional_extranjero": {
+      "codigo": "MEX",
+      "valor:": "México"
+    },
+    "nombre_institucion": "Bank Inkc",
+    "rfc_institucion": "PEGJ851231C33",
+    "sector_industria": {
+      "codigo": "MINE",
+      "valor:": "Minería"
+    },
+    "domicilio_institucion": {
+      "pais": "MX",
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
+      },
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
+      },
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
+      },
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
+      },
+      "numExt": {
+        "numExt_num": 24
+      },
+      "numInt": {
+        "numInt_alf": "S/N"
+      }
+    },
+    "forma_adquisicion": {
+      "codigo": "CES",
+      "valor:": "Cesión"
+    },
+    "fecha_inicio": "1985-12-31",
+    "monto_original": 80000,
+    "tipo_moneda": "USD",
+    "tasa_interes": 10.00,
+    "saldo_anual": 5000,
+    "plazo": 6,
+    "unidad_medida_plazo": {
+      "codigo": "DIAS",
+      "valor:": "Días"
+    },
+    "porcentaje_inversion": 99.9,
+    "observaciones_comentarios": "No hay comentarios"
+  }],
+  "efectivo_metales": [{
+    "id": 1,
+    "titular": {
+      "id": 1,
+      "nombres": "Alma",
+      "primer_apellido": "Rosales",
+      "segundo_apellido": "Trueba"
+    },
+    "tipo_operacion": {
+      "codigo": "INCP",
+      "valor:": "Incorporación"
+    },
+    "tipo_moneda": "USD",
+    "monto": 78555,
+    "tipo_metal": {
+      "codigo": "ORO",
+      "valor:": "Oro"
+    },
+    "unidades": "gramos",
+    "forma_adquisicion": {
+      "codigo": "CES",
+      "valor:": "Cesión"
+    },
+    "observaciones_comentarios": "No hay comentarios"
+  }],
+  "fideicomisos": [{
+    "id": 1,
+    "titular": {
+      "id": 1,
+      "nombres": "Alma",
+      "primer_apellido": "Rosales",
+      "segundo_apellido": "Trueba"
+    },
+    "tipo_operacion": {
+      "codigo": "INCP",
+      "valor:": "Incorporación"
+    },
+    "nombre_identificador": "93232",
+    "tipo_fideicomiso": {
+      "codigo": "GARNT",
+      "valor:": "Garantía"
+    },
+    "objetivo": "Objetivo del fideicomiso",
+    "numero_registro": 788544,
+    "fecha_creacion": "2005-12-31",
+    "vigencia": "2006-12-31",
+    "residencia": {
+      "codigo": "MEX",
+      "valor:": "México"
+    },
+    "valor": 78555555,
+    "moneda": "MXN",
+    "porcentaje_propiedad_derechos_fiduciarios": 99,
+    "ingreso_monetario_obtenido": 56666,
+    "institucion_fiduciaria": "Banco de México",
+    "nombre_denominacion_razon_social_fideicomitente": "Banco Robmen1",
+    "nombre_denominacion_razon_social_fideicomisario": "Banco Robmen2",
+    "nombre_denominacion_razon_social_fiduciario": "Banco Robmenos2",
+    "rfc_fideicomitente": "ZEGJ851231C33",
+    "rfc_fideicomsario": "YEGJ851231C33",
+    "rfc_fiduciario": "XEGJ851231C33",
+    "curp_fideicomitente": "ZEGJ851231HVZRVR05",
+    "curp_fideicomisario": "YEGJ851231HVZRVR05",
+    "curp_fiduciario": "XEGJ851231HVZRVR05",
+    "domicilio_fideicomitente": {
+      "pais": "MX",
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
+      },
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
+      },
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
+      },
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
+      },
+      "numExt": {
+        "numExt_num": 24
+      },
+      "numInt": {
+        "numInt_alf": "S/N"
+      }
+    },
+    "domicilio_fideicomisario": {
+      "pais": "MX",
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
+      },
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
+      },
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
+      },
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
+      },
+      "numExt": {
+        "numExt_num": 24
+      },
+      "numInt": {
+        "numInt_alf": "S/N"
+      }
+    },
+    "domicilio_fiduciario": {
+      "pais": "MX",
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
+      },
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
+      },
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
+      },
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
+      },
+      "numExt": {
+        "numExt_num": 24
+      },
+      "numInt": {
+        "numInt_alf": "S/N"
+      }
+    },
+    "fecha_nacimiento_constitucion_fideicomitente": "1995-12-31",
+    "fecha_nacimiento_constitucion_fideicomisario": "1994-12-31",
+    "fecha_nacimiento_constitucion_fiduciario": "1985-12-31",
+    "observaciones_comentarios": "no hay comentarios"
+  }],
+  "bienes_intangibles": [{
+    "id": 1,
+    "titular": {
+      "id": 1,
+      "nombres": "Alma",
+      "primer_apellido": "Rosales",
+      "segundo_apellido": "Trueba"
+    },
+    "tipo_operacion": {
+      "codigo": "INCP",
+      "valor:": "Incorporación"
+    },
+    "propietario_registrado": "Sergio Perez",
+    "descripcion": "Aquí va una descripción breve",
+    "ente_publico_encargado_registro": {
+      "nombres": "Raúl",
+      "primer_apellido": "Segura",
+      "segundo_apellido": "García"
+    },
+    "numero_registro": 754444,
+    "fecha_registro": "1985-12-31",
+    "sector_industria": {
+      "codigo": "MINE",
+      "valor:": "Minería"
+    },
+    "precio_adquisicion": {
+      "valor": 4000,
+      "moneda": "MXN"
+    },
+    "forma_adquisicion": {
+      "codigo": "CES",
+      "valor:": "Cesión"
+    },
+    "fecha_vencimiento": "1985-12-31",
+    "porcentaje_propiedad_caso_copropiedad": 90,
+    "precio_total_adquisicion_caso_copropiedad": {
+      "valor": 4000,
+      "moneda": "MXN"
+    },
+    "nombre_denominacion_razon_social_copropietario": "Vien Inc,",
+    "porcentaje_propiedad_copropietario": 10,
+    "observaciones_comentarios": "No hay comentarios"
+  }],
+  "cuentas_por_cobrar": [{
+    "id": 1,
+    "titular": {
+      "id": 1,
+      "nombres": "Alma",
+      "primer_apellido": "Rosales",
+      "segundo_apellido": "Trueba"
+    },
+    "nombre_prestatario": {
+      "nombres": "Manuel",
+      "primer_apellido": "Tenorio",
+      "segundo_apellido": "García"
+    },
+    "numero_registro": 488755,
+    "domicilio_prestatarios": {
+      "pais": "MX",
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
+      },
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
+      },
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
+      },
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
+      },
+      "numExt": {
+        "numExt_num": 24
+      },
+      "numInt": {
+        "numInt_alf": "S/N"
+      }
+    },
+    "sector_industria": {
+      "codigo": "MINE",
+      "valor:": "Minería"
+    },
+    "fecha_prestamo": "1985-12-31",
+    "monto_original_prestamo": 488844,
+    "tasa_interes": 10.01,
+    "saldo_pendiente": 4555,
+    "fecha_vencimiento": "1985-12-31",
+    "porcentaje_propiedad_caso_copropiedad": "",
+    "nombre_copropietario": {
+      "nombres": "Luis",
+      "primer_apellido": "Peralta",
+      "segundo_apellido": "García"
+    },
+    "observacione_comentarios": "aquí más comentarios"
+  }],
+  "uso_beneficios_especie_propiedad_de_tercero": [{
+    "id": 1,
+    "titular": {
+      "id": 1,
+      "nombres": "Alma",
+      "primer_apellido": "Rosales",
+      "segundo_apellido": "Trueba"
+    },
+    "tipo_bien_servicio": "inmueble",
+    "valor_mercado_aproximado": {
+      "valor": 4000,
+      "moneda": "MXN"
+    },
+    "nombre_denominacion_razon_social": "Marca Inc.",
+    "rfc_tercero_propietario": "PEGJ851231C33",
+    "curp_tercero_propietario": "PEGJ851231HVZRVR05",
+    "sector_industria": "Servicios financieros y seguros",
+    "relacion_persona": {
+      "codigo": "CONY",
+      "valor:": "Cónyuge"
+    },
+    "fecha_inicio": "1985-12-31",
+    "domicilio_persona": {
+      "pais": "MX",
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
+      },
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
+      },
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
+      },
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
+      },
+      "numExt": {
+        "numExt_num": 24
+      },
+      "numInt": {
+        "numInt_alf": "S/N"
+      }
+    },
+    "observaciones_comentarios": "Aquí comentarios u observaciones"
+  }]
 }

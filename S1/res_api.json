@@ -4,42 +4,93 @@
     "page": 1,
     "total": 77523
   },
-  "results":[
-    {
-      "id": "id de declaración",
-      "informacion_personal": {
-        "nombres": "Juan",
-        "primer_apellido": "Pérez",
-        "segundo_apellido": "García",
-        "nacionalidad": "Mexicana",
-        "pais_nacimiento": "MX",
-        "entidad_federativa_nacimiento": {
+  "results": [{
+    "id": "id de declaración",
+    "informacion_personal": {
+      "nombres": "Juan",
+      "primer_apellido": "Pérez",
+      "segundo_apellido": "García",
+      "nacionalidad": "Mexicana",
+      "pais_nacimiento": "MX",
+      "entidad_federativa_nacimiento": {
+        "nom_ent": "México",
+        "cve_ent": "15"
+      },
+      "curp": "PEGJ851231HVZRVR05",
+      "rfc": {
+        "valor": "PEGJ851231",
+        "homoclave": "C33"
+      },
+      "fecha_nacimiento": "1985-12-31",
+      "numero_identificacion_oficial": "11111111111111",
+      "correo_electronico": {
+        "personal": "jperez@ejemplo.com.mx",
+        "laboral": "juan.perez@dependencia.gob.mx"
+      },
+      "telefono": {
+        "laboral": "5555555551",
+        "personal": "5555555552",
+        "celular": "5555555553"
+      },
+      "domicilio": {
+        "pais": "MX",
+        "entidad_federativa": {
           "nom_ent": "México",
           "cve_ent": "15"
         },
-        "curp": "PEGJ851231HVZRVR05",
-        "rfc": {
-          "valor": "PEGJ851231",
-          "homoclave": "C33"
+        "municipio": {
+          "nom_mun": "Ecatepec de Morelos",
+          "cve_mun": "033"
         },
-        "fecha_nacimiento": "1985-12-31",
-        "numero_identificacion_oficial": "11111111111111",
-        "correo_electronico": {
-          "personal": "jperez@ejemplo.com.mx",
-          "laboral": "juan.perez@dependencia.gob.mx"
+        "cp": "55018",
+        "localidad": {
+          "nom_loc": "Ecatepec de Morelos",
+          "cve_loc": "0001"
         },
-        "telefono": {
-          "laboral": "5555555551",
-          "personal": "5555555552",
-          "celular": "5555555553"
+        "vialidad": {
+          "tipo_vial": "CALLE",
+          "nom_vial": "El Rosal"
         },
+        "numExt": {
+          "numExt_num": 24
+        },
+        "numInt": {
+          "numInt_alf": "S/N"
+        }
+      },
+      "estado_civil_situacion_personal": {
+        "codigo": "CAS",
+        "valor": "Casado (a)"
+      },
+      "regimen_matrimonial": {
+        "codigo": "SBI",
+        "valor": "separación de bienes"
+      },
+      "Fecha_declaracion": "2018-08-30"
+    },
+    "intereses": {
+      "empresas_sociedades_asociaciones": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Carlos",
+          "primer_apellido": "Pérez",
+          "segundo_apellido": "López"
+        },
+        "nombre_empesa_sociedad_asociacion": "DataIQ",
+        "pais_registro": {
+          "pais": "México",
+          "codigo": "MX"
+        },
+        "fecha_consitutcion": "2015-05-10",
+        "numero_registro": "ABC123",
+        "rfc": "GOAP780710RH7",
         "domicilio": {
-          "pais": "MX",
           "entidad_federativa": {
             "nom_ent": "México",
             "cve_ent": "15"
           },
-          "municipio":{
+          "municipio": {
             "nom_mun": "Ecatepec de Morelos",
             "cve_mun": "033"
           },
@@ -59,1340 +110,1543 @@
             "numInt_alf": "S/N"
           }
         },
-        "estado_civil_situacion_personal": {
-          "codigo": "CA",
-          "valor": "Casado (a)"
+        "rol": "Dueño",
+        "actividad_Economica": true,
+        "sector_industria": {
+          "codigo": "CPMY",
+          "valor": "Comercio al por mayor"
         },
-        "regimen_matrimonial": {
-          "codigo": "SB",
-          "valor": "separación de bienes"
+        "porcentaje_participacion": 70
+      }],
+      "membresias": [{
+        "id": 1,
+        "titular": {
+          "id": 2,
+          "nombres": "Ana",
+          "primer_apellido": "Nieto",
+          "segundo_apellido": "Camacho"
         },
-        "Fecha_declaracion":"2018-08-30"
-      },
-      "intereses":{
-        "empresasSociedadesAsociaciones": [
-          {
-            "id": 1,
-            "titular": {
-              "id": "1",
-              "valor": "Declarante"
-            },
-            "nombreEmpesaSociedadAsociacion": "DataIQ",
-            "paisRegistro": {
-              "pais": "México",
-              "codigo": "MX"
-            },
-            "fechaConsitutcion": "2015-05-10",
-            "numeroRegistro": "ABC123",
-            "rfc": "GOAP780710RH7",
-            "domicilio": {
-              "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
-              },
-              "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
-              },
-              "cp": "55018",
-              "localidad": {
-                "nom_loc": "Ecatepec de Morelos",
-                "cve_loc": "0001"
-              },
-              "vialidad": {
-                "tipo_vial": "CALLE",
-                "nom_vial": "El Rosal"
-              },
-              "numExt": {
-                "numExt_num": 24
-              },
-              "numInt": {
-                "numInt_alf": "S/N"
-              }
-            },
-            "rol": {
-              "id": "1",
-              "valor": "Dueño"
-            },
-            "actividad_Economica": true,
-            "sector_industria": {
-              "id": "6",
-              "valor": "Comercio al por mayor"
-            },
-            "porcentaje_participacion": 70
+        "tipo_institucion": {
+          "codigo": "ASC",
+          "valor": "Asociaciones civiles"
+        },
+        "nombre_institucion": "Asociacion A.C",
+        "naturaleza_membresia": "Civil",
+        "domicilio": {
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
           }
-        ],
-        "membresias": [
-          {
-            "id": 1,
-            "titular": {
-              "id": "2",
-              "valor": "Cónyuge"
-            },
-            "tipo_institucion": {
-              "id": "2",
-              "valor": "Asociaciones civiles"
-            },
-            "nombre_institucion": "Asociacion A.C",
-            "naturaleza_membresia": {
-              "id": "3",
-              "valor": "Civil"
-            },
-            "domicilio": {
-              "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
-              },
-              "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
-              },
-              "cp": "55018",
-              "localidad": {
-                "nom_loc": "Ecatepec de Morelos",
-                "cve_loc": "0001"
-              },
-              "vialidad": {
-                "tipo_vial": "CALLE",
-                "nom_vial": "El Rosal"
-              },
-              "numExt": {
-                "numExt_num": 24
-              },
-              "numInt": {
-                "numInt_alf": "S/N"
-              }
-            },
-            "sector_industria": {
-              "id": "6",
-              "valor": "Comercio al por mayor"
-            },
-            "rol": {
-              "id": "1",
-              "valor": "Dueño"
-            },
-            "fecha_inicio": "2018-05-14",
-            "pagado": true,
-            "observaciones": "XXX"
-          }
-        ],
-        "apoyosBeneficiosPublicos": [
-          {
-            "id": 1,
-            "titular": {
-              "id": "5",
-              "valor": "Dependiente económico"
-            },
-            "es_beneficiario": true,
-            "programa": {
-              "nombre_programa": "Programa de Estímulos Económicos a Deportistas del Distrito Federal",
-              "institucion_otorgante": {
-                "id": "21",
-                "valor": "Instituto del Deporte del Distrito Federal "
-              },
-              "nivelOrden_gobierno": {
-                "id": "2",
-                "valor": "Federal"
-              },
-              "tipo_apoyo": {
-                "id": "3",
-                "valor": "Estimulo económico"
-              },
-              "valor_apoyo": "7500"
-            },
-            "observaciones": "xxx"
-          }
-        ],
-        "representacion_activa": [
-          {
-            "id": 1,
-            "titular": {
-              "id": "3",
-              "valor": "Fidel Gómez Urrutia"
-            },
-            "tipo_representacion": {
-              "id": "4",
-              "valor": "Apoderado"
-            },
-            "nombre_parte": "Cecilia Gómez Urrutia",
-            "curp_parte": "BEML920313HMCLNS09",
-            "rfc_parte": "GOAP780710RH7",
-            "fecha_nacimiento_parte": "1956-08-15",
-            "sector_industria": {
-              "id": "6",
-              "valor": "Comercio al por mayor"
-            },
-            "fecha_inicio": "2017-08-12",
-            "pagado": true,
-            "observaciones": "xxx"
-          }
-        ],
-        "representacion_pasiva": [
-          {
-            "id": 1,
-            "titular": {
-              "id": "2",
-              "valor": "Cecilia Gómez Urrutia"
-            },
-            "tipo_representacion": {
-              "id": "3",
-              "valor": "Apoderado"
-            },
-            "nombre_representante": "Augusto Fernández Castro",
-            "fecha_inicio_representacion": "2016-05-12",
-            "nacionalidad_representante": {
-              "pais": "México",
-              "codigo": "MX"
-            },
-            "curp_representante": "BEML920313HMCLNS09",
-            "rfc_representante": "GOAP780710RH7",
-            "tiene_intereses": true,
-            "ocupacionProfesion": {
-              "id": "3",
-              "valor": "Contador"
-            },
-            "sector_industria": {
-              "id": "6",
-              "valor": "Comercio al por mayor"
-            },
-            "observaciones": "xxx"
-          }
-        ],
-        "socios_comerciales": [
-          {
-            "id": 1,
-            "titular": {
-              "id": "2",
-              "valor": "Cecilia Gómez Urrutia"
-            },
-            "nombre_actividad": "",
-            "tipo_vinculo": {
-              "id": "1",
-              "valor": "Socio"
-            },
-            "antiguedad_vinculo": "2017-05-14",
-            "rfc_entidad": "GOAP780710RH7",
-            "nombre_socio": "Armando Rodríguez Saes",
-            "curp_socio": "BEML920313HMCLNS09",
-            "rfc_socio": "GOAP780710RH7",
-            "lugar_nacimiento_socio": {
-              "pais": "México",
-              "codigo": "MX"
-            },
-            "porcentaje_participacion": 70,
-            "sector_industria": {
-              "id": "6",
-              "valor": "Comercio al por mayor"
-            },
-            "observaciones": "xxx"
-          }
-        ],
-        "clientes_principales": [
-          {
-            "id": 1,
-            "titular": {
-              "id": "2",
-              "valor": "Cecilia Gómez Urritia"
-            },
-            "nombreNaturaleza_negocio": {
-              "id": "3",
-              "valor": "XXXX"
-            },
-            "numero_Registro": "HTC896DSFA",
-            "dueñoEncargado": "Salvador Hernández Torres",
-            "nombreDenominacion_social_cliente": "",
-            "rfc_cliente": "GOAP780710RH7",
-            "domicilio_cliente": {
-              "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
-              },
-              "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
-              },
-              "cp": "55018",
-              "localidad": {
-                "nom_loc": "Ecatepec de Morelos",
-                "cve_loc": "0001"
-              },
-              "vialidad": {
-                "tipo_vial": "CALLE",
-                "nom_vial": "El Rosal"
-              },
-              "numExt": {
-                "numExt_num": 24
-              },
-              "numInt": {
-                "numInt_alf": "S/N"
-              }
-            },
-            "sector_industria": {
-              "id": "6",
-              "valor": "Comercio al por mayor"
-            },
-            "porcentaje_facturacion": 20,
-            "observaciones": "xxx"
-          }
-        ],
-        "otras_partes": [
-          {
-            "id": 1,
-            "titular": {
-              "id": "4",
-              "valor": "Sergio Rosas Reyes"
-            },
-            "tipo_parte": {
-              "id": "2",
-              "valor": "Garantes de Préstamos Recibidos"
-            },
-            "nombreDenominacion_parte": "",
-            "fecha_inicio_relacion": "2016-05-08",
-            "nacionalidad": {
-              "pais": "México",
-              "codigo": "MX"
-            },
-            "curp": "BEML920313HMCLNS09",
-            "rfc": "GOAP780710RH7",
-            "fecha_nacimiento": "1979-08-23",
-            "ocupacionProfesion": {
-              "id": "54",
-              "valor": "Administrador de empresas"
-            },
-            "tiene_intereses": true,
-            "sector_industria": {
-              "id": "6",
-              "valor": "Comercio al por mayor"
-            },
-            "observaciones": "xxx"
-          }
-        ],
-        "beneficios_gratuitos": [
-          {
-            "id": 1,
-            "titular": {
-              "id": "1",
-              "valor": "Declarante"
-            },
-            "tipo_beneficio": {
-              "id": "2",
-              "valor": "Tarjetas o monederos electrónicos"
-            },
-            "origen_beneficio": {
-              "id": "3",
-              "valor": "Prestación laboral"
-            },
-            "sector_industria": {
-              "id": "6",
-              "valor": "Comercio al por mayor"
-            },
-            "valor_beneficio": 1256,
-            "observaciones": "xxx"
-          }
-        ]
-      },
-      "ingresos": {
-        "ingreso": [{
+        },
+        "sector_industria": {
+          "codigo": "SSAS",
+          "valor": "Servicios de salud y asistencia social"
+        },
+        "rol": "Titular",
+        "fecha_inicio": "2018-05-14",
+        "pagado": true,
+        "observaciones": "XXX"
+      }],
+      "apoyosBeneficiosPublicos": [{
+        "id": 1,
+        "titular": {
           "id": 1,
-          "sueldos_y_salarios_publicos": {
-            "titular": "Sergio Rodríguez",
-            "ente_publico": "",
-            "rfc": "GOAP780710RH7",
-            "ingreso_bruto_anual": {
-              "valor": 10000,
-              "moneda": "MXN",
-              "unidad_temporal": "semanas",
-              "duracion_frecuencia": 10,
-              "fecha_transaccion": "2016-12-14"
-            },
-            "observaciones_comentarios": "no hay observaciones"
+          "nombres": "Carlos",
+          "primer_apellido": "Pérez",
+          "segundo_apellido": "López"
+        },
+        "es_beneficiario": true,
+        "programa": "Programa de Estímulos Económicos a Deportistas del Distrito Federal",
+        "institucion_otorgante": "Instituto del Deporte del Distrito Federal ",
+        "nivel_orden_gobierno": {
+          "codigo": "EST",
+          "valor": "Estatal"
+        },
+        "tipo_apoyo": {
+          "codigo": "SERV",
+          "valor": "Servicio"
+        },
+        "valor_apoyo": 7500,
+        "observaciones": "xxx"
+      }],
+      "representacion_activa": [{
+        "id": 1,
+        "titular": {
+          "id": 3,
+          "nombres": "Carlos",
+          "primer_apellido": "Pérez",
+          "segundo_apellido": "López"
+        },
+        "tipo_representacion": {
+          "codigo": "APOD",
+          "valor": "Apoderado"
+        },
+        "nombre_parte": "Cecilia Gómez Urrutia",
+        "curp_parte": "BEML920313HMCLNS09",
+        "rfc_parte": "GOAP780710RH7",
+        "fecha_nacimiento_parte": "1956-08-15",
+        "sector_industria": {
+          "codigo": "CPMY",
+          "valor": "Comercio al por mayor"
+        },
+        "fecha_inicio": "2017-08-12",
+        "pagado": true,
+        "observaciones": "xxx"
+      }],
+      "representacion_pasiva": [{
+        "id": 1,
+        "titular": {
+          "id": 2,
+          "nombres": "Cecilia",
+          "primer_apellido": "Gómez",
+          "segundo_apellido": "Urrutia"
+        },
+        "tipo_representacion": {
+          "codigo": "APOD",
+          "valor": "Apoderado"
+        },
+        "nombre_representante": "Augusto Fernández Castro",
+        "fecha_inicio_representacion": "2016-05-12",
+        "nacionalidad_representante": {
+          "pais": "México",
+          "codigo": "MX"
+        },
+        "curp_representante": "BEML920313HMCLNS09",
+        "rfc_representante": "GOAP780710RH7",
+        "fecha_nacimiento_representante": "1987-08-12",
+        "tiene_intereses": true,
+        "ocupacion_profesion": "Contador",
+        "sector_industria": {
+          "codigo": "CPMY",
+          "valor": "Comercio al por mayor"
+        },
+        "observaciones": "xxx"
+      }],
+      "socios_comerciales": [{
+        "id": 1,
+        "titular": {
+          "id": 2,
+          "nombres": "Cecilia",
+          "primer_apellido": "Gómez",
+          "segundo_apellido": "Urrutia"
+        },
+        "nombre_actividad": "Actividad",
+        "tipo_vinculo": {
+          "codigo": "SOC",
+          "valor": "Socio"
+        },
+        "antiguedad_vinculo": "2017-05-14",
+        "rfc_entidad": "GOAP780710RH7",
+        "nombre_socio": "Armando Rodríguez Saes",
+        "curp_socio": "BEML920313HMCLNS09",
+        "rfc_socio": "GOAP780710RH7",
+        "lugar_nacimiento_socio": {
+          "pais": "México",
+          "codigo": "MX"
+        },
+        "fecha_nacimiento_socio": "1970-05-14",
+        "porcentaje_participacion": 70,
+        "sector_industria": {
+          "codigo": "CPMY",
+          "valor": "Comercio al por mayor"
+        },
+        "observaciones": "xxx"
+      }],
+      "clientes_principales": [{
+        "id": 1,
+        "titular": {
+          "id": 4,
+          "nombres": "Cecilia",
+          "primer_apellido": "Gómez",
+          "segundo_apellido": "Urritia"
+        },
+        "nombre_naturaleza_negocio": {
+          "codigo": "Negocio",
+          "valor": "Nombre negocio"
+        },
+        "numero_Registro": "HTC896DSFA",
+        "dueño_encargado": "Salvador Hernández Torres",
+        "nombre_denominacion_social_cliente": "AMEX.S.A.",
+        "rfc_cliente": "GOAP780710RH7",
+        "domicilio_cliente": {
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
           },
-          "sueldos_salarios_otros_empleos": {
-            "titular": "Sergio Rodríguez",
-            "nombre_denominacion_razon_social": "Max Power Inc.",
-            "rfc": "PNKSD780710RH7",
-            "curp": "PEGJ851231HVZRVR05",
-            "sector_industria": {
-              "id": "9",
-              "valor": "Servicios financieros y seguros"
-            },
-            "tipo_actividad_servicio": "Sector público",
-            "descripcion_actividad_servicio": "Servicio profesional de TI",
-            "domicilio_persona_recibe_ingreso": {
-              "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
-              },
-              "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
-              },
-              "cp": "55018",
-              "localidad": {
-                "nom_loc": "Ecatepec de Morelos",
-                "cve_loc": "0001"
-              },
-              "vialidad": {
-                "tipo_vial": "CALLE",
-                "nom_vial": "El Rosal"
-              },
-              "numExt": {
-                "numExt_num": 24
-              },
-              "numInt": {
-                "numInt_alf": "S/N"
-              }
-            },
-            "ingreso_bruto_anual": {
-              "valor": 20000,
-              "moneda": "MXN",
-              "unidad_temporal": "Semanas",
-              "duracion_frecuencia": 10,
-              "fecha_transaccion": "2016-12-14"
-            },
-            "observaciones_comentarios": "no hay observaciones"
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
           },
-          "actividad_profesional": {
-            "titular": "Juan Tovar",
-            "nombre_denominacion_razon_social": "",
-            "rfc": "PEGJ851231",
-            "curp": "PEGJ851231HVZRVR05",
-            "sector_industria": {
-              "id": "9",
-              "valor": "Servicios financieros y seguros"
-            },
-            "tipo_actividad_servicio": "Sector Público",
-            "descripcion_actividad_servicio": "Descripción del servicio",
-            "domicilio_persona_recibe_ingreso": {
-              "pais": "MX",
-              "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
-              },
-              "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
-              },
-              "cp": "55018",
-              "localidad": {
-                "nom_loc": "Ecatepec de Morelos",
-                "cve_loc": "0001"
-              },
-              "vialidad": {
-                "tipo_vial": "CALLE",
-                "nom_vial": "El Rosal"
-              },
-              "numExt": {
-                "numExt_num": 24
-              },
-              "numInt": {
-                "numInt_alf": "S/N"
-              }
-            },
-            "ingreso_bruto_anual": {
-              "valor": 20000,
-              "moneda": "MXN",
-              "unidad_temporal": "Semanas",
-              "duracion_frecuencia": 10,
-              "fecha_transaccion": "2016-12-14"
-            },
-            "observaciones_comentarios": "no hay observaciones"
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
           },
-          "actividad_empresarial": {
-            "titular": {
-              "id": "1",
-              "valor": "Declarante"
-            },
-            "nombre_denominacion_razon_social": "",
-            "rfc": "PNKSD780710RH7",
-            "curp": "PEGJ851231HVZRVR05",
-            "sector_industria": {
-              "id": "9",
-              "valor": "Servicios financieros y seguros"
-            },
-            "tipo_actividad_servicio": "Sector público",
-            "descripcion_actividad_servicio": "Descripción del servicio",
-            "domicilio_persona_recibe_ingreso": {
-              "pais": "MX",
-              "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
-              },
-              "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
-              },
-              "cp": "55018",
-              "localidad": {
-                "nom_loc": "Ecatepec de Morelos",
-                "cve_loc": "0001"
-              },
-              "vialidad": {
-                "tipo_vial": "CALLE",
-                "nom_vial": "El Rosal"
-              },
-              "numExt": {
-                "numExt_num": 24
-              },
-              "numInt": {
-                "numInt_alf": "S/N"
-              }
-            },
-            "ingreso_bruto_anual": {
-              "valor": 20000,
-              "moneda": "MXN",
-              "unidad_temporal": "Semanas",
-              "duracion_frecuencia": 10,
-              "fecha_transaccion": "2016-12-14"
-            },
-            "observaciones_comentarios": "no hay observaciones"
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
           },
-          "actividad_economica_menor": {
-            "titular": {
-              "id": "1",
-              "valor": "Declarante"
-            },
-            "nombre_denominacion_razon_social": "",
-            "rfc": "PNKSD780710RH7",
-            "curp": "PEGJ851231HVZRVR05",
-            "sector_industria": {
-              "id": "9",
-              "valor": "Servicios financieros y seguros"
-            },
-            "tipo_actividad_servicio": "Sector público",
-            "descripcion_actividad_servicio": "Descripción del servicio",
-            "domicilio_persona_recibe_ingreso": {
-              "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
-              },
-              "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
-              },
-              "cp": "55018",
-              "localidad": {
-                "nom_loc": "Ecatepec de Morelos",
-                "cve_loc": "0001"
-              },
-              "vialidad": {
-                "tipo_vial": "CALLE",
-                "nom_vial": "El Rosal"
-              },
-              "numExt": {
-                "numExt_num": 24
-              },
-              "numInt": {
-                "numInt_alf": "S/N"
-              }
-            },
-            "ingreso_bruto_anual": {
-              "valor": 20000,
-              "moneda": "MXN",
-              "unidad_temporal": "Semanas",
-              "duracion_frecuencia": 10,
-              "fecha_transaccion": "2016-12-14"
-            },
-            "observaciones_comentarios": "no hay observaciones"
+          "numExt": {
+            "numExt_num": 24
           },
-          "arrendamiento": {
-            "titular": {
-              "id": "1",
-              "valor": "Declarante"
-            },
-            "nombre_denominacion_razon_social": "",
-            "rfc": "PNKSD780710RH7",
-            "curp": "PEGJ851231HVZRVR05",
-            "sector_industria": {
-              "id": "9",
-              "valor": "Servicios financieros y seguros"
-            },
-            "tipo_actividad_servicio": "Sector público",
-            "descripcion_actividad_servicio": "Descripción del servicio",
-            "domicilio_persona_recibe_ingreso": {
-              "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
-              },
-              "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
-              },
-              "cp": "55018",
-              "localidad": {
-                "nom_loc": "Ecatepec de Morelos",
-                "cve_loc": "0001"
-              },
-              "vialidad": {
-                "tipo_vial": "CALLE",
-                "nom_vial": "El Rosal"
-              },
-              "numExt": {
-                "numExt_num": 24
-              },
-              "numInt": {
-                "numInt_alf": "S/N"
-              }
-            },
-            "ingreso_bruto_anual": {
-              "valor": 20000,
-              "moneda": "MXN",
-              "unidad_temporal": "Semanas",
-              "duracion_frecuencia": 10,
-              "fecha_transaccion": "2016-12-14"
-            },
-            "observaciones_comentarios": "no hay observaciones"
-          },
-          "intereses": {
-            "titular": {
-              "id": "1",
-              "valor": "Declarante"
-            },
-            "nombre_denominacion_razon_social": "",
-            "rfc": "PNKSD780710RH7",
-            "curp": "PEGJ851231HVZRVR05",
-            "sector_industria": {
-              "id": "9",
-              "valor": "Servicios financieros y seguros"
-            },
-            "tipo_actividad_servicio": "Sector público",
-            "descripcion_actividad_servicio": "Descripción del servicio",
-            "domicilio_persona_recibe_ingreso": {
-              "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
-              },
-              "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
-              },
-              "cp": "55018",
-              "localidad": {
-                "nom_loc": "Ecatepec de Morelos",
-                "cve_loc": "0001"
-              },
-              "vialidad": {
-                "tipo_vial": "CALLE",
-                "nom_vial": "El Rosal"
-              },
-              "numExt": {
-                "numExt_num": 24
-              },
-              "numInt": {
-                "numInt_alf": "S/N"
-              }
-            },
-            "ingreso_bruto_anual": {
-              "valor": 20000,
-              "moneda": "MXN",
-              "unidad_temporal": "Semanas",
-              "duracion_frecuencia": 10,
-              "fecha_transaccion": "2016-12-14"
-            },
-            "observaciones_comentarios": "no hay observaciones"
-          },
-          "premios": {
-            "titular": {
-              "id": "1",
-              "valor": "Declarante"
-            },
-            "nombre_denominacion_razon_social": "",
-            "rfc": "PNKSD780710RH7",
-            "curp": "PEGJ851231HVZRVR05",
-            "sector_industria": {
-              "id": "9",
-              "valor": "Servicios financieros y seguros"
-            },
-            "tipo_actividad_servicio": "Sector público",
-            "descripcion_actividad_servicio": "Descripción del servicio",
-            "domicilio_persona_recibe_ingreso": {
-              "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
-              },
-              "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
-              },
-              "cp": "55018",
-              "localidad": {
-                "nom_loc": "Ecatepec de Morelos",
-                "cve_loc": "0001"
-              },
-              "vialidad": {
-                "tipo_vial": "CALLE",
-                "nom_vial": "El Rosal"
-              },
-              "numExt": {
-                "numExt_num": 24
-              },
-              "numInt": {
-                "numInt_alf": "S/N"
-              }
-            },
-            "ingreso_bruto_anual": {
-              "valor": 20000,
-              "moneda": "MXN",
-              "unidad_temporal": "Semanas",
-              "duracion_frecuencia": 10,
-              "fecha_transaccion": "2016-12-14"
-            },
-            "observaciones_comentarios": "no hay observaciones"
-          },
-          "enajenacion_bienes": {
-            "titular": {
-              "id": "1",
-              "valor": "Declarante"
-            },
-            "nombre_denominacion_razon_social": "",
-            "rfc": "PNKSD780710RH7",
-            "curp": "PEGJ851231HVZRVR05",
-            "sector_industria": {
-              "id": "9",
-              "valor": "Servicios financieros y seguros"
-            },
-            "tipo_actividad_servicio": "Sector público",
-            "descripcion_actividad_servicio": "Descripción del servicio",
-            "domicilio_persona_recibe_ingreso": {
-              "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
-              },
-              "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
-              },
-              "cp": "55018",
-              "localidad": {
-                "nom_loc": "Ecatepec de Morelos",
-                "cve_loc": "0001"
-              },
-              "vialidad": {
-                "tipo_vial": "CALLE",
-                "nom_vial": "El Rosal"
-              },
-              "numExt": {
-                "numExt_num": 24
-              },
-              "numInt": {
-                "numInt_alf": "S/N"
-              }
-            },
-            "ingreso_bruto_anual": {
-              "valor": 20000,
-              "moneda": "MXN",
-              "unidad_temporal": "Semanas",
-              "duracion_frecuencia": 10,
-              "fecha_transaccion": "2016-12-14"
-            },
-            "observaciones_comentarios": "no hay observaciones"
-          },
-          "otros_ingresos": {
-            "titular": {
-              "id": "1",
-              "valor": "Declarante"
-            },
-            "nombre_denominacion_razon_social": "",
-            "rfc": "PNKSD780710RH7",
-            "curp": "PEGJ851231HVZRVR05",
-            "sector_industria": {
-              "id": "9",
-              "valor": "Servicios financieros y seguros"
-            },
-            "tipo_actividad_servicio": "Sector público",
-            "descripcion_actividad_servicio": "Descripción del servicio",
-            "domicilio_persona_recibe_ingreso": {
-              "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
-              },
-              "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
-              },
-              "cp": "55018",
-              "localidad": {
-                "nom_loc": "Ecatepec de Morelos",
-                "cve_loc": "0001"
-              },
-              "vialidad": {
-                "tipo_vial": "CALLE",
-                "nom_vial": "El Rosal"
-              },
-              "numExt": {
-                "numExt_num": 24
-              },
-              "numInt": {
-                "numInt_alf": "S/N"
-              }
-            },
-            "ingreso_bruto_anual": {
-              "valor": 20000,
-              "moneda": "MXN",
-              "unidad_temporal": "Semanas",
-              "duracion_frecuencia": 10,
-              "fecha_transaccion": "2016-12-14"
-            },
-            "observaciones_comentarios": "no hay observaciones"
+          "numInt": {
+            "numInt_alf": "S/N"
           }
-        }]
-      },
-      "activos":{
-        "activos": [
-          {
-            "id": 1,
-            "bienes_inmuebles": {
-              "titular": "declarante",
-              "tipo_operacion": "venta",
-              "tipo_bien": "casa",
-              "superficie_terreno": 300,
-              "superficie_construccion": 100,
-              "porcentaje_propiedad": 100,
-              "nombre_copropietario": {
-                "nombres": "Juan",
-                "primer_apellido": "Pérez",
-                "segundo_apellido": "García"
-              },
-              "identificacion_bien": {
-                "numero_escritura_publica": 202020,
-                "numero_registro_publico_propiedad": 404040,
-                "folio_real": "jsjs74747",
-                "fecha_contrato_compra-venta_privado": "1985-12-31"
-              },
-              "domicilio_donde_ubica_bien": {
-                "pais": "MX",
-                "entidad_federativa": {
-                  "nom_ent": "México",
-                  "cve_ent": "15"
-                },
-                "municipio": {
-                  "nom_mun": "Ecatepec de Morelos",
-                  "cve_mun": "033"
-                },
-                "cp": "55018",
-                "localidad": {
-                  "nom_loc": "Ecatepec de Morelos",
-                  "cve_loc": "0001"
-                },
-                "vialidad": {
-                  "tipo_vial": "CALLE",
-                  "nom_vial": "El Rosal"
-                },
-                "numExt": {
-                  "numExt_num": 24
-                },
-                "numInt": {
-                  "numInt_alf": "S/N"
-                }
-              },
-              "forma_adquisicion": "cesión",
-              "nombre_denominacion_razon_social_quien_adquirio": "Monster Inc.",
-              "rfc_quien_adquirio": "PEGJ851231C33",
-              "curp_quien_adquirio": "PEGJ851231HVZRVR05",
-              "relacion_con_persona_quien_adquirio_inmueble": "cónyuge",
-              "sector_industria": "Servicios financieros y seguros",
-              "fecha_adquisicion": "1985-12-31",
-              "precio_adquisicion": {
-                "valor": 4000,
-                "moneda": "MXN"
-              },
-              "valor_catastral": 800.00,
-              "observaciones_comentarios": "No hay comentarios"
-            },
-            "bienes_muebles_registrables": {
-              "titular": "declarante",
-              "tipo_operacion": "venta",
-              "tipo_bien_mueble": "vehículo",
-              "marca": "acura",
-              "submarca_linea_tipo": "RS-122234",
-              "modelo": "2018",
-              "numero_serie": "6545243-4334",
-              "lugar_registro": "MX",
-              "porcentaje_propiedad": 99,
-              "nombres_copropietarios": [{
-                "nombres": "Juan",
-                "primer_apellido": "Pérez",
-                "segundo_apellido": "García"
-              }, {
-                "nombres": "Manuel",
-                "primer_apellido": "Tenorio",
-                "segundo_apellido": "García"
-              }],
-              "numero_registro_publico_vehicular": 455000,
-              "forma_adquisicion": "cesión",
-              "nombre_denominacion_razon_social_quien_adquirio": "Monstr Inc.",
-              "rfc_quien_adquirio": "PEGJ851231C33",
-              "curp_quien_adquirio": "PEGJ851231HVZRVR05",
-              "relacion_con_persona_quien_adquirio_inmueble": "",
-              "sector_industria": "Servicios financieros y seguros",
-              "fecha_adquisicion": "1985-12-31",
-              "precio_adquisicion": {
-                "valor": 4000,
-                "mmoneda": "MXN"
-              },
-              "valor_catastral": 4500,
-              "observaciones_comentarios": "No hay comentarios"
-            },
-            "bienes_muebles_no_registrables": {
-              "titular": "declarante",
-              "tipo_operacion": "venta",
-              "tipo_bien": "otro",
-              "descripcion": "sin descripción",
-              "numero_registro": 458800,
-              "lugar_registro": "MX",
-              "nombres_copropietarios": [{
-                "nombres": "Juan",
-                "primer_apellido": "Pérez",
-                "segundo_apellido": "García"
-              }, {
-                "nombres": "Manuel",
-                "primer_apellido": "Tenorio",
-                "segundo_apellido": "García"
-              }],
-              "forma_adquisicion": "cesión",
-              "nombre_denominacion_razon_social_quien_adquirio": "Tesl Mtr Inc.",
-              "relacion_con_persona_quien_adquirio": "jefe",
-              "fecha_adquisicion": "1995-12-31",
-              "precio_adquisicion": {
-                "valor": 4000,
-                "moneda": "MXN"
-              },
-              "observaciones_comentarios": "No hay comentarios"
-            },
-            "inversiones_cuentas_valores": {
-              "titular": "declarante",
-              "tipo_operacion": "venta",
-              "tipo_inversion": "inversiones",
-              "tipo_especifico_inversion": "otro",
-              "numero_cuenta_contrato_inversion": "GFHRTY788778",
-              "nacional_extranjero": "Nacional",
-              "nombre_institucion": "Bank Inkc",
-              "rfc_institucion": "PEGJ851231C33",
-              "sector_industria": "Servicios financieros y seguros",
-              "domicilio_institucion": {
-                "pais": "MX",
-                "entidad_federativa": {
-                  "nom_ent": "México",
-                  "cve_ent": "15"
-                },
-                "municipio": {
-                  "nom_mun": "Ecatepec de Morelos",
-                  "cve_mun": "033"
-                },
-                "cp": "55018",
-                "localidad": {
-                  "nom_loc": "Ecatepec de Morelos",
-                  "cve_loc": "0001"
-                },
-                "vialidad": {
-                  "tipo_vial": "CALLE",
-                  "nom_vial": "El Rosal"
-                },
-                "numExt": {
-                  "numExt_num": 24
-                },
-                "numInt": {
-                  "numInt_alf": "S/N"
-                }
-              },
-              "forma_adquisicion": "cesión",
-              "fecha_inicio": "1985-12-31",
-              "monto_original": 80000,
-              "tipo_moneda": "USD",
-              "tasa_interes": 10.00,
-              "saldo_anual": 5000,
-              "plazo": 6,
-              "unidad_medida_plazo": "semanas",
-              "porcentaje_inversion": 99.9,
-              "observaciones_comentarios": "No hay comentarios"
-            },
-            "efectivo_metales": {
-              "titular": "declarante",
-              "tipo_operacion": "venta",
-              "tipo_moneda": "USD",
-              "monto": 78555,
-              "tipo_metal": "oro",
-              "unidades": "gramos",
-              "forma_adquisicion": "cesión",
-              "observaciones_comentarios": "No hay comentarios"
-            },
-            "fideicomisos": {
-              "titular": "declarante",
-              "tipo_operacion": "venta",
-              "nombre_identificador": "93232",
-              "tipo": "otro",
-              "objetivo": "Objetivo del fideicomiso",
-              "numero_registro": 788544,
-              "fecha_creacion": "2005-12-31",
-              "vigencia": "2006-12-31",
-              "residencia": "México",
-              "valor": 78555555,
-              "moneda": "MXN",
-              "porcentaje_propiedad_derechos_fiduciarios": 99,
-              "ingreso_monetario_obtenido": 56666,
-              "institucion_fiduciaria": "Banco de México",
-              "nombre_denominacion_razon_social_fideicomitente": "Banco Robmen1",
-              "nombre_denominacion_razon_social_fideicomisario": "Banco Robmen2",
-              "nombre_denominacion_razon_social_fiduciario": "Banco Robmenos2",
-              "rfc_fideicomitente": "ZEGJ851231C33",
-              "rfc_fideicomsario": "YEGJ851231C33",
-              "rfc_fiduciario": "XEGJ851231C33",
-              "curp_fideicomitente": "ZEGJ851231HVZRVR05",
-              "curp_fideicomisario": "YEGJ851231HVZRVR05",
-              "curp_fiduciario": "XEGJ851231HVZRVR05",
-              "domicilio_fideicomitente": {
-                "pais": "MX",
-                "entidad_federativa": {
-                  "nom_ent": "México",
-                  "cve_ent": "15"
-                },
-                "municipio": {
-                  "nom_mun": "Ecatepec de Morelos",
-                  "cve_mun": "033"
-                },
-                "cp": "55018",
-                "localidad": {
-                  "nom_loc": "Ecatepec de Morelos",
-                  "cve_loc": "0001"
-                },
-                "vialidad": {
-                  "tipo_vial": "CALLE",
-                  "nom_vial": "El Rosal"
-                },
-                "numExt": {
-                  "numExt_num": 24
-                },
-                "numInt": {
-                  "numInt_alf": "S/N"
-                }
-              },
-              "domicilio_fideicomisario": {
-                "pais": "MX",
-                "entidad_federativa": {
-                  "nom_ent": "México",
-                  "cve_ent": "15"
-                },
-                "municipio": {
-                  "nom_mun": "Ecatepec de Morelos",
-                  "cve_mun": "033"
-                },
-                "cp": "55018",
-                "localidad": {
-                  "nom_loc": "Ecatepec de Morelos",
-                  "cve_loc": "0001"
-                },
-                "vialidad": {
-                  "tipo_vial": "CALLE",
-                  "nom_vial": "El Rosal"
-                },
-                "numExt": {
-                  "numExt_num": 24
-                },
-                "numInt": {
-                  "numInt_alf": "S/N"
-                }
-              },
-              "domicilio_fiduciario": {
-                "pais": "MX",
-                "entidad_federativa": {
-                  "nom_ent": "México",
-                  "cve_ent": "15"
-                },
-                "municipio": {
-                  "nom_mun": "Ecatepec de Morelos",
-                  "cve_mun": "033"
-                },
-                "cp": "55018",
-                "localidad": {
-                  "nom_loc": "Ecatepec de Morelos",
-                  "cve_loc": "0001"
-                },
-                "vialidad": {
-                  "tipo_vial": "CALLE",
-                  "nom_vial": "El Rosal"
-                },
-                "numExt": {
-                  "numExt_num": 24
-                },
-                "numInt": {
-                  "numInt_alf": "S/N"
-                }
-              },
-              "fecha_nacimiento_constitucion_fideicomitente": "1995-12-31",
-              "fecha_nacimiento_constitucion_fideicomisario": "1994-12-31",
-              "fecha_nacimiento_constitucion_fiduciario": "1985-12-31",
-              "observaciones_comentarios": "no hay comentarios"
-            },
-            "bienes_intangibles": {
-              "titular": "declarante",
-              "tipo_operacion": "venta",
-              "propietario_registrado": "Sergio Perez",
-              "descripcion": "Aquí va una descripción breve",
-              "ente_publico_encargado_registro": {
-                "nombres": "Raúl",
-                "primer_apellido": "Segura",
-                "segundo_apellido": "García"
-              },
-              "numero_registro": 754444,
-              "fecha_registro": "1985-12-31",
-              "sector_industria": "Servicios financieros y seguros",
-              "precio_adquisicion": {
-                "valor": 4000,
-                "moneda": "MXN"
-              },
-              "forma_adquisicion": "cesión",
-              "fecha_vencimiento": "1985-12-31",
-              "porcentaje_propiedad_caso_copropiedad": 90,
-              "precio_total_adquisicion_caso_copropiedad": {
-                "valor": 4000,
-                "moneda": "MXN"
-              },
-              "nombre_denominacion_razon_social_copropietario": "Vien Inc,",
-              "porcentaje_propiedad_copropietario": 10,
-              "observaciones_comentarios": "No hay comentarios"
-            },
-            "cuentas_por_cobrar": {
-              "titular": "declarante",
-              "nombre_prestatario": {
-                "nombres": "Manuel",
-                "primer_apellido": "Tenorio",
-                "segundo_apellido": "García"
-              },
-              "numero_registro": 488755,
-              "domicilio_prestatarios": {
-                "pais": "MX",
-                "entidad_federativa": {
-                  "nom_ent": "México",
-                  "cve_ent": "15"
-                },
-                "municipio": {
-                  "nom_mun": "Ecatepec de Morelos",
-                  "cve_mun": "033"
-                },
-                "cp": "55018",
-                "localidad": {
-                  "nom_loc": "Ecatepec de Morelos",
-                  "cve_loc": "0001"
-                },
-                "vialidad": {
-                  "tipo_vial": "CALLE",
-                  "nom_vial": "El Rosal"
-                },
-                "numExt": {
-                  "numExt_num": 24
-                },
-                "numInt": {
-                  "numInt_alf": "S/N"
-                }
-              },
-              "sector_industria": "Servicios financieros y seguros",
-              "fecha_prestamo": "1985-12-31",
-              "monto_original_prestamo": 488844,
-              "tasa_interes": 10.01,
-              "saldo_pendiente": 4555,
-              "fecha_vencimiento": "1985-12-31",
-              "porcentaje_propiedad_caso_copropiedad": "",
-              "nombre_copropietario": {
-                "nombres": "Luis",
-                "primer_apellido": "Peralta",
-                "segundo_apellido": "García"
-              },
-              "observacione_comentarios": "aquí más comentarios"
-            },
-            "uso_beneficios_especie_propiedad_de_tercero": {
-              "titular": "declarante",
-              "tipo_bien_servicio": "inmueble",
-              "valor_mercado_aproximado": {
-                "valor": 4000,
-                "moneda": "MXN"
-              },
-              "nombre_denominacion_razon_social": "Marca Inc.",
-              "rfc_tercero_propietario": "PEGJ851231C33",
-              "curp_tercero_propietario": "PEGJ851231HVZRVR05",
-              "sector_industria": "Servicios financieros y seguros",
-              "relacion_persona": "socio",
-              "fecha_inicio": "1985-12-31",
-              "domicilio_persona": {
-                "pais": "MX",
-                "entidad_federativa": {
-                  "nom_ent": "México",
-                  "cve_ent": "15"
-                },
-                "municipio": {
-                  "nom_mun": "Ecatepec de Morelos",
-                  "cve_mun": "033"
-                },
-                "cp": "55018",
-                "localidad": {
-                  "nom_loc": "Ecatepec de Morelos",
-                  "cve_loc": "0001"
-                },
-                "vialidad": {
-                  "tipo_vial": "CALLE",
-                  "nom_vial": "El Rosal"
-                },
-                "numExt": {
-                  "numExt_num": 24
-                },
-                "numInt": {
-                  "numInt_alf": "S/N"
-                }
-              },
-              "observaciones_comentarios": "Aquí comentarios u observaciones"
-            }
+        },
+        "sector_industria": {
+          "codigo": "CPMY",
+          "valor": "Comercio al por mayor"
+        },
+        "porcentaje_facturacion": 20,
+        "observaciones": "xxx"
+      }],
+      "otras_partes": [{
+        "id": 1,
+        "titular": {
+          "id": 4,
+          "nombres": "Sergio",
+          "primer_apellido": "Rosas",
+          "segundo_apellido": "Reyes"
+        },
+        "tipo_parte": {
+          "codigo": "GPR",
+          "valor": "Garantes de Préstamos Recibidos"
+        },
+        "nombre_denominacion_parte": "",
+        "fecha_inicio_relacion": "2016-05-08",
+        "nacionalidad": {
+          "pais": "México",
+          "codigo": "MX"
+        },
+        "curp": "BEML920313HMCLNS09",
+        "rfc": "GOAP780710RH7",
+        "fecha_nacimiento": "1979-08-23",
+        "ocupacion_profesion": "Administrador de empresas",
+        "tiene_intereses": true,
+        "sector_industria": {
+          "codigo": "CPMY",
+          "valor": "Comercio al por mayor"
+        },
+        "observaciones": "xxx"
+      }],
+      "beneficios_gratuitos": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Carlos",
+          "primer_apellido": "Pérez",
+          "segundo_apellido": "López"
+        },
+        "tipo_beneficio": {
+          "codigo": "TARJ",
+          "valor": "Tarjetas o monederos electrónicos"
+        },
+        "origen_beneficio": "Prestación laboral",
+        "sector_industria": {
+          "codigo": "CPMY",
+          "valor": "Comercio al por mayor"
+        },
+        "valor_beneficio": 1256,
+        "observaciones": "xxx"
+      }]
+    },
+    "ingresos": {
+      "sueldos_y_salarios_publicos": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Sergio",
+          "primer_apellido": "Rodríguez",
+          "segundo_apellido": "López"
+        },
+        "ente_publico": "Presidencia de la República",
+        "rfc": "GOAP780710RH7",
+        "ingreso_bruto_anual": {
+          "valor": 10000,
+          "moneda": {
+            "codigo": "MXN",
+            "moneda": "Pesos"
+          },
+          "unidad_temporal": {
+            "codigo": "MESS",
+            "valor": "Meses"
+          },
+          "duracion_frecuencia": 10,
+          "fecha_transaccion": "2016-12-14"
+        },
+        "observaciones_comentarios": "no hay observaciones"
+      }],
+      "sueldos_salarios_otros_empleos": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Sergio",
+          "primer_apellido": "Rodríguez",
+          "segundo_apellido": "López"
+        },
+        "nombre_denominacion_razon_social": "Max Power Inc.",
+        "rfc": "PNKSD780710RH7",
+        "curp": "PEGJ851231HVZRVR05",
+        "sector_industria": {
+          "codigo": "SFS",
+          "valor": "Servicios financieros y seguros"
+        },
+        "tipo_actividad_servicio": {
+          "codigo": "SPU",
+          "valor": "Sector público"
+        },
+        "descripcion_actividad_servicio": "Servicio profesional de TI",
+        "domicilio_persona_recibe_ingreso": {
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
           }
-        ]
-      },
-      "pasivos": {
-        "deudas": [
-          {
-            "id": 1,
-            "titular": {
-              "id": "1",
-              "valor": "Declarante"
-            },
-            "tipo_operacion": {
-              "id": "1",
-              "valor:": "Incorporación"
-            },
-            "tipo_acreedor": {
-              "id": "1",
-              "valor": "Institución Financiera"
-            },
-            "tipo_adeudo": {
-              "id": "1",
-              "valor": "Compra de vehículo"
-            },
-            "identificador_deuda": "CONT12354",
-            "nacional_extranjero": {
-              "id": "1",
-              "valor": "Nacional"
-            },
-            "identificador_acreedor": "PNBKSRIBAS S.A. DE C.V",
-            "rfc_acreedor": "PNKSD780710RH7",
-            "sector_industria": {
-              "id": "9",
-              "valor": "Servicios financieros y seguros"
-            },
-            "domicilio_acreedor": {
-              "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
-              },
-              "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
-              },
-              "cp": "55018",
-              "localidad": {
-                "nom_loc": "Ecatepec de Morelos",
-                "cve_loc": "0001"
-              },
-              "vialidad": {
-                "tipo_vial": "CALLE",
-                "nom_vial": "El Rosal"
-              },
-              "numExt": {
-                "numExt_num": 24
-              },
-              "numInt": {
-                "numInt_alf": "S/N"
-              }
-            },
-            "fecha_adeudo": "2016-12-14",
-            "monto_original": "277900",
-            "tipo_moneda": "MXN",
-            "tasa_interes": 12,
-            "saldo_pendiente": 28000,
-            "plazo_adeudo": 24,
-            "unidad_medida_adeudo": {
-              "id": 3,
-              "valor": "meses"
-            },
-            "titularidad_deuda": {
-              "id": "1",
-              "valor": "Declarante"
-            },
-            "porcentaje_adeudo_titular": 100,
-            "garantia": false,
-            "observaciones": "xxxx"
+        },
+        "ingreso_bruto_anual": {
+          "valor": 20000,
+          "moneda": {
+            "codigo": "MXN",
+            "valor": "Pesos"
+          },
+          "unidad_temporal": {
+            "codigo": "SEMS",
+            "valor": "Semanas"
+          },
+          "duracion_frecuencia": 10,
+          "fecha_transaccion": "2016-12-14"
+        },
+        "observaciones_comentarios": "no hay observaciones"
+      }],
+      "actividad_profesional": [{
+        "id": 1,
+        "titular": {
+          "id": 2,
+          "nombres": "Juan",
+          "primer_apellido": "Tovar",
+          "segundo_apellido": "López"
+        },
+        "nombre_denominacion_razon_social": "Nombre",
+        "rfc": "PEGJ851231",
+        "curp": "PEGJ851231HVZRVR05",
+        "sector_industria": {
+          "codigo": "SFS",
+          "valor": "Servicios financieros y seguros"
+        },
+        "tipo_actividad_servicio": {
+          "codigo": "SPU",
+          "valor": "Sector Público"
+        },
+        "descripcion_actividad_servicio": "Descripción del servicio",
+        "domicilio_persona_recibe_ingreso": {
+          "pais": "MX",
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
           }
-        ],
-        "otras_obligaciones": [
-          {
-            "id":1,
-            "titular":{
-              "id":"1",
-              "valor":"declarante"
-            },
-            "tipo_operacion": {
-              "id": "1",
-              "valor:": "Incorporación"
-            },
-            "tipo_acreedor": {
-              "id": "1",
-              "valor": "Institución Financiera"
-            },
-            "tipo_obligacion":{
-              "id":"3",
-              "valor":"Crédito Hipotecario"
-            },
-            "identificador_obligacion":"FONAET8945",
-            "nacional_extranjero":{
-              "id":"1",
-              "valor":"México"
-            },
-            "identificador_acreedor":"INFONAVIT",
-            "rfc_acreedor":"NHJR89ASS5R5",
-            "sector_industria": {
-              "id": "9",
-              "valor": "Servicios financieros y seguros"
-            },
-            "domicilio_acreedor": {
-              "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
-              },
-              "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
-              },
-              "cp": "55018",
-              "localidad": {
-                "nom_loc": "Ecatepec de Morelos",
-                "cve_loc": "0001"
-              },
-              "vialidad": {
-                "tipo_vial": "CALLE",
-                "nom_vial": "El Rosal"
-              },
-              "numExt": {
-                "numExt_num": 24
-              },
-              "numInt": {
-                "numInt_alf": "S/N"
-              }
-            },
-            "fecha_obligacion":"2018-03-14",
-            "monto_original":300000,
-            "tipo_moneda":"MXN",
-            "tasa_interes":12,
-            "saldo_pendiente":297000,
-            "plazo_obligacion":360,
-            "unidad_medida_plazo":{
-              "id":"2",
-              "valor":"meses"
-            },
-            "titularidad_obligacion": {
-              "id": "1",
-              "valor": "Declarante"
-            },
-            "porcentaje_obligacion_titular": 100,
-            "garantia": false,
-            "observaciones": "xxxx"
+        },
+        "ingreso_bruto_anual": {
+          "valor": 20000,
+          "moneda": {
+            "codigo": "MXN",
+            "moneda": "Pesos"
+          },
+          "unidad_temporal": {
+            "codigo": "MESS",
+            "valor": "Meses"
+          },
+          "duracion_frecuencia": 10,
+          "fecha_transaccion": "2016-12-14"
+        },
+        "observaciones_comentarios": "no hay observaciones"
+      }],
+      "actividad_empresarial": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Sergio",
+          "primer_apellido": "Rodríguez",
+          "segundo_apellido": "López"
+        },
+        "nombre_denominacion_razon_social": "Empresa S.A.",
+        "rfc": "PNKSD780710RH7",
+        "curp": "PEGJ851231HVZRVR05",
+        "sector_industria": {
+          "codigo": "SFS",
+          "valor": "Servicios financieros y seguros"
+        },
+        "tipo_actividad_servicio": {
+          "codigo": "SPU",
+          "nombre": "Sector público"
+        },
+        "descripcion_actividad_servicio": "Descripción del servicio",
+        "domicilio_actividad_empresarial": {
+          "pais": "MX",
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
           }
-        ]
-      }
+        },
+        "ingreso_bruto_anual": {
+          "valor": 20000,
+          "moneda": {
+            "codigo": "MXN",
+            "moneda": "Pesos"
+          },
+          "unidad_temporal": {
+            "codigo": "SEMS",
+            "valor": "Semanas"
+          },
+          "duracion_frecuencia": 10,
+          "fecha_transaccion": "2016-12-14"
+        },
+        "observaciones_comentarios": "no hay observaciones"
+      }],
+      "actividad_economica_menor": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Sergio",
+          "primer_apellido": "Rodríguez",
+          "segundo_apellido": "López"
+        },
+        "nombre_denominacion_razon_social": "Nombre",
+        "rfc": "PNKSD780710RH7",
+        "curp": "PEGJ851231HVZRVR05",
+        "sector_industria": {
+          "codigo": "SFS",
+          "valor": "Servicios financieros y seguros"
+        },
+        "tipo_actividad_servicio": {
+          "codigo": "SPU",
+          "valor": "Sector público"
+        },
+        "descripcion_actividad_servicio": "Descripción del servicio",
+        "domicilio_actividad": {
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
+          }
+        },
+        "ingreso_bruto_anual": {
+          "valor": 20000,
+          "moneda": {
+            "codigo": "MXN",
+            "moneda": "Pesos"
+          },
+          "unidad_temporal": {
+            "codigo": "SEMS",
+            "valor": "Semanas"
+          },
+          "duracion_frecuencia": 10,
+          "fecha_transaccion": "2016-12-14"
+        },
+        "observaciones_comentarios": "no hay observaciones"
+      }],
+      "arrendamiento": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Sergio",
+          "primer_apellido": "Rodríguez",
+          "segundo_apellido": "López"
+        },
+        "nombre_denominacion_razon_social": "",
+        "rfc": "PNKSD780710RH7",
+        "curp": "PEGJ851231HVZRVR05",
+        "sector_industria": {
+          "codigo": "SFS",
+          "valor": "Servicios financieros y seguros"
+        },
+        "tipo_actividad_servicio": {
+          "codigo": "SPU",
+          "valor": "Sector público"
+        },
+        "descripcion_actividad_servicio": "Descripción del servicio",
+        "domicilio_actividad": {
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
+          }
+        },
+        "ingreso_bruto_anual": {
+          "valor": 20000,
+          "moneda": {
+            "codigo": "MXN",
+            "moneda": "Pesos"
+          },
+          "unidad_temporal": {
+            "codigo": "SEMS",
+            "valor": "Semanas"
+          },
+          "duracion_frecuencia": 10,
+          "fecha_transaccion": "2016-12-14"
+        },
+        "observaciones_comentarios": "no hay observaciones"
+      }],
+      "intereses": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Sergio",
+          "primer_apellido": "Rodríguez",
+          "segundo_apellido": "López"
+        },
+        "nombre_denominacion_razon_social": "BANC S.A.",
+        "rfc": "PNKSD780710RH7",
+        "curp": "PEGJ851231HVZRVR05",
+        "sector_industria": {
+          "codigo": "SFS",
+          "valor": "Servicios financieros y seguros"
+        },
+        "tipo_actividad_servicio": {
+          "codigo": "SPU",
+          "valor": "Sector público"
+        },
+        "descripcion_actividad_servicio": "Descripción del servicio",
+        "domicilio": {
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
+          }
+        },
+        "ingreso_bruto_anual": {
+          "valor": 20000,
+          "moneda": {
+            "codigo": "MXN",
+            "moneda": "Pesos"
+          },
+          "unidad_temporal": {
+            "codigo": "SEMS",
+            "valor": "Semanas"
+          },
+          "duracion_frecuencia": 10,
+          "fecha_transaccion": "2016-12-14"
+        },
+        "observaciones_comentarios": "no hay observaciones"
+      }],
+      "premios": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Sergio",
+          "primer_apellido": "Rodríguez",
+          "segundo_apellido": "López"
+        },
+        "nombre_denominacion_razon_social": "Loteria Nacional",
+        "rfc": "PNKSD780710RH7",
+        "curp": "PEGJ851231HVZRVR05",
+        "sector_industria": {
+          "codigo": "SFS",
+          "valor": "Servicios financieros y seguros"
+        },
+        "tipo_actividad_servicio": {
+          "codigo": "SPU",
+          "valor": "Sector público"
+        },
+        "descripcion_actividad_servicio": "Descripción del servicio",
+        "domicilio": {
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
+          }
+        },
+        "ingreso_bruto_anual": {
+          "valor": 20000,
+          "moneda": {
+            "codigo": "MXN",
+            "moneda": "Pesos"
+          },
+          "unidad_temporal": {
+            "codigo": "SEMS",
+            "valor": "Semanas"
+          },
+          "duracion_frecuencia": 10,
+          "fecha_transaccion": "2016-12-14"
+        },
+        "observaciones_comentarios": "no hay observaciones"
+      }],
+      "enajenacion_bienes": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Sergio",
+          "primer_apellido": "Rodríguez",
+          "segundo_apellido": "López"
+        },
+        "nombre_denominacion_razon_social": "",
+        "rfc": "PNKSD780710RH7",
+        "curp": "PEGJ851231HVZRVR05",
+        "sector_industria": {
+          "codigo": "SFS",
+          "valor": "Servicios financieros y seguros"
+        },
+        "tipo_actividad_servicio": {
+          "codigo": "SPU",
+          "valor": "Sector público"
+        },
+        "descripcion_actividad_servicio": "Descripción del servicio",
+        "domicilio_bien_enajenado": {
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
+          }
+        },
+        "ingreso_bruto_anual": {
+          "valor": 20000,
+          "moneda": {
+            "codigo": "MXN",
+            "moneda": "Pesos"
+          },
+          "unidad_temporal": {
+            "codigo": "SEMS",
+            "valor": "Semanas"
+          },
+          "duracion_frecuencia": 10,
+          "fecha_transaccion": "2016-12-14"
+        },
+        "observaciones_comentarios": "no hay observaciones"
+      }],
+      "otros_ingresos": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Sergio",
+          "primer_apellido": "Rodríguez",
+          "segundo_apellido": "López"
+        },
+        "nombre_denominacion_razon_social": "Centro Educativo",
+        "rfc": "PNKSD780710RH7",
+        "curp": "PEGJ851231HVZRVR05",
+        "sector_industria": {
+          "codigo": "SFS",
+          "valor": "Servicios financieros y seguros"
+        },
+        "tipo_actividad_servicio": {
+          "codigo": "SPU",
+          "valor": "Sector público"
+        },
+        "descripcion_actividad_servicio": "Descripción del servicio",
+        "domicilio_actividad_situacion": {
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
+          }
+        },
+        "ingreso_bruto_anual": {
+          "valor": 20000,
+          "moneda": {
+            "codigo": "MXN",
+            "moneda": "Pesos"
+          },
+          "unidad_temporal": {
+            "codigo": "SEMS",
+            "valor": "Semanas"
+          },
+          "duracion_frecuencia": 10,
+          "fecha_transaccion": "2016-12-14"
+        },
+        "observaciones_comentarios": "no hay observaciones"
+      }]
+    },
+    "activos": {
+      "bienes_inmuebles": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido": "Rosales",
+          "segundo_apellido": "Trueba"
+        },
+        "tipo_operacion": {
+          "codigo": "INCP",
+          "valor:": "Incorporación"
+        },
+        "tipo_bien": {
+          "codigo": "VEH",
+          "valor:": "Vehículo"
+        },
+        "superficie_terreno": 300,
+        "superficie_construccion": 100,
+        "porcentaje_propiedad": 100,
+        "nombre_copropietario": {
+          "nombres": "Juan",
+          "primer_apellido": "Pérez",
+          "segundo_apellido": "García"
+        },
+        "identificacion_bien": {
+          "numero_escritura_publica": 202020,
+          "numero_registro_publico_propiedad": 404040,
+          "folio_real": "jsjs74747",
+          "fecha_contrato_compra-venta_privado": "1985-12-31"
+        },
+        "domicilio_donde_ubica_bien": {
+          "pais": "MX",
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
+          }
+        },
+        "forma_adquisicion": {
+          "codigo": "CONY",
+          "valor:": "Cónyuge"
+        },
+        "nombre_denominacion_razon_social_quien_adquirio": "Monster Inc.",
+        "rfc_quien_adquirio": "PEGJ851231C33",
+        "curp_quien_adquirio": "PEGJ851231HVZRVR05",
+        "relacion_con_persona_quien_adquirio_inmueble": {
+          "codigo": "",
+          "valor:": ""
+        },
+        "sector_industria": {
+          "codigo": "MINE",
+          "valor:": "Minería"
+        },
+        "fecha_adquisicion": "1985-12-31",
+        "precio_adquisicion": {
+          "valor": 4000,
+          "moneda": "MXN"
+        },
+        "valor_catastral": 800.00,
+        "observaciones_comentarios": "No hay comentarios"
+      }],
+      "bienes_muebles_registrables": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido": "Rosales",
+          "segundo_apellido": "Trueba"
+        },
+        "tipo_operacion": {
+          "codigo": "INCP",
+          "valor:": "Incorporación"
+        },
+        "tipo_bien_mueble": {
+          "codigo": "VEH",
+          "valor:": "Vehículo"
+        },
+        "marca": "NISSAN",
+        "submarca_linea_tipo": "RS-122234",
+        "modelo": "2018",
+        "numero_serie": "6545243-4334",
+        "lugar_registro": {
+          "codigo": "MX",
+          "valor:": "México"
+        },
+        "porcentaje_propiedad": 99,
+        "nombres_copropietarios": [{
+          "nombres": "Juan",
+          "primer_apellido": "Pérez",
+          "segundo_apellido": "García"
+        }, {
+          "nombres": "Manuel",
+          "primer_apellido": "Tenorio",
+          "segundo_apellido": "García"
+        }],
+        "numero_registro_publico_vehicular": 455000,
+        "forma_adquisicion": {
+          "codigo": "CES",
+          "valor:": "Cesión"
+        },
+        "nombre_denominacion_razon_social_quien_adquirio": "Monstr Inc.",
+        "rfc_quien_adquirio": "PEGJ851231C33",
+        "curp_quien_adquirio": "PEGJ851231HVZRVR05",
+        "relacion_con_persona_quien_adquirio_inmueble": {
+          "codigo": "DEC",
+          "valor:": "Dependiente económico"
+        },
+        "sector_industria": {
+          "codigo": "MINE",
+          "valor:": "Minería"
+        },
+        "fecha_adquisicion": "1985-12-31",
+        "precio_adquisicion": {
+          "valor": 4000,
+          "mmoneda": "MXN"
+        },
+        "valor_catastral": 4500,
+        "observaciones_comentarios": "No hay comentarios"
+      }],
+      "bienes_muebles_no_registrables": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido": "Rosales",
+          "segundo_apellido": "Trueba"
+        },
+        "tipo_operacion": {
+          "codigo": "INCP",
+          "valor:": "Incorporación"
+        },
+        "tipo_bien": {
+          "codigo": "BAR",
+          "valor:": "Barco"
+        },
+        "descripcion": "sin descripción",
+        "numero_registro": 458800,
+        "lugar_registro": "MX",
+        "nombres_copropietarios": [{
+          "nombres": "Juan",
+          "primer_apellido": "Pérez",
+          "segundo_apellido": "García"
+        }, {
+          "nombres": "Manuel",
+          "primer_apellido": "Tenorio",
+          "segundo_apellido": "García"
+        }],
+        "forma_adquisicion": {
+          "codigo": "CES",
+          "valor:": "Cesión"
+        },
+        "nombre_denominacion_razon_social_quien_adquirio": "Tesl Mtr Inc.",
+        "relacion_con_persona_quien_adquirio": {
+          "codigo": "CONY",
+          "valor:": "Cónyuge"
+        },
+        "fecha_adquisicion": "1995-12-31",
+        "precio_adquisicion": {
+          "valor": 4000,
+          "moneda": "MXN"
+        },
+        "observaciones_comentarios": "No hay comentarios"
+      }],
+      "inversiones_cuentas_valores": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido": "Rosales",
+          "segundo_apellido": "Trueba"
+        },
+        "tipo_operacion": {
+          "codigo": "INCP",
+          "valor:": "Incorporación"
+        },
+        "tipo_inversion": {
+          "codigo": "VENT",
+          "valor:": "Venta"
+        },
+        "tipo_especifico_inversion": {
+          "codigo": "ACCS",
+          "valor:": "Acciones"
+        },
+        "numero_cuenta_contrato_inversion": "GFHRTY788778",
+        "nacional_extranjero": {
+          "codigo": "MEX",
+          "valor:": "México"
+        },
+        "nombre_institucion": "Bank Inkc",
+        "rfc_institucion": "PEGJ851231C33",
+        "sector_industria": {
+          "codigo": "MINE",
+          "valor:": "Minería"
+        },
+        "domicilio_institucion": {
+          "pais": "MX",
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
+          }
+        },
+        "forma_adquisicion": {
+          "codigo": "CES",
+          "valor:": "Cesión"
+        },
+        "fecha_inicio": "1985-12-31",
+        "monto_original": 80000,
+        "tipo_moneda": "USD",
+        "tasa_interes": 10.00,
+        "saldo_anual": 5000,
+        "plazo": 6,
+        "unidad_medida_plazo": {
+          "codigo": "DIAS",
+          "valor:": "Días"
+        },
+        "porcentaje_inversion": 99.9,
+        "observaciones_comentarios": "No hay comentarios"
+      }],
+      "efectivo_metales": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido": "Rosales",
+          "segundo_apellido": "Trueba"
+        },
+        "tipo_operacion": {
+          "codigo": "INCP",
+          "valor:": "Incorporación"
+        },
+        "tipo_moneda": "USD",
+        "monto": 78555,
+        "tipo_metal": {
+          "codigo": "ORO",
+          "valor:": "Oro"
+        },
+        "unidades": "gramos",
+        "forma_adquisicion": {
+          "codigo": "CES",
+          "valor:": "Cesión"
+        },
+        "observaciones_comentarios": "No hay comentarios"
+      }],
+      "fideicomisos": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido": "Rosales",
+          "segundo_apellido": "Trueba"
+        },
+        "tipo_operacion": {
+          "codigo": "INCP",
+          "valor:": "Incorporación"
+        },
+        "nombre_identificador": "93232",
+        "tipo_fideicomiso": {
+          "codigo": "GARNT",
+          "valor:": "Garantía"
+        },
+        "objetivo": "Objetivo del fideicomiso",
+        "numero_registro": 788544,
+        "fecha_creacion": "2005-12-31",
+        "vigencia": "2006-12-31",
+        "residencia": {
+          "codigo": "MEX",
+          "valor:": "México"
+        },
+        "valor": 78555555,
+        "moneda": "MXN",
+        "porcentaje_propiedad_derechos_fiduciarios": 99,
+        "ingreso_monetario_obtenido": 56666,
+        "institucion_fiduciaria": "Banco de México",
+        "nombre_denominacion_razon_social_fideicomitente": "Banco Robmen1",
+        "nombre_denominacion_razon_social_fideicomisario": "Banco Robmen2",
+        "nombre_denominacion_razon_social_fiduciario": "Banco Robmenos2",
+        "rfc_fideicomitente": "ZEGJ851231C33",
+        "rfc_fideicomsario": "YEGJ851231C33",
+        "rfc_fiduciario": "XEGJ851231C33",
+        "curp_fideicomitente": "ZEGJ851231HVZRVR05",
+        "curp_fideicomisario": "YEGJ851231HVZRVR05",
+        "curp_fiduciario": "XEGJ851231HVZRVR05",
+        "domicilio_fideicomitente": {
+          "pais": "MX",
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
+          }
+        },
+        "domicilio_fideicomisario": {
+          "pais": "MX",
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
+          }
+        },
+        "domicilio_fiduciario": {
+          "pais": "MX",
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
+          }
+        },
+        "fecha_nacimiento_constitucion_fideicomitente": "1995-12-31",
+        "fecha_nacimiento_constitucion_fideicomisario": "1994-12-31",
+        "fecha_nacimiento_constitucion_fiduciario": "1985-12-31",
+        "observaciones_comentarios": "no hay comentarios"
+      }],
+      "bienes_intangibles": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido": "Rosales",
+          "segundo_apellido": "Trueba"
+        },
+        "tipo_operacion": {
+          "codigo": "INCP",
+          "valor:": "Incorporación"
+        },
+        "propietario_registrado": "Sergio Perez",
+        "descripcion": "Aquí va una descripción breve",
+        "ente_publico_encargado_registro": {
+          "nombres": "Raúl",
+          "primer_apellido": "Segura",
+          "segundo_apellido": "García"
+        },
+        "numero_registro": 754444,
+        "fecha_registro": "1985-12-31",
+        "sector_industria": {
+          "codigo": "MINE",
+          "valor:": "Minería"
+        },
+        "precio_adquisicion": {
+          "valor": 4000,
+          "moneda": "MXN"
+        },
+        "forma_adquisicion": {
+          "codigo": "CES",
+          "valor:": "Cesión"
+        },
+        "fecha_vencimiento": "1985-12-31",
+        "porcentaje_propiedad_caso_copropiedad": 90,
+        "precio_total_adquisicion_caso_copropiedad": {
+          "valor": 4000,
+          "moneda": "MXN"
+        },
+        "nombre_denominacion_razon_social_copropietario": "Vien Inc,",
+        "porcentaje_propiedad_copropietario": 10,
+        "observaciones_comentarios": "No hay comentarios"
+      }],
+      "cuentas_por_cobrar": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido": "Rosales",
+          "segundo_apellido": "Trueba"
+        },
+        "nombre_prestatario": {
+          "nombres": "Manuel",
+          "primer_apellido": "Tenorio",
+          "segundo_apellido": "García"
+        },
+        "numero_registro": 488755,
+        "domicilio_prestatarios": {
+          "pais": "MX",
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
+          }
+        },
+        "sector_industria": {
+          "codigo": "MINE",
+          "valor:": "Minería"
+        },
+        "fecha_prestamo": "1985-12-31",
+        "monto_original_prestamo": 488844,
+        "tasa_interes": 10.01,
+        "saldo_pendiente": 4555,
+        "fecha_vencimiento": "1985-12-31",
+        "porcentaje_propiedad_caso_copropiedad": "",
+        "nombre_copropietario": {
+          "nombres": "Luis",
+          "primer_apellido": "Peralta",
+          "segundo_apellido": "García"
+        },
+        "observacione_comentarios": "aquí más comentarios"
+      }],
+      "uso_beneficios_especie_propiedad_de_tercero": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido": "Rosales",
+          "segundo_apellido": "Trueba"
+        },
+        "tipo_bien_servicio": "inmueble",
+        "valor_mercado_aproximado": {
+          "valor": 4000,
+          "moneda": "MXN"
+        },
+        "nombre_denominacion_razon_social": "Marca Inc.",
+        "rfc_tercero_propietario": "PEGJ851231C33",
+        "curp_tercero_propietario": "PEGJ851231HVZRVR05",
+        "sector_industria": "Servicios financieros y seguros",
+        "relacion_persona": {
+          "codigo": "CONY",
+          "valor:": "Cónyuge"
+        },
+        "fecha_inicio": "1985-12-31",
+        "domicilio_persona": {
+          "pais": "MX",
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
+          }
+        },
+        "observaciones_comentarios": "Aquí comentarios u observaciones"
+      }]
+    },
+    "pasivos": {
+      "deudas": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido": "Rosales",
+          "segundo_apellido": "Trueba"
+        },
+        "tipo_operacion": {
+          "codigo": "INCP",
+          "valor:": "Incorporación"
+        },
+        "tipo_acreedor": {
+          "codigo": "INSTF",
+          "valor": "Institución Financiera"
+        },
+        "tipo_adeudo": {
+          "codigo": "CVH",
+          "valor": "Compra de vehículo"
+        },
+        "identificador_deuda": "CONT12354",
+        "nacional_extranjero": {
+          "codigo": "MEX",
+          "valor": "México"
+        },
+        "identificador_acreedor": "PNBKSRIBAS S.A. DE C.V",
+        "rfc_acreedor": "PNKSD780710RH7",
+        "sector_industria": {
+          "codigo": "SFS",
+          "valor": "Servicios financieros y seguros"
+        },
+        "domicilio_acreedor": {
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
+          }
+        },
+        "fecha_adeudo": "2016-12-14",
+        "monto_original": 277900,
+        "tipo_moneda": {
+          "codigo": "MXN",
+          "moneda": "Pesos"
+        },
+        "tasa_interes": 12,
+        "saldo_pendiente": 28000,
+        "plazo_adeudo": 24,
+        "unidad_medida_adeudo": {
+          "codigo": "MESS",
+          "valor": "Meses"
+        },
+        "titularidad_deuda": {
+          "codigo": "DECL",
+          "valor": "Declarante"
+        },
+        "porcentaje_adeudo_titular": 100,
+        "garantia": false,
+        "observaciones": "xxxx"
+      }],
+      "otras_obligaciones": [{
+        "id": 1,
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido": "Rosales",
+          "segundo_apellido": "Trueba"
+        },
+        "tipo_operacion": {
+          "codigo": "INCP",
+          "valor:": "Incorporación"
+        },
+        "tipo_acreedor": {
+          "codigo": "INSTF",
+          "valor": "Institución Financiera"
+        },
+        "tipo_obligacion": {
+          "codigo": "CHIP",
+          "valor": "Créditos Hipotecarios"
+        },
+        "identificador_obligacion": "FONAET8945",
+        "nacional_extranjero": {
+          "codigo": "MEX",
+          "valor": "México"
+        },
+        "identificador_acreedor": "INFONAVIT",
+        "rfc_acreedor": "NHJR89ASS5R5",
+        "sector_industria": {
+          "codigo": "SFS",
+          "valor": "Servicios financieros y seguros"
+        },
+        "domicilio_acreedor": {
+          "entidad_federativa": {
+            "nom_ent": "México",
+            "cve_ent": "15"
+          },
+          "municipio": {
+            "nom_mun": "Ecatepec de Morelos",
+            "cve_mun": "033"
+          },
+          "cp": "55018",
+          "localidad": {
+            "nom_loc": "Ecatepec de Morelos",
+            "cve_loc": "0001"
+          },
+          "vialidad": {
+            "tipo_vial": "CALLE",
+            "nom_vial": "El Rosal"
+          },
+          "numExt": {
+            "numExt_num": 24
+          },
+          "numInt": {
+            "numInt_alf": "S/N"
+          }
+        },
+        "fecha_obligacion": "2018-03-14",
+        "monto_original": 300000,
+        "tipo_moneda": {
+          "codigo": "MXN",
+          "moneda": "Pesos"
+        },
+        "tasa_interes": 12,
+        "saldo_pendiente": 297000,
+        "plazo_obligacion": 360,
+        "unidad_medida_plazo": {
+          "codigo": "MESS",
+          "valor": "Meses"
+        },
+        "titularidad_obligacion": {
+          "codigo": "CONY",
+          "valor": "Conyuge"
+        },
+        "porcentaje_obligacion_titular": 100,
+        "garantia": false,
+        "observaciones": "xxxx"
+      }]
     }
-  ]
+  }]
 }

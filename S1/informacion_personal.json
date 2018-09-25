@@ -51,11 +51,11 @@
     }
   },
   "estado_civil_situacion_personal": {
-    "codigo": "CA",
+    "codigo": "CAS",
     "valor": "Casado (a)"
   },
   "regimen_matrimonial": {
-    "codigo": "SB",
+    "codigo": "SBI",
     "valor": "separación de bienes"
   },
   "Fecha_declaracion":"2018-08-30"

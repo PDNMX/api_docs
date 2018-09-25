@@ -3,7 +3,7 @@
     {
       "id": 1,
       "titular": {
-        "id": "1",
+        "id": 1,
         "valor": "Carlos Pérez López"
       },
       "nombre_empesa_sociedad_asociacion": "DataIQ",
@@ -52,7 +52,7 @@
     {
       "id": 1,
       "titular": {
-        "id": "2",
+        "id": 2,
         "valor": "Ana Nieto Camacho"
       },
       "tipo_institucion": {
@@ -100,7 +100,7 @@
     {
       "id": 1,
       "titular": {
-        "id": "1",
+        "id": 1,
         "valor": "Carlos Pérez López"
       },
       "es_beneficiario": true,
@@ -122,7 +122,7 @@
     {
       "id": 1,
       "titular": {
-        "id": "3",
+        "id": 3,
         "valor": "Fidel Gómez Urrutia"
       },
       "tipo_representacion": {
@@ -146,7 +146,7 @@
     {
       "id": 1,
       "titular": {
-        "id": "2",
+        "id": 2,
         "valor": "Cecilia Gómez Urrutia"
       },
       "tipo_representacion": {
@@ -174,7 +174,7 @@
     {
       "id": 1,
       "titular": {
-        "id": "2",
+        "id": 2,
         "valor": "Cecilia Gómez Urrutia"
       },
       "nombre_actividad": "Actividad",
@@ -203,7 +203,7 @@
     {
       "id": 1,
       "titular": {
-        "id": "4",
+        "id": 4,
         "valor": "Cecilia Gómez Urritia"
       },
       "nombre_naturaleza_negocio": {
@@ -251,7 +251,7 @@
     {
       "id": 1,
       "titular": {
-        "id": "4",
+        "id": 4,
         "valor": "Sergio Rosas Reyes"
       },
       "tipo_parte": {
@@ -278,9 +278,9 @@
   ],
   "beneficios_gratuitos": [
     {
-      "id": "1",
+      "id": 1,
       "titular": {
-        "id": "1",
+        "id": 1,
         "valor": "Carlos Pérez López"
       },
       "tipo_beneficio": {

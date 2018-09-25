@@ -1,6 +1,6 @@
 {
   "pagination": {
-    "pageSize": 1,
+    "page_size": 1,
     "page": 1,
     "total": 77523
   },

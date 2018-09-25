@@ -4,7 +4,7 @@
       "id": 1,
       "titular": {
         "id": "1",
-        "valor": "Declarante"
+        "valor": "Carlos Pérez López"
       },
       "nombre_empesa_sociedad_asociacion": "DataIQ",
       "pais_registro": {
@@ -39,13 +39,10 @@
           "numInt_alf": "S/N"
         }
       },
-      "rol": {
-        "id": "1",
-        "valor": "Dueño"
-      },
+      "rol":"Dueño",
       "actividad_Economica": true,
       "sector_industria": {
-        "id": "6",
+        "codigo": "CPMY",
         "valor": "Comercio al por mayor"
       },
       "porcentaje_participacion": 70
@@ -56,17 +53,14 @@
       "id": 1,
       "titular": {
         "id": "2",
-        "valor": "Cónyuge"
+        "valor": "Ana Nieto Camacho"
       },
       "tipo_institucion": {
-        "id": "2",
+        "codigo": "ASC",
         "valor": "Asociaciones civiles"
       },
       "nombre_institucion": "Asociacion A.C",
-      "naturaleza_membresia": {
-        "id": "3",
-        "valor": "Civil"
-      },
+      "naturaleza_membresia": "Civil",
       "domicilio": {
         "entidad_federativa": {
           "nom_ent": "México",
@@ -93,13 +87,10 @@
         }
       },
       "sector_industria": {
-        "id": "6",
-        "valor": "Comercio al por mayor"
+        "codigo": "SSAS",
+        "valor": "Servicios de salud y asistencia social"
       },
-      "rol": {
-        "id": "1",
-        "valor": "Dueño"
-      },
+      "rol": "Titular",
       "fecha_inicio": "2018-05-14",
       "pagado": true,
       "observaciones": "XXX"
@@ -109,26 +100,21 @@
     {
       "id": 1,
       "titular": {
-        "id": "5",
-        "valor": "Dependiente económico"
+        "id": "1",
+        "valor": "Carlos Pérez López"
       },
       "es_beneficiario": true,
-      "programa": {
-        "nombre_programa": "Programa de Estímulos Económicos a Deportistas del Distrito Federal",
-        "institucion_otorgante": {
-          "id": "21",
-          "valor": "Instituto del Deporte del Distrito Federal "
-        },
-        "nivel_orden_gobierno": {
-          "id": "2",
-          "valor": "Federal"
+      "programa": "Programa de Estímulos Económicos a Deportistas del Distrito Federal",
+      "institucion_otorgante" : "Instituto del Deporte del Distrito Federal ",
+      "nivel_orden_gobierno": {
+          "codigo": "EST",
+          "valor": "Estatal"
         },
         "tipo_apoyo": {
-          "id": "3",
-          "valor": "Estimulo económico"
+          "codigo": "SERV",
+          "valor": "Servicio"
         },
-        "valor_apoyo": "7500"
-      },
+        "valor_apoyo": 7500,
       "observaciones": "xxx"
     }
   ],
@@ -140,7 +126,7 @@
         "valor": "Fidel Gómez Urrutia"
       },
       "tipo_representacion": {
-        "id": "4",
+        "codigo": "APOD",
         "valor": "Apoderado"
       },
       "nombre_parte": "Cecilia Gómez Urrutia",
@@ -148,7 +134,7 @@
       "rfc_parte": "GOAP780710RH7",
       "fecha_nacimiento_parte": "1956-08-15",
       "sector_industria": {
-        "id": "6",
+        "codigo": "CPMY",
         "valor": "Comercio al por mayor"
       },
       "fecha_inicio": "2017-08-12",
@@ -164,7 +150,7 @@
         "valor": "Cecilia Gómez Urrutia"
       },
       "tipo_representacion": {
-        "id": "3",
+        "codigo": "APOD",
         "valor": "Apoderado"
       },
       "nombre_representante": "Augusto Fernández Castro",
@@ -176,12 +162,9 @@
       "curp_representante": "BEML920313HMCLNS09",
       "rfc_representante": "GOAP780710RH7",
       "tiene_intereses": true,
-      "ocupacion_profesion": {
-        "id": "3",
-        "valor": "Contador"
-      },
+      "ocupacion_profesion": "Contador",
       "sector_industria": {
-        "id": "6",
+        "codigo": "CPMY",
         "valor": "Comercio al por mayor"
       },
       "observaciones": "xxx"
@@ -194,9 +177,9 @@
         "id": "2",
         "valor": "Cecilia Gómez Urrutia"
       },
-      "nombre_actividad": "",
+      "nombre_actividad": "Actividad",
       "tipo_vinculo": {
-        "id": "1",
+        "codigo": "SOC",
         "valor": "Socio"
       },
       "antiguedad_vinculo": "2017-05-14",
@@ -210,7 +193,7 @@
       },
       "porcentaje_participacion": 70,
       "sector_industria": {
-        "id": "6",
+        "codigo": "CPMY",
         "valor": "Comercio al por mayor"
       },
       "observaciones": "xxx"
@@ -220,16 +203,16 @@
     {
       "id": 1,
       "titular": {
-        "id": "2",
+        "id": "4",
         "valor": "Cecilia Gómez Urritia"
       },
       "nombre_naturaleza_negocio": {
-        "id": "3",
-        "valor": "XXXX"
+        "codigo": "Negocio",
+        "valor": "Nombre negocio"
       },
       "numero_Registro": "HTC896DSFA",
       "dueño_encargado": "Salvador Hernández Torres",
-      "nombre_denominacion_social_cliente": "",
+      "nombre_denominacion_social_cliente": "AMEX.S.A.",
       "rfc_cliente": "GOAP780710RH7",
       "domicilio_cliente": {
         "entidad_federativa": {
@@ -257,7 +240,7 @@
         }
       },
       "sector_industria": {
-        "id": "6",
+        "codigo": "CPMY",
         "valor": "Comercio al por mayor"
       },
       "porcentaje_facturacion": 20,
@@ -272,7 +255,7 @@
         "valor": "Sergio Rosas Reyes"
       },
       "tipo_parte": {
-        "id": "2",
+        "codigo": "GPR",
         "valor": "Garantes de Préstamos Recibidos"
       },
       "nombre_denominacion_parte": "",
@@ -284,13 +267,10 @@
       "curp": "BEML920313HMCLNS09",
       "rfc": "GOAP780710RH7",
       "fecha_nacimiento": "1979-08-23",
-      "ocupacion_profesion": {
-        "id": "54",
-        "valor": "Administrador de empresas"
-      },
+      "ocupacion_profesion": "Administrador de empresas",
       "tiene_intereses": true,
       "sector_industria": {
-        "id": "6",
+        "codigo": "CPMY",
         "valor": "Comercio al por mayor"
       },
       "observaciones": "xxx"
@@ -301,18 +281,18 @@
       "id": "1",
       "titular": {
         "id": "1",
-        "valor": "Declarante"
+        "valor": "Carlos Pérez López"
       },
       "tipo_beneficio": {
-        "id": "2",
+        "codigo": "TARJ",
         "valor": "Tarjetas o monederos electrónicos"
       },
       "origen_beneficio": {
-        "id": "3",
+        "codigo": "PLAB",
         "valor": "Prestación laboral"
       },
       "sector_industria": {
-        "id": "6",
+        "codigo": "CPMY",
         "valor": "Comercio al por mayor"
       },
       "valor_beneficio": 1256,

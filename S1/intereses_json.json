@@ -161,6 +161,7 @@
       },
       "curp_representante": "BEML920313HMCLNS09",
       "rfc_representante": "GOAP780710RH7",
+      "fecha_nacimiento_representante" : "1987-08-12",
       "tiene_intereses": true,
       "ocupacion_profesion": "Contador",
       "sector_industria": {
@@ -191,6 +192,7 @@
         "pais": "México",
         "codigo": "MX"
       },
+      "fecha_nacimiento_socio" : "1970-05-14",
       "porcentaje_participacion": 70,
       "sector_industria": {
         "codigo": "CPMY",
@@ -287,10 +289,7 @@
         "codigo": "TARJ",
         "valor": "Tarjetas o monederos electrónicos"
       },
-      "origen_beneficio": {
-        "codigo": "PLAB",
-        "valor": "Prestación laboral"
-      },
+      "origen_beneficio":"Prestación laboral",
       "sector_industria": {
         "codigo": "CPMY",
         "valor": "Comercio al por mayor"

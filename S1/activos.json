@@ -3,9 +3,20 @@
     {
       "id": 1,
       "bienes_inmuebles": {
-        "titular": "declarante",
-        "tipo_operacion": "venta",
-        "tipo_bien": "casa",
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido" : "Rosales",
+          "segundo_apellido" : "Trueba"
+        },
+        "tipo_operacion": {
+          "codigo": "INCP",
+          "valor:": "Incorporación"
+        },
+        "tipo_bien": {
+          "codigo": "VEH",
+          "valor:": "Vehículo"
+        },
         "superficie_terreno": 300,
         "superficie_construccion": 100,
         "porcentaje_propiedad": 100,
@@ -46,12 +57,21 @@
             "numInt_alf": "S/N"
           }
         },
-        "forma_adquisicion": "cesión",
+        "forma_adquisicion": {
+          "codigo": "CONY",
+          "valor:": "Cónyuge"
+        },
         "nombre_denominacion_razon_social_quien_adquirio": "Monster Inc.",
         "rfc_quien_adquirio": "PEGJ851231C33",
         "curp_quien_adquirio": "PEGJ851231HVZRVR05",
-        "relacion_con_persona_quien_adquirio_inmueble": "cónyuge",
-        "sector_industria": "Servicios financieros y seguros",
+        "relacion_con_persona_quien_adquirio_inmueble": {
+          "codigo": "",
+          "valor:": ""
+        },
+        "sector_industria": {
+          "codigo": "MINE",
+          "valor:": "Minería"
+        },
         "fecha_adquisicion": "1985-12-31",
         "precio_adquisicion": {
           "valor": 4000,
@@ -61,14 +81,28 @@
         "observaciones_comentarios": "No hay comentarios"
       },
       "bienes_muebles_registrables": {
-        "titular": "declarante",
-        "tipo_operacion": "venta",
-        "tipo_bien_mueble": "vehículo",
-        "marca": "acura",
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido" : "Rosales",
+          "segundo_apellido" : "Trueba"
+        },
+        "tipo_operacion": {
+          "codigo": "INCP",
+          "valor:": "Incorporación"
+        },
+        "tipo_bien_mueble": {
+          "codigo": "VEH",
+          "valor:": "Vehículo"
+        },
+        "marca": "NISSAN",
         "submarca_linea_tipo": "RS-122234",
         "modelo": "2018",
         "numero_serie": "6545243-4334",
-        "lugar_registro": "MX",
+        "lugar_registro": {
+          "codigo": "MX",
+          "valor:": "México"
+        },
         "porcentaje_propiedad": 99,
         "nombres_copropietarios": [{
           "nombres": "Juan",
@@ -80,12 +114,21 @@
           "segundo_apellido": "García"
         }],
         "numero_registro_publico_vehicular": 455000,
-        "forma_adquisicion": "cesión",
+        "forma_adquisicion": {
+          "codigo": "CES",
+          "valor:": "Cesión"
+        },
         "nombre_denominacion_razon_social_quien_adquirio": "Monstr Inc.",
         "rfc_quien_adquirio": "PEGJ851231C33",
         "curp_quien_adquirio": "PEGJ851231HVZRVR05",
-        "relacion_con_persona_quien_adquirio_inmueble": "",
-        "sector_industria": "Servicios financieros y seguros",
+        "relacion_con_persona_quien_adquirio_inmueble": {
+          "codigo": "DEC",
+          "valor:": "Dependiente económico"
+        },
+        "sector_industria": {
+          "codigo": "MINE",
+          "valor:": "Minería"
+        },
         "fecha_adquisicion": "1985-12-31",
         "precio_adquisicion": {
           "valor": 4000,
@@ -95,9 +138,20 @@
         "observaciones_comentarios": "No hay comentarios"
       },
       "bienes_muebles_no_registrables": {
-        "titular": "declarante",
-        "tipo_operacion": "venta",
-        "tipo_bien": "otro",
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido" : "Rosales",
+          "segundo_apellido" : "Trueba"
+        },
+        "tipo_operacion": {
+          "codigo": "INCP",
+          "valor:": "Incorporación"
+        },
+        "tipo_bien": {
+          "codigo": "BAR",
+          "valor:": "Barco"
+        },
         "descripcion": "sin descripción",
         "numero_registro": 458800,
         "lugar_registro": "MX",
@@ -110,9 +164,15 @@
           "primer_apellido": "Tenorio",
           "segundo_apellido": "García"
         }],
-        "forma_adquisicion": "cesión",
+        "forma_adquisicion": {
+          "codigo": "CES",
+          "valor:": "Cesión"
+        },
         "nombre_denominacion_razon_social_quien_adquirio": "Tesl Mtr Inc.",
-        "relacion_con_persona_quien_adquirio": "jefe",
+        "relacion_con_persona_quien_adquirio": {
+          "codigo": "CONY",
+          "valor:": "Cónyuge"
+        },
         "fecha_adquisicion": "1995-12-31",
         "precio_adquisicion": {
           "valor": 4000,
@@ -121,15 +181,35 @@
         "observaciones_comentarios": "No hay comentarios"
       },
       "inversiones_cuentas_valores": {
-        "titular": "declarante",
-        "tipo_operacion": "venta",
-        "tipo_inversion": "inversiones",
-        "tipo_especifico_inversion": "otro",
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido" : "Rosales",
+          "segundo_apellido" : "Trueba"
+        },
+        "tipo_operacion": {
+          "codigo": "INCP",
+          "valor:": "Incorporación"
+        },
+        "tipo_inversion": {
+          "codigo": "VENT",
+          "valor:": "Venta"
+        },
+        "tipo_especifico_inversion": {
+          "codigo": "ACCS",
+          "valor:": "Acciones"
+        },
         "numero_cuenta_contrato_inversion": "GFHRTY788778",
-        "nacional_extranjero": "Nacional",
+        "nacional_extranjero": {
+          "codigo": "MEX",
+          "valor:": "México"
+        },
         "nombre_institucion": "Bank Inkc",
         "rfc_institucion": "PEGJ851231C33",
-        "sector_industria": "Servicios financieros y seguros",
+        "sector_industria": {
+          "codigo": "MINE",
+          "valor:": "Minería"
+        },
         "domicilio_institucion": {
           "pais": "MX",
           "entidad_federativa": {
@@ -156,37 +236,71 @@
             "numInt_alf": "S/N"
           }
         },
-        "forma_adquisicion": "cesión",
+        "forma_adquisicion": {
+          "codigo": "CES",
+          "valor:": "Cesión"
+        },
         "fecha_inicio": "1985-12-31",
         "monto_original": 80000,
         "tipo_moneda": "USD",
         "tasa_interes": 10.00,
         "saldo_anual": 5000,
         "plazo": 6,
-        "unidad_medida_plazo": "semanas",
+        "unidad_medida_plazo": {
+          "codigo": "DIAS",
+          "valor:": "Días"
+        },
         "porcentaje_inversion": 99.9,
         "observaciones_comentarios": "No hay comentarios"
       },
       "efectivo_metales": {
-        "titular": "declarante",
-        "tipo_operacion": "venta",
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido" : "Rosales",
+          "segundo_apellido" : "Trueba"
+        },
+        "tipo_operacion": {
+          "codigo": "INCP",
+          "valor:": "Incorporación"
+        },
         "tipo_moneda": "USD",
         "monto": 78555,
-        "tipo_metal": "oro",
+        "tipo_metal": {
+          "codigo": "ORO",
+          "valor:": "Oro"
+        },
         "unidades": "gramos",
-        "forma_adquisicion": "cesión",
+        "forma_adquisicion": {
+          "codigo": "CES",
+          "valor:": "Cesión"
+        },
         "observaciones_comentarios": "No hay comentarios"
       },
       "fideicomisos": {
-        "titular": "declarante",
-        "tipo_operacion": "venta",
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido" : "Rosales",
+          "segundo_apellido" : "Trueba"
+        },
+        "tipo_operacion": {
+          "codigo": "INCP",
+          "valor:": "Incorporación"
+        },
         "nombre_identificador": "93232",
-        "tipo": "otro",
+        "tipo_fideicomiso": {
+          "codigo": "GARNT",
+          "valor:": "Garantía"
+        },
         "objetivo": "Objetivo del fideicomiso",
         "numero_registro": 788544,
         "fecha_creacion": "2005-12-31",
         "vigencia": "2006-12-31",
-        "residencia": "México",
+        "residencia": {
+          "codigo": "MEX",
+          "valor:": "México"
+        },
         "valor": 78555555,
         "moneda": "MXN",
         "porcentaje_propiedad_derechos_fiduciarios": 99,
@@ -285,8 +399,16 @@
         "observaciones_comentarios": "no hay comentarios"
       },
       "bienes_intangibles": {
-        "titular": "declarante",
-        "tipo_operacion": "venta",
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido" : "Rosales",
+          "segundo_apellido" : "Trueba"
+        },
+        "tipo_operacion": {
+          "codigo": "INCP",
+          "valor:": "Incorporación"
+        },
         "propietario_registrado": "Sergio Perez",
         "descripcion": "Aquí va una descripción breve",
         "ente_publico_encargado_registro": {
@@ -296,12 +418,18 @@
         },
         "numero_registro": 754444,
         "fecha_registro": "1985-12-31",
-        "sector_industria": "Servicios financieros y seguros",
+        "sector_industria": {
+          "codigo": "MINE",
+          "valor:": "Minería"
+        },
         "precio_adquisicion": {
           "valor": 4000,
           "moneda": "MXN"
         },
-        "forma_adquisicion": "cesión",
+        "forma_adquisicion": {
+          "codigo": "CES",
+          "valor:": "Cesión"
+        },
         "fecha_vencimiento": "1985-12-31",
         "porcentaje_propiedad_caso_copropiedad": 90,
         "precio_total_adquisicion_caso_copropiedad": {
@@ -313,7 +441,12 @@
         "observaciones_comentarios": "No hay comentarios"
       },
       "cuentas_por_cobrar": {
-        "titular": "declarante",
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido" : "Rosales",
+          "segundo_apellido" : "Trueba"
+        },
         "nombre_prestatario": {
           "nombres": "Manuel",
           "primer_apellido": "Tenorio",
@@ -346,7 +479,10 @@
             "numInt_alf": "S/N"
           }
         },
-        "sector_industria": "Servicios financieros y seguros",
+        "sector_industria": {
+          "codigo": "MINE",
+          "valor:": "Minería"
+        },
         "fecha_prestamo": "1985-12-31",
         "monto_original_prestamo": 488844,
         "tasa_interes": 10.01,
@@ -361,7 +497,12 @@
         "observacione_comentarios": "aquí más comentarios"
       },
       "uso_beneficios_especie_propiedad_de_tercero": {
-        "titular": "declarante",
+        "titular": {
+          "id": 1,
+          "nombres": "Alma",
+          "primer_apellido" : "Rosales",
+          "segundo_apellido" : "Trueba"
+        },
         "tipo_bien_servicio": "inmueble",
         "valor_mercado_aproximado": {
           "valor": 4000,
@@ -371,7 +512,10 @@
         "rfc_tercero_propietario": "PEGJ851231C33",
         "curp_tercero_propietario": "PEGJ851231HVZRVR05",
         "sector_industria": "Servicios financieros y seguros",
-        "relacion_persona": "socio",
+        "relacion_persona": {
+          "codigo": "CONY",
+          "valor:": "Cónyuge"
+        },
         "fecha_inicio": "1985-12-31",
         "domicilio_persona": {
           "pais": "MX",

@@ -68,8 +68,8 @@
         "valor": "Meses"
       },
       "titularidad_deuda": {
-        "id": 1,
-        "valor": "Alma Rosales Trueba"
+        "codigo": "DECL",
+        "valor": "Declarante"
       },
       "porcentaje_adeudo_titular": 100,
       "garantia": false,
@@ -145,8 +145,8 @@
         "valor":"Meses"
       },
       "titularidad_obligacion": {
-        "id":1,
-        "valor": "Alma Rosales Trueba"
+        "codigo":"CONY",
+        "valor": "Conyuge"
       },
       "porcentaje_obligacion_titular": 100,
       "garantia": false,

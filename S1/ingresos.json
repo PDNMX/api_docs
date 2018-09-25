@@ -6,10 +6,7 @@
         "id": 1,
         "nombre": "Sergio Rodríguez"
       },
-      "ente_publico": {
-        "rfc": "GOAP780710RH7",
-        "nombre": "Presidencia de la República"
-      },
+      "ente_publico": "Presidencia de la República",
       "rfc": "GOAP780710RH7",
       "ingreso_bruto_anual": {
         "valor": 10000,

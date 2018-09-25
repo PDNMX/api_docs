@@ -4,7 +4,9 @@
       "id": 1,
       "titular": {
         "id": 1,
-        "valor": "Carlos Pérez López"
+        "nombres": "Carlos",
+        "primer_apellido" : "Pérez",
+        "segundo_apellido" : "López"
       },
       "nombre_empesa_sociedad_asociacion": "DataIQ",
       "pais_registro": {
@@ -53,7 +55,9 @@
       "id": 1,
       "titular": {
         "id": 2,
-        "valor": "Ana Nieto Camacho"
+        "nombres": "Ana",
+        "primer_apellido" : "Nieto",
+        "segundo_apellido" : "Camacho"
       },
       "tipo_institucion": {
         "codigo": "ASC",
@@ -101,7 +105,9 @@
       "id": 1,
       "titular": {
         "id": 1,
-        "valor": "Carlos Pérez López"
+        "nombres": "Carlos",
+        "primer_apellido" : "Pérez",
+        "segundo_apellido" : "López"
       },
       "es_beneficiario": true,
       "programa": "Programa de Estímulos Económicos a Deportistas del Distrito Federal",
@@ -123,7 +129,9 @@
       "id": 1,
       "titular": {
         "id": 3,
-        "valor": "Fidel Gómez Urrutia"
+        "nombres": "Carlos",
+        "primer_apellido" : "Pérez",
+        "segundo_apellido" : "López"
       },
       "tipo_representacion": {
         "codigo": "APOD",
@@ -147,7 +155,9 @@
       "id": 1,
       "titular": {
         "id": 2,
-        "valor": "Cecilia Gómez Urrutia"
+        "nombres": "Cecilia",
+        "primer_apellido" : "Gómez",
+        "segundo_apellido" : "Urrutia"
       },
       "tipo_representacion": {
         "codigo": "APOD",
@@ -176,7 +186,9 @@
       "id": 1,
       "titular": {
         "id": 2,
-        "valor": "Cecilia Gómez Urrutia"
+        "nombres": "Cecilia",
+        "primer_apellido" : "Gómez",
+        "segundo_apellido" : "Urrutia"
       },
       "nombre_actividad": "Actividad",
       "tipo_vinculo": {
@@ -206,7 +218,9 @@
       "id": 1,
       "titular": {
         "id": 4,
-        "valor": "Cecilia Gómez Urritia"
+        "nombres": "Cecilia",
+        "primer_apellido" : "Gómez",
+        "segundo_apellido" : "Urritia"
       },
       "nombre_naturaleza_negocio": {
         "codigo": "Negocio",
@@ -254,7 +268,9 @@
       "id": 1,
       "titular": {
         "id": 4,
-        "valor": "Sergio Rosas Reyes"
+        "nombres": "Sergio",
+        "primer_apellido" : "Rosas",
+        "segundo_apellido" : "Reyes"
       },
       "tipo_parte": {
         "codigo": "GPR",
@@ -283,7 +299,9 @@
       "id": 1,
       "titular": {
         "id": 1,
-        "valor": "Carlos Pérez López"
+        "nombres": "Carlos",
+        "primer_apellido" : "Pérez",
+        "segundo_apellido" : "López"
       },
       "tipo_beneficio": {
         "codigo": "TARJ",

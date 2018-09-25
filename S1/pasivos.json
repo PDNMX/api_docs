@@ -4,7 +4,9 @@
       "id": 1,
       "titular": {
         "id": 1,
-        "nombre": "Alma Rosales Trueba"
+        "nombres": "Alma",
+        "primer_apellido" : "Rosales",
+        "segundo_apellido" : "Trueba"
       },
       "tipo_operacion": {
         "codigo": "INCP",
@@ -81,7 +83,9 @@
       "id":1,
       "titular": {
         "id": 1,
-        "nombre": "Alma Rosales Trueba"
+        "nombres": "Alma",
+        "primer_apellido" : "Rosales",
+        "segundo_apellido" : "Trueba"
       },
       "tipo_operacion": {
         "codigo": "INCP",

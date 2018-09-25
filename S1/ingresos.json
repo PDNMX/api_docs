@@ -4,7 +4,9 @@
       "id": 1,
       "titular": {
         "id": 1,
-        "nombre": "Sergio Rodríguez"
+        "nombres": "Sergio",
+        "primer_apellido" : "Rodríguez",
+        "segundo_apellido" : "López"
       },
       "ente_publico": "Presidencia de la República",
       "rfc": "GOAP780710RH7",
@@ -29,7 +31,9 @@
       "id": 1,
       "titular": {
         "id": 1,
-        "nombre": "Sergio Rodríguez"
+        "nombres": "Sergio",
+        "primer_apellido" : "Rodríguez",
+        "segundo_apellido" : "López"
       },
       "nombre_denominacion_razon_social": "Max Power Inc.",
       "rfc": "PNKSD780710RH7",
@@ -89,7 +93,9 @@
       "id": 1,
       "titular": {
         "id": 2,
-        "nombre": "Juan Tovar"
+        "nombres": "Juan",
+        "primer_apellido" : "Tovar",
+        "segundo_apellido" : "López"
       },
       "nombre_denominacion_razon_social": "Nombre",
       "rfc": "PEGJ851231",
@@ -150,7 +156,9 @@
       "id": 1,
       "titular": {
         "id": 1,
-        "valor": "Sergio Rodríguez"
+        "nombres": "Sergio",
+        "primer_apellido" : "Rodríguez",
+        "segundo_apellido" : "López"
       },
       "nombre_denominacion_razon_social": "Empresa S.A.",
       "rfc": "PNKSD780710RH7",
@@ -211,7 +219,9 @@
       "id": 1,
       "titular": {
         "id": 1,
-        "nombre": "Sergio Rodríguez"
+        "nombres": "Sergio",
+        "primer_apellido" : "Rodríguez",
+        "segundo_apellido" : "López"
       },
       "nombre_denominacion_razon_social": "Nombre",
       "rfc": "PNKSD780710RH7",
@@ -271,7 +281,9 @@
       "id": 1,
       "titular": {
         "id": 1,
-        "nombre": "Sergio Rodríguez"
+        "nombres": "Sergio",
+        "primer_apellido" : "Rodríguez",
+        "segundo_apellido" : "López"
       },
       "nombre_denominacion_razon_social": "",
       "rfc": "PNKSD780710RH7",
@@ -331,7 +343,9 @@
       "id": 1,
       "titular": {
         "id": 1,
-        "nombre": "Sergio Rodríguez"
+        "nombres": "Sergio",
+        "primer_apellido" : "Rodríguez",
+        "segundo_apellido" : "López"
       },
       "nombre_denominacion_razon_social": "BANC S.A.",
       "rfc": "PNKSD780710RH7",
@@ -391,7 +405,9 @@
       "id": 1,
       "titular": {
         "id": 1,
-        "nombre": "Sergio Rodríguez"
+        "nombres": "Sergio",
+        "primer_apellido" : "Rodríguez",
+        "segundo_apellido" : "López"
       },
       "nombre_denominacion_razon_social": "Loteria Nacional",
       "rfc": "PNKSD780710RH7",
@@ -451,7 +467,9 @@
       "id": 1,
       "titular": {
         "id": 1,
-        "nombre": "Sergio Rodríguez"
+        "nombres": "Sergio",
+        "primer_apellido" : "Rodríguez",
+        "segundo_apellido" : "López"
       },
       "nombre_denominacion_razon_social": "",
       "rfc": "PNKSD780710RH7",
@@ -511,7 +529,9 @@
       "id": 1,
       "titular": {
         "id": 1,
-        "nombre": "Sergio Rodríguez"
+        "nombres": "Sergio",
+        "primer_apellido" : "Rodríguez",
+        "segundo_apellido" : "López"
       },
       "nombre_denominacion_razon_social": "Centro Educativo",
       "rfc": "PNKSD780710RH7",

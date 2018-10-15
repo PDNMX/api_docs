@@ -1,62 +1,237 @@
 {
-  "nombres": "Juan",
-  "primer_apellido": "Pérez",
-  "segundo_apellido": "García",
-  "nacionalidad": "Mexicana",
-  "pais_nacimiento": "MX",
-  "entidad_federativa_nacimiento": {
-    "nom_ent": "México",
-    "cve_ent": "15"
-  },
-  "curp": "PEGJ851231HVZRVR05",
-  "rfc": {
-    "valor": "PEGJ851231",
-    "homoclave": "C33"
-  },
-  "fecha_nacimiento": "1985-12-31",
-  "numero_identificacion_oficial": "11111111111111",
-  "correo_electronico": {
-    "personal": "jperez@ejemplo.com.mx",
-    "laboral": "juan.perez@dependencia.gob.mx"
-  },
-  "telefono": {
-    "laboral": "5555555551",
-    "personal": "5555555552",
-    "celular": "5555555553"
-  },
-  "domicilio": {
-    "pais": "MX",
-    "entidad_federativa": {
+  "informacion_personal": {
+    "nombres": "Juan",
+    "primer_apellido": "Pérez",
+    "segundo_apellido": "García",
+    "nacionalidad_representante": {
+      "pais": "México",
+      "codigo": "MX"
+    },
+    "pais_nacimiento": {
+      "pais": "México",
+      "codigo": "MX"
+    },
+    "entidad_federativa_nacimiento": {
       "nom_ent": "México",
       "cve_ent": "15"
     },
-    "municipio":{
-      "nom_mun": "Ecatepec de Morelos",
-      "cve_mun": "033"
+    "curp": "PEGJ851231HVZRVR05",
+    "rfc": {
+      "valor": "PEGJ851231",
+      "homoclave": "C33"
     },
-    "cp": "55018",
-    "localidad": {
-      "nom_loc": "Ecatepec de Morelos",
-      "cve_loc": "0001"
+    "fecha_nacimiento": "1985-12-31",
+    "numero_identificacion_oficial": "11111111111111",
+    "correo_electronico": {
+      "personal": "jperez@ejemplo.com.mx",
+      "laboral": "juan.perez@dependencia.gob.mx"
     },
-    "vialidad": {
-      "tipo_vial": "CALLE",
-      "nom_vial": "El Rosal"
+    "telefono": {
+      "laboral": "5555555551",
+      "personal": "5555555552",
+      "celular": "5555555553"
     },
-    "numExt": {
-      "numExt_num": 24
+    "domicilio": {
+      "pais": "MX",
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
+      },
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
+      },
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
+      },
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
+      },
+      "numExt": {
+        "numExt_num": 24
+      },
+      "numInt": {
+        "numInt_alf": "S/N"
+      }
     },
-    "numInt": {
-      "numInt_alf": "S/N"
+    "estado_civil_situacion_personal": {
+      "codigo": "CAS",
+      "valor": "Casado (a)"
+    },
+    "regimen_matrimonial": {
+      "codigo": "SBI",
+      "valor": "Separación de bienes"
+    },
+    "fecha_declaracion": "2018-08-30"
+  },
+  "datos_curriculares": {
+    "grado_maximo_escolaridad": {
+      "institucion educativa": "La Universidad Nacionalista México",
+      "lugar_institucion_educativa": "México",
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
+      },
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
+      },
+      "carrera": "Ing. en Sistemas Computacionales",
+      "status": "Cursando",
+      "ano_conclusion": "2005",
+      "documento_obtenido": "Título",
+      "cedula_profesional": "2094884"
     }
   },
-  "estado_civil_situacion_personal": {
-    "codigo": "CAS",
-    "valor": "Casado (a)"
+  "datos_encargo_actual": {
+    "ente_publico": "Presidencia de la República",
+    "nombre_empleo": "Data MX",
+    "nivel_gobierno": {
+      "codigo": "EST",
+      "valor": "Estatal"
+    },
+    "poder_juridica_ente": "Judicial",
+    "contratado_honorarios": true,
+    "nivel_encargo": "CA0001",
+    "area_adscripcion": "Unidad de Política Regulatoria",
+    "fecha_posesion": "2016-05-08",
+    "lugar_ubicacion": "Guerrero",
+    "direccion_encargo": {
+      "pais": "MX",
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
+      },
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
+      },
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
+      },
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
+      },
+      "numExt": {
+        "numExt_num": 24
+      },
+      "numInt": {
+        "numInt_alf": "S/N"
+      }
+    },
+    "sector_industria": {
+      "codigo": "CPMY",
+      "valor": "Comercio al por mayor"
+    },
+    "funciones_principales": "Áreas técnicas"
   },
-  "regimen_matrimonial": {
-    "codigo": "SBI",
-    "valor": "separación de bienes"
-  },
-  "Fecha_declaracion":"2018-08-30"
+  "experiencia_laboral": [{
+    "ambito": "Público",
+    "nivel_gobierno": {
+      "codigo": "EST",
+      "valor": "Estatal"
+    },
+    "poder_ente": "Judicial",
+    "nombre_institucion": "Bank Inkc",
+    "unidad_administrativa": "Unidad de Política Regulatoria",
+    "direccion": {
+      "pais": "MX",
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
+      },
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
+      },
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
+      },
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
+      },
+      "numExt": {
+        "numExt_num": 24
+      },
+      "numInt": {
+        "numInt_alf": "S/N"
+      }
+    },
+    "sector_industria": {
+      "codigo": "CPMY",
+      "valor": "Comercio al por mayor"
+    },
+    "jeraquia_rango": "BC",
+    "cargo_puesto": "Jefe de Departamento",
+    "fecha_ingreso": "2015-08-30",
+    "fecha_salida": "2018-08-30",
+    "funciones_principales": "Áreas técnicas"
+  }],
+  "datos_dependientes_economicos": [{
+    "tipo_relacion": "Cónyuge",
+    "nombres": "Alma",
+    "primer_apellido": "Rosales",
+    "segundo_apellido": "Trueba",
+    "nacionalidad": {
+      "codigo": "MEX",
+      "valor": "México"
+    },
+    "curp": "PEGJ851231HVZRVR05",
+    "rfc": "PEGJ851231C33",
+    "fecha_nacimiento": "2000-08-30",
+    "numero_identificacion_nacional": "ABCD1234",
+    "habita_domicilio_declarante?": false,
+    "domicilio": {
+      "pais": "MX",
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
+      },
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
+      },
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
+      },
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
+      },
+      "numExt": {
+        "numExt_num": 24
+      },
+      "numInt": {
+        "numInt_alf": "S/N"
+      }
+    },
+    "medio_contacto": "Teléfono",
+    "ingresos_propios": false,
+    "ocupacion_profesion": "Administrador de empresas",
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios financieros y seguros"
+    },
+    "proveedor_contratista_gobierno?": false,
+    "tiene_intereses_mismo_sector_declarante?": false,
+    "desarrolla_cabildeo_sector_declarante?": true,
+    "beneficiario_programa_publico?": {
+      "nombre_programa": "Prospera",
+      "institucion_otorga_apoyo": "XE-IPN Canal 11",
+      "tipo_apoyo": "Servicio",
+      "valor_apoyo": 4000
+    },
+    "observaciones_comentarios": "Esto es un comentario"
+  }]
 }

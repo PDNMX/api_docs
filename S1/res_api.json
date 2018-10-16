@@ -7,7 +7,7 @@
   "results": [{
     "id": "id de declaración",
     "informacion_personal": {
-      "informacion_personal": {
+      "informacion_general": {
         "nombres": "Juan",
         "primer_apellido": "Pérez",
         "segundo_apellido": "García",

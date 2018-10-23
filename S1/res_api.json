@@ -77,7 +77,7 @@
       },
       "datos_curriculares": {
         "grado_maximo_escolaridad": {
-          "institucion educativa": "La Universidad Nacionalista México",
+          "institucion_educativa": "La Universidad Nacionalista México",
           "lugar_institucion_educativa": "México",
           "entidad_federativa": {
             "nom_ent": "México",

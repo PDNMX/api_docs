@@ -77,21 +77,25 @@
       },
       "datos_curriculares": {
         "grado_maximo_escolaridad": "Licenciatura",
-        "institucion_educativa": "La Universidad Nacionalista México",
-        "lugar_institucion_educativa": "México",
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
-        },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
-        },
-        "carrera": "Ing. en Sistemas Computacionales",
-        "status": "Cursando",
-        "ano_conclusion": "2005",
-        "documento_obtenido": "Título",
-        "cedula_profesional": "2094884"
+        "grados_academicos": [
+          {
+            "institucion_educativa": "La Universidad Nacionalista México",
+            "lugar_institucion_educativa": "México",
+            "entidad_federativa": {
+              "nom_ent": "México",
+              "cve_ent": "15"
+            },
+            "municipio": {
+              "nom_mun": "Ecatepec de Morelos",
+              "cve_mun": "033"
+            },
+            "carrera": "Ing. en Sistemas Computacionales",
+            "status": "Cursando",
+            "ano_conclusion": "2005",
+            "documento_obtenido": "Título",
+            "cedula_profesional": "2094884"
+          }
+        ]
       },
       "datos_encargo_actual": {
         "ente_publico": "Presidencia de la República",

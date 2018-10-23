@@ -91,7 +91,7 @@
   },
   "datos_encargo_actual": {
     "ente_publico": "Presidencia de la República",
-    "nombre_empleo": "Data MX",
+    "empleo_cargo_comision": "Director General de Datos Abiertos",
     "nivel_gobierno": {
       "codigo": "EST",
       "valor": "Estatal"

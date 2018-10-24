@@ -1,63 +1,58 @@
 {
   "informacion_general": {
-    "nombres": "Juan",
+    "nombres": "Carlos",
     "primer_apellido": "Pérez",
-    "segundo_apellido": "García",
-    "nacionalidad_representante": {
-      "pais": "México",
+    "segundo_apellido": "López",
+    "nacionalidades": [{
+      "valor": "México",
       "codigo": "MX"
-    },
+    }],
     "pais_nacimiento": {
-      "pais": "México",
+      "valor": "México",
       "codigo": "MX"
     },
     "entidad_federativa_nacimiento": {
       "nom_ent": "México",
-      "cve_ent": "15"
+      "cve_ent": 15
     },
-    "curp": "PEGJ851231HVZRVR05",
-    "rfc": {
-      "valor": "PEGJ851231",
-      "homoclave": "C33"
-    },
-    "fecha_nacimiento": "1985-12-31",
-    "numero_identificacion_oficial": "11111111111111",
+    "curp": "BEML920313HMCLNS09",
+    "rfc": "GOAP780710RH7",
+    "fecha_nacimiento": "31/07/1980",
+    "numero_identificacion_oficial": "a1b2c3d4",
     "correo_electronico": {
       "personal": "jperez@ejemplo.com.mx",
-      "laboral": "juan.perez@dependencia.gob.mx"
+      "laboral": "jperez@ejemplo.com.mx"
     },
     "telefono": {
-      "laboral": "5555555551",
-      "personal": "5555555552",
-      "celular": "5555555553"
+      "personal": "+525510203040",
+      "celular": "+525510203040"
     },
     "domicilio": {
-      "pais": "MX",
+      "pais": {
+        "valor": "México",
+        "codigo": "MX"
+      },
       "entidad_federativa": {
         "nom_ent": "México",
-        "cve_ent": "15"
+        "cve_ent": 15
       },
       "municipio": {
         "nom_mun": "Ecatepec de Morelos",
-        "cve_mun": "033"
+        "cve_mun": 27
       },
-      "cp": "55018",
+      "cp": 55018,
       "localidad": {
         "nom_loc": "Ecatepec de Morelos",
-        "cve_loc": "0001"
+        "cve_loc": 1
       },
       "vialidad": {
         "tipo_vial": "CALLE",
         "nom_vial": "El Rosal"
       },
-      "numExt": {
-        "numExt_num": 24
-      },
-      "numInt": {
-        "numInt_alf": "S/N"
-      }
+      "numExt": 24,
+      "numInt": 48
     },
-    "estado_civil_situacion_personal": {
+    "estado_civil": {
       "codigo": "CAS",
       "valor": "Casado (a)"
     },
@@ -65,29 +60,29 @@
       "codigo": "SBI",
       "valor": "Separación de bienes"
     },
-    "fecha_declaracion": "2018-08-30"
+    "fecha_declaracion": "31/07/1980"
   },
   "datos_curriculares": {
     "grado_maximo_escolaridad": "Licenciatura",
-    "grados_academicos": [
-      {
-        "institucion_educativa": "La Universidad Nacionalista México",
-        "lugar_institucion_educativa": "México",
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
-        },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
-        },
-        "carrera": "Ing. en Sistemas Computacionales",
-        "status": "Cursando",
-        "ano_conclusion": "2005",
-        "documento_obtenido": "Título",
-        "cedula_profesional": "2094884"
-      }
-    ]
+    "grados_academicos": [{
+      "grado_obtenido": "Licenciatura",
+      "institucion_educativa": "La Universidad Nacionalista México",
+      "lugar_institucion_educativa": {
+        "nom_ent": "México",
+        "cve_ent": 15
+      },
+      "carrera": "Ing. en Sistemas Computacionales",
+      "estatus": {
+        "codigo": "CURS",
+        "valor": "Cursando"
+      },
+      "ano_conclusion": "2005",
+      "documento_obtenido": {
+        "codigo": "BOL",
+        "valor": "Boleta"
+      },
+      "cedula_profesional": "2094884"
+    }]
   },
   "datos_encargo_actual": {
     "ente_publico": "Presidencia de la República",
@@ -96,145 +91,163 @@
       "codigo": "EST",
       "valor": "Estatal"
     },
-    "poder_juridica_ente": "Judicial",
+    "poder_juridico": {
+      "codigo": "JUD",
+      "valor": "Judicial"
+    },
     "contratado_honorarios": true,
     "nivel_encargo": "CA0001",
     "area_adscripcion": "Unidad de Política Regulatoria",
-    "fecha_posesion": "2016-05-08",
-    "lugar_ubicacion": "Guerrero",
+    "fecha_posesion": "31/07/1980",
+    "lugar_ubicacion": {
+      "valor": "México",
+      "codigo": "MX"
+    },
     "direccion_encargo": {
-      "pais": "MX",
+      "pais": {
+        "valor": "México",
+        "codigo": "MX"
+      },
       "entidad_federativa": {
         "nom_ent": "México",
-        "cve_ent": "15"
+        "cve_ent": 15
       },
       "municipio": {
         "nom_mun": "Ecatepec de Morelos",
-        "cve_mun": "033"
+        "cve_mun": 27
       },
-      "cp": "55018",
+      "cp": 55018,
       "localidad": {
         "nom_loc": "Ecatepec de Morelos",
-        "cve_loc": "0001"
+        "cve_loc": 1
       },
       "vialidad": {
         "tipo_vial": "CALLE",
         "nom_vial": "El Rosal"
       },
-      "numExt": {
-        "numExt_num": 24
-      },
-      "numInt": {
-        "numInt_alf": "S/N"
-      }
+      "numExt": 24,
+      "numInt": 48
     },
     "sector_industria": {
-      "codigo": "CPMY",
-      "valor": "Comercio al por mayor"
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
     },
-    "funciones_principales": "Áreas técnicas"
+    "funciones_principales": [{
+      "codigo": "ABI",
+      "valor": "Administración de bienes"
+    }]
   },
   "experiencia_laboral": [{
-    "ambito": "Público",
+    "ambito": {
+      "codigo": "Pub",
+      "valor": "Público"
+    },
     "nivel_gobierno": {
       "codigo": "EST",
       "valor": "Estatal"
     },
-    "poder_ente": "Judicial",
-    "nombre_institucion": "Bank Inkc",
+    "poder_ente": {
+      "codigo": "JUD",
+      "valor": "Judicial"
+    },
+    "nombre_institucion": "Instituto Federal de Telecomunicaciones",
     "unidad_administrativa": "Unidad de Política Regulatoria",
     "direccion": {
-      "pais": "MX",
+      "pais": {
+        "valor": "México",
+        "codigo": "MX"
+      },
       "entidad_federativa": {
         "nom_ent": "México",
-        "cve_ent": "15"
+        "cve_ent": 15
       },
       "municipio": {
         "nom_mun": "Ecatepec de Morelos",
-        "cve_mun": "033"
+        "cve_mun": 27
       },
-      "cp": "55018",
+      "cp": 55018,
       "localidad": {
         "nom_loc": "Ecatepec de Morelos",
-        "cve_loc": "0001"
+        "cve_loc": 1
       },
       "vialidad": {
         "tipo_vial": "CALLE",
         "nom_vial": "El Rosal"
       },
-      "numExt": {
-        "numExt_num": 24
-      },
-      "numInt": {
-        "numInt_alf": "S/N"
-      }
+      "numExt": 24,
+      "numInt": 48
     },
     "sector_industria": {
-      "codigo": "CPMY",
-      "valor": "Comercio al por mayor"
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
     },
-    "jeraquia_rango": "BC",
+    "jerarquia_rango": "string",
     "cargo_puesto": "Jefe de Departamento",
-    "fecha_ingreso": "2015-08-30",
-    "fecha_salida": "2018-08-30",
-    "funciones_principales": "Áreas técnicas"
+    "fecha_ingreso": "31/07/1980",
+    "fecha_salida": "31/07/1980",
+    "funciones_principales": [{
+      "codigo": "ABI",
+      "valor": "Administración de bienes"
+    }]
   }],
   "datos_dependientes_economicos": [{
-    "tipo_relacion": "Cónyuge",
-    "nombres": "Alma",
-    "primer_apellido": "Rosales",
-    "segundo_apellido": "Trueba",
-    "nacionalidad": {
-      "codigo": "MEX",
-      "valor": "México"
+    "nombres": "Carlos",
+    "primer_apellido": "Pérez",
+    "segundo_apellido": "López",
+    "tipo_relacion": {
+      "codigo": "CONY",
+      "valor": "Cónyuge"
     },
-    "curp": "PEGJ851231HVZRVR05",
-    "rfc": "PEGJ851231C33",
-    "fecha_nacimiento": "2000-08-30",
+    "nacionalidad": {
+      "valor": "México",
+      "codigo": "MX"
+    },
+    "curp": "BEML920313HMCLNS09",
+    "rfc": "GOAP780710RH7",
+    "fecha_nacimiento": "31/07/1980",
     "numero_identificacion_nacional": "ABCD1234",
-    "habita_domicilio_declarante?": false,
+    "habita_domicilio_declarante": true,
     "domicilio": {
-      "pais": "MX",
+      "pais": {
+        "valor": "México",
+        "codigo": "MX"
+      },
       "entidad_federativa": {
         "nom_ent": "México",
-        "cve_ent": "15"
+        "cve_ent": 15
       },
       "municipio": {
         "nom_mun": "Ecatepec de Morelos",
-        "cve_mun": "033"
+        "cve_mun": 27
       },
-      "cp": "55018",
+      "cp": 55018,
       "localidad": {
         "nom_loc": "Ecatepec de Morelos",
-        "cve_loc": "0001"
+        "cve_loc": 1
       },
       "vialidad": {
         "tipo_vial": "CALLE",
         "nom_vial": "El Rosal"
       },
-      "numExt": {
-        "numExt_num": 24
-      },
-      "numInt": {
-        "numInt_alf": "S/N"
-      }
+      "numExt": 24,
+      "numInt": 48
     },
-    "medio_contacto": "Teléfono",
-    "ingresos_propios": false,
+    "medio_contacto": "usuario@correo.com",
+    "ingresos_propios": true,
     "ocupacion_profesion": "Administrador de empresas",
     "sector_industria": {
       "codigo": "SFS",
-      "valor": "Servicios financieros y seguros"
+      "valor": "Servicios de salud y asistencia social"
     },
-    "proveedor_contratista_gobierno?": false,
-    "tiene_intereses_mismo_sector_declarante?": false,
-    "desarrolla_cabildeo_sector_declarante?": true,
-    "beneficiario_programa_publico?": {
+    "proveedor_contratista_gobierno": true,
+    "tiene_intereses_mismo_sector_declarante": true,
+    "desarrolla_cabildeo_sector_declarante": true,
+    "beneficiario_programa_publico": [{
       "nombre_programa": "Prospera",
       "institucion_otorga_apoyo": "XE-IPN Canal 11",
       "tipo_apoyo": "Servicio",
       "valor_apoyo": 4000
-    },
-    "observaciones_comentarios": "Esto es un comentario"
+    }],
+    "observaciones": "Esto es una observación"
   }]
 }

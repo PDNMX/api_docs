@@ -1,160 +1,148 @@
 {
-  "deudas": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 1,
-        "nombres": "Alma",
-        "primer_apellido" : "Rosales",
-        "segundo_apellido" : "Trueba"
+  "deudas": [{
+    "id": 123,
+    "tipo_operacion": {
+      "codigo": "INCP",
+      "valor": "Incorporación"
+    },
+    "tipo_acreedor": {
+      "codigo": "INSTF",
+      "valor": "Institución Financiera"
+    },
+    "tipo_adeudo": {
+      "codigo": "CVH",
+      "valor": "Compra de vehículo"
+    },
+    "identificador_deuda": "CONT12354",
+    "nacional_extranjero": {
+      "valor": "México",
+      "codigo": "MX"
+    },
+    "nombre_acreedor": "PNBKSRIBAS S.A. DE C.V",
+    "rfc_acreedor": "GOAP780710RH7",
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "domicilio_acreedor": {
+      "pais": {
+        "valor": "México",
+        "codigo": "MX"
       },
-      "tipo_operacion": {
-        "codigo": "INCP",
-        "valor:": "Incorporación"
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
       },
-      "tipo_acreedor": {
-        "codigo": "INSTF",
-        "valor": "Institución Financiera"
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
       },
-      "tipo_adeudo": {
-        "codigo": "CVH",
-        "valor": "Compra de vehículo"
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
       },
-      "identificador_deuda": "CONT12354",
-      "nacional_extranjero": {
-        "codigo": "MEX",
-        "valor": "México"
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
       },
-      "identificador_acreedor": "PNBKSRIBAS S.A. DE C.V",
-      "rfc_acreedor": "PNKSD780710RH7",
-      "sector_industria": {
-        "codigo": "SFS",
-        "valor": "Servicios financieros y seguros"
+      "numExt": "24",
+      "numInt": "48"
+    },
+    "fecha_adeudo": "31/07/1980",
+    "monto_original": 277900,
+    "tipo_moneda": {
+      "codigo": "MXN",
+      "moneda": "Peso mexicano"
+    },
+    "tasa_interes": 12,
+    "saldo_pendiente": 28000,
+    "montos_abonados": [
+      28000
+    ],
+    "plazo_adeudo": 24,
+    "unidad_medida_adeudo": {
+      "codigo": "MESS",
+      "valor": "Meses"
+    },
+    "titularidad_deuda": {
+      "codigo": "DECL",
+      "valor": "Declarante"
+    },
+    "porcentaje_adeudo_titular": 70,
+    "garantia": true,
+    "nombre_garante": "Bansky Von Tier",
+    "observaciones": "Esto es una observación"
+  }],
+  "otras_obligaciones": [{
+    "id": 123,
+    "tipo_operacion": {
+      "codigo": "INCP",
+      "valor": "Incorporación"
+    },
+    "tipo_acreedor": {
+      "codigo": "INSTF",
+      "valor": "Institución Financiera"
+    },
+    "tipo_obligacion": "Ejemplo",
+    "identificador_obligacion": "FONAET8945",
+    "nacional_extranjero": {
+      "valor": "México",
+      "codigo": "MX"
+    },
+    "nombre_acreedor": "Bansky Hola Adios",
+    "rfc_acreedor": "GOAP780710RH7",
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "domicilio_acreedor": {
+      "pais": {
+        "valor": "México",
+        "codigo": "MX"
       },
-      "domicilio_acreedor": {
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
-        },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
-        },
-        "cp": "55018",
-        "localidad": {
-          "nom_loc": "Ecatepec de Morelos",
-          "cve_loc": "0001"
-        },
-        "vialidad": {
-          "tipo_vial": "CALLE",
-          "nom_vial": "El Rosal"
-        },
-        "numExt": {
-          "numExt_num": 24
-        },
-        "numInt": {
-          "numInt_alf": "S/N"
-        }
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
       },
-      "fecha_adeudo": "2016-12-14",
-      "monto_original": 277900,
-      "tipo_moneda": {
-          "codigo" : "MXN",
-          "moneda" : "Pesos"
-       },
-      "tasa_interes": 12,
-      "saldo_pendiente": 28000,
-      "plazo_adeudo": 24,
-      "unidad_medida_adeudo": {
-        "codigo": "MESS",
-        "valor": "Meses"
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
       },
-      "titularidad_deuda": {
-        "codigo": "DECL",
-        "valor": "Declarante"
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
       },
-      "porcentaje_adeudo_titular": 100,
-      "garantia": false,
-      "observaciones": "xxxx"
-    }
-  ],
-  "otras_obligaciones": [
-    {
-      "id":1,
-      "titular": {
-        "id": 1,
-        "nombres": "Alma",
-        "primer_apellido" : "Rosales",
-        "segundo_apellido" : "Trueba"
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
       },
-      "tipo_operacion": {
-        "codigo": "INCP",
-        "valor:": "Incorporación"
-      },
-      "tipo_acreedor": {
-        "codigo": "INSTF",
-        "valor": "Institución Financiera"
-      },
-      "tipo_obligacion":{
-        "codigo":"CHIP",
-        "valor":"Créditos Hipotecarios"
-      },
-      "identificador_obligacion":"FONAET8945",
-      "nacional_extranjero": {
-        "codigo": "MEX",
-        "valor": "México"
-      },
-      "identificador_acreedor":"INFONAVIT",
-      "rfc_acreedor":"NHJR89ASS5R5",
-      "sector_industria": {
-        "codigo": "SFS",
-        "valor": "Servicios financieros y seguros"
-      },
-      "domicilio_acreedor": {
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
-        },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
-        },
-        "cp": "55018",
-        "localidad": {
-          "nom_loc": "Ecatepec de Morelos",
-          "cve_loc": "0001"
-        },
-        "vialidad": {
-          "tipo_vial": "CALLE",
-          "nom_vial": "El Rosal"
-        },
-        "numExt": {
-          "numExt_num": 24
-        },
-        "numInt": {
-          "numInt_alf": "S/N"
-        }
-      },
-      "fecha_obligacion":"2018-03-14",
-      "monto_original":300000,
-      "tipo_moneda": {
-          "codigo" : "MXN",
-          "moneda" : "Pesos"
-       },
-      "tasa_interes":12,
-      "saldo_pendiente":297000,
-      "plazo_obligacion":360,
-      "unidad_medida_plazo":{
-        "codigo":"MESS",
-        "valor":"Meses"
-      },
-      "titularidad_obligacion": {
-        "codigo":"CONY",
-        "valor": "Conyuge"
-      },
-      "porcentaje_obligacion_titular": 100,
-      "garantia": false,
-      "observaciones": "xxxx"
-    }
-  ]
+      "numExt": "24",
+      "numInt": "48"
+    },
+    "fecha_obligacion": "31/07/1980",
+    "monto_original": 300000,
+    "tipo_moneda": {
+      "codigo": "MXN",
+      "moneda": "Peso mexicano"
+    },
+    "tasa_interes": 12,
+    "saldo_pendiente": 297000,
+    "montos_abonados": [
+      28000
+    ],
+    "plazo_obligacion": 360,
+    "unidad_medida_plazo": {
+      "codigo": "MESS",
+      "valor": "Meses"
+    },
+    "titularidad_obligacion": {
+      "codigo": "DECL",
+      "valor": "Declarante"
+    },
+    "porcentaje_obligacion_titular": 70,
+    "garantia": true,
+    "observaciones": "Esto es una observación"
+  }]
 }

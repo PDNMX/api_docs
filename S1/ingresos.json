@@ -1,589 +1,507 @@
 {
-  "sueldos_y_salarios_publicos": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 1,
-        "nombres": "Sergio",
-        "primer_apellido" : "Rodríguez",
-        "segundo_apellido" : "López"
+  "sueldos_salarios_publicos": [{
+    "id": 123,
+    "ente_publico": "Presidencia de la República",
+    "rfc": "GOAP780710RH7",
+    "ingreso_bruto_anual": {
+      "valor": 10000,
+      "moneda": {
+        "codigo": "MXN",
+        "moneda": "Peso mexicano"
       },
-      "ente_publico": "Presidencia de la República",
-      "rfc": "GOAP780710RH7",
-      "ingreso_bruto_anual": {
-        "valor": 10000,
-        "moneda": {
-          "codigo": "MXN",
-          "moneda": "Pesos"
-        },
-        "unidad_temporal": {
-          "codigo": "MESS",
-          "valor": "Meses"
-        },
-        "duracion_frecuencia": 10,
-        "fecha_transaccion": "2016-12-14"
+      "unidad_temporal": {
+        "codigo": "MESS",
+        "valor": "Meses"
       },
-      "observaciones_comentarios": "no hay observaciones"
-    }
-  ],
-  "sueldos_salarios_otros_empleos": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 1,
-        "nombres": "Sergio",
-        "primer_apellido" : "Rodríguez",
-        "segundo_apellido" : "López"
+      "duracion_frecuencia": 10,
+      "fecha_transaccion": "31/07/1980"
+    },
+    "observaciones": "Esto es una observación"
+  }],
+  "sueldos_salarios_otros_empleos": [{
+    "id": 123,
+    "nombre_denominacion_razon_social": "Max Power Inc.",
+    "rfc": "GOAP780710RH7",
+    "curp": "BEML920313HMCLNS09",
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "tipo_actividad_servicio": {
+      "codigo": "SPU",
+      "valor": "Sector público"
+    },
+    "descripcion_actividad_servicio": "Servicio profesional de TI",
+    "domicilio_persona_recibe_ingreso": {
+      "pais": {
+        "valor": "México",
+        "codigo": "MX"
       },
-      "nombre_denominacion_razon_social": "Max Power Inc.",
-      "rfc": "PNKSD780710RH7",
-      "curp": "PEGJ851231HVZRVR05",
-      "sector_industria": {
-        "codigo": "SFS",
-        "valor": "Servicios financieros y seguros"
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
       },
-      "tipo_actividad_servicio": {
-        "codigo": "SPU",
-        "valor": "Sector público"
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
       },
-      "descripcion_actividad_servicio": "Servicio profesional de TI",
-      "domicilio_persona_recibe_ingreso": {
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
-        },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
-        },
-        "cp": "55018",
-        "localidad": {
-          "nom_loc": "Ecatepec de Morelos",
-          "cve_loc": "0001"
-        },
-        "vialidad": {
-          "tipo_vial": "CALLE",
-          "nom_vial": "El Rosal"
-        },
-        "numExt": {
-          "numExt_num": 24
-        },
-        "numInt": {
-          "numInt_alf": "S/N"
-        }
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
       },
-      "ingreso_bruto_anual": {
-        "valor": 20000,
-        "moneda": {
-          "codigo": "MXN",
-          "valor": "Pesos"
-        },
-        "unidad_temporal": {
-          "codigo": "SEMS",
-          "valor": "Semanas"
-        },
-        "duracion_frecuencia": 10,
-        "fecha_transaccion": "2016-12-14"
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
       },
-      "observaciones_comentarios": "no hay observaciones"
-    }
-  ],
-  "actividad_profesional": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 2,
-        "nombres": "Juan",
-        "primer_apellido" : "Tovar",
-        "segundo_apellido" : "López"
+      "numExt": "24",
+      "numInt": "48"
+    },
+    "ingreso_bruto_anual": {
+      "valor": 10000,
+      "moneda": {
+        "codigo": "MXN",
+        "moneda": "Peso mexicano"
       },
-      "nombre_denominacion_razon_social": "Nombre",
-      "rfc": "PEGJ851231",
-      "curp": "PEGJ851231HVZRVR05",
-      "sector_industria": {
-        "codigo": "SFS",
-        "valor": "Servicios financieros y seguros"
+      "unidad_temporal": {
+        "codigo": "MESS",
+        "valor": "Meses"
       },
-      "tipo_actividad_servicio": {
-        "codigo": "SPU",
-        "valor": "Sector Público"
+      "duracion_frecuencia": 10,
+      "fecha_transaccion": "31/07/1980"
+    },
+    "observaciones": "Esto es una observación"
+  }],
+  "actividad_profesional": [{
+    "id": 123,
+    "nombre_denominacion_razon_social": "Nombre",
+    "rfc": "GOAP780710RH7",
+    "curp": "BEML920313HMCLNS09",
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "tipo_actividad_servicio": {
+      "codigo": "SPU",
+      "valor": "Sector público"
+    },
+    "descripcion_actividad_servicio": "Descripción del servicio",
+    "domicilio_persona_recibe_ingreso": {
+      "pais": {
+        "valor": "México",
+        "codigo": "MX"
       },
-      "descripcion_actividad_servicio": "Descripción del servicio",
-      "domicilio_persona_recibe_ingreso": {
-        "pais": "MX",
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
-        },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
-        },
-        "cp": "55018",
-        "localidad": {
-          "nom_loc": "Ecatepec de Morelos",
-          "cve_loc": "0001"
-        },
-        "vialidad": {
-          "tipo_vial": "CALLE",
-          "nom_vial": "El Rosal"
-        },
-        "numExt": {
-          "numExt_num": 24
-        },
-        "numInt": {
-          "numInt_alf": "S/N"
-        }
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
       },
-      "ingreso_bruto_anual": {
-        "valor": 20000,
-        "moneda": {
-          "codigo": "MXN",
-          "moneda": "Pesos"
-        },
-        "unidad_temporal": {
-          "codigo": "MESS",
-          "valor": "Meses"
-        },
-        "duracion_frecuencia": 10,
-        "fecha_transaccion": "2016-12-14"
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
       },
-      "observaciones_comentarios": "no hay observaciones"
-    }
-  ],
-  "actividad_empresarial": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 1,
-        "nombres": "Sergio",
-        "primer_apellido" : "Rodríguez",
-        "segundo_apellido" : "López"
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
       },
-      "nombre_denominacion_razon_social": "Empresa S.A.",
-      "rfc": "PNKSD780710RH7",
-      "curp": "PEGJ851231HVZRVR05",
-      "sector_industria": {
-        "codigo": "SFS",
-        "valor": "Servicios financieros y seguros"
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
       },
-      "tipo_actividad_servicio": {
-        "codigo": "SPU",
-        "nombre": "Sector público"
+      "numExt": "24",
+      "numInt": "48"
+    },
+    "ingreso_bruto_anual": {
+      "valor": 10000,
+      "moneda": {
+        "codigo": "MXN",
+        "moneda": "Peso mexicano"
       },
-      "descripcion_actividad_servicio": "Descripción del servicio",
-      "domicilio_actividad_empresarial": {
-        "pais": "MX",
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
-        },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
-        },
-        "cp": "55018",
-        "localidad": {
-          "nom_loc": "Ecatepec de Morelos",
-          "cve_loc": "0001"
-        },
-        "vialidad": {
-          "tipo_vial": "CALLE",
-          "nom_vial": "El Rosal"
-        },
-        "numExt": {
-          "numExt_num": 24
-        },
-        "numInt": {
-          "numInt_alf": "S/N"
-        }
+      "unidad_temporal": {
+        "codigo": "MESS",
+        "valor": "Meses"
       },
-      "ingreso_bruto_anual": {
-        "valor": 20000,
-        "moneda": {
-          "codigo": "MXN",
-          "moneda": "Pesos"
-        },
-        "unidad_temporal": {
-          "codigo": "SEMS",
-          "valor": "Semanas"
-        },
-        "duracion_frecuencia": 10,
-        "fecha_transaccion": "2016-12-14"
+      "duracion_frecuencia": 10,
+      "fecha_transaccion": "31/07/1980"
+    },
+    "observaciones": "Esto es una observación"
+  }],
+  "actividad_empresarial": [{
+    "id": 123,
+    "nombre_denominacion_razon_social": "Empresa S.A.",
+    "rfc": "GOAP780710RH7",
+    "curp": "BEML920313HMCLNS09",
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "tipo_actividad_servicio": {
+      "codigo": "SPU",
+      "valor": "Sector público"
+    },
+    "descripcion_actividad_servicio": "Descripción del servicio",
+    "domicilio_actividad_empresarial": {
+      "pais": {
+        "valor": "México",
+        "codigo": "MX"
       },
-      "observaciones_comentarios": "no hay observaciones"
-    }
-  ],
-  "actividad_economica_menor": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 1,
-        "nombres": "Sergio",
-        "primer_apellido" : "Rodríguez",
-        "segundo_apellido" : "López"
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
       },
-      "nombre_denominacion_razon_social": "Nombre",
-      "rfc": "PNKSD780710RH7",
-      "curp": "PEGJ851231HVZRVR05",
-      "sector_industria": {
-        "codigo": "SFS",
-        "valor": "Servicios financieros y seguros"
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
       },
-      "tipo_actividad_servicio": {
-        "codigo": "SPU",
-        "valor": "Sector público"
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
       },
-      "descripcion_actividad_servicio": "Descripción del servicio",
-      "domicilio_actividad": {
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
-        },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
-        },
-        "cp": "55018",
-        "localidad": {
-          "nom_loc": "Ecatepec de Morelos",
-          "cve_loc": "0001"
-        },
-        "vialidad": {
-          "tipo_vial": "CALLE",
-          "nom_vial": "El Rosal"
-        },
-        "numExt": {
-          "numExt_num": 24
-        },
-        "numInt": {
-          "numInt_alf": "S/N"
-        }
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
       },
-      "ingreso_bruto_anual": {
-        "valor": 20000,
-        "moneda": {
-          "codigo": "MXN",
-          "moneda": "Pesos"
-        },
-        "unidad_temporal": {
-          "codigo": "SEMS",
-          "valor": "Semanas"
-        },
-        "duracion_frecuencia": 10,
-        "fecha_transaccion": "2016-12-14"
+      "numExt": "24",
+      "numInt": "48"
+    },
+    "ingreso_bruto_anual": {
+      "valor": 10000,
+      "moneda": {
+        "codigo": "MXN",
+        "moneda": "Peso mexicano"
       },
-      "observaciones_comentarios": "no hay observaciones"
-    }
-  ],
-  "arrendamiento": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 1,
-        "nombres": "Sergio",
-        "primer_apellido" : "Rodríguez",
-        "segundo_apellido" : "López"
+      "unidad_temporal": {
+        "codigo": "MESS",
+        "valor": "Meses"
       },
-      "nombre_denominacion_razon_social": "",
-      "rfc": "PNKSD780710RH7",
-      "curp": "PEGJ851231HVZRVR05",
-      "sector_industria": {
-        "codigo": "SFS",
-        "valor": "Servicios financieros y seguros"
+      "duracion_frecuencia": 10,
+      "fecha_transaccion": "31/07/1980"
+    },
+    "observaciones": "Esto es una observación"
+  }],
+  "actividad_economica_menor": [{
+    "id": 123,
+    "nombre_denominacion_razon_social": "Nombre",
+    "rfc": "GOAP780710RH7",
+    "curp": "BEML920313HMCLNS09",
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "tipo_actividad_servicio": {
+      "codigo": "SPU",
+      "valor": "Sector público"
+    },
+    "descripcion_actividad_servicio": "Descripción del servicio",
+    "domicilio_actividad": {
+      "pais": {
+        "valor": "México",
+        "codigo": "MX"
       },
-      "tipo_actividad_servicio": {
-        "codigo": "SPU",
-        "valor": "Sector público"
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
       },
-      "descripcion_actividad_servicio": "Descripción del servicio",
-      "domicilio_actividad": {
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
-        },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
-        },
-        "cp": "55018",
-        "localidad": {
-          "nom_loc": "Ecatepec de Morelos",
-          "cve_loc": "0001"
-        },
-        "vialidad": {
-          "tipo_vial": "CALLE",
-          "nom_vial": "El Rosal"
-        },
-        "numExt": {
-          "numExt_num": 24
-        },
-        "numInt": {
-          "numInt_alf": "S/N"
-        }
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
       },
-      "ingreso_bruto_anual": {
-        "valor": 20000,
-        "moneda": {
-          "codigo": "MXN",
-          "moneda": "Pesos"
-        },
-        "unidad_temporal": {
-          "codigo": "SEMS",
-          "valor": "Semanas"
-        },
-        "duracion_frecuencia": 10,
-        "fecha_transaccion": "2016-12-14"
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
       },
-      "observaciones_comentarios": "no hay observaciones"
-    }
-  ],
-  "intereses": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 1,
-        "nombres": "Sergio",
-        "primer_apellido" : "Rodríguez",
-        "segundo_apellido" : "López"
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
       },
-      "nombre_denominacion_razon_social": "BANC S.A.",
-      "rfc": "PNKSD780710RH7",
-      "curp": "PEGJ851231HVZRVR05",
-      "sector_industria": {
-        "codigo": "SFS",
-        "valor": "Servicios financieros y seguros"
+      "numExt": "24",
+      "numInt": "48"
+    },
+    "ingreso_bruto_anual": {
+      "valor": 10000,
+      "moneda": {
+        "codigo": "MXN",
+        "moneda": "Peso mexicano"
       },
-      "tipo_actividad_servicio": {
-        "codigo": "SPU",
-        "valor": "Sector público"
+      "unidad_temporal": {
+        "codigo": "MESS",
+        "valor": "Meses"
       },
-      "descripcion_actividad_servicio": "Descripción del servicio",
-      "domicilio": {
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
-        },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
-        },
-        "cp": "55018",
-        "localidad": {
-          "nom_loc": "Ecatepec de Morelos",
-          "cve_loc": "0001"
-        },
-        "vialidad": {
-          "tipo_vial": "CALLE",
-          "nom_vial": "El Rosal"
-        },
-        "numExt": {
-          "numExt_num": 24
-        },
-        "numInt": {
-          "numInt_alf": "S/N"
-        }
+      "duracion_frecuencia": 10,
+      "fecha_transaccion": "31/07/1980"
+    },
+    "observaciones": "Esto es una observación"
+  }],
+  "arrendamiento": [{
+    "id": 123,
+    "nombre_denominacion_razon_social": "ABC Inc.",
+    "rfc": "GOAP780710RH7",
+    "curp": "BEML920313HMCLNS09",
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "tipo_actividad_servicio": {
+      "codigo": "SPU",
+      "valor": "Sector público"
+    },
+    "descripcion_actividad_servicio": "Descripción del servicio",
+    "domicilio_actividad": {
+      "pais": {
+        "valor": "México",
+        "codigo": "MX"
       },
-      "ingreso_bruto_anual": {
-        "valor": 20000,
-        "moneda": {
-          "codigo": "MXN",
-          "moneda": "Pesos"
-        },
-        "unidad_temporal": {
-          "codigo": "SEMS",
-          "valor": "Semanas"
-        },
-        "duracion_frecuencia": 10,
-        "fecha_transaccion": "2016-12-14"
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
       },
-      "observaciones_comentarios": "no hay observaciones"
-    }
-  ],
-  "premios": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 1,
-        "nombres": "Sergio",
-        "primer_apellido" : "Rodríguez",
-        "segundo_apellido" : "López"
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
       },
-      "nombre_denominacion_razon_social": "Loteria Nacional",
-      "rfc": "PNKSD780710RH7",
-      "curp": "PEGJ851231HVZRVR05",
-      "sector_industria": {
-        "codigo": "SFS",
-        "valor": "Servicios financieros y seguros"
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
       },
-      "tipo_actividad_servicio": {
-        "codigo": "SPU",
-        "valor": "Sector público"
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
       },
-      "descripcion_actividad_servicio": "Descripción del servicio",
-      "domicilio": {
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
-        },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
-        },
-        "cp": "55018",
-        "localidad": {
-          "nom_loc": "Ecatepec de Morelos",
-          "cve_loc": "0001"
-        },
-        "vialidad": {
-          "tipo_vial": "CALLE",
-          "nom_vial": "El Rosal"
-        },
-        "numExt": {
-          "numExt_num": 24
-        },
-        "numInt": {
-          "numInt_alf": "S/N"
-        }
+      "numExt": "24",
+      "numInt": "48"
+    },
+    "ingreso_bruto_anual": {
+      "valor": 10000,
+      "moneda": {
+        "codigo": "MXN",
+        "moneda": "Peso mexicano"
       },
-      "ingreso_bruto_anual": {
-        "valor": 20000,
-        "moneda": {
-          "codigo": "MXN",
-          "moneda": "Pesos"
-        },
-        "unidad_temporal": {
-          "codigo": "SEMS",
-          "valor": "Semanas"
-        },
-        "duracion_frecuencia": 10,
-        "fecha_transaccion": "2016-12-14"
+      "unidad_temporal": {
+        "codigo": "MESS",
+        "valor": "Meses"
       },
-      "observaciones_comentarios": "no hay observaciones"
-    }
-  ],
-  "enajenacion_bienes": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 1,
-        "nombres": "Sergio",
-        "primer_apellido" : "Rodríguez",
-        "segundo_apellido" : "López"
+      "duracion_frecuencia": 10,
+      "fecha_transaccion": "31/07/1980"
+    },
+    "observaciones": "Esto es una observación"
+  }],
+  "intereses": [{
+    "id": 123,
+    "nombre_denominacion_razon_social": "BANC S.A.",
+    "rfc": "GOAP780710RH7",
+    "curp": "BEML920313HMCLNS09",
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "tipo_actividad_servicio": {
+      "codigo": "SPU",
+      "valor": "Sector público"
+    },
+    "descripcion_actividad_servicio": "Descripción del servicio",
+    "domicilio": {
+      "pais": {
+        "valor": "México",
+        "codigo": "MX"
       },
-      "nombre_denominacion_razon_social": "",
-      "rfc": "PNKSD780710RH7",
-      "curp": "PEGJ851231HVZRVR05",
-      "sector_industria": {
-        "codigo": "SFS",
-        "valor": "Servicios financieros y seguros"
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
       },
-      "tipo_actividad_servicio": {
-        "codigo": "SPU",
-        "valor": "Sector público"
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
       },
-      "descripcion_actividad_servicio": "Descripción del servicio",
-      "domicilio_bien_enajenado": {
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
-        },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
-        },
-        "cp": "55018",
-        "localidad": {
-          "nom_loc": "Ecatepec de Morelos",
-          "cve_loc": "0001"
-        },
-        "vialidad": {
-          "tipo_vial": "CALLE",
-          "nom_vial": "El Rosal"
-        },
-        "numExt": {
-          "numExt_num": 24
-        },
-        "numInt": {
-          "numInt_alf": "S/N"
-        }
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
       },
-      "ingreso_bruto_anual": {
-        "valor": 20000,
-        "moneda": {
-          "codigo": "MXN",
-          "moneda": "Pesos"
-        },
-        "unidad_temporal": {
-          "codigo": "SEMS",
-          "valor": "Semanas"
-        },
-        "duracion_frecuencia": 10,
-        "fecha_transaccion": "2016-12-14"
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
       },
-      "observaciones_comentarios": "no hay observaciones"
-    }
-  ],
-  "otros_ingresos": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 1,
-        "nombres": "Sergio",
-        "primer_apellido" : "Rodríguez",
-        "segundo_apellido" : "López"
+      "numExt": "24",
+      "numInt": "48"
+    },
+    "ingreso_bruto_anual": {
+      "valor": 10000,
+      "moneda": {
+        "codigo": "MXN",
+        "moneda": "Peso mexicano"
       },
-      "nombre_denominacion_razon_social": "Centro Educativo",
-      "rfc": "PNKSD780710RH7",
-      "curp": "PEGJ851231HVZRVR05",
-      "sector_industria": {
-        "codigo": "SFS",
-        "valor": "Servicios financieros y seguros"
+      "unidad_temporal": {
+        "codigo": "MESS",
+        "valor": "Meses"
       },
-      "tipo_actividad_servicio": {
-        "codigo": "SPU",
-        "valor": "Sector público"
+      "duracion_frecuencia": 10,
+      "fecha_transaccion": "31/07/1980"
+    },
+    "observaciones": "Esto es una observación"
+  }],
+  "premios": [{
+    "id": 123,
+    "nombre_denominacion": "Loteria Nacional",
+    "rfc": "GOAP780710RH7",
+    "curp": "BEML920313HMCLNS09",
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "tipo_actividad_servicio": {
+      "codigo": "SPU",
+      "valor": "Sector público"
+    },
+    "descripcion_actividad": "Descripción del servicio",
+    "domicilio": {
+      "pais": {
+        "valor": "México",
+        "codigo": "MX"
       },
-      "descripcion_actividad_servicio": "Descripción del servicio",
-      "domicilio_actividad_situacion": {
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
-        },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
-        },
-        "cp": "55018",
-        "localidad": {
-          "nom_loc": "Ecatepec de Morelos",
-          "cve_loc": "0001"
-        },
-        "vialidad": {
-          "tipo_vial": "CALLE",
-          "nom_vial": "El Rosal"
-        },
-        "numExt": {
-          "numExt_num": 24
-        },
-        "numInt": {
-          "numInt_alf": "S/N"
-        }
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
       },
-      "ingreso_bruto_anual": {
-        "valor": 20000,
-        "moneda": {
-          "codigo": "MXN",
-          "moneda": "Pesos"
-        },
-        "unidad_temporal": {
-          "codigo": "SEMS",
-          "valor": "Semanas"
-        },
-        "duracion_frecuencia": 10,
-        "fecha_transaccion": "2016-12-14"
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
       },
-      "observaciones_comentarios": "no hay observaciones"
-    }
-  ]
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
+      },
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
+      },
+      "numExt": "24",
+      "numInt": "48"
+    },
+    "ingreso_bruto_anual": {
+      "valor": 10000,
+      "moneda": {
+        "codigo": "MXN",
+        "moneda": "Peso mexicano"
+      },
+      "unidad_temporal": {
+        "codigo": "MESS",
+        "valor": "Meses"
+      },
+      "duracion_frecuencia": 10,
+      "fecha_transaccion": "31/07/1980"
+    },
+    "observaciones": "Esto es una observación"
+  }],
+  "enajenacion_bienes": [{
+    "id": 123,
+    "nombre_denominacion": "Loteria Nacional",
+    "rfc": "GOAP780710RH7",
+    "curp": "BEML920313HMCLNS09",
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "tipo_actividad_servicio": {
+      "codigo": "SPU",
+      "valor": "Sector público"
+    },
+    "descripcion_bien": "Descripción del servicio",
+    "domicilio_bien_enajenado": {
+      "pais": {
+        "valor": "México",
+        "codigo": "MX"
+      },
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
+      },
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
+      },
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
+      },
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
+      },
+      "numExt": "24",
+      "numInt": "48"
+    },
+    "ingreso_bruto_anual": {
+      "valor": 10000,
+      "moneda": {
+        "codigo": "MXN",
+        "moneda": "Peso mexicano"
+      },
+      "unidad_temporal": {
+        "codigo": "MESS",
+        "valor": "Meses"
+      },
+      "duracion_frecuencia": 10,
+      "fecha_transaccion": "31/07/1980"
+    },
+    "observaciones": "Esto es una observación"
+  }],
+  "otros_ingresos": [{
+    "id": 123,
+    "nombre_denominacion": "Centro Educativo",
+    "rfc": "GOAP780710RH7",
+    "curp": "BEML920313HMCLNS09",
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "tipo_actividad": {
+      "codigo": "SPU",
+      "valor": "Sector público"
+    },
+    "descripcion_actividad": "Descripción del servicio",
+    "domicilio_actividad": {
+      "pais": {
+        "valor": "México",
+        "codigo": "MX"
+      },
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
+      },
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
+      },
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
+      },
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
+      },
+      "numExt": "24",
+      "numInt": "48"
+    },
+    "ingreso_bruto_anual": {
+      "valor": 10000,
+      "moneda": {
+        "codigo": "MXN",
+        "moneda": "Peso mexicano"
+      },
+      "unidad_temporal": {
+        "codigo": "MESS",
+        "valor": "Meses"
+      },
+      "duracion_frecuencia": 10,
+      "fecha_transaccion": "31/07/1980"
+    },
+    "observaciones": "Esto es una observación"
+  }]
 }

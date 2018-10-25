@@ -13,7 +13,7 @@
     },
     "entidad_federativa_nacimiento": {
       "nom_ent": "México",
-      "cve_ent": 15
+      "cve_ent": "15"
     },
     "curp": "BEML920313HMCLNS09",
     "rfc": "GOAP780710RH7",
@@ -34,23 +34,23 @@
       },
       "entidad_federativa": {
         "nom_ent": "México",
-        "cve_ent": 15
+        "cve_ent": "15"
       },
       "municipio": {
         "nom_mun": "Ecatepec de Morelos",
-        "cve_mun": 27
+        "cve_mun": "033"
       },
-      "cp": 55018,
+      "cp": "55018",
       "localidad": {
         "nom_loc": "Ecatepec de Morelos",
-        "cve_loc": 1
+        "cve_loc": "0001"
       },
       "vialidad": {
         "tipo_vial": "CALLE",
         "nom_vial": "El Rosal"
       },
-      "numExt": 24,
-      "numInt": 48
+      "numExt": "24",
+      "numInt": "48"
     },
     "estado_civil": {
       "codigo": "CAS",
@@ -68,8 +68,14 @@
       "grado_obtenido": "Licenciatura",
       "institucion_educativa": "La Universidad Nacionalista México",
       "lugar_institucion_educativa": {
-        "nom_ent": "México",
-        "cve_ent": 15
+        "pais": {
+          "valor": "México",
+          "codigo": "MX"
+        },
+        "entidad": {
+          "nom_ent": "México",
+          "cve_ent": "15"
+        }
       },
       "carrera": "Ing. en Sistemas Computacionales",
       "estatus": {
@@ -100,8 +106,14 @@
     "area_adscripcion": "Unidad de Política Regulatoria",
     "fecha_posesion": "31/07/1980",
     "lugar_ubicacion": {
-      "valor": "México",
-      "codigo": "MX"
+      "pais": {
+        "valor": "México",
+        "codigo": "MX"
+      },
+      "entidad": {
+        "nom_ent": "México",
+        "cve_ent": "15"
+      }
     },
     "direccion_encargo": {
       "pais": {
@@ -110,23 +122,23 @@
       },
       "entidad_federativa": {
         "nom_ent": "México",
-        "cve_ent": 15
+        "cve_ent": "15"
       },
       "municipio": {
         "nom_mun": "Ecatepec de Morelos",
-        "cve_mun": 27
+        "cve_mun": "033"
       },
-      "cp": 55018,
+      "cp": "55018",
       "localidad": {
         "nom_loc": "Ecatepec de Morelos",
-        "cve_loc": 1
+        "cve_loc": "0001"
       },
       "vialidad": {
         "tipo_vial": "CALLE",
         "nom_vial": "El Rosal"
       },
-      "numExt": 24,
-      "numInt": 48
+      "numExt": "24",
+      "numInt": "48"
     },
     "sector_industria": {
       "codigo": "SFS",
@@ -159,23 +171,23 @@
       },
       "entidad_federativa": {
         "nom_ent": "México",
-        "cve_ent": 15
+        "cve_ent": "15"
       },
       "municipio": {
         "nom_mun": "Ecatepec de Morelos",
-        "cve_mun": 27
+        "cve_mun": "033"
       },
-      "cp": 55018,
+      "cp": "55018",
       "localidad": {
         "nom_loc": "Ecatepec de Morelos",
-        "cve_loc": 1
+        "cve_loc": "0001"
       },
       "vialidad": {
         "tipo_vial": "CALLE",
         "nom_vial": "El Rosal"
       },
-      "numExt": 24,
-      "numInt": 48
+      "numExt": "24",
+      "numInt": "48"
     },
     "sector_industria": {
       "codigo": "SFS",
@@ -214,23 +226,23 @@
       },
       "entidad_federativa": {
         "nom_ent": "México",
-        "cve_ent": 15
+        "cve_ent": "15"
       },
       "municipio": {
         "nom_mun": "Ecatepec de Morelos",
-        "cve_mun": 27
+        "cve_mun": "033"
       },
-      "cp": 55018,
+      "cp": "55018",
       "localidad": {
         "nom_loc": "Ecatepec de Morelos",
-        "cve_loc": 1
+        "cve_loc": "0001"
       },
       "vialidad": {
         "tipo_vial": "CALLE",
         "nom_vial": "El Rosal"
       },
-      "numExt": 24,
-      "numInt": 48
+      "numExt": "24",
+      "numInt": "48"
     },
     "medio_contacto": "usuario@correo.com",
     "ingresos_propios": true,

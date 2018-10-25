@@ -1,319 +1,247 @@
 {
-  "empresas_sociedades_asociaciones": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 1,
-        "nombres": "Carlos",
-        "primer_apellido" : "Pérez",
-        "segundo_apellido" : "López"
-      },
-      "nombre_empesa_sociedad_asociacion": "DataIQ",
-      "pais_registro": {
-        "pais": "México",
+  "empresas_sociedades_asociaciones": [{
+    "id": 123,
+    "nombre_empresa_sociedad_asociacion": "DataIQ",
+    "pais_registro": {
+      "valor": "México",
+      "codigo": "MX"
+    },
+    "fecha_constitucion": "31/07/1980",
+    "numero_registro": "ABC123",
+    "rfc": "GOAP780710RH7",
+    "domicilio": {
+      "pais": {
+        "valor": "México",
         "codigo": "MX"
       },
-      "fecha_consitutcion": "2015-05-10",
-      "numero_registro": "ABC123",
-      "rfc": "GOAP780710RH7",
-      "domicilio": {
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
-        },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
-        },
-        "cp": "55018",
-        "localidad": {
-          "nom_loc": "Ecatepec de Morelos",
-          "cve_loc": "0001"
-        },
-        "vialidad": {
-          "tipo_vial": "CALLE",
-          "nom_vial": "El Rosal"
-        },
-        "numExt": {
-          "numExt_num": 24
-        },
-        "numInt": {
-          "numInt_alf": "S/N"
-        }
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
       },
-      "rol":"Dueño",
-      "actividad_Economica": true,
-      "sector_industria": {
-        "codigo": "CPMY",
-        "valor": "Comercio al por mayor"
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
       },
-      "porcentaje_participacion": 70
-    }
-  ],
-  "membresias": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 2,
-        "nombres": "Ana",
-        "primer_apellido" : "Nieto",
-        "segundo_apellido" : "Camacho"
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
       },
-      "tipo_institucion": {
-        "codigo": "ASC",
-        "valor": "Asociaciones civiles"
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
       },
-      "nombre_institucion": "Asociacion A.C",
-      "naturaleza_membresia": "Civil",
-      "domicilio": {
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
-        },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
-        },
-        "cp": "55018",
-        "localidad": {
-          "nom_loc": "Ecatepec de Morelos",
-          "cve_loc": "0001"
-        },
-        "vialidad": {
-          "tipo_vial": "CALLE",
-          "nom_vial": "El Rosal"
-        },
-        "numExt": {
-          "numExt_num": 24
-        },
-        "numInt": {
-          "numInt_alf": "S/N"
-        }
-      },
-      "sector_industria": {
-        "codigo": "SSAS",
-        "valor": "Servicios de salud y asistencia social"
-      },
-      "rol": "Titular",
-      "fecha_inicio": "2018-05-14",
-      "pagado": true,
-      "observaciones": "XXX"
-    }
-  ],
-  "apoyosBeneficiosPublicos": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 1,
-        "nombres": "Carlos",
-        "primer_apellido" : "Pérez",
-        "segundo_apellido" : "López"
-      },
-      "es_beneficiario": true,
-      "programa": "Programa de Estímulos Económicos a Deportistas del Distrito Federal",
-      "institucion_otorgante" : "Instituto del Deporte del Distrito Federal ",
-      "nivel_orden_gobierno": {
-          "codigo": "EST",
-          "valor": "Estatal"
-        },
-        "tipo_apoyo": {
-          "codigo": "SERV",
-          "valor": "Servicio"
-        },
-        "valor_apoyo": 7500,
-      "observaciones": "xxx"
-    }
-  ],
-  "representacion_activa": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 3,
-        "nombres": "Carlos",
-        "primer_apellido" : "Pérez",
-        "segundo_apellido" : "López"
-      },
-      "tipo_representacion": {
-        "codigo": "APOD",
-        "valor": "Apoderado"
-      },
-      "nombre_parte": "Cecilia Gómez Urrutia",
-      "curp_parte": "BEML920313HMCLNS09",
-      "rfc_parte": "GOAP780710RH7",
-      "fecha_nacimiento_parte": "1956-08-15",
-      "sector_industria": {
-        "codigo": "CPMY",
-        "valor": "Comercio al por mayor"
-      },
-      "fecha_inicio": "2017-08-12",
-      "pagado": true,
-      "observaciones": "xxx"
-    }
-  ],
-  "representacion_pasiva": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 2,
-        "nombres": "Cecilia",
-        "primer_apellido" : "Gómez",
-        "segundo_apellido" : "Urrutia"
-      },
-      "tipo_representacion": {
-        "codigo": "APOD",
-        "valor": "Apoderado"
-      },
-      "nombre_representante": "Augusto Fernández Castro",
-      "fecha_inicio_representacion": "2016-05-12",
-      "nacionalidad_representante": {
-        "pais": "México",
+      "numExt": "24",
+      "numInt": "48"
+    },
+    "rol": "Dueño",
+    "actividad_economica": true,
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "porcentaje_participacion": 70
+  }],
+  "membresias": [{
+    "id": 123,
+    "tipo_institucion": {
+      "codigo": "ASC",
+      "valor": "Asociaciones civiles"
+    },
+    "nombre_institucion": "Asociacion A.C",
+    "naturaleza_membresia": "Civil",
+    "domicilio": {
+      "pais": {
+        "valor": "México",
         "codigo": "MX"
       },
-      "curp_representante": "BEML920313HMCLNS09",
-      "rfc_representante": "GOAP780710RH7",
-      "fecha_nacimiento_representante" : "1987-08-12",
-      "tiene_intereses": true,
-      "ocupacion_profesion": "Contador",
-      "sector_industria": {
-        "codigo": "CPMY",
-        "valor": "Comercio al por mayor"
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
       },
-      "observaciones": "xxx"
-    }
-  ],
-  "socios_comerciales": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 2,
-        "nombres": "Cecilia",
-        "primer_apellido" : "Gómez",
-        "segundo_apellido" : "Urrutia"
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
       },
-      "nombre_actividad": "Actividad",
-      "tipo_vinculo": {
-        "codigo": "SOC",
-        "valor": "Socio"
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
       },
-      "antiguedad_vinculo": "2017-05-14",
-      "rfc_entidad": "GOAP780710RH7",
-      "nombre_socio": "Armando Rodríguez Saes",
-      "curp_socio": "BEML920313HMCLNS09",
-      "rfc_socio": "GOAP780710RH7",
-      "lugar_nacimiento_socio": {
-        "pais": "México",
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
+      },
+      "numExt": "24",
+      "numInt": "48"
+    },
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "puesto_rol": "Titular",
+    "fecha_inicio": "31/07/1980",
+    "pagado": true,
+    "observaciones": "Esto es una observación"
+  }],
+  "apoyos_beneficios_publicos": [{
+    "id": 123,
+    "es_beneficiario": true,
+    "programa": "Programa de Estímulos Económicos a Deportistas del Distrito Federal",
+    "institucion_otorgante": "Instituto del Deporte del Distrito Federal ",
+    "nivel_orden_gobierno": {
+      "codigo": "EST",
+      "valor": "Estatal"
+    },
+    "tipo_apoyo": {
+      "codigo": "SERV",
+      "valor": "Servicio"
+    },
+    "valor_anual_apoyo": 7500,
+    "observaciones": "Esto es una observación"
+  }],
+  "representacion_activa": [{
+    "id": 123,
+    "tipo_representacion": {
+      "codigo": "APOD",
+      "valor": "Apoderado"
+    },
+    "nombre_parte_representada": "Cecilia Gómez Urrutia",
+    "curp_parte": "BEML920313HMCLNS09",
+    "rfc_parte": "GOAP780710RH7",
+    "fecha_nacimiento_parte": "31/07/1980",
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "fecha_inicio": "31/07/1980",
+    "pagado": true,
+    "observaciones": "Esto es una observación"
+  }],
+  "representacion_pasiva": [{
+    "id": 123,
+    "tipo_representacion": {
+      "codigo": "APOD",
+      "valor": "Apoderado"
+    },
+    "nombre_representante": "Augusto Fernández Castro",
+    "fecha_inicio_representacion": "31/07/1980",
+    "nacionalidades_representante": [{
+      "valor": "México",
+      "codigo": "MX"
+    }],
+    "curp_representante": "BEML920313HMCLNS09",
+    "rfc_representante": "GOAP780710RH7",
+    "fecha_nacimiento_representante": "31/07/1980",
+    "tiene_intereses": true,
+    "ocupacion_profesion": "Contador",
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "observaciones": "Esto es una observación"
+  }],
+  "socios_comerciales": [{
+    "id": 123,
+    "nombre_actividad": "Actividad",
+    "tipo_vinculo": "Socio",
+    "antiguedad_vinculo": 20,
+    "rfc_entidad": "GOAP780710RH7",
+    "nombre_socio": "Armando Rodríguez Saes",
+    "curp_socio": "BEML920313HMCLNS09",
+    "rfc_socio": "GOAP780710RH7",
+    "lugar_nacimiento_socio": {
+      "pais": {
+        "valor": "México",
         "codigo": "MX"
       },
-      "fecha_nacimiento_socio" : "1970-05-14",
-      "porcentaje_participacion": 70,
-      "sector_industria": {
-        "codigo": "CPMY",
-        "valor": "Comercio al por mayor"
-      },
-      "observaciones": "xxx"
-    }
-  ],
-  "clientes_principales": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 4,
-        "nombres": "Cecilia",
-        "primer_apellido" : "Gómez",
-        "segundo_apellido" : "Urritia"
-      },
-      "nombre_naturaleza_negocio": {
-        "codigo": "Negocio",
-        "valor": "Nombre negocio"
-      },
-      "numero_Registro": "HTC896DSFA",
-      "dueño_encargado": "Salvador Hernández Torres",
-      "nombre_denominacion_social_cliente": "AMEX.S.A.",
-      "rfc_cliente": "GOAP780710RH7",
-      "domicilio_cliente": {
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
-        },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
-        },
-        "cp": "55018",
-        "localidad": {
-          "nom_loc": "Ecatepec de Morelos",
-          "cve_loc": "0001"
-        },
-        "vialidad": {
-          "tipo_vial": "CALLE",
-          "nom_vial": "El Rosal"
-        },
-        "numExt": {
-          "numExt_num": 24
-        },
-        "numInt": {
-          "numInt_alf": "S/N"
-        }
-      },
-      "sector_industria": {
-        "codigo": "CPMY",
-        "valor": "Comercio al por mayor"
-      },
-      "porcentaje_facturacion": 20,
-      "observaciones": "xxx"
-    }
-  ],
-  "otras_partes": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 4,
-        "nombres": "Sergio",
-        "primer_apellido" : "Rosas",
-        "segundo_apellido" : "Reyes"
-      },
-      "tipo_parte": {
-        "codigo": "GPR",
-        "valor": "Garantes de Préstamos Recibidos"
-      },
-      "nombre_denominacion_parte": "",
-      "fecha_inicio_relacion": "2016-05-08",
-      "nacionalidad": {
-        "pais": "México",
+      "entidad": {
+        "nom_ent": "México",
+        "cve_ent": "15"
+      }
+    },
+    "fecha_nacimiento_socio": "31/07/1980",
+    "porcentaje_participacion": 70,
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "observaciones": "Esto es una observación"
+  }],
+  "clientes_principales": [{
+    "id": 123,
+    "nombre_negocio": "Nombre negocio",
+    "numero_Registro": "HTC896DSFA",
+    "dueño_encargado": "Salvador Hernández Torres",
+    "nombre_cliente": "AMEX.S.A.",
+    "rfc_cliente": "GOAP780710RH7",
+    "domicilio_cliente": {
+      "pais": {
+        "valor": "México",
         "codigo": "MX"
       },
-      "curp": "BEML920313HMCLNS09",
-      "rfc": "GOAP780710RH7",
-      "fecha_nacimiento": "1979-08-23",
-      "ocupacion_profesion": "Administrador de empresas",
-      "tiene_intereses": true,
-      "sector_industria": {
-        "codigo": "CPMY",
-        "valor": "Comercio al por mayor"
+      "entidad_federativa": {
+        "nom_ent": "México",
+        "cve_ent": "15"
       },
-      "observaciones": "xxx"
-    }
-  ],
-  "beneficios_gratuitos": [
-    {
-      "id": 1,
-      "titular": {
-        "id": 1,
-        "nombres": "Carlos",
-        "primer_apellido" : "Pérez",
-        "segundo_apellido" : "López"
+      "municipio": {
+        "nom_mun": "Ecatepec de Morelos",
+        "cve_mun": "033"
       },
-      "tipo_beneficio": {
-        "codigo": "TARJ",
-        "valor": "Tarjetas o monederos electrónicos"
+      "cp": "55018",
+      "localidad": {
+        "nom_loc": "Ecatepec de Morelos",
+        "cve_loc": "0001"
       },
-      "origen_beneficio":"Prestación laboral",
-      "sector_industria": {
-        "codigo": "CPMY",
-        "valor": "Comercio al por mayor"
+      "vialidad": {
+        "tipo_vial": "CALLE",
+        "nom_vial": "El Rosal"
       },
-      "valor_beneficio": 1256,
-      "observaciones": "xxx"
-    }
-  ]
+      "numExt": "24",
+      "numInt": "48"
+    },
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "porcentaje_facturacion": 70,
+    "observaciones": "Esto es una observación"
+  }],
+  "otras_partes": [{
+    "id": 123,
+    "tipo_relacion": {
+      "codigo": "GPR",
+      "valor": "Garantes de Préstamos Recibidos"
+    },
+    "nombre_denominacion_parte": "Sergio Rodríguez",
+    "fecha_inicio_relacion": "31/07/1980",
+    "nacionalidad": {
+      "valor": "México",
+      "codigo": "MX"
+    },
+    "curp": "BEML920313HMCLNS09",
+    "rfc": "GOAP780710RH7",
+    "fecha_nacimiento": "31/07/1980",
+    "ocupacion": "Administrador de empresas",
+    "tiene_interes": true,
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "observaciones": "Esto es una observación"
+  }],
+  "beneficios_gratuitos": [{
+    "id": 123,
+    "tipo_beneficio": {
+      "codigo": "TARJ",
+      "valor": "Tarjetas o monederos electrónicos"
+    },
+    "origen_beneficio": "Prestación laboral",
+    "sector_industria": {
+      "codigo": "SFS",
+      "valor": "Servicios de salud y asistencia social"
+    },
+    "valor_beneficio": 1256,
+    "observaciones": "Esto es una observación"
+  }]
 }

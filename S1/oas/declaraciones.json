@@ -1,0 +1,2912 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "API de las declaraciones de los servidores publicos"
+  },
+  "paths" : {
+    "/declaraciones" : {
+      "get" : {
+        "tags" : [ "declaraciones" ],
+        "summary" : "Muestra las declaraciones de los servidores publicos",
+        "operationId" : "declaraciones",
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Número de página a mostrar",
+          "schema" : {
+            "type" : "number"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Declaraciones"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Página invalida"
+          },
+          "403" : {
+            "description" : "No tienes permisos"
+          }
+        },
+        "security" : [ {
+          "declaraciones_auth" : [ "read:declaraciones" ]
+        } ]
+      }
+    }
+  },
+  "externalDocs" : {
+    "description" : "Más información",
+    "url" : "https://github.com/PDNMX/api_docs"
+  },
+  "components" : {
+    "securitySchemes" : {
+      "declaraciones_auth" : {
+        "type" : "oauth2",
+        "flows" : {
+          "implicit" : {
+            "authorizationUrl" : "/oauth",
+            "scopes" : {
+              "read:declaraciones" : "obtiene declaraciones"
+            }
+          }
+        }
+      },
+      "api_key" : {
+        "type" : "apiKey",
+        "name" : "api_key",
+        "in" : "header"
+      }
+    },
+    "schemas" : {
+      "Declaraciones" : {
+        "type" : "object",
+        "required" : [ "pagination", "results" ],
+        "properties" : {
+          "pagination" : {
+            "type" : "object",
+            "required" : [ "page_size", "page", "total" ],
+            "properties" : {
+              "page_size" : {
+                "type" : "number",
+                "minimum" : 1,
+                "description" : "Total de páginas",
+                "example" : 100
+              },
+              "page" : {
+                "type" : "number",
+                "minimum" : 1,
+                "description" : "Número de página actual",
+                "example" : 20
+              },
+              "total" : {
+                "type" : "number",
+                "minimum" : 1,
+                "description" : "Total de registros",
+                "example" : 30
+              }
+            }
+          },
+          "results" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "type" : "string",
+                  "description" : "Identificador del declarante con valor alfanúmerico",
+                  "example" : "a1b2c3d4"
+                },
+                "informacion_personal" : {
+                  "$ref" : "#/components/schemas/informacion_personal"
+                },
+                "intereses" : {
+                  "$ref" : "#/components/schemas/intereses"
+                },
+                "ingresos" : {
+                  "$ref" : "#/components/schemas/ingresos"
+                },
+                "activos" : {
+                  "$ref" : "#/components/schemas/activos"
+                },
+                "pasivos" : {
+                  "$ref" : "#/components/schemas/pasivos"
+                }
+              }
+            }
+          }
+        }
+      },
+      "informacion_personal" : {
+        "description" : "En el presente apartado se establecen los datos concernientes al Declarante; así como de su cónyuge, concubina o concubinario o dependiente económico, según corresponda, que se deberán declarar, mismos que se presentan ordenados en las siguientes cinco subsecciones.",
+        "type" : "object",
+        "properties" : {
+          "informacion_general" : {
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/nombre_personal"
+            }, {
+              "type" : "object",
+              "required" : [ "nacionalidad", "pais_nacimiento", "fecha_nacimiento", "domicilio", "estado_civil", "fecha_declaracion" ],
+              "properties" : {
+                "nacionalidades" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/pais"
+                  }
+                },
+                "pais_nacimiento" : {
+                  "$ref" : "#/components/schemas/pais"
+                },
+                "entidad_federativa_nacimiento" : {
+                  "$ref" : "#/components/schemas/entidad_federativa"
+                },
+                "curp" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "rfc" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "fecha_nacimiento" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "numero_identificacion_oficial" : {
+                  "type" : "string",
+                  "description" : "Número de identificación oficial que corresponda en caso de que el Declarante no sea mexicano",
+                  "example" : "a1b2c3d4"
+                },
+                "correo_electronico" : {
+                  "type" : "object",
+                  "properties" : {
+                    "personal" : {
+                      "$ref" : "#/components/schemas/correo_electronico"
+                    },
+                    "laboral" : {
+                      "$ref" : "#/components/schemas/correo_electronico"
+                    }
+                  }
+                },
+                "telefono" : {
+                  "type" : "object",
+                  "properties" : {
+                    "personal" : {
+                      "$ref" : "#/components/schemas/telefono"
+                    },
+                    "celular" : {
+                      "$ref" : "#/components/schemas/telefono"
+                    }
+                  }
+                },
+                "domicilio" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "estado_civil" : {
+                  "description" : "Es la condición del Declarante en función de si tiene o no pareja y su situación legal respecto a ello, de conformidad con la legislación civil aplicable, incluyendo además opciones comunes no contempladas por el registro civil.",
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "CAS", "DIV", "SOL", "CONC", "VIU", "SCON", "COMP", "SEP", "OTRO" ],
+                      "maxLength" : 10,
+                      "description" : "Código del estado civil, ver catalago.",
+                      "example" : "CAS"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "maxLength" : 32,
+                      "description" : "Nombre del estado civil.",
+                      "example" : "Casado (a)"
+                    }
+                  }
+                },
+                "regimen_matrimonial" : {
+                  "description" : "Especificar el régimen matrimonial: (i) sociedad conyugal, (ii) por separación de bienes o (iii) mixto.",
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "SCO", "SBI", "MIX" ],
+                      "maxLength" : 10,
+                      "example" : "SBI"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "enum" : [ "Sociedad Conyugal", "Separación de Bienes", "Mixto" ],
+                      "example" : "Separación de bienes"
+                    }
+                  }
+                },
+                "fecha_declaracion" : {
+                  "$ref" : "#/components/schemas/fecha"
+                }
+              }
+            } ]
+          },
+          "datos_curriculares" : {
+            "description" : "El Declarante deberá proporcionar los siguientes datos obligatorios relativos a su formación académica",
+            "type" : "object",
+            "properties" : {
+              "grado_maximo_escolaridad" : {
+                "type" : "string",
+                "description" : "Deberá señalar el nivel máximo de estudios agregando la siguiente información en caso de aplicar",
+                "example" : "Licenciatura"
+              },
+              "grados_academicos" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "grado_obtenido" : {
+                      "description" : "Deberá señalar a que nivel educativo pertenecen sus estudios (p.ej. licenciatura, maestría, doctorado, etc.)",
+                      "type" : "string",
+                      "example" : "Licenciatura"
+                    },
+                    "institucion_educativa" : {
+                      "description" : "Se deberá escribir el nombre de la institución donde se realizaron los estudios.",
+                      "type" : "string",
+                      "example" : "La Universidad Nacionalista México"
+                    },
+                    "lugar_institucion_educativa" : {
+                      "$ref" : "#/components/schemas/lugar_registro"
+                    },
+                    "carrera" : {
+                      "type" : "string",
+                      "description" : "Seleccionar el nombre de la carrera o de los estudios realizados.",
+                      "example" : "Ing. en Sistemas Computacionales"
+                    },
+                    "estatus" : {
+                      "description" : "Se deberá seleccionar si se encuentra cursando los estudios, si ya se finalizaron o si está trunco.",
+                      "properties" : {
+                        "codigo" : {
+                          "type" : "string",
+                          "enum" : [ "CURS", "FIN", "TRUN" ],
+                          "maxLength" : 10,
+                          "example" : "CURS"
+                        },
+                        "valor" : {
+                          "type" : "string",
+                          "enum" : [ "Cursando", "Finalizado", "Trunco" ],
+                          "example" : "Cursando"
+                        }
+                      }
+                    },
+                    "ano_conclusion" : {
+                      "type" : "number",
+                      "maxLength" : 10,
+                      "description" : "Se deberá señalar el año en que finalizó sus últimos estudios.",
+                      "example" : "2005"
+                    },
+                    "documento_obtenido" : {
+                      "description" : "Seleccionar la opción que corresponda de entre: (i) boleta; (ii) certificado; (iii) constancia; (iv) título o (v) diploma.",
+                      "properties" : {
+                        "codigo" : {
+                          "type" : "string",
+                          "enum" : [ "BOL", "CERT", "CONST", "TIT", "DIP" ],
+                          "maxLength" : 10,
+                          "example" : "BOL"
+                        },
+                        "valor" : {
+                          "type" : "string",
+                          "enum" : [ "Boleta", "Certificado", "Constancia", "Título", "Diploma" ],
+                          "example" : "Boleta"
+                        }
+                      }
+                    },
+                    "cedula_profesional" : {
+                      "type" : "string",
+                      "description" : "Deberá señalar el número de cédula profesional del Declarante (para licenciaturas y posgrados en México).",
+                      "example" : "2094884"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "datos_encargo_actual" : {
+            "description" : "El Declarante deberá proporcionar la información relativa al encargo o encargos con los que cuenta. Las áreas de recursos humanos u homólogas de las entidades públicas se coordinarán con las Secretarías y Órganos Internos de Control para garantizar que los datos de este apartado están previamente cargados y que coincidan exactamente con aquellos con los que se cuenten en sus registros.",
+            "type" : "object",
+            "properties" : {
+              "ente_publico" : {
+                "type" : "string",
+                "description" : "Se deberá señalar el Ente Público o entidad que corresponda en la que el Servidor Público Declarante ejerza el encargo.",
+                "example" : "Presidencia de la República"
+              },
+              "empleo_cargo_comision" : {
+                "type" : "string",
+                "maxLength" : 32,
+                "description" : "Se deberá señalar el nombre, tipo, clasificación o cualquier identificador que corresponde del empleo, cargo o comisión.",
+                "example" : "Director General de Datos Abiertos"
+              },
+              "nivel_gobierno" : {
+                "$ref" : "#/components/schemas/nivel_orden_gobierno"
+              },
+              "poder_juridico" : {
+                "description" : "Se deberá señalar la naturaleza jurídica al que pertenece: Ejecutivo, Legislativo, Judicial, órgano constitucional autónomo u otro (especificar).",
+                "properties" : {
+                  "codigo" : {
+                    "type" : "string",
+                    "enum" : [ "EJE", "JUD", "LEG", "OCA", "OTRO" ],
+                    "maxLength" : 10,
+                    "example" : "JUD"
+                  },
+                  "valor" : {
+                    "type" : "string",
+                    "example" : "Judicial"
+                  }
+                }
+              },
+              "contratado_honorarios" : {
+                "description" : "Se deberá señalar si está contratado por honorarios (sí/no).",
+                "type" : "boolean"
+              },
+              "nivel_encargo" : {
+                "type" : "string",
+                "description" : "Es el que señala en la información administrativa correspondiente.",
+                "example" : "CA0001"
+              },
+              "area_adscripcion" : {
+                "type" : "string",
+                "description" : "Especificar el nombre de la unidad administrativa u homóloga de su adscripción, según corresponda.",
+                "example" : "Unidad de Política Regulatoria"
+              },
+              "fecha_posesion" : {
+                "$ref" : "#/components/schemas/fecha"
+              },
+              "lugar_ubicacion" : {
+                "$ref" : "#/components/schemas/lugar_registro"
+              },
+              "direccion_encargo" : {
+                "$ref" : "#/components/schemas/domicilio"
+              },
+              "sector_industria" : {
+                "$ref" : "#/components/schemas/sector_industria"
+              },
+              "funciones_principales" : {
+                "description" : "Se deberá indicar las funciones principales a realizar por el Servidor Público de entre los enlistados.",
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "ABI", "ARH", "AFIN", "ATEC", "ADP", "AUDI", "CASOP", "FSI", "LEG", "OTORG", "PJUS", "RPP", "OTRO" ],
+                      "maxLength" : 10,
+                      "example" : "ABI"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "example" : "Administración de bienes"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "experiencia_laboral" : {
+            "description" : "En este apartado se deberá proporcionar información correspondiente a los últimos diez años de experiencia laboral. Se llenará la información relativa a todos los encargos, empleos o comisiones públicos o privados que se hayan tenido en dicho periodo.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "ambito" : {
+                  "description" : "Se deberá señalar si se ha pertenecido al sector público, privado o social. Si se elige la opción de sector público, se deberá, además señalar los siguientes de este apartado",
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "PUB", "PRIV", "SOC", "MULT", "OTRO" ],
+                      "maxLength" : 10,
+                      "example" : "Pub"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "example" : "Público"
+                    }
+                  }
+                },
+                "nivel_gobierno" : {
+                  "$ref" : "#/components/schemas/nivel_orden_gobierno"
+                },
+                "poder_ente" : {
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "EJE", "JUD", "LEG", "OCA", "OTRO" ],
+                      "maxLength" : 10,
+                      "example" : "JUD"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "example" : "Judicial"
+                    }
+                  }
+                },
+                "nombre_institucion" : {
+                  "type" : "string",
+                  "description" : "Se deberá especificar el nombre de la institución en que se desempeñó profesionalmente.",
+                  "example" : "Instituto Federal de Telecomunicaciones"
+                },
+                "unidad_administrativa" : {
+                  "type" : "string",
+                  "description" : "Especificar el nombre de la unidad administrativa en la que prestó sus servicios el Declarante.",
+                  "example" : "Unidad de Política Regulatoria"
+                },
+                "direccion" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "jerarquia_rango" : {
+                  "type" : "string",
+                  "description" : "Se deberá indicar la jerarquía o rango ocupado"
+                },
+                "cargo_puesto" : {
+                  "type" : "string",
+                  "description" : "Se deberá indicar el puesto o cargo ocupado.",
+                  "example" : "Jefe de Departamento"
+                },
+                "fecha_ingreso" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "fecha_salida" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "funciones_principales" : {
+                  "description" : "Se deberá seleccionar las funciones principales que el Servidor Público Declarante realizaba.",
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "codigo" : {
+                        "type" : "string",
+                        "enum" : [ "ABI", "ARH", "AFIN", "ATEC", "ADP", "AUDI", "CASOP", "FSI", "LEG", "OTORG", "PJUS", "RPP", "OTRO" ],
+                        "maxLength" : 10,
+                        "example" : "ABI"
+                      },
+                      "valor" : {
+                        "type" : "string",
+                        "example" : "Administración de bienes"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "datos_dependientes_economicos" : {
+            "description" : "Aquí se deberán proporcionar los datos del cónyuge, concubina o concubinario, pareja en sociedad de convivencia, así como de los dependientes económicos, que son aquellas personas, familiares o no, cuya manutención depende principalmente de los ingresos del Servidor Público Declarante, conforme a la legislación civil aplicable. Para llenar este rubro es necesario tener a la vista actas de nacimiento, CURP del cónyuge, concubina o concubinario y/o dependientes económicos, y cualquier otro documento necesario en el que se incluya la información.",
+            "type" : "array",
+            "items" : {
+              "allOf" : [ {
+                "$ref" : "#/components/schemas/nombre_personal"
+              }, {
+                "type" : "object",
+                "properties" : {
+                  "tipo_relacion" : {
+                    "$ref" : "#/components/schemas/relacion_con_persona"
+                  },
+                  "nacionalidad" : {
+                    "$ref" : "#/components/schemas/pais"
+                  },
+                  "curp" : {
+                    "$ref" : "#/components/schemas/curp"
+                  },
+                  "rfc" : {
+                    "$ref" : "#/components/schemas/rfc"
+                  },
+                  "fecha_nacimiento" : {
+                    "$ref" : "#/components/schemas/fecha"
+                  },
+                  "numero_identificacion_nacional" : {
+                    "type" : "string",
+                    "description" : "Escribir el número de identificación nacional que le corresponde en su país de origen, en caso de ser extranjero.",
+                    "example" : "ABCD1234"
+                  },
+                  "habita_domicilio_declarante" : {
+                    "type" : "boolean"
+                  },
+                  "domicilio" : {
+                    "$ref" : "#/components/schemas/domicilio"
+                  },
+                  "medio_contacto" : {
+                    "type" : "string",
+                    "description" : "Se deberá proporcionar un número telefónico de contacto o, en su defecto, un correo personal tratándose de personas mayores de edad.",
+                    "example" : "usuario@correo.com"
+                  },
+                  "ingresos_propios" : {
+                    "type" : "boolean"
+                  },
+                  "ocupacion_profesion" : {
+                    "type" : "string",
+                    "description" : "Se deberá señalar si el cónyuge, concubina o concubino, así como de los dependientes económicos, cuenta con alguna ocupación o profesión y señalar cuál es esta.",
+                    "example" : "Administrador de empresas"
+                  },
+                  "sector_industria" : {
+                    "$ref" : "#/components/schemas/sector_industria"
+                  },
+                  "proveedor_contratista_gobierno" : {
+                    "type" : "boolean",
+                    "example" : true
+                  },
+                  "tiene_intereses_mismo_sector_declarante" : {
+                    "type" : "boolean",
+                    "example" : true
+                  },
+                  "desarrolla_cabildeo_sector_declarante" : {
+                    "type" : "boolean",
+                    "example" : true
+                  },
+                  "beneficiario_programa_publico" : {
+                    "description" : "Se deberá señalar si el cónyuge, concubina o concubino, así como de los dependientes económicos, son beneficiarios directos de algún programa público. Señalar el nombre del programa, la institución que otorga el apoyo, así como el tipo (subsidio, servicio, obra u otro - especificar) y valor del mismo.",
+                    "type" : "array",
+                    "items" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nombre_programa" : {
+                          "type" : "string",
+                          "example" : "Prospera"
+                        },
+                        "institucion_otorga_apoyo" : {
+                          "type" : "string",
+                          "example" : "XE-IPN Canal 11"
+                        },
+                        "tipo_apoyo" : {
+                          "type" : "string",
+                          "example" : "Servicio"
+                        },
+                        "valor_apoyo" : {
+                          "type" : "number",
+                          "minimum" : 1,
+                          "example" : 4000
+                        }
+                      }
+                    }
+                  },
+                  "observaciones" : {
+                    "$ref" : "#/components/schemas/observaciones"
+                  }
+                }
+              } ]
+            }
+          }
+        }
+      },
+      "intereses" : {
+        "description" : "Este apartado se refiere a los datos concernientes al Declarante y deberá proporcionar los datos del cónyuge, concubina o concubinario, pareja en sociedad de convivencia, así como de los dependientes económicos, que son aquellas personas, familiares o no, cuya manutención depende principalmente de los ingresos del Servidor Público Declarante, conforme a la legislación civil aplicable. En los formatos electrónicos deberá indicar a quién pertenece la información que se declara (Declarante, cónyuge, concubina/concubinario, pareja en sociedad de convivencia o dependiente económico). Se deberá incluir la información de los tres años anteriores al año que se declara.",
+        "type" : "object",
+        "properties" : {
+          "empresas_sociedades_asociaciones" : {
+            "description" : "Se deberá llenar toda la información por cada uno de los supuestos en los que se les actualice el reporte de la información de cada subsección.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "nombre_empresa_sociedad_asociacion" : {
+                  "type" : "string",
+                  "description" : "Se deberá indicar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública, sobre la cual el funcionario en los últimos tres años. (i) Tiene o ha tenido un derecho patrimonial directo, o (ii) Es un propietario real (beneficiario final*), al tener 50% de los votos o más, la dirección de estrategia o 25% o más de las acciones, o (iii) Ha tenido una función de administración. *Persona física que ejerza control, entendido como la capacidad de imponer decisiones, nombrar o destituir a la mayoría de los consejeros o administradores, la tenencia de 50% de los votos o más, la dirección de la estrategia, o quien tenga 25% o más de las acciones.",
+                  "example" : "DataIQ"
+                },
+                "pais_registro" : {
+                  "$ref" : "#/components/schemas/pais"
+                },
+                "fecha_constitucion" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "numero_registro" : {
+                  "type" : "string",
+                  "description" : "El número de inscripción del instrumento en el que se haya dado fe de la constitución de la empresa, sociedad o asociación (por ejemplo: el número de inscripción de la escritura pública emitido ante fedatario público).",
+                  "example" : "ABC123"
+                },
+                "rfc" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "domicilio" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "rol" : {
+                  "type" : "string",
+                  "description" : "Indicar cualquier tipo de situación que relacione al Declarante con el ente (por ejemplo: dueño, accionista, beneficiario final, etc.)",
+                  "example" : "Dueño"
+                },
+                "actividad_economica" : {
+                  "type" : "boolean"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "porcentaje_participacion" : {
+                  "$ref" : "#/components/schemas/porcentaje"
+                }
+              }
+            }
+          },
+          "membresias" : {
+            "description" : "Refiere a la condición de pertenencia formal del Declarante a alguna institución y por la que puede el Declarante pagar una suscripción.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "tipo_institucion" : {
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "CJU", "ASC", "OBE", "PPL", "OTRO" ],
+                      "example" : "ASC"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "example" : "Asociaciones civiles"
+                    }
+                  }
+                },
+                "nombre_institucion" : {
+                  "type" : "string",
+                  "description" : "Deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada formalmente.",
+                  "example" : "Asociacion A.C"
+                },
+                "naturaleza_membresia" : {
+                  "type" : "string",
+                  "description" : "Señalar si la membresía pertenece a un Consejo, Directorio, Junta, Asociación Civil, Fundación, organización benéfica, partido político, otro (especificar).",
+                  "example" : "Civil"
+                },
+                "domicilio" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "puesto_rol" : {
+                  "type" : "string",
+                  "description" : "Indicar el cargo o función que ejerce el Declarante.",
+                  "example" : "Titular"
+                },
+                "fecha_inicio" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "pagado" : {
+                  "type" : "boolean",
+                  "example" : true
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "apoyos_beneficios_publicos" : {
+            "description" : "Es la contribución monetaria o en especie que ofrece una entidad pública al Declarante. El apoyo en especie refiere a cualquier contribución a una persona o entidad pública, privada o mixta, utilizando bienes, servicios o beneficios de cualquier naturaleza diferentes al dinero.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "es_beneficiario" : {
+                  "type" : "boolean",
+                  "example" : true
+                },
+                "programa" : {
+                  "type" : "string",
+                  "description" : "Señalar el nombre del programa del que es beneficiario el Declarante.",
+                  "example" : "Programa de Estímulos Económicos a Deportistas del Distrito Federal"
+                },
+                "institucion_otorgante" : {
+                  "type" : "string",
+                  "description" : "Señalar la institución encargada de brindar el apoyo en especie o monetario que se declara.",
+                  "example" : "Instituto del Deporte del Distrito Federal "
+                },
+                "nivel_orden_gobierno" : {
+                  "$ref" : "#/components/schemas/nivel_orden_gobierno"
+                },
+                "tipo_apoyo" : {
+                  "description" : "Se deberá señalar el tipo de apoyo que recibe el Declarante, si es un subsidio, servicio, obra u otro (especificar).",
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "SUBS", "SERV", "OBRA", "OTRA" ],
+                      "maxLength" : 10,
+                      "description" : "Código del tipo de apoyo",
+                      "example" : "SERV"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "description" : "Nombre del tipo de apoyo",
+                      "example" : "Servicio"
+                    }
+                  }
+                },
+                "valor_anual_apoyo" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Se señalará el monto en caso de que el apoyo sea monetario.",
+                  "example" : 7500
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "representacion_activa" : {
+            "description" : "Se presenta cuando el Declarante actúa en nombre de otra persona física o moral, produciendo efectos patrimoniales y jurídicos, de conformidad con la legislación aplicable.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "tipo_representacion" : {
+                  "$ref" : "#/components/schemas/tipo_representacion"
+                },
+                "nombre_parte_representada" : {
+                  "type" : "string",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Cecilia Gómez Urrutia"
+                },
+                "curp_parte" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "rfc_parte" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "fecha_nacimiento_parte" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "fecha_inicio" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "pagado" : {
+                  "description" : "Incluir si recibe o no una remuneración por su participación.",
+                  "type" : "boolean"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "representacion_pasiva" : {
+            "description" : "Se presenta cuando una persona física actúa en nombre del Declarante, produciendo efectos patrimoniales y jurídicos, de conformidad con la legislación aplicable.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "tipo_representacion" : {
+                  "$ref" : "#/components/schemas/tipo_representacion"
+                },
+                "nombre_representante" : {
+                  "type" : "string",
+                  "maxLength" : 32,
+                  "description" : "Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Augusto Fernández Castro"
+                },
+                "fecha_inicio_representacion" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "nacionalidades_representante" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/pais"
+                  }
+                },
+                "curp_representante" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "rfc_representante" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "fecha_nacimiento_representante" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "tiene_intereses" : {
+                  "type" : "boolean"
+                },
+                "ocupacion_profesion" : {
+                  "type" : "string",
+                  "description" : "Deberá señalar la actividad económica/profesional/técnica preponderante que ejerza el/la representada o bien el nombre de la carrera o de los estudios realizados.",
+                  "example" : "Contador"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "socios_comerciales" : {
+            "description" : "Esta Categoría no incluye a las sociedades que cotizan en mercados de valores. Sólo declarar a aquellos socios que controlan más del 20% de aquellas sociedades en las que el Titular controla más del 20%.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "nombre_actividad" : {
+                  "type" : "string",
+                  "description" : "Se deberá señalar el giro comercial por medio de la cual existe una sociedad comercial del Declarante con un tercero.",
+                  "example" : "Actividad"
+                },
+                "tipo_vinculo" : {
+                  "type" : "string",
+                  "description" : "Se deberá precisar la naturaleza del vínculo comercial que el Declarante tiene con su socio comercial.",
+                  "example" : "Socio"
+                },
+                "antiguedad_vinculo" : {
+                  "type" : "number",
+                  "description" : "Se deberá señalar el tiempo (en años) del vínculo comercial que el Declarante tiene con su socio comercial.",
+                  "example" : 20
+                },
+                "rfc_entidad" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "nombre_socio" : {
+                  "type" : "string",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Armando Rodríguez Saes"
+                },
+                "curp_socio" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "rfc_socio" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "lugar_nacimiento_socio" : {
+                  "$ref" : "#/components/schemas/lugar_registro"
+                },
+                "fecha_nacimiento_socio" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "porcentaje_participacion" : {
+                  "$ref" : "#/components/schemas/porcentaje"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "clientes_principales" : {
+            "description" : "Son los clientes del Declarante en uno o varios negocios o actividades lucrativas, propias o a través de personas morales, que representan el 25% o más de los ingresos netos de(l) (los) negocio(s). Se listan los clientes que no estén amparados por secreto profesional en la actividad lucrativa respectiva. Sólo declarar a los clientes principales de aquellas empresas en las cuales el titular tiene el control.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "nombre_negocio" : {
+                  "type" : "string",
+                  "description" : "Se deberá proporcionar el nombre, la denominación o razón social del negocio, tal y como se encuentra registrada en escritura pública (si es persona moral).",
+                  "example" : "Nombre negocio"
+                },
+                "numero_Registro" : {
+                  "type" : "string",
+                  "description" : "En caso de que corresponda se deberá señalar el dato que identifique el negocio o actividad lucrativa.",
+                  "example" : "HTC896DSFA"
+                },
+                "dueño_encargado" : {
+                  "type" : "string",
+                  "description" : "En caso de que corresponda deberá señalar la persona que funja como dueño o encargado del negocio o actividad lucrativa. ",
+                  "example" : "Salvador Hernández Torres"
+                },
+                "nombre_cliente" : {
+                  "type" : "string",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "AMEX.S.A."
+                },
+                "rfc_cliente" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "domicilio_cliente" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "porcentaje_facturacion" : {
+                  "$ref" : "#/components/schemas/porcentaje"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "otras_partes" : {
+            "description" : "Se refiere a otras relaciones de asociación del Declarante que podrían generar un interés.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "tipo_relacion" : {
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "CBNC", "GPR", "ODG", "OTRO" ],
+                      "example" : "GPR"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "example" : "Garantes de Préstamos Recibidos"
+                    }
+                  }
+                },
+                "nombre_denominacion_parte" : {
+                  "type" : "string",
+                  "description" : "Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Sergio Rodríguez"
+                },
+                "fecha_inicio_relacion" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "nacionalidad" : {
+                  "$ref" : "#/components/schemas/pais"
+                },
+                "curp" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "rfc" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "fecha_nacimiento" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "ocupacion" : {
+                  "type" : "string",
+                  "description" : "Deberá señalar la actividad económica/ profesional/técnica preponderante que ejerza el/la representada o bien el nombre de la carrera o de los estudios realizados.",
+                  "example" : "Administrador de empresas"
+                },
+                "tiene_interes" : {
+                  "type" : "boolean"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "beneficios_gratuitos" : {
+            "description" : "El Declarante reportará los beneficios presentes, donaciones, regalos o similares diferentes a efectivo y bienes que implican el goce de algún bien, la prestación de algún servicio o similar cuyo monto de su valor comercial sea mayor a 62 Unidades de Medición y Actualización (UMA). Se deberá llenar la información por cada uno de los beneficios que se reporte.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "tipo_beneficio" : {
+                  "description" : "Se deberá escribir la naturaleza del beneficio (viajes patrocinados, servicios recibidos, asistencia, descuentos recibidos, puntos de lealtad, millas u otros tales como tarjetas o monederos electrónicos que no impliquen recursos en efectivo, etc.).",
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "VPA", "SRE", "ASIS", "DRE", "PLE", "MILLAS", "TARJ", "OTRO" ],
+                      "maxLength" : 10,
+                      "example" : "TARJ"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "example" : "Tarjetas o monederos electrónicos"
+                    }
+                  }
+                },
+                "origen_beneficio" : {
+                  "type" : "string",
+                  "description" : "Se deberá proporcionar el nombre, denominación o razón social de la persona física o moral de la cual se recibe/goza el beneficio.",
+                  "example" : "Prestación laboral"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "valor_beneficio" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Se deberá señalar el monto del beneficio en pesos, o en caso de estar imposibilitado para conocer la exactitud del monto, indicar uno aproximado.",
+                  "example" : 1256
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ingresos" : {
+        "description" : "Este apartado se refiere a los datos concernientes al Declarante y deberá proporcionar los datos del cónyuge, concubina o concubinario, pareja en sociedad de convivencia, así como de los dependientes económicos, que son aquellas personas, familiares o no, cuya manutención depende principalmente de los ingresos del Servidor Público Declarante, conforme a la legislación civil aplicable. En los formatos electrónicos deberá indicar a quién pertenece la información que se declara (Declarante, cónyuge, concubina/concubinario, pareja en sociedad de convivencia o dependiente económico). El presente numeral contiene los datos ordenados en las siguientes diez subsecciones.",
+        "type" : "object",
+        "properties" : {
+          "sueldos_salarios_publicos" : {
+            "description" : "El Declarante deberá proporcionar la información relativa al encargo o encargos con los que cuenta. Las áreas de recursos humanos u homólogas de las entidades públicas, se coordinarán con las Secretarías y Órganos Internos de Control para garantizar que los datos de este apartado están previamente cargados y que coincidan exactamente con aquellos con los que se cuenten en sus registros.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "ente_publico" : {
+                  "type" : "string",
+                  "description" : "Se deberá indicar el Ente Público o entidad que realiza el pago de sueldos y salarios al Declarante.",
+                  "example" : "Presidencia de la República"
+                },
+                "rfc" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "ingreso_bruto_anual" : {
+                  "$ref" : "#/components/schemas/ingreso_bruto_anual"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "sueldos_salarios_otros_empleos" : {
+            "description" : "Ingresos obtenidos como remuneración de parte de un empleador diferente al del (los) empleos, cargos o comisiones pública reportados en la sección anterior.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "nombre_denominacion_razon_social" : {
+                  "type" : "string",
+                  "description" : "Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Max Power Inc."
+                },
+                "rfc" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "curp" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "tipo_actividad_servicio" : {
+                  "$ref" : "#/components/schemas/tipo_actividad_servicio"
+                },
+                "descripcion_actividad_servicio" : {
+                  "type" : "string",
+                  "description" : "Deberá brindar una descripción breve de la actividad por la que recibe ingreso el Declarante.",
+                  "example" : "Servicio profesional de TI"
+                },
+                "domicilio_persona_recibe_ingreso" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "ingreso_bruto_anual" : {
+                  "$ref" : "#/components/schemas/ingreso_bruto_anual"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "actividad_profesional" : {
+            "description" : "Actividades del Declarante relacionadas con el ejercicio de una profesión. Se deberá reportar la información de todas las actividades profesionales que generaron un ingreso.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "nombre_denominacion_razon_social" : {
+                  "type" : "string",
+                  "description" : "Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Nombre"
+                },
+                "rfc" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "curp" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "tipo_actividad_servicio" : {
+                  "$ref" : "#/components/schemas/tipo_actividad_servicio"
+                },
+                "descripcion_actividad_servicio" : {
+                  "type" : "string",
+                  "description" : "Se deberá brindar una descripción breve de la actividad por la que recibe ingreso el Declarante.",
+                  "example" : "Descripción del servicio"
+                },
+                "domicilio_persona_recibe_ingreso" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "ingreso_bruto_anual" : {
+                  "$ref" : "#/components/schemas/ingreso_bruto_anual"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "actividad_empresarial" : {
+            "description" : "El Declarante reportará los ingresos que reciba por su actividad económica o comercial. ",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "nombre_denominacion_razon_social" : {
+                  "type" : "string",
+                  "description" : "Se deberá indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Empresa S.A."
+                },
+                "rfc" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "curp" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "tipo_actividad_servicio" : {
+                  "$ref" : "#/components/schemas/tipo_actividad_servicio"
+                },
+                "descripcion_actividad_servicio" : {
+                  "type" : "string",
+                  "description" : "Deberá brindar una descripción breve de la actividad por la que recibe ingreso el Declarante.",
+                  "example" : "Descripción del servicio"
+                },
+                "domicilio_actividad_empresarial" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "ingreso_bruto_anual" : {
+                  "$ref" : "#/components/schemas/ingreso_bruto_anual"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "actividad_economica_menor" : {
+            "description" : "Ingreso por actividades del Declarante por circunstancias diferentes a alguna de las categorías diferentes a las anteriores.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "nombre_denominacion_razon_social" : {
+                  "type" : "string",
+                  "description" : "Indicar el nombre, denominación o razón social o situación de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Nombre"
+                },
+                "rfc" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "curp" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "tipo_actividad_servicio" : {
+                  "$ref" : "#/components/schemas/tipo_actividad_servicio"
+                },
+                "descripcion_actividad_servicio" : {
+                  "type" : "string",
+                  "description" : "Se deberá brindar una descripción breve de la actividad por la que recibe ingreso el Declarante.",
+                  "example" : "Descripción del servicio"
+                },
+                "domicilio_actividad" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "ingreso_bruto_anual" : {
+                  "$ref" : "#/components/schemas/ingreso_bruto_anual"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "arrendamiento" : {
+            "description" : "Se declarará el ingreso recibido como contraprestación por el arrendamiento, subarrendamiento o una figura análoga de conformidad con la normatividad civil o mercantil aplicable.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "nombre_denominacion_razon_social" : {
+                  "type" : "string",
+                  "description" : "Se deberá indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "ABC Inc."
+                },
+                "rfc" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "curp" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "tipo_actividad_servicio" : {
+                  "$ref" : "#/components/schemas/tipo_actividad_servicio"
+                },
+                "descripcion_actividad_servicio" : {
+                  "type" : "string",
+                  "description" : "Deberá brindar una descripción breve del tipo de arrendamiento por el que recibe ingreso el Declarante.",
+                  "example" : "Descripción del servicio"
+                },
+                "domicilio_actividad" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "ingreso_bruto_anual" : {
+                  "$ref" : "#/components/schemas/ingreso_bruto_anual"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "intereses" : {
+            "description" : "El Declarante señalará los ingresos obtenidos como rendimiento financiero de una inversión.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "nombre_denominacion_razon_social" : {
+                  "type" : "string",
+                  "description" : "Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "BANC S.A."
+                },
+                "rfc" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "curp" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "tipo_actividad_servicio" : {
+                  "$ref" : "#/components/schemas/tipo_actividad_servicio"
+                },
+                "descripcion_actividad_servicio" : {
+                  "type" : "string",
+                  "description" : "Deberá brindar una descripción breve de la inversión por la que recibe ingreso el Declarante.",
+                  "example" : "Descripción del servicio"
+                },
+                "domicilio" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "ingreso_bruto_anual" : {
+                  "$ref" : "#/components/schemas/ingreso_bruto_anual"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "premios" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "nombre_denominacion" : {
+                  "type" : "string",
+                  "description" : "Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Loteria Nacional"
+                },
+                "rfc" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "curp" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "tipo_actividad_servicio" : {
+                  "$ref" : "#/components/schemas/tipo_actividad_servicio"
+                },
+                "descripcion_actividad" : {
+                  "type" : "string",
+                  "description" : "Deberá brindar una descripción breve del tipo de premio por el que recibe ingreso el Declarante.",
+                  "example" : "Descripción del servicio"
+                },
+                "domicilio" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "ingreso_bruto_anual" : {
+                  "$ref" : "#/components/schemas/ingreso_bruto_anual"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "enajenacion_bienes" : {
+            "description" : "El Declarante reportará cualquier ingreso que reciba por la enajenación o cualquier acto jurídico similar de un bien de su propiedad conforme a la normatividad aplicable.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "nombre_denominacion" : {
+                  "type" : "string",
+                  "maxLength" : 32,
+                  "description" : "Se deberá indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Loteria Nacional"
+                },
+                "rfc" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "curp" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "tipo_actividad_servicio" : {
+                  "$ref" : "#/components/schemas/tipo_actividad_servicio"
+                },
+                "descripcion_bien" : {
+                  "type" : "string",
+                  "description" : "Deberá brindar una descripción breve del bien por el que recibe ingreso el Declarante.",
+                  "example" : "Descripción del servicio"
+                },
+                "domicilio_bien_enajenado" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "ingreso_bruto_anual" : {
+                  "$ref" : "#/components/schemas/ingreso_bruto_anual"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "otros_ingresos" : {
+            "description" : "Se refiere a cualquier ingreso recibido que no esté considerado en las clasificaciones anteriores.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "nombre_denominacion" : {
+                  "type" : "string",
+                  "description" : "Indicar el nombre, denominación, razón social de la persona física o moral o de la situación de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Centro Educativo"
+                },
+                "rfc" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "curp" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "tipo_actividad" : {
+                  "$ref" : "#/components/schemas/tipo_actividad_servicio"
+                },
+                "descripcion_actividad" : {
+                  "type" : "string",
+                  "description" : "Deberá brindar una descripción breve de la actividad por la que recibe ingreso el Declarante.",
+                  "example" : "Descripción del servicio"
+                },
+                "domicilio_actividad" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "ingreso_bruto_anual" : {
+                  "$ref" : "#/components/schemas/ingreso_bruto_anual"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          }
+        }
+      },
+      "activos" : {
+        "description" : "Este apartado se refiere a los datos concernientes al Declarante y deberá proporcionar los datos del cónyuge, concubina o concubinario, pareja en sociedad de convivencia, así como de los dependientes económicos, que son aquellas personas, familiares o no, cuya manutención depende principalmente de los ingresos del Servidor Público Declarante, conforme a la legislación civil aplicable. En los formatos electrónicos deberá indicar a quién pertenece la información que se declara (Declarante, cónyuge, concubina/concubinario, pareja en sociedad de convivencia o dependiente económico). El presente numeral contiene los datos ordenados en las siguientes nueve subsecciones.",
+        "type" : "object",
+        "properties" : {
+          "bienes_inmuebles" : {
+            "description" : "El Declarante reportará aquellos bienes que conforme a la normatividad civil se consideran como inmuebles. Son propiedades o bienes que no pueden moverse del lugar en el que se encuentran.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "tipo_operacion" : {
+                  "$ref" : "#/components/schemas/tipo_operacion"
+                },
+                "tipo_bien" : {
+                  "$ref" : "#/components/schemas/tipo_bien"
+                },
+                "superficie_terreno" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Se deberá señalar en metros cuadrados la superficie total correspondiente al terreno respecto del bien inmueble que se declare.",
+                  "example" : 300
+                },
+                "superficie_construccion" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Se deberá señalar en metros cuadrados con valor numérico la superficie correspondiente a construcción respecto del bien inmueble que se declare.",
+                  "example" : 100
+                },
+                "porcentaje_propiedad" : {
+                  "$ref" : "#/components/schemas/porcentaje"
+                },
+                "nombre_copropietario" : {
+                  "$ref" : "#/components/schemas/nombre_personal"
+                },
+                "identificacion_bien" : {
+                  "description" : "Se deberá señalar el número de escritura pública y número del registro público de propiedad, folio real y fecha del contrato.",
+                  "type" : "object",
+                  "properties" : {
+                    "numero_escritura_publica" : {
+                      "type" : "number",
+                      "minimum" : 1,
+                      "example" : 202020
+                    },
+                    "numero_registro_publico" : {
+                      "type" : "number",
+                      "minimum" : 1,
+                      "example" : 404040
+                    },
+                    "folio_real" : {
+                      "type" : "string",
+                      "example" : "jsjs74747"
+                    },
+                    "fecha_contrato" : {
+                      "$ref" : "#/components/schemas/fecha"
+                    }
+                  }
+                },
+                "domicilio_bien" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "forma_adquisicion" : {
+                  "$ref" : "#/components/schemas/forma_adquisicion"
+                },
+                "nombre_denominacion_quien_adquirio" : {
+                  "type" : "string",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Monster Inc."
+                },
+                "rfc_quien_adquirio" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "curp_quien_adquirio" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "relacion_persona_adquirio" : {
+                  "$ref" : "#/components/schemas/relacion_con_persona"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "fecha_adquisicion" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "precio_adquisicion" : {
+                  "$ref" : "#/components/schemas/precio_adquisicion"
+                },
+                "valor_catastral" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Deberá señalar el monto y la moneda de compraventa según la escritura o contrato privado.",
+                  "example" : 800
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "bienes_muebles_registrables" : {
+            "description" : "El Declarante informará aquellos bienes que conforme a la normatividad civil se consideran muebles, son de su propiedad y que de acuerdo con su naturaleza requieren un tipo de registro, anotación, identificación de su propietario o similar. En el llenado de esta información, deberá contar con la tarjeta de circulación, con factura del (os) vehículo(s) automotor(es), aeronaves o embarcaciones, o de cualquier otro tipo, y en su caso, de la carta responsiva. El dato de \"tipo\", también aparece en la tarjeta de circulación o factura como submarca o línea.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "tipo_operacion" : {
+                  "$ref" : "#/components/schemas/tipo_operacion"
+                },
+                "tipo_bien_mueble" : {
+                  "$ref" : "#/components/schemas/tipo_bien"
+                },
+                "marca" : {
+                  "type" : "string",
+                  "description" : "Se deberá señalar la marca del bien mueble declarado.",
+                  "example" : "NISSAN"
+                },
+                "submarca" : {
+                  "type" : "string",
+                  "description" : "Se deberá proporcionar el tipo del bien mueble que se declare.",
+                  "example" : "RS-122234"
+                },
+                "modelo" : {
+                  "type" : "number",
+                  "description" : "Se deberá indicar el año del modelo.",
+                  "example" : 2018
+                },
+                "numero_serie" : {
+                  "type" : "string",
+                  "description" : "Se deberá proporcionar el número de serie del bien mueble.",
+                  "example" : "6545243-4334"
+                },
+                "lugar_registro" : {
+                  "$ref" : "#/components/schemas/lugar_registro"
+                },
+                "titular_bien" : {
+                  "$ref" : "#/components/schemas/titular_bien"
+                },
+                "porcentaje_propiedad" : {
+                  "$ref" : "#/components/schemas/porcentaje"
+                },
+                "nombres_copropietarios" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string",
+                    "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                    "example" : "Monstr Inc."
+                  }
+                },
+                "numero_registro_vehicular" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Se deberá señalar el número de registro vehicular ante el Registro Público Vehicular.",
+                  "example" : 455000
+                },
+                "forma_adquisicion" : {
+                  "$ref" : "#/components/schemas/forma_adquisicion"
+                },
+                "nombre_denominacion_adquirio" : {
+                  "type" : "string",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Monstr Inc."
+                },
+                "rfc_quien_adquirio" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "relacion_persona_quien_adquirio" : {
+                  "$ref" : "#/components/schemas/relacion_con_persona"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "fecha_adquisicion" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "precio_adquisicion" : {
+                  "$ref" : "#/components/schemas/precio_adquisicion"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "bienes_muebles_no_registrables" : {
+            "description" : "Se refiere a la información que el Declarante reportará sobre bienes que conforme a la normatividad civil se consideran muebles que, por su naturaleza, de manera individual o en conjunto representan una parte considerable del patrimonio del Servidor Público de acuerdo con su condición socioeconómica y que para efectos de referencia el monto de su valor comercial sea mayor a 1200 Unidades de Medición y Actualización (UMA).",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "tipo_operacion" : {
+                  "$ref" : "#/components/schemas/tipo_operacion"
+                },
+                "tipo_bien" : {
+                  "$ref" : "#/components/schemas/tipo_bien"
+                },
+                "descripcion" : {
+                  "type" : "string",
+                  "description" : "Deberá brindar una descripción breve del bien por el que recibe ingreso el Declarante.",
+                  "example" : "Con descripción"
+                },
+                "titular_bien" : {
+                  "$ref" : "#/components/schemas/titular_bien"
+                },
+                "porcentaje_propiedad" : {
+                  "$ref" : "#/components/schemas/porcentaje"
+                },
+                "nombres_copropietarios" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string",
+                    "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                    "example" : "Monstr Inc."
+                  }
+                },
+                "forma_adquisicion" : {
+                  "$ref" : "#/components/schemas/forma_adquisicion"
+                },
+                "nombre_denominacion_adquirio" : {
+                  "type" : "string",
+                  "maxLength" : 32,
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Tesl Mtr Inc."
+                },
+                "relacion_quien_adquirio" : {
+                  "$ref" : "#/components/schemas/relacion_con_persona"
+                },
+                "fecha_adquisicion" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "precio_adquisicion" : {
+                  "$ref" : "#/components/schemas/precio_adquisicion"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "inversiones_cuentas_valores" : {
+            "description" : "El Declarante reportará toda la información relacionada con cualquier instrumento financiero en el cual se reporte cualquier tipo de representación de su patrimonio.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "tipo_operacion" : {
+                  "$ref" : "#/components/schemas/tipo_operacion"
+                },
+                "tipo_inversion" : {
+                  "description" : "Se deberá reportar el tipo de inversión conforme a la normatividad aplicable (inversión, valores, cuenta, u otro - especificar).",
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "INVS", "VALS", "CTAS", "OTRO" ],
+                      "example" : "VALS"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "example" : "Valores"
+                    }
+                  }
+                },
+                "tipo_especifico_inversion" : {
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "ACCS", "BONS", "VALRS", "TITLS", "CONTSA", "FRET", "FINV", "OTRO" ],
+                      "example" : "VALRS"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "example" : "Valores"
+                    }
+                  }
+                },
+                "numero_cuenta" : {
+                  "type" : "string",
+                  "description" : "Señalar el número de cuenta, contrato o cualquier dato que permita la identificación de la cuenta, inversión o valor que se declare.",
+                  "example" : "GFHRTY788778"
+                },
+                "nacional_extranjero" : {
+                  "$ref" : "#/components/schemas/pais"
+                },
+                "nombre_institucion" : {
+                  "type" : "string",
+                  "description" : "Indicar el nombre de la institución donde se encuentren registradas las inversiones, cuentas o valores.",
+                  "example" : "Bank Inkc"
+                },
+                "rfc_institucion" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "domicilio_institucion" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "forma_adquisicion" : {
+                  "$ref" : "#/components/schemas/forma_adquisicion"
+                },
+                "fecha_inicio" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "monto_original" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Se deberá señalar la cantidad con la que inicialmente el Declarante participó en la inversión.",
+                  "example" : 80000
+                },
+                "tipo_moneda" : {
+                  "$ref" : "#/components/schemas/moneda"
+                },
+                "tasa_interes" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Especificar la tasa de interés convenida por el Declarante y la institución financiera estipulada en el convenio inicial.",
+                  "example" : 10
+                },
+                "saldo_anual" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Señalar el saldo total con que cuenta la inversión/valor al 31 de diciembre del año inmediato anterior.",
+                  "example" : 5000
+                },
+                "plazo" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Se deberá indicar la cantidad de tiempo (días, meses, años) en la cual se convino la inversión/valor.",
+                  "example" : 6
+                },
+                "unidad_medida_plazo" : {
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "DIAS", "SEMS", "MESS", "TUNI" ],
+                      "maxLength" : 32,
+                      "description" : "Código de la unidad temporal",
+                      "example" : "MESS"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "enum" : [ "Días", "Semanas", "Meses", "Transacción única" ],
+                      "maxLength" : 32,
+                      "description" : "Valor de la unidad temporal",
+                      "example" : "Meses"
+                    }
+                  }
+                },
+                "titular_bien" : {
+                  "$ref" : "#/components/schemas/titular_bien"
+                },
+                "porcentaje_inversion" : {
+                  "$ref" : "#/components/schemas/porcentaje"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "efectivo_metales" : {
+            "description" : "El Declarante informará la propiedad que tenga de efectivo y/o metales de forma física o virtual a la normatividad aplicable.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "tipo_operacion" : {
+                  "$ref" : "#/components/schemas/tipo_operacion"
+                },
+                "tipo_moneda" : {
+                  "$ref" : "#/components/schemas/moneda"
+                },
+                "monto" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Señalar la cantidad total que representa la posesión del tipo de moneda en efectivo (pesos).",
+                  "example" : 78555
+                },
+                "tipo_metal" : {
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "ORO", "PLATA", "COBRE", "OTRO" ],
+                      "maxLength" : 10,
+                      "example" : "ORO"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "example" : "Oro"
+                    }
+                  }
+                },
+                "unidades" : {
+                  "type" : "number",
+                  "description" : "Se deberá señalar el número de unidades de metal con las que cuenta.",
+                  "example" : 100
+                },
+                "forma_adquisicion" : {
+                  "$ref" : "#/components/schemas/forma_adquisicion"
+                },
+                "observaciones_comentarios" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "fideicomisos" : {
+            "description" : "El Declarante informará los datos relacionados con los fideicomisos de los que forme parte y generan ingresos en su patrimonio conforme a la normatividad aplicable.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "tipo_operacion" : {
+                  "$ref" : "#/components/schemas/tipo_operacion"
+                },
+                "identificador_fideicomiso" : {
+                  "type" : "string",
+                  "description" : "Indicar el dato por medio del cual se identifique o haga identificable el fideicomiso.",
+                  "example" : "93232"
+                },
+                "tipo_fideicomiso" : {
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "GARNT", "ADMON", "INVRSN", "TESTM", "OTRO" ],
+                      "maxLength" : 10,
+                      "example" : "GARNT"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "maxLength" : 32,
+                      "example" : "Garantía"
+                    }
+                  }
+                },
+                "objetivo" : {
+                  "type" : "string",
+                  "maxLength" : 32,
+                  "description" : "Señalará el objeto de creación del fideicomiso conforme al instrumento jurídico correspondiente.",
+                  "example" : "Objetivo del fideicomiso"
+                },
+                "numero_registro" : {
+                  "type" : "string",
+                  "description" : "Indicar el dato a través del cual se haga identificable el fideicomiso conforme a la normatividad aplicable.",
+                  "example" : "788544abc"
+                },
+                "fecha_creacion" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "vigencia" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "residencia" : {
+                  "$ref" : "#/components/schemas/pais"
+                },
+                "valor" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Señalar el valor total del fideicomiso que se declara en caso de ser aplicable su valuación.",
+                  "example" : 78555555
+                },
+                "moneda" : {
+                  "$ref" : "#/components/schemas/moneda"
+                },
+                "porcentaje_propiedad_derechos_fiduciarios" : {
+                  "$ref" : "#/components/schemas/porcentaje"
+                },
+                "ingreso_monetario_obtenido" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Indicar el monto total que obtiene el Declarante a través del fideicomiso.",
+                  "example" : 56666
+                },
+                "institucion_fiduciaria" : {
+                  "type" : "string",
+                  "description" : "Indicar el nombre de la institución fiduciaria encargada de la administración de los bienes, valores y/o derechos fideicomitidos.",
+                  "example" : "Banco de México"
+                },
+                "nombre_fideicomitente" : {
+                  "type" : "string",
+                  "description" : "Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Banco Robmen1"
+                },
+                "nombre_fideicomisario" : {
+                  "type" : "string",
+                  "example" : "Banco Robmen2"
+                },
+                "nombre_fiduciario" : {
+                  "type" : "string",
+                  "example" : "Banco Robmenos2"
+                },
+                "rfc_fideicomitente" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "rfc_fideicomsario" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "rfc_fiduciario" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "curp_fideicomitente" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "curp_fideicomisario" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "curp_fiduciario" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "domicilio_fideicomitente" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "domicilio_fideicomisario" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "domicilio_fiduciario" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "fecha_nacimiento_constitucion_fideicomitente" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "fecha_nacimiento_constitucion_fideicomisario" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "fecha_nacimiento_constitucion_fiduciario" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "bienes_intangibles" : {
+            "description" : "El Declarante reportará los bienes no tangibles que conforme a la normatividad aplicable son considerados como un activo patrimonial (propiedad intelectual, derechos, patentes, licencias).",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "tipo_operacion" : {
+                  "$ref" : "#/components/schemas/tipo_operacion"
+                },
+                "propietario_registrado" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string",
+                    "description" : "Nombre/nombres de propietario de los derechos respecto de los bienes intangibles."
+                  },
+                  "example" : "Sergio Perez"
+                },
+                "descripcion" : {
+                  "type" : "string",
+                  "description" : "Mencionar brevemente la naturaleza y características del bien intangible.",
+                  "example" : "Aquí va una descripción"
+                },
+                "ente_publico_encargado" : {
+                  "$ref" : "#/components/schemas/nombre_personal"
+                },
+                "numero_registro" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Se deberá señalar el folio de registro en la institución pública en que fue registrado el bien que se declara.",
+                  "example" : 754444
+                },
+                "fecha_registro" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "precio_adquisicion" : {
+                  "$ref" : "#/components/schemas/precio_adquisicion"
+                },
+                "forma_adquisicion" : {
+                  "$ref" : "#/components/schemas/forma_adquisicion"
+                },
+                "fecha_vencimiento" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "porcentaje_copropiedad" : {
+                  "$ref" : "#/components/schemas/porcentaje"
+                },
+                "precio_total_copropiedad" : {
+                  "$ref" : "#/components/schemas/precio_adquisicion"
+                },
+                "nombre_copropietario" : {
+                  "type" : "string",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Vien Inc,"
+                },
+                "porcentaje_propiedad_copropietario" : {
+                  "$ref" : "#/components/schemas/porcentaje"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "cuentas_por_cobrar" : {
+            "description" : "El Declarante reportará aquella información que por cualquier instrumento implique que un tercero tenga una obligación respecto del Declarante que represente un potencial aumento de su patrimonio al momento de que se salde conforme a la normatividad jurídica aplicable.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "nombre_prestatario" : {
+                  "type" : "string",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Max Power Tier"
+                },
+                "numero_registro" : {
+                  "type" : "string",
+                  "description" : "Señalar el número de cuenta, contrato o cualquier dato que permita la identificación de la cuenta por cobrar que se declare, en caso de ser aplicable.",
+                  "example" : "488755avvv"
+                },
+                "domicilio_prestatarios" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "fecha_prestamo" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "monto_original_prestamo" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Se deberá señalar la cantidad con la que inicialmente se generó el instrumento.",
+                  "example" : 488844
+                },
+                "tasa_interes" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Se deberá especificar la tasa de interés convenida por el Declarante y la institución financiera estipulada en el convenio inicial.",
+                  "example" : 10.01
+                },
+                "saldo_pendiente" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Se deberá señalar el saldo total de la cuenta por cobrar pendiente a la fecha.",
+                  "example" : 4555
+                },
+                "fecha_vencimiento" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "porcentaje_copropiedad" : {
+                  "$ref" : "#/components/schemas/porcentaje"
+                },
+                "nombre_copropietario" : {
+                  "type" : "string",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Max Power Bansky"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "uso_especie_propiedad_tercero" : {
+            "description" : "El Declarante reportará el uso, goce o disfrute de bienes o servicios propiedad de un tercero que, al ser de manera gratuita o por un precio inferior al del mercado, no reduce el patrimonio del tercero a pesar del uso, goce o disfrute, y que implique un valor comercial superior a 1200 Unidades de Medición y Actualización (UMA) en el periodo reportado. Se deberá llenar la información por cada uno de los beneficios que se reporte.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "tipo_bien" : {
+                  "$ref" : "#/components/schemas/tipo_bien"
+                },
+                "valor_mercado" : {
+                  "type" : "object",
+                  "properties" : {
+                    "valor" : {
+                      "type" : "number",
+                      "minimum" : 1,
+                      "description" : "Se deberá señalar el monto económico total que representa el uso, goce o disfrute del beneficio en especie propiedad de un tercero.",
+                      "example" : 4000
+                    },
+                    "moneda" : {
+                      "$ref" : "#/components/schemas/moneda"
+                    }
+                  }
+                },
+                "nombre_tercero_propietario" : {
+                  "type" : "string",
+                  "description" : "Se deberá escribir el nombre o nombres completos del tercero propietario. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "Bansky Von Trier"
+                },
+                "rfc_tercero_propietario" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "curp_tercero_propietario" : {
+                  "$ref" : "#/components/schemas/curp"
+                },
+                "relacion_persona" : {
+                  "$ref" : "#/components/schemas/relacion_con_persona"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "fecha_inicio" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "domicilio_persona" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          }
+        }
+      },
+      "pasivos" : {
+        "description" : "Este apartado se refiere a los datos concernientes al Declarante y deberá proporcionar los datos del cónyuge, concubina o concubinario, pareja en sociedad de convivencia, así como de los dependientes económicos, que son aquellas personas, familiares o no, cuya manutención depende principalmente de los ingresos del Servidor Público Declarante, conforme a la legislación civil aplicable. En los formatos electrónicos deberá indicar a quién pertenece la información que se declara (Declarante, cónyuge, concubina/concubinario, pareja en sociedad de convivencia o dependiente económico).",
+        "type" : "object",
+        "properties" : {
+          "deudas" : {
+            "description" : "El Declarante reportará la información sobre cualquier tipo de deuda que le implique una reducción directa o indirecta, presente o futura de su patrimonio. El Declarante reportará la información por cada una de las deudas.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "tipo_operacion" : {
+                  "$ref" : "#/components/schemas/tipo_operacion"
+                },
+                "tipo_acreedor" : {
+                  "description" : "Se deberá seleccionar el tipo de prestador que corresponda al adeudo que declare (institución financiera, persona moral no financiera, persona física u otro - especificar).",
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "INSTF", "PMNF", "PFIS", "OTRO" ],
+                      "maxLength" : 10,
+                      "example" : "INSTF"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "example" : "Institución Financiera"
+                    }
+                  }
+                },
+                "tipo_adeudo" : {
+                  "description" : "Se deberá señalar el tipo de adeudo que se declara (vehículo, crédito hipotecario, crédito personal, tarjeta de crédito, deudas comerciales u otro - especificar).",
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "CVH", "CCRED", "CHIP", "PPERS", "TDC", "OTRO" ],
+                      "maxLength" : 10,
+                      "example" : "CVH"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "maxLength" : 32,
+                      "example" : "Compra de vehículo"
+                    }
+                  }
+                },
+                "identificador_deuda" : {
+                  "type" : "string",
+                  "description" : "Se deberá indicar el número de cuenta o contrato con diversa institución que corresponda al préstamo otorgado al Declarante.",
+                  "example" : "CONT12354"
+                },
+                "nacional_extranjero" : {
+                  "$ref" : "#/components/schemas/pais"
+                },
+                "nombre_acreedor" : {
+                  "type" : "string",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "example" : "PNBKSRIBAS S.A. DE C.V"
+                },
+                "rfc_acreedor" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "domicilio_acreedor" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "fecha_adeudo" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "monto_original" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Se deberá señalar la cantidad con la que inicialmente el Declarante obtuvo como préstamo.",
+                  "example" : 277900
+                },
+                "tipo_moneda" : {
+                  "$ref" : "#/components/schemas/moneda"
+                },
+                "tasa_interes" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Se deberá especificar la tasa de interés convenida por el Declarante y el prestador estipulada en el convenio inicial.",
+                  "example" : 12
+                },
+                "saldo_pendiente" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Se deberá señalar el monto total que se encuentra pendiente de cobro por parte del prestador.",
+                  "example" : 28000
+                },
+                "montos_abonados" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "number",
+                    "minimum" : 1,
+                    "description" : "Deberá registrar los pagos abonados a la deuda en el periodo reportado.",
+                    "example" : 28000
+                  }
+                },
+                "plazo_adeudo" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Se deberá indicar la cantidad de tiempo (días, meses, años) en la cual se convino el préstamo. En el caso de crédito hipotecario, indicar el plazo original del adeudo en años. Para compra de vehículos indicar el plazo del adeudo en meses. De haber efectuado una reestructuración indicar el plazo y monto en el apartado de observaciones/comentarios.",
+                  "example" : 24
+                },
+                "unidad_medida_adeudo" : {
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "DIAS", "SEMS", "MESS", "TUNI" ],
+                      "maxLength" : 32,
+                      "description" : "Código de la unidad temporal",
+                      "example" : "MESS"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "enum" : [ "Días", "Semanas", "Meses", "Transacción única" ],
+                      "maxLength" : 32,
+                      "description" : "Valor de la unidad temporal",
+                      "example" : "Meses"
+                    }
+                  }
+                },
+                "titularidad_deuda" : {
+                  "$ref" : "#/components/schemas/titular_bien"
+                },
+                "porcentaje_adeudo_titular" : {
+                  "$ref" : "#/components/schemas/porcentaje"
+                },
+                "garantia" : {
+                  "type" : "boolean",
+                  "example" : true
+                },
+                "nombre_garante" : {
+                  "type" : "string",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Observaciones/Comentarios: En caso de que requiera detallar información respecto de algún adeudo.",
+                  "example" : "Bansky Von Tier"
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          },
+          "otras_obligaciones" : {
+            "description" : "El Declarante reportará cualquier otra obligación diferente al apartado anterior que implique una reducción de su patrimonio. El Declarante reportará la información por cada una de las obligaciones.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "$ref" : "#/components/schemas/id"
+                },
+                "tipo_operacion" : {
+                  "$ref" : "#/components/schemas/tipo_operacion"
+                },
+                "tipo_acreedor" : {
+                  "description" : "Se deberá seleccionar el tipo de prestador que corresponda al adeudo que declare (institución financiera, persona moral no financiera, persona física u otro - especificar).",
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "INSTF", "PMNF", "PFIS", "OTRO" ],
+                      "maxLength" : 10,
+                      "example" : "INSTF"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "example" : "Institución Financiera"
+                    }
+                  }
+                },
+                "tipo_obligacion" : {
+                  "description" : "Se deberá señalar el tipo de obligación que se declara diverso a los descritos en la subsección I. Deudas, de este decimotercer numeral.",
+                  "type" : "string",
+                  "example" : "Ejemplo"
+                },
+                "identificador_obligacion" : {
+                  "type" : "string",
+                  "description" : "Se deberá indicar el número de cuenta o contrato con diversa institución que corresponda al préstamo otorgado al Declarante.",
+                  "example" : "FONAET8945"
+                },
+                "nacional_extranjero" : {
+                  "$ref" : "#/components/schemas/pais"
+                },
+                "nombre_acreedor" : {
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "type" : "string",
+                  "example" : "Bansky Hola Adios"
+                },
+                "rfc_acreedor" : {
+                  "$ref" : "#/components/schemas/rfc"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "domicilio_acreedor" : {
+                  "$ref" : "#/components/schemas/domicilio"
+                },
+                "fecha_obligacion" : {
+                  "$ref" : "#/components/schemas/fecha"
+                },
+                "monto_original" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Señalar la cantidad con la que inicialmente el Declarante obtuvo como préstamo.",
+                  "example" : 300000
+                },
+                "tipo_moneda" : {
+                  "$ref" : "#/components/schemas/moneda"
+                },
+                "tasa_interes" : {
+                  "type" : "number",
+                  "description" : "Se deberá especificar la tasa de interés convenida por el Declarante y el prestador estipulada en el convenio inicial.",
+                  "example" : 12
+                },
+                "saldo_pendiente" : {
+                  "type" : "number",
+                  "description" : "Se deberá señalar el monto total que se encuentra pendiente de cobro por parte del prestador.",
+                  "example" : 297000
+                },
+                "montos_abonados" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "number",
+                    "minimum" : 1,
+                    "description" : "Deberá registrar los pagos abonados a la deuda en el periodo reportado.",
+                    "example" : 28000
+                  }
+                },
+                "plazo_obligacion" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "Se deberá indicar la cantidad de tiempo (días, meses, años) en la cual se convino el préstamo.",
+                  "example" : 360
+                },
+                "unidad_medida_plazo" : {
+                  "description" : "Se deberá indicar solamente las unidades con las que se podría medir la inversión/valor.",
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "DIAS", "SEMS", "MESS", "TUNI" ],
+                      "maxLength" : 32,
+                      "description" : "Código de la unidad temporal",
+                      "example" : "MESS"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "enum" : [ "Días", "Semanas", "Meses", "Transacción única" ],
+                      "maxLength" : 32,
+                      "description" : "Valor de la unidad temporal",
+                      "example" : "Meses"
+                    }
+                  }
+                },
+                "titularidad_obligacion" : {
+                  "$ref" : "#/components/schemas/titular_bien"
+                },
+                "porcentaje_obligacion_titular" : {
+                  "$ref" : "#/components/schemas/porcentaje"
+                },
+                "garantia" : {
+                  "type" : "boolean",
+                  "example" : true
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
+                }
+              }
+            }
+          }
+        }
+      },
+      "domicilio" : {
+        "type" : "object",
+        "properties" : {
+          "pais" : {
+            "$ref" : "#/components/schemas/pais"
+          },
+          "entidad_federativa" : {
+            "$ref" : "#/components/schemas/entidad_federativa"
+          },
+          "municipio" : {
+            "type" : "object",
+            "properties" : {
+              "nom_mun" : {
+                "type" : "string",
+                "description" : "Nombre del municipio",
+                "example" : "Ecatepec de Morelos"
+              },
+              "cve_mun" : {
+                "type" : "string",
+                "maxLength" : 10,
+                "description" : "Clave del municipio",
+                "example" : "033"
+              }
+            }
+          },
+          "cp" : {
+            "type" : "string",
+            "description" : "Código postal del domicilio",
+            "example" : "55018"
+          },
+          "localidad" : {
+            "type" : "object",
+            "properties" : {
+              "nom_loc" : {
+                "type" : "string",
+                "description" : "Nombre de la localidad",
+                "example" : "Ecatepec de Morelos"
+              },
+              "cve_loc" : {
+                "type" : "string",
+                "maxLength" : 10,
+                "description" : "Clave de la localidad",
+                "example" : "0001"
+              }
+            }
+          },
+          "vialidad" : {
+            "type" : "object",
+            "properties" : {
+              "tipo_vial" : {
+                "type" : "string",
+                "description" : "Nombre del tipo de vialidad",
+                "example" : "CALLE"
+              },
+              "nom_vial" : {
+                "type" : "string",
+                "description" : "Clave del tipo de vialidad",
+                "example" : "El Rosal"
+              }
+            }
+          },
+          "numExt" : {
+            "type" : "string",
+            "description" : "Número exterior del domicilio",
+            "example" : "24"
+          },
+          "numInt" : {
+            "type" : "string",
+            "description" : "Número interior del domicilio",
+            "example" : "48"
+          }
+        }
+      },
+      "sector_industria" : {
+        "description" : "Se deberá indica el sector al que pertenece el encargo de entre los enlistados.",
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "maxLength" : 10,
+            "description" : "Código del sector o industria",
+            "example" : "SFS"
+          },
+          "valor" : {
+            "type" : "string",
+            "description" : "Valor del sector o industria a la que pertenece",
+            "example" : "Servicios de salud y asistencia social"
+          }
+        }
+      },
+      "curp" : {
+        "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación.",
+        "type" : "string",
+        "example" : "BEML920313HMCLNS09"
+      },
+      "rfc" : {
+        "description" : "Se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria.",
+        "type" : "string",
+        "example" : "GOAP780710RH7"
+      },
+      "pais" : {
+        "type" : "object",
+        "properties" : {
+          "valor" : {
+            "type" : "string",
+            "description" : "Nombre  del pais especificado en estándar ISO3166",
+            "example" : "México"
+          },
+          "codigo" : {
+            "type" : "string",
+            "maxLength" : 5,
+            "description" : "Código alpha 2 del país especificado en estándar ISO3166",
+            "example" : "MX"
+          }
+        }
+      },
+      "fecha" : {
+        "type" : "string",
+        "format" : "date",
+        "description" : "Formato de fechas con notación dd/mm/aaaa",
+        "example" : "31/07/1980"
+      },
+      "correo_electronico" : {
+        "type" : "string",
+        "format" : "email",
+        "description" : "Correo electronico valido",
+        "example" : "jperez@ejemplo.com.mx"
+      },
+      "entidad_federativa" : {
+        "type" : "object",
+        "properties" : {
+          "nom_ent" : {
+            "type" : "string",
+            "description" : "Nombre de la entidad federativa del Marco Geoestadístico Nacional",
+            "example" : "México"
+          },
+          "cve_ent" : {
+            "type" : "string",
+            "maxLength" : 5,
+            "description" : "Clave de la entidad federativa del Marco Geoestadístico Nacional",
+            "example" : "15"
+          }
+        }
+      },
+      "telefono" : {
+        "type" : "string",
+        "maxLength" : 15,
+        "description" : "Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf",
+        "example" : "+525510203040"
+      },
+      "id" : {
+        "type" : "number",
+        "minimum" : 1,
+        "description" : "Número identificador unico",
+        "example" : 123
+      },
+      "porcentaje" : {
+        "type" : "number",
+        "minimum" : 1,
+        "maximum" : 100,
+        "description" : "Valor númerico porcentual",
+        "example" : 70
+      },
+      "nivel_orden_gobierno" : {
+        "description" : "Señalar si es federal, estatal o municipal.",
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "enum" : [ "FED", "EST", "MUN" ],
+            "description" : "Codigo del tipo de nivel de orden de gobierno",
+            "example" : "EST"
+          },
+          "valor" : {
+            "type" : "string",
+            "enum" : [ "Federal", "Estatal", "Municipal" ],
+            "maxLength" : 32,
+            "description" : "Valor del tipo de nivel de orden de gobierno",
+            "example" : "Estatal"
+          }
+        }
+      },
+      "tipo_representacion" : {
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "enum" : [ "MAND", "ACOM", "RLEG", "APOD", "OTRO" ],
+            "maxLength" : 10,
+            "description" : "Código del tipo de representación",
+            "example" : "APOD"
+          },
+          "valor" : {
+            "type" : "string",
+            "description" : "Valor del tipo de representación",
+            "example" : "Apoderado"
+          }
+        }
+      },
+      "observaciones" : {
+        "type" : "string",
+        "maxLength" : 200,
+        "description" : "Observaciones correspondientes",
+        "example" : "Esto es una observación"
+      },
+      "ingreso_bruto_anual" : {
+        "type" : "object",
+        "properties" : {
+          "valor" : {
+            "type" : "number",
+            "minimum" : 1,
+            "example" : 10000
+          },
+          "moneda" : {
+            "$ref" : "#/components/schemas/moneda"
+          },
+          "unidad_temporal" : {
+            "type" : "object",
+            "properties" : {
+              "codigo" : {
+                "type" : "string",
+                "enum" : [ "DIAS", "SEMS", "MESS", "TUNI" ],
+                "maxLength" : 10,
+                "description" : "Código de la unidad temporal",
+                "example" : "MESS"
+              },
+              "valor" : {
+                "type" : "string",
+                "enum" : [ "Días", "Semanas", "Meses", "Transacción única" ],
+                "description" : "Valor de la unidad temporal",
+                "example" : "Meses"
+              }
+            }
+          },
+          "duracion_frecuencia" : {
+            "type" : "number",
+            "minimum" : 1,
+            "description" : "Duración de la frecuencia",
+            "example" : 10
+          },
+          "fecha_transaccion" : {
+            "$ref" : "#/components/schemas/fecha"
+          }
+        }
+      },
+      "tipo_actividad_servicio" : {
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "enum" : [ "SPU", "IND", "COM", "SER", "APFP" ],
+            "maxLength" : 10,
+            "description" : "Código del tipo de actividad",
+            "example" : "SPU"
+          },
+          "valor" : {
+            "type" : "string",
+            "enum" : [ "Sector Público", "Industrial (construcción, minería, electricidad, etc)", "Comercial (comercio al por mayor, comercio al por menor)", "Servicios (financieros, profesionales, científicos, técnicos, alimentación, alojamiento, esparcimiento, etc)", "Agrícola, Pecuario, Forestal, Pesca" ],
+            "description" : "Valor del tipo de actividad",
+            "example" : "Sector público"
+          }
+        }
+      },
+      "tipo_operacion" : {
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "enum" : [ "INCP", "MODF", "VENT", "SCAMB", "NARI", "OTRO" ],
+            "description" : "Código del tipo de operación",
+            "example" : "INCP"
+          },
+          "valor" : {
+            "type" : "string",
+            "description" : "Valor del tipo de operación",
+            "example" : "Incorporación"
+          }
+        }
+      },
+      "tipo_bien" : {
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "enum" : [ "VEH", "BAR", "ANV", "MAQ", "OTRO" ],
+            "maxLength" : 32,
+            "description" : "Código del tipo de bien",
+            "example" : "VEH"
+          },
+          "valor" : {
+            "type" : "string",
+            "maxLength" : 32,
+            "description" : "Código del tipo de bien",
+            "example" : "Vehículo"
+          }
+        }
+      },
+      "forma_adquisicion" : {
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "enum" : [ "CES", "CONT", "CRED", "SUCE", "DON", "USU", "REG", "OTROS" ],
+            "maxLength" : 32,
+            "description" : "Código de la forma de adquisicion",
+            "example" : "CES"
+          },
+          "valor" : {
+            "type" : "string",
+            "maxLength" : 32,
+            "description" : "Valor de la forma de adquisición",
+            "example" : "Cesión"
+          }
+        }
+      },
+      "relacion_con_persona" : {
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "enum" : [ "CONY", "CONC", "PSC", "DEC", "OTRO" ],
+            "maxLength" : 32,
+            "description" : "Código del tipo de relación con la persona",
+            "example" : "CONY"
+          },
+          "valor" : {
+            "type" : "string",
+            "maxLength" : 32,
+            "description" : "Valor del tipo de relación con la persona",
+            "example" : "Cónyuge"
+          }
+        }
+      },
+      "precio_adquisicion" : {
+        "type" : "object",
+        "properties" : {
+          "valor" : {
+            "type" : "number",
+            "minimum" : 1,
+            "description" : "Valor númerico del precio de adquisición",
+            "example" : 4000
+          },
+          "moneda" : {
+            "$ref" : "#/components/schemas/moneda"
+          }
+        }
+      },
+      "moneda" : {
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "maxLength" : 32,
+            "description" : "Código de la moneda de acuerdo al estandar ISO 4217",
+            "example" : "MXN"
+          },
+          "moneda" : {
+            "type" : "string",
+            "maxLength" : 5,
+            "description" : "Divisa de la moneda de acuerdo al estandar ISO 4217",
+            "example" : "Peso mexicano"
+          }
+        }
+      },
+      "nombre_personal" : {
+        "description" : "Se deberá escribir el nombre o los nombres completos, así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido, deberá colocarse en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco.",
+        "type" : "object",
+        "properties" : {
+          "nombres" : {
+            "type" : "string",
+            "maxLength" : 50,
+            "description" : "Nombres de la persona",
+            "example" : "Carlos"
+          },
+          "primer_apellido" : {
+            "type" : "string",
+            "maxLength" : 50,
+            "description" : "Primer apellido de la persona",
+            "example" : "Pérez"
+          },
+          "segundo_apellido" : {
+            "type" : "string",
+            "maxLength" : 50,
+            "description" : "Segundo apellido de la persona",
+            "example" : "López"
+          }
+        }
+      },
+      "titular_bien" : {
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "enum" : [ "DECL", "CONY", "DEPND", "PREST", "EPROP", "OTRO" ],
+            "maxLength" : 10,
+            "example" : "DECL"
+          },
+          "valor" : {
+            "type" : "string",
+            "maxLength" : 32,
+            "description" : "Valor del titular de bien",
+            "example" : "Declarante"
+          }
+        }
+      },
+      "lugar_registro" : {
+        "type" : "object",
+        "properties" : {
+          "pais" : {
+            "$ref" : "#/components/schemas/pais"
+          },
+          "entidad" : {
+            "$ref" : "#/components/schemas/entidad_federativa"
+          }
+        }
+      }
+    }
+  }
+}

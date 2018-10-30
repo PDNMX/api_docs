@@ -7,17 +7,21 @@
   "paths" : {
     "/declaraciones" : {
       "get" : {
-        "tags" : [ "declaraciones" ],
+        "tags" : [
+          "declaraciones"
+        ],
         "summary" : "Muestra las declaraciones de los servidores publicos",
         "operationId" : "declaraciones",
-        "parameters" : [ {
-          "name" : "page",
-          "in" : "query",
-          "description" : "Número de página a mostrar",
-          "schema" : {
-            "type" : "number"
+        "parameters" : [
+          {
+            "name" : "page",
+            "in" : "query",
+            "description" : "Número de página a mostrar",
+            "schema" : {
+              "type" : "number"
+            }
           }
-        } ],
+        ],
         "responses" : {
           "200" : {
             "description" : "operación exitosa",
@@ -36,9 +40,13 @@
             "description" : "No tienes permisos"
           }
         },
-        "security" : [ {
-          "declaraciones_auth" : [ "read:declaraciones" ]
-        } ]
+        "security" : [
+          {
+            "declaraciones_auth" : [
+              "read:declaraciones"
+            ]
+          }
+        ]
       }
     }
   },
@@ -68,7 +76,10 @@
     "schemas" : {
       "Declaraciones" : {
         "type" : "object",
-        "required" : [ "pagination", "results" ],
+        "required" : [
+          "pagination",
+          "results"
+        ],
         "properties" : {
           "pagination" : {
             "type" : "object",
@@ -101,8 +112,8 @@
               "properties" : {
                 "id" : {
                   "type" : "string",
-                  "description" : "Identificador del declarante con valor alfanúmerico",
-                  "example" : "a1b2c3d4"
+                  "description" : "Identificador alfanumérico de la declaración",
+                  "example" : "5bd606ee80f35b04a5448b4e"
                 },
                 "informacion_personal" : {
                   "$ref" : "#/components/schemas/informacion_personal"

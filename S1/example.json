@@ -6,6 +6,7 @@
   },
   "results": [{
     "id": "a1b2c3d4",
+    "fecha_actualizacion": "2018-10-20T00:00:00Z",
     "informacion_personal": {
       "informacion_general": {
         "nombres": "Carlos",

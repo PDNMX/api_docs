@@ -115,6 +115,11 @@
                   "description" : "Identificador alfanumérico de la declaración",
                   "example" : "5bd606ee80f35b04a5448b4e"
                 },
+                "fecha_actualizacion": {
+                  "type": "string",
+                  "description": "Fecha y hora de actualización o captura de la declaración en formato ISO8601",
+                  "example": "2018-10-10T00:00:00Z"
+                },
                 "informacion_personal" : {
                   "$ref" : "#/components/schemas/informacion_personal"
                 },

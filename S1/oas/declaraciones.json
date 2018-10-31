@@ -7,21 +7,74 @@
   "paths" : {
     "/declaraciones" : {
       "get" : {
-        "tags" : [
-          "declaraciones"
-        ],
+        "tags" : [ "declaraciones" ],
         "summary" : "Muestra las declaraciones de los servidores publicos",
         "operationId" : "declaraciones",
-        "parameters" : [
-          {
-            "name" : "page",
-            "in" : "query",
-            "description" : "Número de página a mostrar",
-            "schema" : {
-              "type" : "number"
-            }
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Número de página a mostrar",
+          "schema" : {
+            "type" : "number"
           }
-        ],
+        }, {
+          "name" : "apellido1",
+          "in" : "query",
+          "description" : "Devuelve resultados al buscar a un declarante por su primer apellido",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "apellido2",
+          "in" : "query",
+          "description" : "Devuelve resultados al buscar a un declarante por su segundo apellido",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "curp",
+          "in" : "query",
+          "description" : "Devuelve resultados al buscar a un declarante por su CURP",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "rfc",
+          "in" : "query",
+          "description" : "Devuelve resultados al buscar a un declarante por RFC",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "description" : "Devuelve resultados al buscar a un declarante por su ID",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "institucion",
+          "in" : "query",
+          "description" : "Devuelve resultados de declaraciones por Institución",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "actualizacion",
+          "in" : "query",
+          "description" : "Devuelve resultados de declaraciones a partir de la fecha",
+          "schema" : {
+            "type" : "string",
+            "format" : "date"
+          }
+        }, {
+          "name" : "perfil",
+          "in" : "query",
+          "description" : "Devuelve resultados de declaraciones a partir de la fecha",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
         "responses" : {
           "200" : {
             "description" : "operación exitosa",
@@ -40,13 +93,9 @@
             "description" : "No tienes permisos"
           }
         },
-        "security" : [
-          {
-            "declaraciones_auth" : [
-              "read:declaraciones"
-            ]
-          }
-        ]
+        "security" : [ {
+          "declaraciones_auth" : [ "read:declaraciones" ]
+        } ]
       }
     }
   },
@@ -76,10 +125,7 @@
     "schemas" : {
       "Declaraciones" : {
         "type" : "object",
-        "required" : [
-          "pagination",
-          "results"
-        ],
+        "required" : [ "pagination", "results" ],
         "properties" : {
           "pagination" : {
             "type" : "object",
@@ -112,13 +158,30 @@
               "properties" : {
                 "id" : {
                   "type" : "string",
-                  "description" : "Identificador alfanumérico de la declaración",
-                  "example" : "5bd606ee80f35b04a5448b4e"
+                  "description" : "Identificador del declarante con valor alfanúmerico",
+                  "example" : "a1b2c3d4"
                 },
-                "fecha_actualizacion": {
-                  "type": "string",
-                  "description": "Fecha y hora de actualización o captura de la declaración en formato ISO8601",
-                  "example": "2018-10-10T00:00:00Z"
+                "metadata" : {
+                  "type" : "object",
+                  "properties" : {
+                    "fecha_actualizacion" : {
+                      "type" : "string",
+                      "format" : "date-time",
+                      "description" : "Identificador del declarante con valor alfanúmerico",
+                      "example" : "2017-07-21T17:32:28Z"
+                    },
+                    "institucion" : {
+                      "type" : "string",
+                      "description" : "Identificador del declarante con valor alfanúmerico",
+                      "example" : "Secretaría de Educación Pública"
+                    },
+                    "contacto" : {
+                      "type" : "string",
+                      "format" : "email",
+                      "description" : "Identificador del declarante con valor alfanúmerico",
+                      "example" : "usuario@dominio.org"
+                    }
+                  }
                 },
                 "informacion_personal" : {
                   "$ref" : "#/components/schemas/informacion_personal"
@@ -164,24 +227,33 @@
                   "$ref" : "#/components/schemas/entidad_federativa"
                 },
                 "curp" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "rfc" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "Se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "fecha_nacimiento" : {
-                  "$ref" : "#/components/schemas/fecha"
+                  "type" : "string",
+                  "description" : "Formato de fechas con notación dd/mm/aaaa. Este dato es información confidencial",
+                  "example" : "31/07/1980"
                 },
                 "numero_identificacion_oficial" : {
                   "type" : "string",
-                  "description" : "Número de identificación oficial que corresponda en caso de que el Declarante no sea mexicano",
+                  "description" : "Número de identificación oficial que corresponda en caso de que el Declarante no sea mexicano. Este dato es información confidencial",
                   "example" : "a1b2c3d4"
                 },
                 "correo_electronico" : {
                   "type" : "object",
                   "properties" : {
                     "personal" : {
-                      "$ref" : "#/components/schemas/correo_electronico"
+                      "type" : "string",
+                      "format" : "email",
+                      "description" : "Correo electronico valido. Este dato es información confidencial",
+                      "example" : "jperez@ejemplo.com.mx"
                     },
                     "laboral" : {
                       "$ref" : "#/components/schemas/correo_electronico"
@@ -191,16 +263,93 @@
                 "telefono" : {
                   "type" : "object",
                   "properties" : {
-                    "personal" : {
-                      "$ref" : "#/components/schemas/telefono"
+                    "particular" : {
+                      "type" : "string",
+                      "maxLength" : 15,
+                      "description" : "Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf. Este dato es información confidencial",
+                      "example" : "+525510203040"
                     },
                     "celular" : {
-                      "$ref" : "#/components/schemas/telefono"
+                      "type" : "string",
+                      "maxLength" : 15,
+                      "description" : "Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf. Este dato es información confidencial",
+                      "example" : "+525510203040"
                     }
                   }
                 },
                 "domicilio" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "estado_civil" : {
                   "description" : "Es la condición del Declarante en función de si tiene o no pareja y su situación legal respecto a ello, de conformidad con la legislación civil aplicable, incluyendo además opciones comunes no contempladas por el registro civil.",
@@ -380,6 +529,12 @@
               "direccion_encargo" : {
                 "$ref" : "#/components/schemas/domicilio"
               },
+              "telefono_laboral" : {
+                "type" : "string",
+                "maxLength" : 15,
+                "description" : "Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf. Este dato es información confidencial",
+                "example" : "+525510203040"
+              },
               "sector_industria" : {
                 "$ref" : "#/components/schemas/sector_industria"
               },
@@ -501,96 +656,212 @@
             "description" : "Aquí se deberán proporcionar los datos del cónyuge, concubina o concubinario, pareja en sociedad de convivencia, así como de los dependientes económicos, que son aquellas personas, familiares o no, cuya manutención depende principalmente de los ingresos del Servidor Público Declarante, conforme a la legislación civil aplicable. Para llenar este rubro es necesario tener a la vista actas de nacimiento, CURP del cónyuge, concubina o concubinario y/o dependientes económicos, y cualquier otro documento necesario en el que se incluya la información.",
             "type" : "array",
             "items" : {
-              "allOf" : [ {
-                "$ref" : "#/components/schemas/nombre_personal"
-              }, {
-                "type" : "object",
-                "properties" : {
-                  "tipo_relacion" : {
-                    "$ref" : "#/components/schemas/relacion_con_persona"
-                  },
-                  "nacionalidad" : {
-                    "$ref" : "#/components/schemas/pais"
-                  },
-                  "curp" : {
-                    "$ref" : "#/components/schemas/curp"
-                  },
-                  "rfc" : {
-                    "$ref" : "#/components/schemas/rfc"
-                  },
-                  "fecha_nacimiento" : {
-                    "$ref" : "#/components/schemas/fecha"
-                  },
-                  "numero_identificacion_nacional" : {
-                    "type" : "string",
-                    "description" : "Escribir el número de identificación nacional que le corresponde en su país de origen, en caso de ser extranjero.",
-                    "example" : "ABCD1234"
-                  },
-                  "habita_domicilio_declarante" : {
-                    "type" : "boolean"
-                  },
-                  "domicilio" : {
-                    "$ref" : "#/components/schemas/domicilio"
-                  },
-                  "medio_contacto" : {
-                    "type" : "string",
-                    "description" : "Se deberá proporcionar un número telefónico de contacto o, en su defecto, un correo personal tratándose de personas mayores de edad.",
-                    "example" : "usuario@correo.com"
-                  },
-                  "ingresos_propios" : {
-                    "type" : "boolean"
-                  },
-                  "ocupacion_profesion" : {
-                    "type" : "string",
-                    "description" : "Se deberá señalar si el cónyuge, concubina o concubino, así como de los dependientes económicos, cuenta con alguna ocupación o profesión y señalar cuál es esta.",
-                    "example" : "Administrador de empresas"
-                  },
-                  "sector_industria" : {
-                    "$ref" : "#/components/schemas/sector_industria"
-                  },
-                  "proveedor_contratista_gobierno" : {
-                    "type" : "boolean",
-                    "example" : true
-                  },
-                  "tiene_intereses_mismo_sector_declarante" : {
-                    "type" : "boolean",
-                    "example" : true
-                  },
-                  "desarrolla_cabildeo_sector_declarante" : {
-                    "type" : "boolean",
-                    "example" : true
-                  },
-                  "beneficiario_programa_publico" : {
-                    "description" : "Se deberá señalar si el cónyuge, concubina o concubino, así como de los dependientes económicos, son beneficiarios directos de algún programa público. Señalar el nombre del programa, la institución que otorga el apoyo, así como el tipo (subsidio, servicio, obra u otro - especificar) y valor del mismo.",
-                    "type" : "array",
-                    "items" : {
-                      "type" : "object",
-                      "properties" : {
-                        "nombre_programa" : {
-                          "type" : "string",
-                          "example" : "Prospera"
-                        },
-                        "institucion_otorga_apoyo" : {
-                          "type" : "string",
-                          "example" : "XE-IPN Canal 11"
-                        },
-                        "tipo_apoyo" : {
-                          "type" : "string",
-                          "example" : "Servicio"
-                        },
-                        "valor_apoyo" : {
-                          "type" : "number",
-                          "minimum" : 1,
-                          "example" : 4000
-                        }
+              "type" : "object",
+              "properties" : {
+                "nombre_personal" : {
+                  "description" : "Se deberá escribir el nombre o los nombres completos, así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido, deberá colocarse en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Este dato es información confidencial.",
+                  "type" : "object",
+                  "properties" : {
+                    "nombres" : {
+                      "type" : "string",
+                      "maxLength" : 50,
+                      "description" : "Nombres o nombre de la persona. Este dato es información confidencial.",
+                      "example" : "Carlos"
+                    },
+                    "primer_apellido" : {
+                      "type" : "string",
+                      "maxLength" : 50,
+                      "description" : "Primer apellido de la persona. Este dato es información confidencial.",
+                      "example" : "Pérez"
+                    },
+                    "segundo_apellido" : {
+                      "type" : "string",
+                      "maxLength" : 50,
+                      "description" : "Segundo apellido de la persona. Este dato es información confidencial.",
+                      "example" : "López"
+                    }
+                  }
+                },
+                "tipo_relacion" : {
+                  "$ref" : "#/components/schemas/relacion_con_persona"
+                },
+                "nacionalidades" : {
+                  "description" : "Este dato es información confidencial",
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "valor" : {
+                        "type" : "string",
+                        "description" : "Nombre  del pais especificado en estándar ISO3166. Este dato es información confidencial.",
+                        "example" : "México"
+                      },
+                      "codigo" : {
+                        "type" : "string",
+                        "maxLength" : 2,
+                        "description" : "Código alpha 2 del país especificado en estándar ISO3166. Este dato es información confidencial.",
+                        "example" : "MX"
                       }
                     }
-                  },
-                  "observaciones" : {
-                    "$ref" : "#/components/schemas/observaciones"
                   }
+                },
+                "curp" : {
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
+                },
+                "rfc" : {
+                  "description" : "Se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
+                },
+                "fecha_nacimiento" : {
+                  "type" : "string",
+                  "description" : "Formato de fechas con notación dd/mm/aaaa. Este dato es información confidencial.",
+                  "example" : "31/07/1980"
+                },
+                "numero_identificacion_nacional" : {
+                  "type" : "string",
+                  "description" : "Escribir el número de identificación nacional que le corresponde en su país de origen, en caso de ser extranjero. Este dato es información confidencial",
+                  "example" : "ABCD1234"
+                },
+                "habita_domicilio_declarante" : {
+                  "description" : "Este dato es información confidencial.",
+                  "type" : "boolean"
+                },
+                "domicilio" : {
+                  "description" : "Este dato es información confidencial",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
+                },
+                "medio_contacto" : {
+                  "type" : "string",
+                  "description" : "Se deberá proporcionar un número telefónico de contacto o, en su defecto, un correo personal tratándose de personas mayores de edad. Este dato es información confidencial.",
+                  "example" : "usuario@correo.com"
+                },
+                "ingresos_propios" : {
+                  "type" : "boolean",
+                  "description" : "Este dato es información confidencial."
+                },
+                "ocupacion_profesion" : {
+                  "type" : "string",
+                  "description" : "Se deberá señalar si el cónyuge, concubina o concubino, así como de los dependientes económicos, cuenta con alguna ocupación o profesión y señalar cuál es esta. Este dato es información confidencial.",
+                  "example" : "Administrador de empresas"
+                },
+                "sector_industria" : {
+                  "$ref" : "#/components/schemas/sector_industria"
+                },
+                "proveedor_contratista_gobierno" : {
+                  "type" : "boolean",
+                  "example" : true
+                },
+                "tiene_intereses_mismo_sector_declarante" : {
+                  "type" : "boolean",
+                  "example" : true
+                },
+                "desarrolla_cabildeo_sector_declarante" : {
+                  "type" : "boolean",
+                  "example" : true
+                },
+                "beneficiario_programa_publico" : {
+                  "description" : "Se deberá señalar si el cónyuge, concubina o concubino, así como de los dependientes económicos, son beneficiarios directos de algún programa público. Señalar el nombre del programa, la institución que otorga el apoyo, así como el tipo (subsidio, servicio, obra u otro - especificar) y valor del mismo.",
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "nombre_programa" : {
+                        "type" : "string",
+                        "example" : "Prospera"
+                      },
+                      "institucion_otorga_apoyo" : {
+                        "type" : "string",
+                        "example" : "XE-IPN Canal 11"
+                      },
+                      "tipo_apoyo" : {
+                        "type" : "string",
+                        "example" : "Servicio"
+                      },
+                      "valor_apoyo" : {
+                        "type" : "number",
+                        "minimum" : 1,
+                        "example" : 4000
+                      }
+                    }
+                  }
+                },
+                "observaciones" : {
+                  "$ref" : "#/components/schemas/observaciones"
                 }
-              } ]
+              }
             }
           }
         }
@@ -774,17 +1045,23 @@
                 },
                 "nombre_parte_representada" : {
                   "type" : "string",
-                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
                   "example" : "Cecilia Gómez Urrutia"
                 },
                 "curp_parte" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "rfc_parte" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "fecha_nacimiento_parte" : {
-                  "$ref" : "#/components/schemas/fecha"
+                  "type" : "string",
+                  "description" : "Se deberá señalar la fecha de nacimiento de la parte representada en formato dd/mm/aaaa. Este dato es información confidencial.",
+                  "example" : "31/07/1980"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -824,19 +1101,39 @@
                   "$ref" : "#/components/schemas/fecha"
                 },
                 "nacionalidades_representante" : {
+                  "description" : "Se deberá señalar las nacionalidades del representante. Este dato es información confidencial.",
                   "type" : "array",
                   "items" : {
-                    "$ref" : "#/components/schemas/pais"
+                    "type" : "object",
+                    "properties" : {
+                      "valor" : {
+                        "type" : "string",
+                        "description" : "Nombre  del pais especificado en estándar ISO3166. Este dato es información confidencial.",
+                        "example" : "México"
+                      },
+                      "codigo" : {
+                        "type" : "string",
+                        "maxLength" : 2,
+                        "description" : "Código alpha 2 del país especificado en estándar ISO3166. Este dato es información confidencial.",
+                        "example" : "MX"
+                      }
+                    }
                   }
                 },
                 "curp_representante" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "rfc_representante" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "fecha_nacimiento_representante" : {
-                  "$ref" : "#/components/schemas/fecha"
+                  "type" : "string",
+                  "description" : "Se deberá señalar la fecha de nacimiento de la parte representada en formato dd/mm/aaaa. Este dato es información confidencial.",
+                  "example" : "31/07/1980"
                 },
                 "tiene_intereses" : {
                   "type" : "boolean"
@@ -884,23 +1181,33 @@
                 },
                 "nombre_socio" : {
                   "type" : "string",
-                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
                   "example" : "Armando Rodríguez Saes"
                 },
                 "curp_socio" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "rfc_socio" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "lugar_nacimiento_socio" : {
                   "$ref" : "#/components/schemas/lugar_registro"
                 },
                 "fecha_nacimiento_socio" : {
-                  "$ref" : "#/components/schemas/fecha"
+                  "type" : "string",
+                  "description" : "Se deberá señalar la fecha de nacimiento de la parte representada en formato dd/mm/aaaa. Este dato es información confidencial.",
+                  "example" : "31/07/1980"
                 },
                 "porcentaje_participacion" : {
-                  "$ref" : "#/components/schemas/porcentaje"
+                  "type" : "number",
+                  "minimum" : 1,
+                  "maximum" : 100,
+                  "description" : "Valor númerico porcentual. Este dato es información confidencial.",
+                  "example" : 70
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -930,27 +1237,104 @@
                   "description" : "En caso de que corresponda se deberá señalar el dato que identifique el negocio o actividad lucrativa.",
                   "example" : "HTC896DSFA"
                 },
-                "dueño_encargado" : {
+                "dueno_encargado" : {
                   "type" : "string",
-                  "description" : "En caso de que corresponda deberá señalar la persona que funja como dueño o encargado del negocio o actividad lucrativa. ",
+                  "description" : "En caso de que corresponda deberá señalar la persona que funja como dueño o encargado del negocio o actividad lucrativa. Este dato es información confidencial.",
                   "example" : "Salvador Hernández Torres"
                 },
                 "nombre_cliente" : {
                   "type" : "string",
-                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
                   "example" : "AMEX.S.A."
                 },
                 "rfc_cliente" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "domicilio_cliente" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
                 },
-                "porcentaje_facturacion" : {
-                  "$ref" : "#/components/schemas/porcentaje"
+                "porcentaje_participacion" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "maximum" : 100,
+                  "description" : "Valor númerico porcentual. Este dato es información confidencial.",
+                  "example" : 70
                 },
                 "observaciones" : {
                   "$ref" : "#/components/schemas/observaciones"
@@ -983,23 +1367,46 @@
                 },
                 "nombre_denominacion_parte" : {
                   "type" : "string",
-                  "description" : "Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
                   "example" : "Sergio Rodríguez"
                 },
                 "fecha_inicio_relacion" : {
                   "$ref" : "#/components/schemas/fecha"
                 },
-                "nacionalidad" : {
-                  "$ref" : "#/components/schemas/pais"
+                "nacionalidades" : {
+                  "description" : "Este dato es información confidencial.",
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "valor" : {
+                        "type" : "string",
+                        "description" : "Nombre  del pais especificado en estándar ISO3166. Este dato es información confidencial.",
+                        "example" : "México"
+                      },
+                      "codigo" : {
+                        "type" : "string",
+                        "maxLength" : 2,
+                        "description" : "Código alpha 2 del país especificado en estándar ISO3166. Este dato es información confidencial.",
+                        "example" : "MX"
+                      }
+                    }
+                  }
                 },
                 "curp" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "rfc" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "fecha_nacimiento" : {
-                  "$ref" : "#/components/schemas/fecha"
+                  "type" : "string",
+                  "description" : "Se deberá señalar la fecha de nacimiento de la parte representada en formato dd/mm/aaaa. Este dato es información confidencial.",
+                  "example" : "31/07/1980"
                 },
                 "ocupacion" : {
                   "type" : "string",
@@ -1045,7 +1452,7 @@
                 },
                 "origen_beneficio" : {
                   "type" : "string",
-                  "description" : "Se deberá proporcionar el nombre, denominación o razón social de la persona física o moral de la cual se recibe/goza el beneficio.",
+                  "description" : "Se deberá proporcionar el nombre, denominación o razón social de la persona física o moral de la cual se recibe/goza el beneficio. Este dato es información confidencial.",
                   "example" : "Prestación laboral"
                 },
                 "sector_industria" : {
@@ -1106,14 +1513,18 @@
                 },
                 "nombre_denominacion_razon_social" : {
                   "type" : "string",
-                  "description" : "Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Max Power Inc."
                 },
                 "rfc" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "curp" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial.",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -1127,7 +1538,78 @@
                   "example" : "Servicio profesional de TI"
                 },
                 "domicilio_persona_recibe_ingreso" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "ingreso_bruto_anual" : {
                   "$ref" : "#/components/schemas/ingreso_bruto_anual"
@@ -1149,14 +1631,18 @@
                 },
                 "nombre_denominacion_razon_social" : {
                   "type" : "string",
-                  "description" : "Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Nombre"
                 },
                 "rfc" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "curp" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -1170,7 +1656,78 @@
                   "example" : "Descripción del servicio"
                 },
                 "domicilio_persona_recibe_ingreso" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "ingreso_bruto_anual" : {
                   "$ref" : "#/components/schemas/ingreso_bruto_anual"
@@ -1192,14 +1749,18 @@
                 },
                 "nombre_denominacion_razon_social" : {
                   "type" : "string",
-                  "description" : "Se deberá indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Se deberá indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Empresa S.A."
                 },
                 "rfc" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "curp" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial.",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -1213,7 +1774,78 @@
                   "example" : "Descripción del servicio"
                 },
                 "domicilio_actividad_empresarial" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "ingreso_bruto_anual" : {
                   "$ref" : "#/components/schemas/ingreso_bruto_anual"
@@ -1235,14 +1867,18 @@
                 },
                 "nombre_denominacion_razon_social" : {
                   "type" : "string",
-                  "description" : "Indicar el nombre, denominación o razón social o situación de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Indicar el nombre, denominación o razón social o situación de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Nombre"
                 },
                 "rfc" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "curp" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial.",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -1256,7 +1892,78 @@
                   "example" : "Descripción del servicio"
                 },
                 "domicilio_actividad" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "ingreso_bruto_anual" : {
                   "$ref" : "#/components/schemas/ingreso_bruto_anual"
@@ -1278,14 +1985,18 @@
                 },
                 "nombre_denominacion_razon_social" : {
                   "type" : "string",
-                  "description" : "Se deberá indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Se deberá indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "ABC Inc."
                 },
                 "rfc" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "curp" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -1299,7 +2010,78 @@
                   "example" : "Descripción del servicio"
                 },
                 "domicilio_actividad" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "ingreso_bruto_anual" : {
                   "$ref" : "#/components/schemas/ingreso_bruto_anual"
@@ -1321,14 +2103,18 @@
                 },
                 "nombre_denominacion_razon_social" : {
                   "type" : "string",
-                  "description" : "Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "BANC S.A."
                 },
                 "rfc" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "curp" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -1342,7 +2128,78 @@
                   "example" : "Descripción del servicio"
                 },
                 "domicilio" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "ingreso_bruto_anual" : {
                   "$ref" : "#/components/schemas/ingreso_bruto_anual"
@@ -1363,14 +2220,18 @@
                 },
                 "nombre_denominacion" : {
                   "type" : "string",
-                  "description" : "Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Loteria Nacional"
                 },
                 "rfc" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "curp" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -1384,7 +2245,78 @@
                   "example" : "Descripción del servicio"
                 },
                 "domicilio" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "ingreso_bruto_anual" : {
                   "$ref" : "#/components/schemas/ingreso_bruto_anual"
@@ -1407,14 +2339,18 @@
                 "nombre_denominacion" : {
                   "type" : "string",
                   "maxLength" : 32,
-                  "description" : "Se deberá indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Se deberá indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Loteria Nacional"
                 },
                 "rfc" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "curp" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -1428,7 +2364,78 @@
                   "example" : "Descripción del servicio"
                 },
                 "domicilio_bien_enajenado" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "ingreso_bruto_anual" : {
                   "$ref" : "#/components/schemas/ingreso_bruto_anual"
@@ -1450,14 +2457,18 @@
                 },
                 "nombre_denominacion" : {
                   "type" : "string",
-                  "description" : "Indicar el nombre, denominación, razón social de la persona física o moral o de la situación de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Indicar el nombre, denominación, razón social de la persona física o moral o de la situación de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Centro Educativo"
                 },
                 "rfc" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "curp" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -1471,7 +2482,78 @@
                   "example" : "Descripción del servicio"
                 },
                 "domicilio_actividad" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "ingreso_bruto_anual" : {
                   "$ref" : "#/components/schemas/ingreso_bruto_anual"
@@ -1519,18 +2601,40 @@
                   "$ref" : "#/components/schemas/porcentaje"
                 },
                 "nombre_copropietario" : {
-                  "$ref" : "#/components/schemas/nombre_personal"
+                  "description" : "Se deberá escribir el nombre o los nombres completos, así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido, deberá colocarse en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Este dato es información confidencial.",
+                  "type" : "object",
+                  "properties" : {
+                    "nombres" : {
+                      "type" : "string",
+                      "maxLength" : 50,
+                      "description" : "Nombres o nombre de la persona. Este dato es información confidencial.",
+                      "example" : "Carlos"
+                    },
+                    "primer_apellido" : {
+                      "type" : "string",
+                      "maxLength" : 50,
+                      "description" : "Primer apellido de la persona. Este dato es información confidencial.",
+                      "example" : "Pérez"
+                    },
+                    "segundo_apellido" : {
+                      "type" : "string",
+                      "maxLength" : 50,
+                      "description" : "Segundo apellido de la persona. Este dato es información confidencial."
+                    }
+                  }
                 },
                 "identificacion_bien" : {
-                  "description" : "Se deberá señalar el número de escritura pública y número del registro público de propiedad, folio real y fecha del contrato.",
+                  "description" : "Se deberá señalar el número de escritura pública y número del registro público de propiedad, folio real y fecha del contrato. Este dato es información confidencial.",
                   "type" : "object",
                   "properties" : {
                     "numero_escritura_publica" : {
+                      "description" : "Este dato es información confidencial.",
                       "type" : "number",
                       "minimum" : 1,
                       "example" : 202020
                     },
                     "numero_registro_publico" : {
+                      "description" : "Este dato es información confidencial.",
                       "type" : "number",
                       "minimum" : 1,
                       "example" : 404040
@@ -1545,21 +2649,96 @@
                   }
                 },
                 "domicilio_bien" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "forma_adquisicion" : {
                   "$ref" : "#/components/schemas/forma_adquisicion"
                 },
                 "nombre_denominacion_quien_adquirio" : {
                   "type" : "string",
-                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Monster Inc."
                 },
                 "rfc_quien_adquirio" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "curp_quien_adquirio" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "relacion_persona_adquirio" : {
                   "$ref" : "#/components/schemas/relacion_con_persona"
@@ -1617,11 +2796,20 @@
                 },
                 "numero_serie" : {
                   "type" : "string",
-                  "description" : "Se deberá proporcionar el número de serie del bien mueble.",
+                  "description" : "Se deberá proporcionar el número de serie del bien mueble. Este dato es información confidencial.",
                   "example" : "6545243-4334"
                 },
                 "lugar_registro" : {
-                  "$ref" : "#/components/schemas/lugar_registro"
+                  "description" : "Este dato es información confidencial.",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    }
+                  }
                 },
                 "titular_bien" : {
                   "$ref" : "#/components/schemas/titular_bien"
@@ -1633,14 +2821,14 @@
                   "type" : "array",
                   "items" : {
                     "type" : "string",
-                    "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                    "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
                     "example" : "Monstr Inc."
                   }
                 },
                 "numero_registro_vehicular" : {
                   "type" : "number",
                   "minimum" : 1,
-                  "description" : "Se deberá señalar el número de registro vehicular ante el Registro Público Vehicular.",
+                  "description" : "Se deberá señalar el número de registro vehicular ante el Registro Público Vehicular. Este dato es información confidencial.",
                   "example" : 455000
                 },
                 "forma_adquisicion" : {
@@ -1648,11 +2836,13 @@
                 },
                 "nombre_denominacion_adquirio" : {
                   "type" : "string",
-                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Monstr Inc."
                 },
                 "rfc_quien_adquirio" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "relacion_persona_quien_adquirio" : {
                   "$ref" : "#/components/schemas/relacion_con_persona"
@@ -1696,13 +2886,17 @@
                   "$ref" : "#/components/schemas/titular_bien"
                 },
                 "porcentaje_propiedad" : {
-                  "$ref" : "#/components/schemas/porcentaje"
+                  "type" : "number",
+                  "minimum" : 1,
+                  "maximum" : 100,
+                  "description" : "Valor númerico porcentual. Este dato es información confidencial.",
+                  "example" : 70
                 },
                 "nombres_copropietarios" : {
                   "type" : "array",
                   "items" : {
                     "type" : "string",
-                    "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                    "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
                     "example" : "Monstr Inc."
                   }
                 },
@@ -1712,7 +2906,7 @@
                 "nombre_denominacion_adquirio" : {
                   "type" : "string",
                   "maxLength" : 32,
-                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).  ",
                   "example" : "Tesl Mtr Inc."
                 },
                 "relacion_quien_adquirio" : {
@@ -1773,7 +2967,7 @@
                 },
                 "numero_cuenta" : {
                   "type" : "string",
-                  "description" : "Señalar el número de cuenta, contrato o cualquier dato que permita la identificación de la cuenta, inversión o valor que se declare.",
+                  "description" : "Señalar el número de cuenta, contrato o cualquier dato que permita la identificación de la cuenta, inversión o valor que se declare. Este dato es información confidencial.",
                   "example" : "GFHRTY788778"
                 },
                 "nacional_extranjero" : {
@@ -1785,24 +2979,99 @@
                   "example" : "Bank Inkc"
                 },
                 "rfc_institucion" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
                 },
                 "domicilio_institucion" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "forma_adquisicion" : {
                   "$ref" : "#/components/schemas/forma_adquisicion"
                 },
                 "fecha_inicio" : {
-                  "$ref" : "#/components/schemas/fecha"
+                  "type" : "string",
+                  "description" : "Formato de fechas con notación dd/mm/aaaa. Este dato es información confidencial.",
+                  "example" : "31/07/1980"
                 },
                 "monto_original" : {
                   "type" : "number",
                   "minimum" : 1,
-                  "description" : "Se deberá señalar la cantidad con la que inicialmente el Declarante participó en la inversión.",
+                  "description" : "Se deberá señalar la cantidad con la que inicialmente el Declarante participó en la inversión. Este dato es información confidencial.",
                   "example" : 80000
                 },
                 "tipo_moneda" : {
@@ -1817,30 +3086,30 @@
                 "saldo_anual" : {
                   "type" : "number",
                   "minimum" : 1,
-                  "description" : "Señalar el saldo total con que cuenta la inversión/valor al 31 de diciembre del año inmediato anterior.",
+                  "description" : "Señalar el saldo total con que cuenta la inversión/valor al 31 de diciembre del año inmediato anterior. Este dato es información confidencial.",
                   "example" : 5000
                 },
                 "plazo" : {
                   "type" : "number",
                   "minimum" : 1,
-                  "description" : "Se deberá indicar la cantidad de tiempo (días, meses, años) en la cual se convino la inversión/valor.",
+                  "description" : "Se deberá indicar la cantidad de tiempo (días, meses, años) en la cual se convino la inversión/valor. Este dato es información confidencial.",
                   "example" : 6
                 },
                 "unidad_medida_plazo" : {
+                  "description" : "Este dato es información confidencial.",
                   "type" : "object",
                   "properties" : {
                     "codigo" : {
                       "type" : "string",
                       "enum" : [ "DIAS", "SEMS", "MESS", "TUNI" ],
-                      "maxLength" : 32,
-                      "description" : "Código de la unidad temporal",
+                      "maxLength" : 10,
+                      "description" : "Código de la unidad temporal. Este dato es información confidencial.",
                       "example" : "MESS"
                     },
                     "valor" : {
                       "type" : "string",
                       "enum" : [ "Días", "Semanas", "Meses", "Transacción única" ],
-                      "maxLength" : 32,
-                      "description" : "Valor de la unidad temporal",
+                      "description" : "Valor de la unidad temporal. Este dato es información confidencial.",
                       "example" : "Meses"
                     }
                   }
@@ -1875,7 +3144,7 @@
                 "monto" : {
                   "type" : "number",
                   "minimum" : 1,
-                  "description" : "Señalar la cantidad total que representa la posesión del tipo de moneda en efectivo (pesos).",
+                  "description" : "Señalar la cantidad total que representa la posesión del tipo de moneda en efectivo (pesos). Este dato es información confidencial.",
                   "example" : 78555
                 },
                 "tipo_metal" : {
@@ -1948,7 +3217,7 @@
                 },
                 "numero_registro" : {
                   "type" : "string",
-                  "description" : "Indicar el dato a través del cual se haga identificable el fideicomiso conforme a la normatividad aplicable.",
+                  "description" : "Indicar el dato a través del cual se haga identificable el fideicomiso conforme a la normatividad aplicable. Este dato es información confidencial.",
                   "example" : "788544abc"
                 },
                 "fecha_creacion" : {
@@ -1963,7 +3232,7 @@
                 "valor" : {
                   "type" : "number",
                   "minimum" : 1,
-                  "description" : "Señalar el valor total del fideicomiso que se declara en caso de ser aplicable su valuación.",
+                  "description" : "Señalar el valor total del fideicomiso que se declara en caso de ser aplicable su valuación. Este dato es información confidencial.",
                   "example" : 78555555
                 },
                 "moneda" : {
@@ -1985,7 +3254,7 @@
                 },
                 "nombre_fideicomitente" : {
                   "type" : "string",
-                  "description" : "Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
                   "example" : "Banco Robmen1"
                 },
                 "nombre_fideicomisario" : {
@@ -1997,40 +3266,271 @@
                   "example" : "Banco Robmenos2"
                 },
                 "rfc_fideicomitente" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "rfc_fideicomsario" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "rfc_fiduciario" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "curp_fideicomitente" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial (si es persona física)",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "curp_fideicomisario" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial (si es persona física)",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "curp_fiduciario" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial (si es persona física)",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "domicilio_fideicomitente" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "domicilio_fideicomisario" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "domicilio_fiduciario" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "fecha_nacimiento_constitucion_fideicomitente" : {
-                  "$ref" : "#/components/schemas/fecha"
+                  "type" : "string",
+                  "description" : "Formato de fechas con notación dd/mm/aaaa. Este dato es información confidencial.",
+                  "example" : "31/07/1980"
                 },
                 "fecha_nacimiento_constitucion_fideicomisario" : {
-                  "$ref" : "#/components/schemas/fecha"
+                  "type" : "string",
+                  "description" : "Formato de fechas con notación dd/mm/aaaa. Este dato es información confidencial.",
+                  "example" : "31/07/1980"
                 },
                 "fecha_nacimiento_constitucion_fiduciario" : {
-                  "$ref" : "#/components/schemas/fecha"
+                  "type" : "string",
+                  "description" : "Formato de fechas con notación dd/mm/aaaa. Este dato es información confidencial.",
+                  "example" : "31/07/1980"
                 },
                 "observaciones" : {
                   "$ref" : "#/components/schemas/observaciones"
@@ -2054,7 +3554,7 @@
                   "type" : "array",
                   "items" : {
                     "type" : "string",
-                    "description" : "Nombre/nombres de propietario de los derechos respecto de los bienes intangibles."
+                    "description" : "Nombre/nombres de propietario de los derechos respecto de los bienes intangibles. Este dato es información confidencial."
                   },
                   "example" : "Sergio Perez"
                 },
@@ -2095,11 +3595,15 @@
                 },
                 "nombre_copropietario" : {
                   "type" : "string",
-                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
                   "example" : "Vien Inc,"
                 },
                 "porcentaje_propiedad_copropietario" : {
-                  "$ref" : "#/components/schemas/porcentaje"
+                  "description" : "Valor númerico porcentual. Este dato es información confidencial.",
+                  "type" : "number",
+                  "minimum" : 1,
+                  "maximum" : 100,
+                  "example" : 70
                 },
                 "observaciones" : {
                   "$ref" : "#/components/schemas/observaciones"
@@ -2118,7 +3622,7 @@
                 },
                 "nombre_prestatario" : {
                   "type" : "string",
-                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Max Power Tier"
                 },
                 "numero_registro" : {
@@ -2127,7 +3631,78 @@
                   "example" : "488755avvv"
                 },
                 "domicilio_prestatarios" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -2138,7 +3713,7 @@
                 "monto_original_prestamo" : {
                   "type" : "number",
                   "minimum" : 1,
-                  "description" : "Se deberá señalar la cantidad con la que inicialmente se generó el instrumento.",
+                  "description" : "Se deberá señalar la cantidad con la que inicialmente se generó el instrumento. Este dato es información confidencial.",
                   "example" : 488844
                 },
                 "tasa_interes" : {
@@ -2150,7 +3725,7 @@
                 "saldo_pendiente" : {
                   "type" : "number",
                   "minimum" : 1,
-                  "description" : "Se deberá señalar el saldo total de la cuenta por cobrar pendiente a la fecha.",
+                  "description" : "Se deberá señalar el saldo total de la cuenta por cobrar pendiente a la fecha. Este dato es información confidencial.",
                   "example" : 4555
                 },
                 "fecha_vencimiento" : {
@@ -2161,7 +3736,7 @@
                 },
                 "nombre_copropietario" : {
                   "type" : "string",
-                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Max Power Bansky"
                 },
                 "observaciones" : {
@@ -2198,14 +3773,18 @@
                 },
                 "nombre_tercero_propietario" : {
                   "type" : "string",
-                  "description" : "Se deberá escribir el nombre o nombres completos del tercero propietario. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Se deberá escribir el nombre o nombres completos del tercero propietario. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).  ",
                   "example" : "Bansky Von Trier"
                 },
                 "rfc_tercero_propietario" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "curp_tercero_propietario" : {
-                  "$ref" : "#/components/schemas/curp"
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial (si es persona física)",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
                 },
                 "relacion_persona" : {
                   "$ref" : "#/components/schemas/relacion_con_persona"
@@ -2217,7 +3796,78 @@
                   "$ref" : "#/components/schemas/fecha"
                 },
                 "domicilio_persona" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "observaciones" : {
                   "$ref" : "#/components/schemas/observaciones"
@@ -2278,7 +3928,7 @@
                 },
                 "identificador_deuda" : {
                   "type" : "string",
-                  "description" : "Se deberá indicar el número de cuenta o contrato con diversa institución que corresponda al préstamo otorgado al Declarante.",
+                  "description" : "Se deberá indicar el número de cuenta o contrato con diversa institución que corresponda al préstamo otorgado al Declarante. Este dato es información confidencial.",
                   "example" : "CONT12354"
                 },
                 "nacional_extranjero" : {
@@ -2286,17 +3936,90 @@
                 },
                 "nombre_acreedor" : {
                   "type" : "string",
-                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "PNBKSRIBAS S.A. DE C.V"
                 },
                 "rfc_acreedor" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
                 },
                 "domicilio_acreedor" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "fecha_adeudo" : {
                   "$ref" : "#/components/schemas/fecha"
@@ -2368,7 +4091,7 @@
                 },
                 "nombre_garante" : {
                   "type" : "string",
-                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Observaciones/Comentarios: En caso de que requiera detallar información respecto de algún adeudo.",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Observaciones/Comentarios: En caso de que requiera detallar información respecto de algún adeudo. Este dato es información confidencial (si es persona física).  ",
                   "example" : "Bansky Von Tier"
                 },
                 "observaciones" : {
@@ -2412,25 +4135,98 @@
                 },
                 "identificador_obligacion" : {
                   "type" : "string",
-                  "description" : "Se deberá indicar el número de cuenta o contrato con diversa institución que corresponda al préstamo otorgado al Declarante.",
+                  "description" : "Se deberá indicar el número de cuenta o contrato con diversa institución que corresponda al préstamo otorgado al Declarante. Este dato es información confidencial.",
                   "example" : "FONAET8945"
                 },
                 "nacional_extranjero" : {
                   "$ref" : "#/components/schemas/pais"
                 },
                 "nombre_acreedor" : {
-                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "example" : "Bansky Hola Adios"
                 },
                 "rfc_acreedor" : {
-                  "$ref" : "#/components/schemas/rfc"
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "type" : "string",
+                  "example" : "GOAP780710RH7"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
                 },
                 "domicilio_acreedor" : {
-                  "$ref" : "#/components/schemas/domicilio"
+                  "description" : "Este dato es información confidencial (si es persona física).",
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidad_federativa" : {
+                      "$ref" : "#/components/schemas/entidad_federativa"
+                    },
+                    "municipio" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_mun" : {
+                          "type" : "string",
+                          "description" : "Nombre del municipio",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_mun" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave del municipio",
+                          "example" : "033"
+                        }
+                      }
+                    },
+                    "cp" : {
+                      "type" : "string",
+                      "description" : "Código postal del domicilio",
+                      "example" : "55018"
+                    },
+                    "localidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nom_loc" : {
+                          "type" : "string",
+                          "description" : "Nombre de la localidad",
+                          "example" : "Ecatepec de Morelos"
+                        },
+                        "cve_loc" : {
+                          "type" : "string",
+                          "maxLength" : 10,
+                          "description" : "Clave de la localidad",
+                          "example" : "0001"
+                        }
+                      }
+                    },
+                    "vialidad" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo_vial" : {
+                          "type" : "string",
+                          "description" : "Nombre del tipo de vialidad",
+                          "example" : "CALLE"
+                        },
+                        "nom_vial" : {
+                          "type" : "string",
+                          "description" : "Clave del tipo de vialidad",
+                          "example" : "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt" : {
+                      "type" : "string",
+                      "description" : "Número exterior del domicilio",
+                      "example" : "24"
+                    },
+                    "numInt" : {
+                      "type" : "string",
+                      "description" : "Número interior del domicilio",
+                      "example" : "48"
+                    }
+                  }
                 },
                 "fecha_obligacion" : {
                   "$ref" : "#/components/schemas/fecha"
@@ -2597,11 +4393,6 @@
           }
         }
       },
-      "curp" : {
-        "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación.",
-        "type" : "string",
-        "example" : "BEML920313HMCLNS09"
-      },
       "rfc" : {
         "description" : "Se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria.",
         "type" : "string",
@@ -2625,7 +4416,6 @@
       },
       "fecha" : {
         "type" : "string",
-        "format" : "date",
         "description" : "Formato de fechas con notación dd/mm/aaaa",
         "example" : "31/07/1980"
       },
@@ -2650,12 +4440,6 @@
             "example" : "15"
           }
         }
-      },
-      "telefono" : {
-        "type" : "string",
-        "maxLength" : 15,
-        "description" : "Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf",
-        "example" : "+525510203040"
       },
       "id" : {
         "type" : "number",

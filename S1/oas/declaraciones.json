@@ -1063,6 +1063,11 @@
                   "description" : "Se deberá señalar la fecha de nacimiento de la parte representada en formato dd/mm/aaaa. Este dato es información confidencial.",
                   "example" : "31/07/1980"
                 },
+                "ocupacion_profesion_parte":{
+                  "type" : "string",
+                  "description" : "Deberá señalar la actividad económica/profesional/técnica preponderante que ejerza el/la parte o bien el nombre de la carrera o de los estudios realizados.",
+                  "example" : "Contador"
+                },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
                 },

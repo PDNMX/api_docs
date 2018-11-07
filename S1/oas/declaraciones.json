@@ -164,22 +164,32 @@
                 "metadata" : {
                   "type" : "object",
                   "properties" : {
-                    "fecha_actualizacion" : {
+                    "actualizacion" : {
                       "type" : "string",
                       "format" : "date-time",
-                      "description" : "Identificador del declarante con valor alfanúmerico",
+                      "description" : "Fecha de la ultima actualización",
                       "example" : "2017-07-21T17:32:28Z"
                     },
                     "institucion" : {
                       "type" : "string",
-                      "description" : "Identificador del declarante con valor alfanúmerico",
+                      "description" : "Institucion generadora de la información",
                       "example" : "Secretaría de Educación Pública"
                     },
                     "contacto" : {
                       "type" : "string",
                       "format" : "email",
-                      "description" : "Identificador del declarante con valor alfanúmerico",
+                      "description" : "Correo de contacto de la persona que genera la información",
                       "example" : "usuario@dominio.org"
+                    },
+                    "persona_contacto" : {
+                      "type" : "string",
+                      "description" : "Nombre de la persona que genera la información",
+                      "example" : "José John"
+                    },
+                    "diccionario" : {
+                      "type" : "string",
+                      "description" : "Liga para consultar el diccionario de datos de los campos del API",
+                      "example" : "https://diccionario.mx/archivo.csv"
                     }
                   }
                 },
@@ -238,8 +248,9 @@
                 },
                 "fecha_nacimiento" : {
                   "type" : "string",
-                  "description" : "Formato de fechas con notación dd/mm/aaaa. Este dato es información confidencial",
-                  "example" : "31/07/1980"
+                  "format" : "date",
+                  "description" : "Formato de fechas ISO 8601 con notación yyyy-mm-dd. Este dato es información confidencial",
+                  "example" : "2010-07-26"
                 },
                 "numero_identificacion_oficial" : {
                   "type" : "string",
@@ -443,7 +454,7 @@
                     },
                     "ano_conclusion" : {
                       "type" : "number",
-                      "maxLength" : 10,
+                      "maxLength" : 4,
                       "description" : "Se deberá señalar el año en que finalizó sus últimos estudios.",
                       "example" : "2005"
                     },
@@ -530,10 +541,21 @@
                 "$ref" : "#/components/schemas/domicilio"
               },
               "telefono_laboral" : {
-                "type" : "string",
-                "maxLength" : 15,
-                "description" : "Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf. Este dato es información confidencial",
-                "example" : "+525510203040"
+                "type" : "object",
+                "properties" : {
+                  "numero" : {
+                    "type" : "string",
+                    "maxLength" : 15,
+                    "description" : "Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf. Este dato es información confidencial",
+                    "example" : "+525510203040"
+                  },
+                  "extension" : {
+                    "type" : "number",
+                    "maxLength" : 10,
+                    "description" : "Extensión del número laboral, en caso de aplicar",
+                    "example" : 1020
+                  }
+                }
               },
               "sector_industria" : {
                 "$ref" : "#/components/schemas/sector_industria"
@@ -652,7 +674,7 @@
               }
             }
           },
-          "datos_dependientes_economicos" : {
+          "dependientes_economicos" : {
             "description" : "Aquí se deberán proporcionar los datos del cónyuge, concubina o concubinario, pareja en sociedad de convivencia, así como de los dependientes económicos, que son aquellas personas, familiares o no, cuya manutención depende principalmente de los ingresos del Servidor Público Declarante, conforme a la legislación civil aplicable. Para llenar este rubro es necesario tener a la vista actas de nacimiento, CURP del cónyuge, concubina o concubinario y/o dependientes económicos, y cualquier otro documento necesario en el que se incluya la información.",
             "type" : "array",
             "items" : {
@@ -717,8 +739,9 @@
                 },
                 "fecha_nacimiento" : {
                   "type" : "string",
-                  "description" : "Formato de fechas con notación dd/mm/aaaa. Este dato es información confidencial.",
-                  "example" : "31/07/1980"
+                  "format" : "date",
+                  "description" : "Formato de fechas ISO 8601 con notación yyyy-mm-dd. Este dato es información confidencial.",
+                  "example" : "2010-07-26"
                 },
                 "numero_identificacion_nacional" : {
                   "type" : "string",
@@ -1060,13 +1083,9 @@
                 },
                 "fecha_nacimiento_parte" : {
                   "type" : "string",
-                  "description" : "Se deberá señalar la fecha de nacimiento de la parte representada en formato dd/mm/aaaa. Este dato es información confidencial.",
-                  "example" : "31/07/1980"
-                },
-                "ocupacion_profesion_parte":{
-                  "type" : "string",
-                  "description" : "Deberá señalar la actividad económica/profesional/técnica preponderante que ejerza el/la parte o bien el nombre de la carrera o de los estudios realizados.",
-                  "example" : "Contador"
+                  "format" : "date",
+                  "description" : "Se deberá señalar la fecha de nacimiento de la parte representada en formato yyyy-mm-dd. Este dato es información confidencial.",
+                  "example" : "2010-07-26"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -1137,8 +1156,9 @@
                 },
                 "fecha_nacimiento_representante" : {
                   "type" : "string",
-                  "description" : "Se deberá señalar la fecha de nacimiento de la parte representada en formato dd/mm/aaaa. Este dato es información confidencial.",
-                  "example" : "31/07/1980"
+                  "format" : "date",
+                  "description" : "Se deberá señalar la fecha de nacimiento de la parte representada en formato yyyy-mm-dd. Este dato es información confidencial.",
+                  "example" : "2010-07-26"
                 },
                 "tiene_intereses" : {
                   "type" : "boolean"
@@ -1204,8 +1224,9 @@
                 },
                 "fecha_nacimiento_socio" : {
                   "type" : "string",
-                  "description" : "Se deberá señalar la fecha de nacimiento de la parte representada en formato dd/mm/aaaa. Este dato es información confidencial.",
-                  "example" : "31/07/1980"
+                  "format" : "date",
+                  "description" : "Se deberá señalar la fecha de nacimiento de la parte representada en formato yyyy-mm-dd. Este dato es información confidencial.",
+                  "example" : "2010-07-26"
                 },
                 "porcentaje_participacion" : {
                   "type" : "number",
@@ -1410,8 +1431,9 @@
                 },
                 "fecha_nacimiento" : {
                   "type" : "string",
-                  "description" : "Se deberá señalar la fecha de nacimiento de la parte representada en formato dd/mm/aaaa. Este dato es información confidencial.",
-                  "example" : "31/07/1980"
+                  "format" : "date",
+                  "description" : "Se deberá señalar la fecha de nacimiento de la parte representada en formato yyyy-mm-dd. Este dato es información confidencial.",
+                  "example" : "2010-07-26"
                 },
                 "ocupacion" : {
                   "type" : "string",
@@ -3070,8 +3092,9 @@
                 },
                 "fecha_inicio" : {
                   "type" : "string",
-                  "description" : "Formato de fechas con notación dd/mm/aaaa. Este dato es información confidencial.",
-                  "example" : "31/07/1980"
+                  "format" : "date",
+                  "description" : "Formato de fechas ISO 8601 con notación yyyy-mm-dd. Este dato es información confidencial.",
+                  "example" : "2010-07-26"
                 },
                 "monto_original" : {
                   "type" : "number",
@@ -3524,18 +3547,21 @@
                 },
                 "fecha_nacimiento_constitucion_fideicomitente" : {
                   "type" : "string",
-                  "description" : "Formato de fechas con notación dd/mm/aaaa. Este dato es información confidencial.",
-                  "example" : "31/07/1980"
+                  "format" : "date",
+                  "description" : "Formato de fechas ISO 8601 con notación yyyy-mm-dd. Este dato es información confidencial.",
+                  "example" : "2010-07-26"
                 },
                 "fecha_nacimiento_constitucion_fideicomisario" : {
                   "type" : "string",
-                  "description" : "Formato de fechas con notación dd/mm/aaaa. Este dato es información confidencial.",
-                  "example" : "31/07/1980"
+                  "format" : "date",
+                  "description" : "Formato de fechas ISO 8601 con notación yyyy-mm-dd. Este dato es información confidencial.",
+                  "example" : "2010-07-26"
                 },
                 "fecha_nacimiento_constitucion_fiduciario" : {
                   "type" : "string",
-                  "description" : "Formato de fechas con notación dd/mm/aaaa. Este dato es información confidencial.",
-                  "example" : "31/07/1980"
+                  "format" : "date",
+                  "description" : "Formato de fechas ISO 8601 con notación yyyy-mm-dd. Este dato es información confidencial.",
+                  "example" : "2010-07-26"
                 },
                 "observaciones" : {
                   "$ref" : "#/components/schemas/observaciones"
@@ -4135,7 +4161,20 @@
                 },
                 "tipo_obligacion" : {
                   "description" : "Se deberá señalar el tipo de obligación que se declara diverso a los descritos en la subsección I. Deudas, de este decimotercer numeral.",
-                  "type" : "string",
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "CVH", "CCRED", "CHIP", "PPERS", "TDC", "OTRO" ],
+                      "maxLength" : 10,
+                      "example" : "CVH"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "maxLength" : 32,
+                      "example" : "Compra de vehículo"
+                    }
+                  },
                   "example" : "Ejemplo"
                 },
                 "identificador_obligacion" : {
@@ -4421,8 +4460,9 @@
       },
       "fecha" : {
         "type" : "string",
-        "description" : "Formato de fechas con notación dd/mm/aaaa",
-        "example" : "31/07/1980"
+        "format" : "date",
+        "description" : "Formato de fechas con notación yyyy-mm-dd",
+        "example" : "2010-07-26"
       },
       "correo_electronico" : {
         "type" : "string",

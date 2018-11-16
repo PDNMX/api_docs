@@ -1,1 +1,14 @@
-{}
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "API para obtener información y acuses de declaraciones presentadas ante el SAT"
+  },
+  "paths" : {
+    "/declaraciones": {
+      "get": {
+
+      }
+    }
+  }
+}

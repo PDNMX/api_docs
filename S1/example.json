@@ -335,7 +335,10 @@
           "valor": "Asociaciones civiles"
         },
         "nombre_institucion": "Asociacion A.C",
-        "naturaleza_membresia": "Civil",
+        "naturaleza_membresia": {
+          "codigo": "ASC",
+          "valor": "Asociaciones civiles"
+        },
         "domicilio": {
           "pais": {
             "valor": "México",
@@ -379,19 +382,13 @@
           "codigo": "EST",
           "valor": "Estatal"
         },
-        "tipo_apoyo": {
-          "codigo": "SERV",
-          "valor": "Servicio"
-        },
+        "tipo_apoyo": "Servicio",
         "valor_anual_apoyo": 7500,
         "observaciones": "Esto es una observación"
       }],
       "representacion_activa": [{
         "id": 123,
-        "tipo_representacion": {
-          "codigo": "APOD",
-          "valor": "Apoderado"
-        },
+        "tipo_representacion": "Mandato",
         "nombre_parte_representada": "Cecilia Gómez Urrutia",
         "curp_parte": "BEML920313HMCLNS09",
         "rfc_parte": "GOAP780710RH7",
@@ -410,15 +407,15 @@
           "codigo": "APOD",
           "valor": "Apoderado"
         },
-        "nombre_representante": "Augusto Fernández Castro",
+        "nombre": "Augusto Fernández Castro",
         "fecha_inicio_representacion": "2010-07-26",
-        "nacionalidades_representante": [{
+        "nacionalidades": [{
           "valor": "México",
           "codigo": "MX"
         }],
-        "curp_representante": "BEML920313HMCLNS09",
-        "rfc_representante": "GOAP780710RH7",
-        "fecha_nacimiento_representante": "2010-07-26",
+        "curp": "BEML920313HMCLNS09",
+        "rfc": "GOAP780710RH7",
+        "fecha_nacimiento": "2010-07-26",
         "tiene_intereses": true,
         "ocupacion_profesion": "Contador",
         "sector_industria": {
@@ -433,10 +430,10 @@
         "tipo_vinculo": "Socio",
         "antiguedad_vinculo": 20,
         "rfc_entidad": "GOAP780710RH7",
-        "nombre_socio": "Armando Rodríguez Saes",
-        "curp_socio": "BEML920313HMCLNS09",
-        "rfc_socio": "GOAP780710RH7",
-        "lugar_nacimiento_socio": {
+        "nombre": "Armando Rodríguez Saes",
+        "curp": "BEML920313HMCLNS09",
+        "rfc": "GOAP780710RH7",
+        "lugar_nacimiento": {
           "pais": {
             "valor": "México",
             "codigo": "MX"
@@ -446,7 +443,7 @@
             "cve_ent": "15"
           }
         },
-        "fecha_nacimiento_socio": "2010-07-26",
+        "fecha_nacimiento": "2010-07-26",
         "porcentaje_participacion": 70,
         "sector_industria": {
           "codigo": "SFS",
@@ -459,9 +456,9 @@
         "nombre_negocio": "Nombre negocio",
         "numero_Registro": "HTC896DSFA",
         "dueno_encargado": "Salvador Hernández Torres",
-        "nombre_cliente": "AMEX.S.A.",
-        "rfc_cliente": "GOAP780710RH7",
-        "domicilio_cliente": {
+        "nombre": "AMEX.S.A.",
+        "rfc": "GOAP780710RH7",
+        "domicilio": {
           "pais": {
             "valor": "México",
             "codigo": "MX"
@@ -495,10 +492,7 @@
       }],
       "otras_partes": [{
         "id": 123,
-        "tipo_relacion": {
-          "codigo": "GPR",
-          "valor": "Garantes de Préstamos Recibidos"
-        },
+        "tipo_relacion": "Garantes de Préstamos Recibidos",
         "nombre_denominacion_parte": "Sergio Rodríguez",
         "fecha_inicio_relacion": "2010-07-26",
         "nacionalidades": [{
@@ -518,10 +512,7 @@
       }],
       "beneficios_gratuitos": [{
         "id": 123,
-        "tipo_beneficio": {
-          "codigo": "TARJ",
-          "valor": "Tarjetas o monederos electrónicos"
-        },
+        "tipo_beneficio": "Tarjetas o monederos electrónicos",
         "origen_beneficio": "Prestación laboral",
         "sector_industria": {
           "codigo": "SFS",
@@ -534,7 +525,10 @@
     "ingresos": {
       "sueldos_salarios_publicos": [{
         "id": 123,
-        "ente_publico": "Presidencia de la República",
+        "ente_publico": {
+          "valor": "Secretaría de Gobernación",
+          "codigo": "SEGOB"
+        },
         "rfc": "GOAP780710RH7",
         "ingreso_bruto_anual": {
           "valor": 10000,
@@ -565,7 +559,7 @@
           "valor": "Sector público"
         },
         "descripcion_actividad_servicio": "Servicio profesional de TI",
-        "domicilio_persona_recibe_ingreso": {
+        "domicilio_persona_paga": {
           "pais": {
             "valor": "México",
             "codigo": "MX"
@@ -619,7 +613,7 @@
           "valor": "Sector público"
         },
         "descripcion_actividad_servicio": "Descripción del servicio",
-        "domicilio_persona_recibe_ingreso": {
+        "domicilio_persona_paga": {
           "pais": {
             "valor": "México",
             "codigo": "MX"
@@ -888,7 +882,7 @@
           "codigo": "SPU",
           "valor": "Sector público"
         },
-        "descripcion_actividad": "Descripción del servicio",
+        "descripcion_premio": "Descripción del servicio",
         "domicilio": {
           "pais": {
             "valor": "México",
@@ -934,6 +928,7 @@
         "nombre_denominacion": "Loteria Nacional",
         "rfc": "GOAP780710RH7",
         "curp": "BEML920313HMCLNS09",
+        "tipo_bien": "Inmueble",
         "sector_industria": {
           "codigo": "SFS",
           "valor": "Servicios de salud y asistencia social"
@@ -1051,6 +1046,10 @@
         },
         "superficie_terreno": 300,
         "superficie_construccion": 100,
+        "titular": {
+          "codigo": "DECL",
+          "valor": "Declarante"
+        },
         "porcentaje_propiedad": 70,
         "nombre_copropietario": {
           "nombres": "Carlos",
@@ -1332,93 +1331,99 @@
         "porcentaje_propiedad_derechos_fiduciarios": 70,
         "ingreso_monetario_obtenido": 56666,
         "institucion_fiduciaria": "Banco de México",
-        "nombre_fideicomitente": "Banco Robmen1",
-        "nombre_fideicomisario": "Banco Robmen2",
-        "nombre_fiduciario": "Banco Robmenos2",
-        "rfc_fideicomitente": "GOAP780710RH7",
-        "rfc_fideicomsario": "GOAP780710RH7",
-        "rfc_fiduciario": "GOAP780710RH7",
-        "curp_fideicomitente": "BEML920313HMCLNS09",
-        "curp_fideicomisario": "BEML920313HMCLNS09",
-        "curp_fiduciario": "BEML920313HMCLNS09",
-        "domicilio_fideicomitente": {
-          "pais": {
-            "valor": "México",
-            "codigo": "MX"
+        "fideicomitente": {
+          "nombre": "Banco Robmen1",
+          "rfc": "GOAP780710RH7",
+          "curp": "BEML920313HMCLNS09",
+          "domicilio": {
+            "pais": {
+              "valor": "México",
+              "codigo": "MX"
+            },
+            "entidad_federativa": {
+              "nom_ent": "México",
+              "cve_ent": "15"
+            },
+            "municipio": {
+              "nom_mun": "Ecatepec de Morelos",
+              "cve_mun": "033"
+            },
+            "cp": "55018",
+            "localidad": {
+              "nom_loc": "Ecatepec de Morelos",
+              "cve_loc": "0001"
+            },
+            "vialidad": {
+              "tipo_vial": "CALLE",
+              "nom_vial": "El Rosal"
+            },
+            "numExt": "24",
+            "numInt": "48"
           },
-          "entidad_federativa": {
-            "nom_ent": "México",
-            "cve_ent": "15"
-          },
-          "municipio": {
-            "nom_mun": "Ecatepec de Morelos",
-            "cve_mun": "033"
-          },
-          "cp": "55018",
-          "localidad": {
-            "nom_loc": "Ecatepec de Morelos",
-            "cve_loc": "0001"
-          },
-          "vialidad": {
-            "tipo_vial": "CALLE",
-            "nom_vial": "El Rosal"
-          },
-          "numExt": "24",
-          "numInt": "48"
+          "fecha_constitucion": "2010-07-26"
         },
-        "domicilio_fideicomisario": {
-          "pais": {
-            "valor": "México",
-            "codigo": "MX"
+        "fideicomisario": {
+          "nombre": "Banco Robmen1",
+          "rfc": "GOAP780710RH7",
+          "curp": "BEML920313HMCLNS09",
+          "domicilio": {
+            "pais": {
+              "valor": "México",
+              "codigo": "MX"
+            },
+            "entidad_federativa": {
+              "nom_ent": "México",
+              "cve_ent": "15"
+            },
+            "municipio": {
+              "nom_mun": "Ecatepec de Morelos",
+              "cve_mun": "033"
+            },
+            "cp": "55018",
+            "localidad": {
+              "nom_loc": "Ecatepec de Morelos",
+              "cve_loc": "0001"
+            },
+            "vialidad": {
+              "tipo_vial": "CALLE",
+              "nom_vial": "El Rosal"
+            },
+            "numExt": "24",
+            "numInt": "48"
           },
-          "entidad_federativa": {
-            "nom_ent": "México",
-            "cve_ent": "15"
-          },
-          "municipio": {
-            "nom_mun": "Ecatepec de Morelos",
-            "cve_mun": "033"
-          },
-          "cp": "55018",
-          "localidad": {
-            "nom_loc": "Ecatepec de Morelos",
-            "cve_loc": "0001"
-          },
-          "vialidad": {
-            "tipo_vial": "CALLE",
-            "nom_vial": "El Rosal"
-          },
-          "numExt": "24",
-          "numInt": "48"
+          "fecha_constitucion": "2010-07-26"
         },
-        "domicilio_fiduciario": {
-          "pais": {
-            "valor": "México",
-            "codigo": "MX"
+        "fiduciario": {
+          "nombre": "Banco Robmen1",
+          "rfc": "GOAP780710RH7",
+          "curp": "BEML920313HMCLNS09",
+          "domicilio": {
+            "pais": {
+              "valor": "México",
+              "codigo": "MX"
+            },
+            "entidad_federativa": {
+              "nom_ent": "México",
+              "cve_ent": "15"
+            },
+            "municipio": {
+              "nom_mun": "Ecatepec de Morelos",
+              "cve_mun": "033"
+            },
+            "cp": "55018",
+            "localidad": {
+              "nom_loc": "Ecatepec de Morelos",
+              "cve_loc": "0001"
+            },
+            "vialidad": {
+              "tipo_vial": "CALLE",
+              "nom_vial": "El Rosal"
+            },
+            "numExt": "24",
+            "numInt": "48"
           },
-          "entidad_federativa": {
-            "nom_ent": "México",
-            "cve_ent": "15"
-          },
-          "municipio": {
-            "nom_mun": "Ecatepec de Morelos",
-            "cve_mun": "033"
-          },
-          "cp": "55018",
-          "localidad": {
-            "nom_loc": "Ecatepec de Morelos",
-            "cve_loc": "0001"
-          },
-          "vialidad": {
-            "tipo_vial": "CALLE",
-            "nom_vial": "El Rosal"
-          },
-          "numExt": "24",
-          "numInt": "48"
+          "fecha_constitucion": "2010-07-26"
         },
-        "fecha_nacimiento_constitucion_fideicomitente": "2010-07-26",
-        "fecha_nacimiento_constitucion_fideicomisario": "2010-07-26",
-        "fecha_nacimiento_constitucion_fiduciario": "2010-07-26",
         "observaciones": "Esto es una observación"
       }],
       "bienes_intangibles": [{

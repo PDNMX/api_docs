@@ -1,0 +1,240 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API del Registro de Servidores públicos de la Administración Pública Federal que intervienen en procedimientos de contrataciones públicas"
+  },
+  "paths": {
+    "/spic": {
+      "get": {
+        "tags": [
+          "sic"
+        ],
+        "summary": "Servidores públicos que intervienen en contrataciones",
+        "operationId": "spic",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número de página a mostrar",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/spic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Página invalida"
+          },
+          "403": {
+            "description": "No tienes permisos"
+          }
+        },
+        "security": [
+          {
+            "declaraciones_auth": [
+              "read:spic"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Más información",
+    "url": "https://github.com/PDNMX/api_docs"
+  },
+  "components": {
+    "securitySchemes": {
+      "declaraciones_auth": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "/oauth",
+            "scopes": {
+              "read:spic": "obtiene lista de servidores que intervienen en contrataciones"
+            }
+          }
+        }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    },
+    "schemas": {
+      "spic": {
+        "type": "object",
+        "required": [
+          "pagination",
+          "results"
+        ],
+        "properties": {
+          "pagination": {
+            "type": "object",
+            "required": [
+              "page_size",
+              "page",
+              "total"
+            ],
+            "properties": {
+              "page_size": {
+                "type": "number",
+                "minimum": 1,
+                "description": "Total de páginas",
+                "example": 100
+              },
+              "page": {
+                "type": "number",
+                "minimum": 1,
+                "description": "Número de página actual",
+                "example": 20
+              },
+              "total": {
+                "type": "number",
+                "minimum": 1,
+                "description": "Total de registros",
+                "example": 30
+              }
+            }
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "fecha_captura": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Fecha de captura del registro",
+                  "example": "20180820T00:00:00Z"
+                },
+                "expediente": {
+                  "type": "string",
+                  "description": "Identificador del expediente",
+                  "example": "ABC123"
+                },
+                "periodo_ejercicio": {
+                  "description": "Periodo al que corresponde la información",
+                  "type": "object",
+                  "properties": {
+                    "fecha_inicial": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "Fecha inicial del periodo al que corresponde la información",
+                      "example": "2018-01-01"
+                    },
+                    "fecha_final": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "Fecha final del periodo al que corresponde la información",
+                      "example": "2018-12-31"
+                    }
+                  }
+                },
+                "id_ramo": {
+                  "type": "number",
+                  "minimum": 1,
+                  "description": "Elemento identificador del Ramo",
+                  "example": 23
+                },
+                "ramo": {
+                  "type": "string",
+                  "description": "Identifica y clasifica los recursos en el presupuesto de egresos a las Dependencias y en su caso Entidades, a la Presidencia de la República, a la Procuraduría General de la República y a los Tribunales Administrativos.",
+                  "example": "Provisiones salariales y económicas"
+                },
+                "sistema_origen": {
+                  "type": "string",
+                  "description": "Description goes here",
+                  "example": "RENIRESP"
+                },
+                "rfc": {
+                  "type": "string",
+                  "description": "Description goes here",
+                  "example": "JPM851111C44"
+                },
+                "nombres": {
+                  "type": "string",
+                  "description": "Nombre o nombres del servidor público",
+                  "example": "John Juan"
+                },
+                "primer_apellido": {
+                  "type": "string",
+                  "description": "Primer apellido del servidor público",
+                  "example": "Pérez"
+                },
+                "segundo_apellido": {
+                  "type": "string",
+                  "description": "Segundo apellido del servidor público",
+                  "example": "Mendez"
+                },
+                "genero": {
+                  "type": "string",
+                  "enum": [
+                    "Masculino",
+                    "Femenino",
+                    "Otro"
+                  ],
+                  "description": "Genero",
+                  "example": "Masculino"
+                },
+                "institucion_dependencia": {
+                  "description": "Indicar el nombre de la institución donde se encuentren registradas las inversiones, cuentas o valores",
+                  "type": "object",
+                  "properties": {
+                    "nombre": {
+                      "type": "string",
+                      "description": "Nombre de la institucion"
+                    },
+                    "siglas": {
+                      "type": "string",
+                      "maxLength": 20,
+                      "description": "Siglas de la institucion",
+                      "example": "SHCP"
+                    }
+                  }
+                },
+                "puesto": {
+                  "type": "string",
+                  "description": "Se deberá indicar el puesto o cargo ocupado.",
+                  "example": "Director de área"
+                },
+                "tipo_area": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "description": "Se debe definir el tipo de area",
+                    "example": "T"
+                  }
+                },
+                "nivel_responsabilidad": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "tipo_procedimiento": {
+                  "type": "number",
+                  "minimum": 1,
+                  "description": "Especificar el tipo de procedimiento",
+                  "example": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

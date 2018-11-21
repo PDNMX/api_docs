@@ -1,198 +1,331 @@
-
-  schemas:
-    AnonymousObject:
-      pagination:
-        type: object
-        properties:
-          pageSize:
-            type: number
-            minimum: 0
-            maximum: 9999
-            description: Description goes here
-            example: 1
-          page:
-            type: number
-            minimum: 0
-            maximum: 9999
-            description: Description goes here
-            example: 1
-          total:
-            type: number
-            minimum: 0
-            maximum: 9999
-            description: Description goes here
-            example: 77523
-      results:
-        type: array
-        items:
-          type: object
-          properties:
-            fecha_captura:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: '20180820T00:00:00Z'
-            numero_expediente:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: ABC123
-            sistema_origen:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: 'Directorio de Sancionados, Secretaría de la Función Pública'
-            nombre_razon_social:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: PATITO TELECOM S.A. de C.V.
-            rfc:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: PAT21343213
-            telefono:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: '552123244'
-            tipo_sancion:
-              type: array
-              items:
-                type: string
-            institucion_dependencia:
-              type: object
-              properties:
-                nombre:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: Secretaría de Hacienda y Crédito Público
-                siglas:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: SHCP
-            tipo_falta:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: Contratación indebida
-            causa_motivo_hechos:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: Causa o motivo de la sanción
-            objeto_social:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: Objeto social de la empresa
-            objeto_contrato:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: Servicio de telefonía fija
-            autoridad_sancionadora:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: OIC
-            responsable:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: Juan Pérez Mendez
-            resolucion:
-              type: object
-              properties:
-                sentido:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: Sansionatoria con multa
-                url:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: 'https://ejemplo.mx/archivo/documento.pdf'
-                fecha:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: '2019-11-20'
-            multa:
-              type: object
-              properties:
-                monto:
-                  type: number
-                  minimum: 0
-                  maximum: 9999
-                  description: Description goes here
-                  example: 5000000
-                unidad_moneda:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: MXN
-            inhabilitacion:
-              type: object
-              properties:
-                plazo:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: 2 años
-                fecha_inicial:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: '2019-01-01'
-                fecha_final:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: '2020-12-31'
-            observaciones:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: >-
-                Se multo e inhabilitó al proveedor PATITO TELECOM S.A de C.V.
-                por ...
-            documentos:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    maxLength: 32
-                    description: Description goes here
-                    example: doc-1
-                  tipo:
-                    type: string
-                    maxLength: 32
-                    description: Description goes here
-                    example: CONSTANCIA_INHABILITACION
-                  titulo:
-                    type: string
-                    maxLength: 32
-                    description: Description goes here
-                    example: Constancia de inhabilitación...
-                  descripcion:
-                    type: string
-                    maxLength: 32
-                    description: Description goes here
-                    example: Descripción del documento
-                  url:
-                    type: string
-                    maxLength: 32
-                    description: Description goes here
-                    example: 'https://ejemplo.mx/archivo/documento.pdf'
-                  fecha:
-                    type: string
-                    maxLength: 32
-                    description: Description goes here
-                    example: '2019-11-20'
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API de particulares sancionados"
+  },
+  "paths": {
+    "/psancionados": {
+      "get": {
+        "tags": [
+          "psancionados"
+        ],
+        "summary": "Particulares sancionados",
+        "operationId": "psancionados",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número de página a mostrar",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/psancionados"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Página invalida"
+          },
+          "403": {
+            "description": "No tienes permisos"
+          }
+        },
+        "security": [
+          {
+            "psancionados_auth": [
+              "read:psancionados"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Más información",
+    "url": "https://github.com/PDNMX/api_docs"
+  },
+  "components": {
+    "securitySchemes": {
+      "psancionados_auth": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "/oauth",
+            "scopes": {
+              "read:psancionados": "obtiene lista de particulares sancionados"
+            }
+          }
+        }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    },
+    "schemas": {
+      "psancionados": {
+        "type": "object",
+        "required": [
+          "pagination",
+          "results"
+        ],
+        "properties": {
+          "pagination": {
+            "type": "object",
+            "properties": {
+              "page_size": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 9999,
+                "description": "Description goes here",
+                "example": 1
+              },
+              "page": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 9999,
+                "description": "Description goes here",
+                "example": 1
+              },
+              "total": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 9999,
+                "description": "Description goes here",
+                "example": 77523
+              }
+            }
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "fecha_captura": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "20180820T00:00:00Z"
+                },
+                "numero_expediente": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "ABC123"
+                },
+                "sistema_origen": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "Directorio de Sancionados, Secretaría de la Función Pública"
+                },
+                "nombre_razon_social": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "PATITO TELECOM S.A. de C.V."
+                },
+                "rfc": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "PAT21343213"
+                },
+                "telefono": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "552123244"
+                },
+                "tipo_sancion": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "institucion_dependencia": {
+                  "type": "object",
+                  "properties": {
+                    "nombre": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "Secretaría de Hacienda y Crédito Público"
+                    },
+                    "siglas": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "SHCP"
+                    }
+                  }
+                },
+                "tipo_falta": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "Contratación indebida"
+                },
+                "causa_motivo_hechos": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "Causa o motivo de la sanción"
+                },
+                "objeto_social": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "Objeto social de la empresa"
+                },
+                "objeto_contrato": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "Servicio de telefonía fija"
+                },
+                "autoridad_sancionadora": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "OIC"
+                },
+                "responsable": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "Juan Pérez Mendez"
+                },
+                "resolucion": {
+                  "type": "object",
+                  "properties": {
+                    "sentido": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "Sansionatoria con multa"
+                    },
+                    "url": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "https://ejemplo.mx/archivo/documento.pdf"
+                    },
+                    "fecha": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "2019-11-20"
+                    }
+                  }
+                },
+                "multa": {
+                  "type": "object",
+                  "properties": {
+                    "monto": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 9999,
+                      "description": "Description goes here",
+                      "example": 5000000
+                    },
+                    "unidad_moneda": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "MXN"
+                    }
+                  }
+                },
+                "inhabilitacion": {
+                  "type": "object",
+                  "properties": {
+                    "plazo": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "2 años"
+                    },
+                    "fecha_inicial": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "2019-01-01"
+                    },
+                    "fecha_final": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "2020-12-31"
+                    }
+                  }
+                },
+                "observaciones": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "Se multo e inhabilitó al proveedor PATITO TELECOM S.A de C.V. por ..."
+                },
+                "documentos": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "description": "Description goes here",
+                        "example": "doc-1"
+                      },
+                      "tipo": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "description": "Description goes here",
+                        "example": "CONSTANCIA_INHABILITACION"
+                      },
+                      "titulo": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "description": "Description goes here",
+                        "example": "Constancia de inhabilitación..."
+                      },
+                      "descripcion": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "description": "Description goes here",
+                        "example": "Descripción del documento"
+                      },
+                      "url": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "description": "Description goes here",
+                        "example": "https://ejemplo.mx/archivo/documento.pdf"
+                      },
+                      "fecha": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "description": "Description goes here",
+                        "example": "2019-11-20"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

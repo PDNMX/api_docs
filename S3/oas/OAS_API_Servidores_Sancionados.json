@@ -1,193 +1,325 @@
-components:
-  schemas:
-    AnonymousObject:
-      pagination:
-        type: object
-        properties:
-          pageSize:
-            type: number
-            minimum: 0
-            maximum: 9999
-            description: Description goes here
-            example: 1
-          page:
-            type: number
-            minimum: 0
-            maximum: 9999
-            description: Description goes here
-            example: 1
-          total:
-            type: number
-            minimum: 0
-            maximum: 9999
-            description: Description goes here
-            example: 77523
-      results:
-        type: array
-        items:
-          type: object
-          properties:
-            fecha_captura:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: '20180820T00:00:00Z'
-            rfc:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: ABCD780814MDFAXL7F9
-            curp:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: ABCD780814MDFAXL
-            nombre:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: Juan
-            apellido_paterno:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: Pérez
-            apellido_materno:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: López
-            genero:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: M
-            institucion_dependencia:
-              type: object
-              properties:
-                nombre:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: Secretaría de Hacienda y Crédito Público
-                siglas:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: SHCP
-            puesto:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: Director de área
-            autoridad_sancionadora:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: Organo Interno de Control
-            tipo_sancion:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: M
-            tipo_falta:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: AG
-            causa:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: ABUSO DE AUTORIDAD
-            expediente:
-              type: string
-              maxLength: 32
-              description: Description goes here
-              example: 0047/2016
-            resolucion:
-              type: object
-              properties:
-                url:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: 'https://ejemplo.mx/archivo/documento.pdf'
-                fecha_notificacion:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: '2018-05-21'
-            multa:
-              type: object
-              properties:
-                monto:
-                  type: number
-                  minimum: 0
-                  maximum: 9999
-                  description: Description goes here
-                  example: 3000000
-                unidad_moneda:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: MXN
-            inhabilitacion:
-              type: object
-              properties:
-                plazo:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: 3 meses
-                fecha_inicial:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: '2018-08-17'
-                fecha_final:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: '2018-11-17'
-                observaciones:
-                  type: string
-                  maxLength: 32
-                  description: Description goes here
-                  example: ABC
-            documentos:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    maxLength: 32
-                    description: Description goes here
-                    example: doc-1
-                  tipo:
-                    type: string
-                    maxLength: 32
-                    description: Description goes here
-                    example: CONSTANCIA_SANCION
-                  titulo:
-                    type: string
-                    maxLength: 32
-                    description: Description goes here
-                    example: Constancia de sanción...
-                  descripcion:
-                    type: string
-                    maxLength: 32
-                    description: Description goes here
-                    example: Descripción del documento
-                  url:
-                    type: string
-                    maxLength: 32
-                    description: Description goes here
-                    example: 'https://ejemplo.mx/archivo/documento.pdf'
-                  fecha:
-                    type: string
-                    maxLength: 32
-                    description: Description goes here
-                    example: '2019-11-20'
-
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API de servidores sancionados"
+  },
+  "paths": {
+    "/ssancionados": {
+      "get": {
+        "tags": [
+          "ssancionados"
+        ],
+        "summary": "servidores sancionados",
+        "operationId": "ssancionados",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número de página a mostrar",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ssancionados"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Página invalida"
+          },
+          "403": {
+            "description": "No tienes permisos"
+          }
+        },
+        "security": [
+          {
+            "ssancionados_auth": [
+              "read:ssancionados"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Más información",
+    "url": "https://github.com/PDNMX/api_docs"
+  },
+  "components": {
+    "securitySchemes": {
+      "ssancionados_auth": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "/oauth",
+            "scopes": {
+              "read:ssancionados": "obtiene lista de servidores sancionados"
+            }
+          }
+        }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    },
+    "schemas": {
+      "ssancionados": {
+        "type": "object",
+        "required": [
+          "pagination",
+          "results"
+        ],
+        "properties": {
+          "pagination": {
+            "type": "object",
+            "properties": {
+              "page_size": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 9999,
+                "description": "Description goes here",
+                "example": 1
+              },
+              "page": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 9999,
+                "description": "Description goes here",
+                "example": 1
+              },
+              "total": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 9999,
+                "description": "Description goes here",
+                "example": 77523
+              }
+            }
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "fecha_captura": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "20180820T00:00:00Z"
+                },
+                "rfc": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "ABCD780814MDFAXL7F9"
+                },
+                "curp": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "ABCD780814MDFAXL"
+                },
+                "nombre": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "Juan"
+                },
+                "apellido_paterno": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "Pérez"
+                },
+                "apellido_materno": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "López"
+                },
+                "genero": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "M"
+                },
+                "institucion_dependencia": {
+                  "type": "object",
+                  "properties": {
+                    "nombre": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "Secretaría de Hacienda y Crédito Público"
+                    },
+                    "siglas": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "SHCP"
+                    }
+                  }
+                },
+                "puesto": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "Director de área"
+                },
+                "autoridad_sancionadora": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "Organo Interno de Control"
+                },
+                "tipo_sancion": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "M"
+                },
+                "tipo_falta": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "AG"
+                },
+                "causa": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "ABUSO DE AUTORIDAD"
+                },
+                "expediente": {
+                  "type": "string",
+                  "maxLength": 32,
+                  "description": "Description goes here",
+                  "example": "0047/2016"
+                },
+                "resolucion": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "https://ejemplo.mx/archivo/documento.pdf"
+                    },
+                    "fecha_notificacion": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "2018-05-21"
+                    }
+                  }
+                },
+                "multa": {
+                  "type": "object",
+                  "properties": {
+                    "monto": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 9999,
+                      "description": "Description goes here",
+                      "example": 3000000
+                    },
+                    "unidad_moneda": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "MXN"
+                    }
+                  }
+                },
+                "inhabilitacion": {
+                  "type": "object",
+                  "properties": {
+                    "plazo": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "3 meses"
+                    },
+                    "fecha_inicial": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "2018-08-17"
+                    },
+                    "fecha_final": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "2018-11-17"
+                    },
+                    "observaciones": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "description": "Description goes here",
+                      "example": "ABC"
+                    }
+                  }
+                },
+                "documentos": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "description": "Description goes here",
+                        "example": "doc-1"
+                      },
+                      "tipo": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "description": "Description goes here",
+                        "example": "CONSTANCIA_SANCION"
+                      },
+                      "titulo": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "description": "Description goes here",
+                        "example": "Constancia de sanción..."
+                      },
+                      "descripcion": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "description": "Description goes here",
+                        "example": "Descripción del documento"
+                      },
+                      "url": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "description": "Description goes here",
+                        "example": "https://ejemplo.mx/archivo/documento.pdf"
+                      },
+                      "fecha": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "description": "Description goes here",
+                        "example": "2019-11-20"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

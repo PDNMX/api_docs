@@ -236,7 +236,6 @@
               "$ref": "#/components/schemas/nombre_personal"
             }, {
               "type": "object",
-              "required": ["nacionalidad", "pais_nacimiento", "fecha_nacimiento", "domicilio", "estado_civil", "fecha_declaracion"],
               "properties": {
                 "nacionalidades": {
                   "type": "array",

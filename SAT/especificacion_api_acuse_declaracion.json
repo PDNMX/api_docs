@@ -1,13 +1,107 @@
 {
-  "openapi" : "3.0.0",
-  "info" : {
-    "version" : "1.0.0",
-    "title" : "API para obtener información y acuses de declaraciones presentadas ante el SAT"
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API de acuses de declaracion fiscal"
   },
-  "paths" : {
-    "/declaraciones": {
+  "paths": {
+    "/acuse": {
       "get": {
-
+        "tags": [
+          "acuse_declaracion"
+        ],
+        "summary": "Acuses de declaración fiscal",
+        "operationId": "acuse_declaracion",
+        "parameters": [
+          {
+            "name": "rfc",
+            "in": "query",
+            "required": true,
+            "description": "RFC a consultar",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/acuse_declaracion"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Página inválida"
+          },
+          "403": {
+            "description": "No tienes permisos"
+          }
+        },
+        "security": [
+          {
+            "acuse_declaracion_auth": [
+              "read:acuse_declaracion"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Más información",
+    "url": "https://github.com/PDNMX/api_docs"
+  },
+  "components": {
+    "securitySchemes": {
+      "acuse_declaracion_auth": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "/oauth",
+            "scopes": {
+              "read:acuse_declaracion": "Obtiene la lista de las declaraciones fiscales"
+            }
+          }
+        }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    },
+    "schemas": {
+      "acuse_declaracion": {
+        "type": "object",
+        "properties": {
+          "rfc": {
+            "type": "string",
+            "description": "Diez caracteres básicos y los tres caracteres de la homoclave del declarante",
+            "example": "RLS901201G54"
+          },
+          "acuses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ejercicio": {
+                  "type": "string",
+                  "maxLength": 5,
+                  "description": "Año del ejercicio de la declaración",
+                  "example": "2018"
+                },
+                "presento": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

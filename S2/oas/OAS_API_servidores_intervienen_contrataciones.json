@@ -12,16 +12,14 @@
         ],
         "summary": "Servidores públicos que intervienen en contrataciones",
         "operationId": "spic",
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "description": "Número de página a mostrar",
-            "schema": {
-              "type": "number"
-            }
+        "parameters": [{
+          "name": "page",
+          "in": "query",
+          "description": "Número de página a mostrar",
+          "schema": {
+            "type": "number"
           }
-        ],
+        }],
         "responses": {
           "200": {
             "description": "Operación exitosa",
@@ -40,13 +38,11 @@
             "description": "No tienes permisos"
           }
         },
-        "security": [
-          {
-            "declaraciones_auth": [
-              "read:spic"
-            ]
-          }
-        ]
+        "security": [{
+          "declaraciones_auth": [
+            "read:spic"
+          ]
+        }]
       }
     }
   },

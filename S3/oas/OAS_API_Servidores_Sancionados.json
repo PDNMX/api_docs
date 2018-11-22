@@ -10,18 +10,16 @@
         "tags": [
           "ssancionados"
         ],
-        "summary": "servidores sancionados",
+        "summary": "Servidores sancionados",
         "operationId": "ssancionados",
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "description": "Número de página a mostrar",
-            "schema": {
-              "type": "number"
-            }
+        "parameters": [{
+          "name": "page",
+          "in": "query",
+          "description": "Número de página a mostrar",
+          "schema": {
+            "type": "number"
           }
-        ],
+        }],
         "responses": {
           "200": {
             "description": "Operación exitosa",
@@ -34,19 +32,17 @@
             }
           },
           "400": {
-            "description": "Página invalida"
+            "description": "Página inválida"
           },
           "403": {
             "description": "No tienes permisos"
           }
         },
-        "security": [
-          {
-            "ssancionados_auth": [
-              "read:ssancionados"
-            ]
-          }
-        ]
+        "security": [{
+          "ssancionados_auth": [
+            "read:ssancionados"
+          ]
+        }]
       }
     }
   },
@@ -62,7 +58,7 @@
           "implicit": {
             "authorizationUrl": "/oauth",
             "scopes": {
-              "read:ssancionados": "obtiene lista de servidores sancionados"
+              "read:ssancionados": "Obtiene lista de servidores sancionados"
             }
           }
         }
@@ -83,27 +79,29 @@
         "properties": {
           "pagination": {
             "type": "object",
+            "required": [
+              "page_size",
+              "page",
+              "total"
+            ],
             "properties": {
               "page_size": {
                 "type": "number",
-                "minimum": 0,
-                "maximum": 9999,
-                "description": "Description goes here",
-                "example": 1
+                "minimum": 1,
+                "description": "Total de páginas",
+                "example": 100
               },
               "page": {
                 "type": "number",
-                "minimum": 0,
-                "maximum": 9999,
-                "description": "Description goes here",
-                "example": 1
+                "minimum": 1,
+                "description": "Número de página actual",
+                "example": 20
               },
               "total": {
                 "type": "number",
-                "minimum": 0,
-                "maximum": 9999,
-                "description": "Description goes here",
-                "example": 77523
+                "minimum": 1,
+                "description": "Total de registros",
+                "example": 30
               }
             }
           },
@@ -114,97 +112,88 @@
               "properties": {
                 "fecha_captura": {
                   "type": "string",
-                  "maxLength": 32,
-                  "description": "Description goes here",
-                  "example": "20180820T00:00:00Z"
+                  "format": "date-time",
+                  "description": "Fecha de captura de la información",
+                  "example": "2017-07-21T17:32:28Z"
                 },
                 "rfc": {
                   "type": "string",
-                  "maxLength": 32,
-                  "description": "Description goes here",
-                  "example": "ABCD780814MDFAXL7F9"
+                  "description": "Se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave",
+                  "example": "PAT21343213"
                 },
                 "curp": {
                   "type": "string",
-                  "maxLength": 32,
-                  "description": "Description goes here",
+                  "description": "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación.",
                   "example": "ABCD780814MDFAXL"
                 },
-                "nombre": {
+                "nombres": {
                   "type": "string",
-                  "maxLength": 32,
-                  "description": "Description goes here",
-                  "example": "Juan"
+                  "description": "Nombres de la persona",
+                  "example": "Carlos"
                 },
-                "apellido_paterno": {
+                "primer_apellido": {
                   "type": "string",
-                  "maxLength": 32,
-                  "description": "Description goes here",
+                  "description": "Primer apellido de la persona",
                   "example": "Pérez"
                 },
-                "apellido_materno": {
+                "segundo_apellido": {
                   "type": "string",
-                  "maxLength": 32,
-                  "description": "Description goes here",
+                  "description": "Segundo apellido de la persona",
                   "example": "López"
                 },
                 "genero": {
                   "type": "string",
-                  "maxLength": 32,
-                  "description": "Description goes here",
-                  "example": "M"
+                  "enum": [
+                    "Masculino",
+                    "Femenino",
+                    "Otro"
+                  ],
+                  "description": "Genero",
+                  "example": "Masculino"
                 },
                 "institucion_dependencia": {
                   "type": "object",
                   "properties": {
                     "nombre": {
                       "type": "string",
-                      "maxLength": 32,
-                      "description": "Description goes here",
+                      "description": "Nombre de la institución o dependencia",
                       "example": "Secretaría de Hacienda y Crédito Público"
                     },
                     "siglas": {
                       "type": "string",
-                      "maxLength": 32,
-                      "description": "Description goes here",
+                      "description": "Siglas de la institución o dependencia",
                       "example": "SHCP"
                     }
                   }
                 },
                 "puesto": {
                   "type": "string",
-                  "maxLength": 32,
-                  "description": "Description goes here",
+                  "description": "Puesto del servidor público sancionado",
                   "example": "Director de área"
                 },
                 "autoridad_sancionadora": {
                   "type": "string",
-                  "maxLength": 32,
-                  "description": "Description goes here",
+                  "description": "Nombre de la Autoridad que impone la sanción",
                   "example": "Organo Interno de Control"
                 },
                 "tipo_sancion": {
                   "type": "string",
-                  "maxLength": 32,
-                  "description": "Description goes here",
+                  "description": "Tipo de sanción impuesta",
                   "example": "M"
                 },
                 "tipo_falta": {
                   "type": "string",
-                  "maxLength": 32,
-                  "description": "Description goes here",
+                  "description": "Tipo de falta cometida",
                   "example": "AG"
                 },
                 "causa": {
                   "type": "string",
-                  "maxLength": 32,
-                  "description": "Description goes here",
+                  "description": "Causa o motivo de la sanción",
                   "example": "ABUSO DE AUTORIDAD"
                 },
                 "expediente": {
                   "type": "string",
-                  "maxLength": 32,
-                  "description": "Description goes here",
+                  "description": "Número del expediente",
                   "example": "0047/2016"
                 },
                 "resolucion": {
@@ -212,14 +201,13 @@
                   "properties": {
                     "url": {
                       "type": "string",
-                      "maxLength": 32,
-                      "description": "Description goes here",
+                      "description": "URL para descargar o consultar el documento de la resolución",
                       "example": "https://ejemplo.mx/archivo/documento.pdf"
                     },
                     "fecha_notificacion": {
                       "type": "string",
-                      "maxLength": 32,
-                      "description": "Description goes here",
+                      "format": "date",
+                      "description": "Fecha de la resolución",
                       "example": "2018-05-21"
                     }
                   }
@@ -229,15 +217,13 @@
                   "properties": {
                     "monto": {
                       "type": "number",
-                      "minimum": 0,
-                      "maximum": 9999,
-                      "description": "Description goes here",
+                      "minimum": 1,
+                      "description": "Monto de la sanción económica en caso de existir",
                       "example": 3000000
                     },
-                    "unidad_moneda": {
+                    "moneda": {
                       "type": "string",
-                      "maxLength": 32,
-                      "description": "Description goes here",
+                      "description": "Moneda del monto de la sanción económica",
                       "example": "MXN"
                     }
                   }
@@ -247,26 +233,24 @@
                   "properties": {
                     "plazo": {
                       "type": "string",
-                      "maxLength": 32,
-                      "description": "Description goes here",
+                      "description": "Plazo de la inhablicación",
                       "example": "3 meses"
                     },
                     "fecha_inicial": {
                       "type": "string",
-                      "maxLength": 32,
-                      "description": "Description goes here",
+                      "format": "date",
+                      "description": "Fecha de Inicio de la sanción (Inhabilitación)",
                       "example": "2018-08-17"
                     },
                     "fecha_final": {
                       "type": "string",
-                      "maxLength": 32,
-                      "description": "Description goes here",
+                      "format": "date",
+                      "description": "Fecha de término de la sanción (Inhabilitación)",
                       "example": "2018-11-17"
                     },
                     "observaciones": {
                       "type": "string",
-                      "maxLength": 32,
-                      "description": "Description goes here",
+                      "description": "Observaciones correspondientes",
                       "example": "ABC"
                     }
                   }
@@ -278,37 +262,32 @@
                     "properties": {
                       "id": {
                         "type": "string",
-                        "maxLength": 32,
-                        "description": "Description goes here",
+                        "description": "Identifiador del documento",
                         "example": "doc-1"
                       },
                       "tipo": {
                         "type": "string",
-                        "maxLength": 32,
-                        "description": "Description goes here",
+                        "description": "Tipo de documento",
                         "example": "CONSTANCIA_SANCION"
                       },
                       "titulo": {
                         "type": "string",
-                        "maxLength": 32,
-                        "description": "Description goes here",
+                        "description": "Titulo del documento",
                         "example": "Constancia de sanción..."
                       },
                       "descripcion": {
                         "type": "string",
-                        "maxLength": 32,
-                        "description": "Description goes here",
+                        "description": "Descripción del documento",
                         "example": "Descripción del documento"
                       },
                       "url": {
                         "type": "string",
-                        "maxLength": 32,
-                        "description": "Description goes here",
+                        "description": "URL de descarga o consulta del documento",
                         "example": "https://ejemplo.mx/archivo/documento.pdf"
                       },
                       "fecha": {
                         "type": "string",
-                        "maxLength": 32,
+                        "format": "date",
                         "description": "Description goes here",
                         "example": "2019-11-20"
                       }

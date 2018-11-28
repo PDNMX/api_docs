@@ -13,23 +13,34 @@
         "parameters": [{
           "name": "groupby",
           "in": "query",
-          "description": "Agrupar por institución de forma asecente y descendente",
+          "description": "Agrupa por institución de forma ascendete y descendente.",
           "schema": {
-            "type": "number"
+            "type": "string"
           }
         }, {
           "name": "sort",
           "in": "query",
-          "description": "Ordenar por fecha de actualización de forma ascendete y descendente",
+          "description": "Ordena por fecha de actualización de forma ascendete y descendente, los valores permitidos son 'asc' y 'desc', por defecto el orden es ascendente.",
           "schema": {
-            "type": "number"
+            "type": "string",
+            "enum": ["asc", "desc"]
           }
         }, {
           "name": "page",
           "in": "query",
           "description": "Número de página a mostrar",
           "schema": {
-            "type": "number"
+            "type": "integer",
+            "minimum": 1
+          }
+        }, {
+          "name": "page_size",
+          "in": "query",
+          "description": "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
           }
         }, {
           "name": "apellido1",
@@ -62,7 +73,7 @@
         }, {
           "name": "id",
           "in": "query",
-          "description": "Devuelve resultados al buscar a un declarante por su ID",
+          "description": "Devuelve resultados al buscar una declaración por su ID",
           "schema": {
             "type": "string"
           }
@@ -76,22 +87,22 @@
         }, {
           "name": "actualizacion",
           "in": "query",
-          "description": "Devuelve resultados de declaraciones a partir de la fecha",
+          "description": "Devuelve resultados de declaraciones a partir de la fecha proporcionada",
           "schema": {
             "type": "string",
             "format": "date"
           }
         }, {
-          "name": "perfil",
+          "name": "rfc_solicitante",
           "in": "query",
-          "description": "Devuelve resultados de declaraciones a partir de la fecha",
+          "description": "RFC de la persona quien hace la consulta",
           "schema": {
             "type": "string"
           }
         }],
         "responses": {
           "200": {
-            "description": "operación exitosa",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": {
@@ -101,7 +112,7 @@
             }
           },
           "400": {
-            "description": "Página invalida"
+            "description": "Página inválida"
           },
           "403": {
             "description": "No tienes permisos"
@@ -125,7 +136,7 @@
           "implicit": {
             "authorizationUrl": "/oauth",
             "scopes": {
-              "read:declaraciones": "obtiene declaraciones"
+              "read:declaraciones": "Obtiene permiso para ver las declaraciones"
             }
           }
         }
@@ -146,19 +157,19 @@
             "required": ["page_size", "page", "total"],
             "properties": {
               "page_size": {
-                "type": "number",
+                "type": "integer",
                 "minimum": 1,
-                "description": "Total de páginas",
+                "description": "Tamaño de registros mostrados por página. Por defecto son diez.",
                 "example": 100
               },
               "page": {
-                "type": "number",
+                "type": "integer",
                 "minimum": 1,
                 "description": "Número de página actual",
                 "example": 20
               },
               "total": {
-                "type": "number",
+                "type": "integer",
                 "minimum": 1,
                 "description": "Total de registros",
                 "example": 30
@@ -289,7 +300,7 @@
                   "properties": {
                     "particular": {
                       "type": "string",
-                      "thth": 15,
+                      "maxLength": 15,
                       "description": "Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf. Este dato es información confidencial",
                       "example": "+525510203040"
                     },
@@ -465,7 +476,7 @@
                       }
                     },
                     "ano_conclusion": {
-                      "type": "number",
+                      "type": "integer",
                       "maxLength": 4,
                       "description": "Se deberá señalar el año en que finalizó sus últimos estudios.",
                       "example": "2005"
@@ -561,7 +572,7 @@
                     "example": "+525510203040"
                   },
                   "extension": {
-                    "type": "number",
+                    "type": "integer",
                     "maxLength": 10,
                     "description": "Extensión del número laboral, en caso de aplicar",
                     "example": 1020
@@ -2657,13 +2668,13 @@
                   "properties": {
                     "numero_escritura_publica": {
                       "description": "Este dato es información confidencial.",
-                      "type": "number",
+                      "type": "integer",
                       "minimum": 1,
                       "example": 202020
                     },
                     "numero_registro_publico": {
                       "description": "Este dato es información confidencial.",
-                      "type": "number",
+                      "type": "integer",
                       "minimum": 1,
                       "example": 404040
                     },
@@ -2854,7 +2865,7 @@
                   }
                 },
                 "numero_registro_vehicular": {
-                  "type": "number",
+                  "type": "integer",
                   "minimum": 1,
                   "description": "Se deberá señalar el número de registro vehicular ante el Registro Público Vehicular. Este dato es información confidencial.",
                   "example": 455000
@@ -3169,7 +3180,7 @@
                 "tipo_moneda": {
                   "$ref": "#/components/schemas/moneda"
                 },
-                "monto": {
+                "monto_moneda": {
                   "type": "number",
                   "minimum": 1,
                   "description": "Señalar la cantidad total que representa la posesión del tipo de moneda en efectivo (pesos). Este dato es información confidencial.",
@@ -3194,6 +3205,12 @@
                   "type": "number",
                   "description": "Se deberá señalar el número de unidades de metal con las que cuenta.",
                   "example": 100
+                },
+                "monto_metal": {
+                  "type": "number",
+                  "minimum": 1,
+                  "description": "Se deberá señalar el monto económico total en pesos que representa el metal en posesión del Declarante. Este dato es información confidencial.",
+                  "example": 78555
                 },
                 "forma_adquisicion": {
                   "$ref": "#/components/schemas/forma_adquisicion"
@@ -4496,7 +4513,7 @@
         }
       },
       "id": {
-        "type": "number",
+        "type": "integer",
         "minimum": 1,
         "description": "Número identificador unico",
         "example": 123

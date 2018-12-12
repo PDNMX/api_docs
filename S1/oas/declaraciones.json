@@ -232,7 +232,7 @@
                     "actualizacion" : {
                       "type" : "string",
                       "format" : "date-time",
-                      "description" : "Fecha de la ultima actualización",
+                      "description" : "Fecha en la que se presento la declaración",
                       "example" : "2017-07-21T17:32:28Z"
                     },
                     "institucion" : {

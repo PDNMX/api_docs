@@ -12,6 +12,7 @@
       "nombre_razon_social": "PATITO TELECOM S.A. de C.V.",
       "rfc": "PAT21343213",
       "telefono": "552123244",
+      "direccion": "Dirección",
       "tipo_sancion": [
         "M",
         "I"

@@ -142,6 +142,12 @@
                   "description": "'Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf.",
                   "example": "552123244"
                 },
+                "direccion": {
+                  "type": "string",
+                  "maxLength": 300,
+                  "description": "",
+                  "example": "Avenida Coyoacán 1501, colonia del valle centro, delegación Benito Juárez, CP 03001"
+                },
                 "tipo_sancion": {
                   "type": "array",
                   "items": {

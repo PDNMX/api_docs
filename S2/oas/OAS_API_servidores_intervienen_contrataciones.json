@@ -121,6 +121,11 @@
                   "description": "Identificador del expediente",
                   "example": "ABC123"
                 },
+                "ejercicio_fiscal":{
+                  "type": "number",
+                  "description": "Ejercicio fiscal",
+                  "example": 2018,
+                },
                 "periodo_ejercicio": {
                   "description": "Periodo al que corresponde la información",
                   "type": "object",

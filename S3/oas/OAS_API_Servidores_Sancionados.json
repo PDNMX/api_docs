@@ -144,9 +144,9 @@
                 "genero": {
                   "type": "string",
                   "enum": [
-                    "Masculino",
-                    "Femenino",
-                    "Otro"
+                    "M",
+                    "F",
+                    "O"
                   ],
                   "description": "Genero",
                   "example": "Masculino"

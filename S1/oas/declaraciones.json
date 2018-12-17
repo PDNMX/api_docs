@@ -232,7 +232,7 @@
                     "actualizacion" : {
                       "type" : "string",
                       "format" : "date-time",
-                      "description" : "Fecha en la que se presento la declaración",
+                      "description" : "Fecha y hora en la que se presento la declaración",
                       "example" : "2017-07-21T17:32:28Z"
                     },
                     "institucion" : {
@@ -758,16 +758,19 @@
                   "properties" : {
                     "nombres" : {
                       "type" : "string",
+                      "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                       "description" : "Nombres o nombre de la persona. Este dato es información confidencial.",
                       "example" : "Carlos"
                     },
                     "primer_apellido" : {
                       "type" : "string",
+                      "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                       "description" : "Primer apellido de la persona. Este dato es información confidencial.",
                       "example" : "Pérez"
                     },
                     "segundo_apellido" : {
                       "type" : "string",
+                      "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                       "description" : "Segundo apellido de la persona. Este dato es información confidencial.",
                       "example" : "López"
                     }
@@ -1136,8 +1139,9 @@
                 },
                 "nombre_parte_representada" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
-                  "example" : "Cecilia Gómez Urrutia"
+                  "example" : "Cecilia Gomez Urrutia"
                 },
                 "curp_parte" : {
                   "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial",
@@ -1185,8 +1189,9 @@
                 },
                 "nombre" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública.",
-                  "example" : "Augusto Fernández Castro"
+                  "example" : "Augusto Fernandez Castro"
                 },
                 "fecha_inicio_representacion" : {
                   "$ref" : "#/components/schemas/fecha"
@@ -1273,8 +1278,9 @@
                 },
                 "nombre" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
-                  "example" : "Armando Rodríguez Saes"
+                  "example" : "Armando Rodriguez Saes"
                 },
                 "curp" : {
                   "description" : "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación. Este dato es información confidencial",
@@ -1337,8 +1343,9 @@
                 },
                 "nombre" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
-                  "example" : "AMEX.S.A."
+                  "example" : "AMEX S A"
                 },
                 "rfc" : {
                   "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
@@ -1451,8 +1458,9 @@
                 },
                 "nombre_denominacion_parte" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
-                  "example" : "Sergio Rodríguez"
+                  "example" : "Sergio Rodriguez"
                 },
                 "fecha_inicio_relacion" : {
                   "$ref" : "#/components/schemas/fecha"
@@ -1598,8 +1606,9 @@
                 },
                 "nombre_denominacion_razon_social" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
-                  "example" : "Max Power Inc."
+                  "example" : "Max Power Inc"
                 },
                 "rfc" : {
                   "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
@@ -1716,6 +1725,7 @@
                 },
                 "nombre_denominacion_razon_social" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Nombre"
                 },
@@ -1834,6 +1844,7 @@
                 },
                 "nombre_denominacion_razon_social" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Empresa S.A."
                 },
@@ -1952,6 +1963,7 @@
                 },
                 "nombre_denominacion_razon_social" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Indicar el nombre, denominación o razón social o situación de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Nombre"
                 },
@@ -2070,8 +2082,9 @@
                 },
                 "nombre_denominacion_razon_social" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
-                  "example" : "ABC Inc."
+                  "example" : "ABC Inc"
                 },
                 "rfc" : {
                   "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
@@ -2188,8 +2201,9 @@
                 },
                 "nombre_denominacion_razon_social" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
-                  "example" : "BANC S.A."
+                  "example" : "BANC"
                 },
                 "rfc" : {
                   "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
@@ -2305,6 +2319,7 @@
                 },
                 "nombre_denominacion" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Loteria Nacional"
                 },
@@ -2423,6 +2438,7 @@
                 },
                 "nombre_denominacion" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Loteria Nacional"
                 },
@@ -2546,6 +2562,7 @@
                 },
                 "nombre_denominacion" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Indicar el nombre, denominación, razón social de la persona física o moral o de la situación de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Centro Educativo"
                 },
@@ -2698,17 +2715,21 @@
                   "properties" : {
                     "nombres" : {
                       "type" : "string",
+                      "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                       "description" : "Nombres o nombre de la persona. Este dato es información confidencial.",
                       "example" : "Carlos"
                     },
                     "primer_apellido" : {
                       "type" : "string",
+                      "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                       "description" : "Primer apellido de la persona. Este dato es información confidencial.",
-                      "example" : "Pérez"
+                      "example" : "Perez"
                     },
                     "segundo_apellido" : {
                       "type" : "string",
-                      "description" : "Segundo apellido de la persona. Este dato es información confidencial."
+                      "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
+                      "description" : "Segundo apellido de la persona. Este dato es información confidencial.",
+                      "example" : "Sanchez"
                     }
                   }
                 },
@@ -2816,8 +2837,9 @@
                 },
                 "nombre_denominacion_quien_adquirio" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
-                  "example" : "Monster Inc."
+                  "example" : "Monster Inc"
                 },
                 "rfc_quien_adquirio" : {
                   "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
@@ -2910,8 +2932,9 @@
                   "type" : "array",
                   "items" : {
                     "type" : "string",
+                    "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                     "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
-                    "example" : "Monstr Inc."
+                    "example" : "Monstr Inc"
                   }
                 },
                 "numero_registro_vehicular" : {
@@ -2925,8 +2948,9 @@
                 },
                 "nombre_denominacion_adquirio" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
-                  "example" : "Monstr Inc."
+                  "example" : "Monstr Inc"
                 },
                 "rfc_quien_adquirio" : {
                   "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
@@ -2985,8 +3009,9 @@
                   "type" : "array",
                   "items" : {
                     "type" : "string",
+                    "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                     "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
-                    "example" : "Monstr Inc."
+                    "example" : "Monstr Incorporation"
                   }
                 },
                 "forma_adquisicion" : {
@@ -2994,6 +3019,7 @@
                 },
                 "nombre_denominacion_adquirio" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).  ",
                   "example" : "Tesl Mtr Inc."
                 },
@@ -3350,6 +3376,7 @@
                   "properties" : {
                     "nombre" : {
                       "type" : "string",
+                      "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                       "description" : "Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
                       "example" : "Banco Robmen1"
                     },
@@ -3450,6 +3477,7 @@
                   "properties" : {
                     "nombre" : {
                       "type" : "string",
+                      "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                       "description" : "Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
                       "example" : "Banco Robmen1"
                     },
@@ -3550,6 +3578,7 @@
                   "properties" : {
                     "nombre" : {
                       "type" : "string",
+                      "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                       "description" : "Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
                       "example" : "Banco Robmen1"
                     },
@@ -3710,8 +3739,9 @@
                 },
                 "nombre_copropietario" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
-                  "example" : "Vien Inc,"
+                  "example" : "Vien Incorporation"
                 },
                 "porcentaje_propiedad_copropietario" : {
                   "description" : "Valor númerico porcentual. Este dato es información confidencial.",
@@ -3851,6 +3881,7 @@
                 },
                 "nombre_copropietario" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "Max Power Bansky"
                 },
@@ -3888,6 +3919,7 @@
                 },
                 "nombre_tercero_propietario" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá escribir el nombre o nombres completos del tercero propietario. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).  ",
                   "example" : "Bansky Von Trier"
                 },
@@ -4050,6 +4082,7 @@
                 },
                 "nombre_acreedor" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "example" : "PNBKSRIBAS S.A. DE C.V"
                 },
@@ -4203,6 +4236,7 @@
                 },
                 "nombre_garante" : {
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Observaciones/Comentarios: En caso de que requiera detallar información respecto de algún adeudo. Este dato es información confidencial (si es persona física).  ",
                   "example" : "Bansky Von Tier"
                 },
@@ -4268,6 +4302,7 @@
                 "nombre_acreedor" : {
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "example" : "Bansky Hola Adios"
                 },
                 "rfc_acreedor" : {

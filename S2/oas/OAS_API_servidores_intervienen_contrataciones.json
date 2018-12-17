@@ -13,11 +13,79 @@
         "summary": "Servidores públicos que intervienen en contrataciones",
         "operationId": "spic",
         "parameters": [{
+          "name": "sort",
+          "in": "query",
+          "description": "Ordena por fecha de actualización de forma ascendete y descendente, los valores permitidos son 'asc' y 'desc', por defecto el orden es ascendente.",
+          "schema": {
+            "type": "string",
+            "enum": ["asc", "desc"]
+          }
+        }, {
           "name": "page",
           "in": "query",
           "description": "Número de página a mostrar",
           "schema": {
-            "type": "number"
+            "type": "integer",
+            "minimum": 1
+          }
+        }, {
+          "name": "page_size",
+          "in": "query",
+          "description": "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          }
+        }, {
+          "name": "nombres",
+          "in": "query",
+          "description": "Devuelve resultados al buscar a un servidor por su nombre o nombres",
+          "schema": {
+            "type": "string"
+          }
+        }, {
+          "name": "apellido1",
+          "in": "query",
+          "description": "Devuelve resultados al buscar a un servidor por su primer apellido",
+          "schema": {
+            "type": "string"
+          }
+        }, {
+          "name": "apellido2",
+          "in": "query",
+          "description": "Devuelve resultados al buscar a un servidor por su segundo apellido",
+          "schema": {
+            "type": "string"
+          }
+        }, {
+          "name": "rfc",
+          "in": "query",
+          "description": "Devuelve resultados al buscar a un servidor por RFC",
+          "schema": {
+            "type": "string"
+          }
+        }, {
+          "name": "id",
+          "in": "query",
+          "description": "Devuelve resultados al buscar un servidor por su ID",
+          "schema": {
+            "type": "string"
+          }
+        }, {
+          "name": "actualizacion",
+          "in": "query",
+          "description": "Devuelve resultados de los servidores a partir de la fecha proporcionada",
+          "schema": {
+            "type": "string",
+            "format": "date"
+          }
+        }, {
+          "name": "rfc_solicitante",
+          "in": "query",
+          "description": "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
+          "schema": {
+            "type": "string"
           }
         }],
         "responses": {
@@ -121,7 +189,7 @@
                   "description": "Identificador del expediente",
                   "example": "ABC123"
                 },
-                "ejercicio_fiscal":{
+                "ejercicio_fiscal": {
                   "type": "number",
                   "description": "Ejercicio fiscal",
                   "example": 2018,

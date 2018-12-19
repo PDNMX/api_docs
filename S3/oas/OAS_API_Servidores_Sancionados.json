@@ -11,90 +11,105 @@
           "ssancionados"
         ],
         "summary": "Servidores sancionados",
-        "operationId": "ssancionados",
-        "parameters": [{
-          "name": "sort",
-          "in": "query",
-          "description": "Ordena por fecha de actualización de forma ascendete y descendente, los valores permitidos son 'asc' y 'desc', por defecto el orden es ascendente.",
-          "schema": {
-            "type": "string",
-            "enum": ["asc", "desc"]
+        "operationId": "get_ssancionados",
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Ordena por fecha de actualización de forma ascendete y descendente, los valores permitidos son 'asc' y 'desc', por defecto el orden es ascendente.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ]
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número de página a mostrar",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200
+            }
+          },
+          {
+            "name": "nombres",
+            "in": "query",
+            "description": "Devuelve resultados al buscar a un servidor público sancionado por su nombre o nombres",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "apellido1",
+            "in": "query",
+            "description": "Devuelve resultados al buscar a un servidor público sancionado por su primer apellido",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "apellido2",
+            "in": "query",
+            "description": "Devuelve resultados al buscar a un servidor público sancionado por su segundo apellido",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rfc",
+            "in": "query",
+            "description": "Devuelve resultados al buscar a un servidor público sancionado por RFC",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "curp",
+            "in": "query",
+            "description": "Devuelve resultados al buscar a un servidor público sancionado por CURP",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Devuelve resultados al buscar un servidor público sancionado por su ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "actualizacion",
+            "in": "query",
+            "description": "Devuelve resultados de los servidores público sancionado a partir de la fecha proporcionada",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "rfc_solicitante",
+            "in": "query",
+            "description": "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
+            "schema": {
+              "type": "string"
+            }
           }
-        }, {
-          "name": "page",
-          "in": "query",
-          "description": "Número de página a mostrar",
-          "schema": {
-            "type": "integer",
-            "minimum": 1
-          }
-        }, {
-          "name": "page_size",
-          "in": "query",
-          "description": "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
-          "schema": {
-            "type": "integer",
-            "minimum": 1,
-            "maximum": 200
-          }
-        }, {
-          "name": "nombres",
-          "in": "query",
-          "description": "Devuelve resultados al buscar a un servidor público sancionado por su nombre o nombres",
-          "schema": {
-            "type": "string"
-          }
-        }, {
-          "name": "apellido1",
-          "in": "query",
-          "description": "Devuelve resultados al buscar a un servidor público sancionado por su primer apellido",
-          "schema": {
-            "type": "string"
-          }
-        }, {
-          "name": "apellido2",
-          "in": "query",
-          "description": "Devuelve resultados al buscar a un servidor público sancionado por su segundo apellido",
-          "schema": {
-            "type": "string"
-          }
-        }, {
-          "name": "rfc",
-          "in": "query",
-          "description": "Devuelve resultados al buscar a un servidor público sancionado por RFC",
-          "schema": {
-            "type": "string"
-          }
-        }, {
-          "name": "curp",
-          "in": "query",
-          "description": "Devuelve resultados al buscar a un servidor público sancionado por CURP",
-          "schema": {
-            "type": "string"
-          }
-        }, {
-          "name": "id",
-          "in": "query",
-          "description": "Devuelve resultados al buscar un servidor público sancionado por su ID",
-          "schema": {
-            "type": "string"
-          }
-        }, {
-          "name": "actualizacion",
-          "in": "query",
-          "description": "Devuelve resultados de los servidores público sancionado a partir de la fecha proporcionada",
-          "schema": {
-            "type": "string",
-            "format": "date"
-          }
-        }, {
-          "name": "rfc_solicitante",
-          "in": "query",
-          "description": "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
-          "schema": {
-            "type": "string"
-          }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "Operación exitosa",
@@ -113,11 +128,66 @@
             "description": "No tienes permisos"
           }
         },
-        "security": [{
-          "ssancionados_auth": [
-            "read:ssancionados"
-          ]
-        }]
+        "security": [
+          {
+            "ssancionados_auth": [
+              "read:ssancionados"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "ssancionados"
+        ],
+        "summary": "Muestra información de los servidores públicos sancionados permitiendo busquedas avanzadas",
+        "operationId": "post_ssancionados",
+        "requestBody": {
+          "description": "JSON para peticiones de busqueda avanzada",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/post_query"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ssancionados"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Página inválida"
+          },
+          "403": {
+            "description": "No tienes permisos"
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error_post"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ssancionados_auth": [
+              "read:ssancionados"
+            ]
+          }
+        ]
       }
     }
   },
@@ -371,6 +441,115 @@
                 }
               }
             }
+          }
+        }
+      },
+      "post_query": {
+        "type": "object",
+        "properties": {
+          "sort": {
+            "type": "object",
+            "properties": {
+              "nombres": {
+                "type": "string",
+                "enum": [
+                  "asc",
+                  "desc"
+                ],
+                "description": "Campo a ordenar de forma ascendente o descente",
+                "example": "asc"
+              },
+              "primer_apellido": {
+                "type": "string",
+                "enum": [
+                  "asc",
+                  "desc"
+                ],
+                "description": "Campo a ordenar de forma ascendente o descente",
+                "example": "asc"
+              },
+              "segundo_apellido": {
+                "type": "string",
+                "enum": [
+                  "asc",
+                  "desc"
+                ],
+                "description": "Campo a ordenar de forma ascendente o descente",
+                "example": "asc"
+              },
+              "institucion_dependencia.nombre": {
+                "type": "string",
+                "enum": [
+                  "asc",
+                  "desc"
+                ],
+                "description": "Campo a ordenar de forma ascendente o descente",
+                "example": "asc"
+              }
+            }
+          },
+          "page": {
+            "type": "integer",
+            "description": "Número de página a mostrar",
+            "example": 10
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
+            "example": 10
+          },
+          "id": {
+            "type": "string",
+            "description": "Devuelve resultados al buscar una declaración por su ID. Si se especifica este valor, el objeto query es omitido.",
+            "example": "123abc"
+          },
+          "query": {
+            "properties": {
+              "nombres": {
+                "type": "string",
+                "description": "Nombres o nombre del servidor público sancionado.",
+                "example": "Juan Pedro"
+              },
+              "primer_apellido": {
+                "type": "string",
+                "description": "Primer apellido del servidor público sancionado.",
+                "example": "Tenorio"
+              },
+              "segundo_apellido": {
+                "type": "string",
+                "description": "Segundo apellido del servidor público sancionado.",
+                "example": "Calderon"
+              },
+              "institucion_dependencia.nombre": {
+                "type": "string",
+                "description": "Nombre de la institución dependencia a la que pertenece el servidor público sancionado.",
+                "example": "Secretaría de Hacienda y Crédito Público"
+              }
+            }
+          },
+          "rfc_solicitante": {
+            "type": "string",
+            "description": "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
+            "example": "GOAP780710RH7"
+          }
+        }
+      },
+      "error_post": {
+        "description": "Estos valores son definidos por el sistema del API.",
+        "required": [
+          "code",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Código alfa númerico del error de la consulta.",
+            "example": "abc123"
+          },
+          "message": {
+            "type": "string",
+            "description": "Texto descriptivo para el usuario final del error en la consulta",
+            "example": "Error al formar la consulta, revise el formato de los campos."
           }
         }
       }

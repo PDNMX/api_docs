@@ -1,19 +1,18 @@
 {
   "pagination": {
-    "pageSize": 1,
-    "page": 1,
-    "total": 77523
+    "page_size": 100,
+    "page": 20,
+    "total": 30
   },
-
   "results": [
     {
-      "fecha_captura": "20180820T00:00:00Z",
-      "rfc": "ABCD780814MDFAXL7F9",
+      "fecha_captura": "2017-07-21T17:32:28Z",
+      "rfc": "PAT21343213",
       "curp": "ABCD780814MDFAXL",
-      "nombre": "Juan",
-      "apellido_paterno": "Pérez",
-      "apellido_materno": "López",
-      "genero": "M",
+      "nombres": "Carlos",
+      "primer_apellido": "Pérez",
+      "segundo_apellido": "López",
+      "genero": "Masculino",
       "institucion_dependencia": {
         "nombre": "Secretaría de Hacienda y Crédito Público",
         "siglas": "SHCP"
@@ -30,7 +29,7 @@
       },
       "multa": {
         "monto": 3000000,
-        "unidad_moneda": "MXN"
+        "moneda": "MXN"
       },
       "inhabilitacion": {
         "plazo": "3 meses",
@@ -38,7 +37,7 @@
         "fecha_final": "2018-11-17",
         "observaciones": "ABC"
       },
-      "documentos":[
+      "documentos": [
         {
           "id": "doc-1",
           "tipo": "CONSTANCIA_SANCION",

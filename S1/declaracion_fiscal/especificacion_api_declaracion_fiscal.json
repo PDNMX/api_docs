@@ -10,7 +10,7 @@
         "tags": [
           "acuse_declaracion"
         ],
-        "summary": "Acuses de declaración fiscal",
+        "summary": "Proporciona información sobre declaraciones fiscales",
         "operationId": "acuse_declaracion",
         "parameters": [
           {
@@ -20,6 +20,15 @@
             "description": "RFC a consultar",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "ejercicio",
+            "in": "query",
+            "required": false,
+            "description": "El ejercicio del cual se requiere información, e.g., 2017. Si no se especifica el parámetro ejercicio, el API regresará la información de todos los años disponibles.",
+            "schema": {
+              "type": "integer"
             }
           }
         ],
@@ -89,10 +98,9 @@
               "type": "object",
               "properties": {
                 "ejercicio": {
-                  "type": "string",
-                  "maxLength": 5,
-                  "description": "Año del ejercicio de la declaración",
-                  "example": "2018"
+                  "type": "integer",
+                  "description": "Ejercicio (Año) de la declaración",
+                  "example": 2018
                 },
                 "presento": {
                   "type": "boolean",

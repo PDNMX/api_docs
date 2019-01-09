@@ -2,19 +2,19 @@
   "rfc": "RLS901201G54",
   "acuses": [
     {
-      "ejercicio": "2018",
+      "ejercicio": 2018,
       "presento": false
     },
     {
-      "ejercicio": "2017",
+      "ejercicio": 2017,
       "presento": true
     },
     {
-      "ejercicio": "2016",
+      "ejercicio": 2016,
       "presento": true
     },
     {
-      "ejercicio": "2015",
+      "ejercicio": 2015,
       "presento": true
     }
   ]

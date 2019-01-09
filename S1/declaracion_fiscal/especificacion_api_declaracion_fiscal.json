@@ -8,10 +8,10 @@
     "/declaraciones_fiscales": {
       "get": {
         "tags": [
-          "acuse_declaracion"
+          "declaraciones_fiscales"
         ],
         "summary": "Proporciona información sobre declaraciones fiscales",
-        "operationId": "acuse_declaracion",
+        "operationId": "declaraciones_fiscales",
         "parameters": [
           {
             "name": "rfc",
@@ -38,7 +38,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/declaraciones"
+                  "$ref": "#/components/schemas/declaraciones_fiscales"
                 }
               }
             }
@@ -59,9 +59,60 @@
         ]
       }
     },
-    "acuse": {
-      
-    }
+    "/acuse": {
+      "get": {
+        "tags": [
+          "acuse_declaracion_fiscal"
+        ],
+        "summary": "Genera el acuse de la declaración fiscal de acuerdo al RFC y año proporcionado",
+        "operationId": "acuse_declaracion_fiscal",
+        "parameters": [
+          {
+            "name": "rfc",
+            "in": "query",
+            "required": true,
+            "description": "RFC del acuse a generar",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ejercicio",
+            "in": "query",
+            "required": true,
+            "description": "Año del acuse a generar",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operación exitosa, acuse generado en formato PDF",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"}
+              }
+            }
+          },
+          "400": {
+            "description": "Página inválida"
+          },
+          "403": {
+            "description": "No tienes permisos"
+          }
+        },
+        "security": [
+          {
+            "declaracion_fiscal_auth": [
+              "read:declaracion"
+            ]
+          }
+        ]
+      }
+    },
   },
   "externalDocs": {
     "description": "Más información",
@@ -69,13 +120,13 @@
   },
   "components": {
     "securitySchemes": {
-      "acuse_declaracion_auth": {
+      "declaracion_fiscal_auth": {
         "type": "oauth2",
         "flows": {
           "implicit": {
             "authorizationUrl": "/oauth",
             "scopes": {
-              "read:acuse_declaracion": "Obtiene la lista de las declaraciones fiscales"
+              "read:declaracion": "Obtiene la lista de las declaraciones fiscales"
             }
           }
         }

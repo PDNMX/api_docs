@@ -2,10 +2,10 @@
   "openapi": "3.0.0",
   "info": {
     "version": "1.0.0",
-    "title": "API de acuses de declaracion fiscal"
+    "title": "API de declaraciones fiscales"
   },
   "paths": {
-    "/acuse": {
+    "/declaraciones_fiscales": {
       "get": {
         "tags": [
           "acuse_declaracion"
@@ -26,7 +26,7 @@
             "name": "ejercicio",
             "in": "query",
             "required": false,
-            "description": "El ejercicio del cual se requiere información, e.g., 2017. Si no se especifica el parámetro ejercicio, el API regresará la información de todos los años disponibles.",
+            "description": "Permite filtrar los resultados del API por medio del ejercicio (e.g., 2017). Si no se especifica el parámetro ejercicio, el API regresará toda la información disponible.",
             "schema": {
               "type": "integer"
             }
@@ -38,7 +38,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/acuse_declaracion"
+                  "$ref": "#/components/schemas/declaraciones"
                 }
               }
             }
@@ -84,15 +84,15 @@
       }
     },
     "schemas": {
-      "acuse_declaracion": {
+      "declaraciones_fiscales": {
         "type": "object",
         "properties": {
           "rfc": {
             "type": "string",
-            "description": "Diez caracteres básicos y los tres caracteres de la homoclave del declarante",
+            "description": "RFC con homoclave del declarante",
             "example": "RLS901201G54"
           },
-          "acuses": {
+          "resultados": {
             "type": "array",
             "items": {
               "type": "object",

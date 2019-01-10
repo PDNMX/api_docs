@@ -254,26 +254,27 @@
             "type": "array",
             "items": {
               "type": "object",
+              "required": ["fecha_captura", "rfc", "nombres", "primer_apellido", "institucion_dependencia", "puesto", "expediente", "autoridad_sancionadora", "tipo_sancion", "tipo_falta", "causa", "resolucion", "multa", "inhabilitacion", "documentos"],
               "properties": {
                 "fecha_captura": {
                   "type": "string",
                   "format": "date-time",
-                  "description": "Fecha de captura de la información",
+                  "description": "La fecha y hora en la que se agrega o modifica el registro",
                   "example": "2017-07-21T17:32:28Z"
                 },
                 "rfc": {
                   "type": "string",
-                  "description": "Se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave",
+                  "description": "RFC del Servidor Público con homoclave",
                   "example": "PAT21343213"
                 },
                 "curp": {
                   "type": "string",
-                  "description": "Se deberá escribir los 18 caracteres de la Clave Única de Registro de Población, como la emitió la Secretaría de Gobernación.",
+                  "description": "CURP del Servidor Público",
                   "example": "ABCD780814MDFAXL"
                 },
                 "nombres": {
                   "type": "string",
-                  "description": "Nombres de la persona",
+                  "description": "Nombre o nombres del Servidor Público",
                   "example": "Carlos"
                 },
                 "primer_apellido": {
@@ -293,42 +294,45 @@
                     "F",
                     "O"
                   ],
-                  "description": "Genero",
-                  "example": "Masculino"
+                  "description": "F= Femenino, M= Másculino, O=Otro",
+                  "example": "M"
                 },
                 "institucion_dependencia": {
                   "type": "object",
+                  "required": ["nombre", "siglas"],
                   "properties": {
                     "nombre": {
                       "type": "string",
-                      "description": "Nombre de la institución o dependencia",
+                      "description": "Institución o dependencia a la que pertenece el Servidor Público",
                       "example": "Secretaría de Hacienda y Crédito Público"
                     },
                     "siglas": {
                       "type": "string",
-                      "description": "Siglas de la institución o dependencia",
+                      "description": "Siglas de la institución o dependencia a la que pertenece el servidor público",
                       "example": "SHCP"
                     }
                   }
                 },
                 "puesto": {
                   "type": "string",
-                  "description": "Puesto del servidor público sancionado",
+                  "description": "Puesto del Servidor Público",
                   "example": "Director de área"
                 },
                 "autoridad_sancionadora": {
                   "type": "string",
-                  "description": "Nombre de la Autoridad que impone la sanción",
+                  "description": "Autoridad encarcada del proceso de sanción ",
                   "example": "Organo Interno de Control"
                 },
                 "tipo_sancion": {
                   "type": "string",
-                  "description": "Tipo de sanción impuesta",
+                  "enum": ["I", "M", "MI", "S", "D"],
+                  "description": "I = Inhabilitado, M = Multado, MI = Multado e Inhabilitado, S= Suspensión del empleo, cargo o comisión, D= Destitución del emplo, cargo o comisión",
                   "example": "M"
                 },
                 "tipo_falta": {
                   "type": "string",
-                  "description": "Tipo de falta cometida",
+                  "enum": ["AG", "ANG", "AC"],
+                  "description": "eg., AG= Administrativa grave, ANG= Administrativa no grave, AC=Acto de corrupción",
                   "example": "AG"
                 },
                 "causa": {
@@ -338,86 +342,91 @@
                 },
                 "expediente": {
                   "type": "string",
-                  "description": "Número del expediente",
+                  "description": "El expediente derivado de la investigación que las Autoridades Investigadoras realizan.",
                   "example": "0047/2016"
                 },
                 "resolucion": {
                   "type": "object",
+                  "required": ["url", "fecha_notificacion"],
                   "properties": {
                     "url": {
                       "type": "string",
-                      "description": "URL para descargar o consultar el documento de la resolución",
+                      "description": "URL que apunta al documento en formato digital de la resolución emitida por el correspondiente Organo Interno de Control",
                       "example": "https://ejemplo.mx/archivo/documento.pdf"
                     },
                     "fecha_notificacion": {
                       "type": "string",
                       "format": "date",
-                      "description": "Fecha de la resolución",
+                      "description": "e.g., 2018-11-01",
                       "example": "2018-05-21"
                     }
                   }
                 },
                 "multa": {
                   "type": "object",
+                  "required": ["monto", "moneda"],
                   "properties": {
                     "monto": {
-                      "type": "number",
+                      "type": "integer",
                       "minimum": 1,
-                      "description": "Monto de la sanción económica en caso de existir",
+                      "description": "Monto de la multa expresado en la moneda origen",
                       "example": 3000000
                     },
                     "moneda": {
                       "type": "string",
-                      "description": "Moneda del monto de la sanción económica",
+                      "description": "e.g., MXN para pesos mexicanos o cualquier otro código de unidad",
                       "example": "MXN"
                     }
                   }
                 },
                 "inhabilitacion": {
                   "type": "object",
+                  "required": ["fecha_inicial", "fecha_final"],
                   "properties": {
                     "plazo": {
                       "type": "string",
-                      "description": "Plazo de la inhablicación",
+                      "description": "e.g., 2 años",
                       "example": "3 meses"
                     },
                     "fecha_inicial": {
                       "type": "string",
                       "format": "date",
-                      "description": "Fecha de Inicio de la sanción (Inhabilitación)",
+                      "description": "e.g., 2019-01-01",
                       "example": "2018-08-17"
                     },
                     "fecha_final": {
                       "type": "string",
                       "format": "date",
-                      "description": "Fecha de término de la sanción (Inhabilitación)",
+                      "description": "e.g., 2020-12-31",
                       "example": "2018-11-17"
                     },
                     "observaciones": {
                       "type": "string",
-                      "description": "Observaciones correspondientes",
+                      "description": "Cualquier observación pertinente ",
                       "example": "ABC"
                     }
                   }
                 },
                 "documentos": {
+                  "description": "Es una sección que permite adjuntar referencias a cualquier documento que se considere de valor para transparentar el proceso de sanción.",
                   "type": "array",
                   "items": {
                     "type": "object",
+                    "required": ["id", "titulo", "descripcion", "url", "fecha"],
                     "properties": {
                       "id": {
                         "type": "string",
-                        "description": "Identifiador del documento",
+                        "description": "Puede ser el folio del documento o al menos un consecutivo para identificar a los documentos en el registro.",
                         "example": "doc-1"
                       },
                       "tipo": {
                         "type": "string",
-                        "description": "Tipo de documento",
+                        "description": "Tipo de documento, Opciones: RESOLUCION, CONSTANCIA_SANCION, CONSTANCIA_INHABILITACION, CONSTANCIA_ABSTENCION",
                         "example": "CONSTANCIA_SANCION"
                       },
                       "titulo": {
                         "type": "string",
-                        "description": "Titulo del documento",
+                        "description": "Título del documento",
                         "example": "Constancia de sanción..."
                       },
                       "descripcion": {
@@ -427,13 +436,13 @@
                       },
                       "url": {
                         "type": "string",
-                        "description": "URL de descarga o consulta del documento",
+                        "description": "URL al documento en formato digital",
                         "example": "https://ejemplo.mx/archivo/documento.pdf"
                       },
                       "fecha": {
                         "type": "string",
                         "format": "date",
-                        "description": "Description goes here",
+                        "description": "Fecha del documento, eg., 2019-01-01",
                         "example": "2019-11-20"
                       }
                     }

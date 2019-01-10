@@ -1,84 +1,668 @@
 {
-  "pagination": {
-    "page_size": 100,
-    "page": 20,
-    "total": 30
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API de particulares sancionados"
   },
-  "results": [
-    {
-      "fecha_captura": "2017-07-21T17:32:28Z",
-      "numero_expediente": "ABC123",
-      "sistema_origen": "Directorio de Sancionados, Secretaría de la Función Pública",
-      "nombre_razon_social": "PATITO TELECOM S.A. de C.V.",
-      "rfc": "PAT21343213",
-      "telefono": "552123244",
-      "domicilio": {
-        "pais": {
-          "valor": "México",
-          "codigo": "MX"
+  "paths": {
+    "/psancionados": {
+      "get": {
+        "tags": [
+          "psancionados"
+        ],
+        "summary": "Particulares sancionados",
+        "operationId": "get_psancionados",
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Ordena por fecha de actualización de forma ascendete y descendente, los valores permitidos son 'asc' y 'desc', por defecto el orden es ascendente.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ]
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número de página a mostrar",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200
+            }
+          },
+          {
+            "name": "nombres",
+            "in": "query",
+            "description": "Devuelve resultados al buscar a un particular sancionado por su nombre o nombres",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "apellido1",
+            "in": "query",
+            "description": "Devuelve resultados al buscar a un particular sancionado por su primer apellido",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "apellido2",
+            "in": "query",
+            "description": "Devuelve resultados al buscar a un particular sancionado por su segundo apellido",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rfc",
+            "in": "query",
+            "description": "Devuelve resultados al buscar a un particular sancionado por RFC",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Devuelve resultados al buscar un particular sancionado por su ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "actualizacion",
+            "in": "query",
+            "description": "Devuelve resultados de los particulares sancionados a partir de la fecha proporcionada",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "rfc_solicitante",
+            "in": "query",
+            "description": "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/psancionados"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Página inválida"
+          },
+          "403": {
+            "description": "No tienes permisos"
+          }
         },
-        "entidad_federativa": {
-          "nom_ent": "México",
-          "cve_ent": "15"
+        "security": [
+          {
+            "psancionados_auth": [
+              "read:psancionados"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "psancionados"
+        ],
+        "summary": "Muestra los particulares sancionados permitiendo busquedas avanzadas",
+        "operationId": "post_psancionados",
+        "requestBody": {
+          "description": "JSON para peticiones de busqueda avanzada",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/post_query"
+              }
+            }
+          }
         },
-        "municipio": {
-          "nom_mun": "Ecatepec de Morelos",
-          "cve_mun": "033"
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/psancionados"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Página inválida"
+          },
+          "403": {
+            "description": "No tienes permisos"
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error_post"
+                }
+              }
+            }
+          }
         },
-        "cp": "55018",
-        "localidad": {
-          "nom_loc": "Ecatepec de Morelos",
-          "cve_loc": "0001"
-        },
-        "vialidad": {
-          "tipo_vial": "CALLE",
-          "nom_vial": "El Rosal"
-        },
-        "numExt": "24",
-        "numInt": "48"
-      },
-      "tipo_sancion": [
-        "Ejemplo"
-      ],
-      "institucion_dependencia": {
-        "nombre": "Secretaría de Hacienda y Crédito Público",
-        "siglas": "SHCP"
-      },
-      "tipo_falta": "Contratación indebida",
-      "causa_motivo_hechos": "Causa o motivo de la sanción",
-      "objeto_social": "Objeto social de la empresa",
-      "objeto_contrato": "Servicio de telefonía fija",
-      "autoridad_sancionadora": "OIC",
-      "responsable": {
-        "nombres": "Carlos",
-        "primer_apellido": "Pérez",
-        "segundo_apellido": "López"
-      },
-      "resolucion": {
-        "sentido": "Sansionatoria con multa",
-        "url": "https://ejemplo.mx/archivo/documento.pdf",
-        "fecha": "2019-11-20"
-      },
-      "multa": {
-        "monto": 5000000,
-        "moneda": "MXN"
-      },
-      "inhabilitacion": {
-        "plazo": "2 años",
-        "fecha_inicial": "2019-01-01",
-        "fecha_final": "2020-12-31"
-      },
-      "observaciones": "Se multo e inhabilitó al proveedor PATITO TELECOM S.A de C.V. por ...",
-      "documentos": [
-        {
-          "id": "doc-1",
-          "tipo": "CONSTANCIA_INHABILITACION",
-          "titulo": "Constancia de inhabilitación...",
-          "descripcion": "Descripción del documento",
-          "url": "https://ejemplo.mx/archivo/documento.pdf",
-          "fecha": "2019-11-20"
-        }
-      ]
+        "security": [
+          {
+            "psancionados_auth": [
+              "read:psancionados"
+            ]
+          }
+        ]
+      }
     }
-  ]
+  },
+  "externalDocs": {
+    "description": "Más información",
+    "url": "https://github.com/PDNMX/api_docs"
+  },
+  "components": {
+    "securitySchemes": {
+      "psancionados_auth": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "/oauth",
+            "scopes": {
+              "read:psancionados": "Obtiene la lista de particulares sancionados"
+            }
+          }
+        }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    },
+    "schemas": {
+      "psancionados": {
+        "type": "object",
+        "required": [
+          "pagination",
+          "results"
+        ],
+        "properties": {
+          "pagination": {
+            "type": "object",
+            "required": [
+              "page_size",
+              "page",
+              "total"
+            ],
+            "properties": {
+              "page_size": {
+                "type": "number",
+                "minimum": 1,
+                "description": "Total de páginas",
+                "example": 100
+              },
+              "page": {
+                "type": "number",
+                "minimum": 1,
+                "description": "Número de página actual",
+                "example": 20
+              },
+              "total": {
+                "type": "number",
+                "minimum": 1,
+                "description": "Total de registros",
+                "example": 30
+              }
+            }
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["fecha_captura", "numero_expediente", "sistema_origen", "nombre_razon_social", "rfc", "tipo_sancion", "institucion_dependencia", "tipo_falta", "causa_motivo_hechos", "objeto_social", "objeto_contrato", "autoridad_sancionadora", "responsable", "resolucion", "multa", "inhabilitacion", "documentos"],
+              "properties": {
+                "fecha_captura": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "La fecha y hora en la que se agrega o modifica el registro",
+                  "example": "2017-07-21T17:32:28Z"
+                },
+                "numero_expediente": {
+                  "type": "string",
+                  "description": "Número de expediente",
+                  "example": "ABC123"
+                },
+                "sistema_origen": {
+                  "type": "string",
+                  "description": "Sistema o base de datos donde se origina el número de expediente.",
+                  "example": "Directorio de Sancionados, Secretaría de la Función Pública"
+                },
+                "nombre_razon_social": {
+                  "type": "string",
+                  "description": "Razón social del contratista",
+                  "example": "PATITO TELECOM S.A. de C.V."
+                },
+                "rfc": {
+                  "type": "string",
+                  "description": "RFC del contratista.",
+                  "example": "PAT21343213"
+                },
+                "telefono": {
+                  "type": "string",
+                  "maxLength": 15,
+                  "description": "'Teléfono del contratista. Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf.",
+                  "example": "552123244"
+                },
+                "domicilio": {
+                  "description": "Dirección del contratista. Este dato es información confidencial",
+                  "type": "object",
+                  "properties": {
+                    "pais": {
+                      "type": "object",
+                      "properties": {
+                        "valor": {
+                          "type": "string",
+                          "description": "Nombre  del pais especificado en estándar ISO3166",
+                          "example": "México"
+                        },
+                        "codigo": {
+                          "type": "string",
+                          "maxLength": 5,
+                          "description": "Código alpha 2 del país especificado en estándar ISO3166",
+                          "example": "MX"
+                        }
+                      }
+                    },
+                    "entidad_federativa": {
+                      "type": "object",
+                      "properties": {
+                        "nom_ent": {
+                          "type": "string",
+                          "description": "Nombre de la entidad federativa del Marco Geoestadístico Nacional",
+                          "example": "México"
+                        },
+                        "cve_ent": {
+                          "type": "string",
+                          "maxLength": 5,
+                          "description": "Clave de la entidad federativa del Marco Geoestadístico Nacional",
+                          "example": "15"
+                        }
+                      }
+                    },
+                    "municipio": {
+                      "type": "object",
+                      "properties": {
+                        "nom_mun": {
+                          "type": "string",
+                          "description": "Nombre del municipio",
+                          "example": "Ecatepec de Morelos"
+                        },
+                        "cve_mun": {
+                          "type": "string",
+                          "maxLength": 10,
+                          "description": "Clave del municipio",
+                          "example": "033"
+                        }
+                      }
+                    },
+                    "cp": {
+                      "type": "string",
+                      "description": "Código postal del domicilio",
+                      "example": "55018"
+                    },
+                    "localidad": {
+                      "type": "object",
+                      "properties": {
+                        "nom_loc": {
+                          "type": "string",
+                          "description": "Nombre de la localidad",
+                          "example": "Ecatepec de Morelos"
+                        },
+                        "cve_loc": {
+                          "type": "string",
+                          "maxLength": 10,
+                          "description": "Clave de la localidad",
+                          "example": "0001"
+                        }
+                      }
+                    },
+                    "vialidad": {
+                      "type": "object",
+                      "properties": {
+                        "tipo_vial": {
+                          "type": "string",
+                          "description": "Nombre del tipo de vialidad",
+                          "example": "CALLE"
+                        },
+                        "nom_vial": {
+                          "type": "string",
+                          "description": "Clave del tipo de vialidad",
+                          "example": "El Rosal"
+                        }
+                      }
+                    },
+                    "numExt": {
+                      "type": "string",
+                      "description": "Número exterior del domicilio",
+                      "example": "24"
+                    },
+                    "numInt": {
+                      "type": "string",
+                      "description": "Número interior del domicilio",
+                      "example": "48"
+                    }
+                  }
+                },
+                "tipo_sancion": {
+                  "description": "I = Inhabilitado, M = Multado, S = Suspensión de actividades, D = Disolución de la sociedad. e.g., ['I', 'M'] significa que el contratista fue inhabilitado y multado.",
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": ["I", "M", "S", "D"],
+                    "example": "I"
+                  }
+                },
+                "institucion_dependencia": {
+                  "type": "object",
+                  "required": ["nombre", "siglas"],
+                  "properties": {
+                    "nombre": {
+                      "type": "string",
+                      "description": "Institución o dependencia donde el contratista cometió la irregularidad",
+                      "example": "Secretaría de Hacienda y Crédito Público"
+                    },
+                    "siglas": {
+                      "type": "string",
+                      "description": "Siglas de la institución o dependencia donde el contratista cometió la irregularidad",
+                      "example": "SHCP"
+                    }
+                  }
+                },
+                "tipo_falta": {
+                  "type": "string",
+                  "description": "eg.,soborno, participación ilícita, tráfico de influencias, uso información falsa,colusión, obstrucción de facultades, contratación indebida, uso indebido de recusos públicos.",
+                  "example": "contratación indebida"
+                },
+                "causa_motivo_hechos": {
+                  "type": "string",
+                  "description": "Causa/motivo o hechos que dieron origen a la multa o inhabilitación ",
+                  "example": "Causa o motivo de la sanción"
+                },
+                "objeto_social": {
+                  "type": "string",
+                  "description": "Objeto social de la empresa",
+                  "example": "Objeto social de la empresa"
+                },
+                "objeto_contrato": {
+                  "type": "string",
+                  "description": "Objeto del contrato",
+                  "example": "Servicio de telefonía fija"
+                },
+                "autoridad_sancionadora": {
+                  "type": "string",
+                  "description": "OIC o Unidad responsable de la sanción",
+                  "example": "OIC"
+                },
+                "responsable": {
+                  "type": "object",
+                  "required": ["nombres", "primer_apellido"],
+                  "properties": {
+                    "nombres": {
+                      "type": "string",
+                      "maxLength": 50,
+                      "description": "Nombre o nombres del Titular del área de responsabilidades o Contralor del Órgano Interno de Control responsable de la información registrada",
+                      "example": "Carlos"
+                    },
+                    "primer_apellido": {
+                      "type": "string",
+                      "maxLength": 50,
+                      "description": "Primer apellido del Titular del área de responsabilidades o Contralor del Órgano Interno de Control responsable de la información registrada",
+                      "example": "Pérez"
+                    },
+                    "segundo_apellido": {
+                      "type": "string",
+                      "maxLength": 50,
+                      "description": "Segundo apellido del Titular del área de responsabilidades o Contralor del Órgano Interno de Control responsable de la información registrada",
+                      "example": "López"
+                    }
+                  }
+                },
+                "resolucion": {
+                  "type": "object",
+                  "required": ["url", "fecha_notificacion"],
+                  "properties": {
+                    "sentido": {
+                      "type": "string",
+                      "description": "Sentido de la resolución. Por ejemplo, Sancionatoria con multa.",
+                      "example": "Sansionatoria con multa"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "url",
+                      "description": "URL que apunta al documento en formato digital de la resolución emitida por el correspondiente Organo Interno de Control",
+                      "example": "https://ejemplo.mx/archivo/documento.pdf"
+                    },
+                    "fecha_notificacion": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "e.g., 2018-11-01",
+                      "example": "2019-11-20"
+                    }
+                  }
+                },
+                "multa": {
+                  "type": "object",
+                  "required": ["monto", "moneda"],
+                  "properties": {
+                    "monto": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "description": "Monto de la multa impuesta al contratista",
+                      "example": 5000000
+                    },
+                    "moneda": {
+                      "type": "string",
+                      "description": "e.g., MXN para pesos mexicanos o cualquier otro código de unidad. Código de la moneda de acuerdo al estandar ISO 4217",
+                      "example": "MXN"
+                    }
+                  }
+                },
+                "inhabilitacion": {
+                  "type": "object",
+                  "required": ["fecha_inicial", "fecha_final"],
+                  "properties": {
+                    "plazo": {
+                      "type": "string",
+                      "description": "e.g., 2 años ",
+                      "example": "2 años"
+                    },
+                    "fecha_inicial": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "e.g., 2019-01-01",
+                      "example": "2019-01-01"
+                    },
+                    "fecha_final": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "e.g., 2020-12-31",
+                      "example": "2020-12-31"
+                    }
+                  }
+                },
+                "observaciones": {
+                  "type": "string",
+                  "description": "Cualquier observación pertinente",
+                  "example": "Se multo e inhabilitó al proveedor PATITO TELECOM S.A de C.V. por ..."
+                },
+                "documentos": {
+                  "description": "Es una sección que permite adjuntar referencias a cualquier documento que se considere de valor para transparentar el proceso de sanción.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["id", "titulo", "descripcion", "url", "fecha"],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Puede ser el folio del documento o al menos un consecutivo para identificar a los documentos en el registro.",
+                        "example": "doc-1"
+                      },
+                      "tipo": {
+                        "type": "string",
+                        "description": "Tipo de documento, Opciones: RESOLUCION, CONSTANCIA_SANCION, CONSTANCIA_INHABILITACION, CONSTANCIA_ABSTENCION",
+                        "example": "CONSTANCIA_INHABILITACION"
+                      },
+                      "titulo": {
+                        "type": "string",
+                        "description": "Titulo del documento",
+                        "example": "Constancia de inhabilitación..."
+                      },
+                      "descripcion": {
+                        "type": "string",
+                        "description": "Descripción del documento",
+                        "example": "Descripción del documento"
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "URL al documento en formato digital",
+                        "example": "https://ejemplo.mx/archivo/documento.pdf"
+                      },
+                      "fecha": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "Fecha del documento, eg., 2019-01-01",
+                        "example": "2019-11-20"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post_query": {
+        "type": "object",
+        "properties": {
+          "sort": {
+            "type": "object",
+            "properties": {
+              "nombre_razon_social": {
+                "type": "string",
+                "enum": [
+                  "asc",
+                  "desc"
+                ],
+                "description": "Campo a ordenar de forma ascendente o descente",
+                "example": "asc"
+              },
+              "rfc": {
+                "type": "string",
+                "enum": [
+                  "asc",
+                  "desc"
+                ],
+                "description": "Campo a ordenar de forma ascendente o descente",
+                "example": "asc"
+              },
+              "institucion_dependencia": {
+                "type": "string",
+                "enum": [
+                  "asc",
+                  "desc"
+                ],
+                "description": "Campo a ordenar de forma ascendente o descente",
+                "example": "asc"
+              }
+            }
+          },
+          "page": {
+            "type": "integer",
+            "description": "Número de página a mostrar",
+            "example": 10
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
+            "example": 10
+          },
+          "id": {
+            "type": "string",
+            "description": "Devuelve resultados al buscar una declaración por su ID. Si se especifica este valor, el objeto query es omitido.",
+            "example": "123abc"
+          },
+          "query": {
+            "properties": {
+              "nombre_razon_social": {
+                "type": "string",
+                "description": "Nombre o razón social",
+                "example": "PATITO TELECOM"
+              },
+              "rfc": {
+                "type": "string",
+                "description": "Se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave",
+                "example": "PAT21343213"
+              },
+              "institucion_dependencia": {
+                "type": "string",
+                "description": "Nombre de la institución o dependencia.",
+                "example": "Secretaría de Hacienda y Crédito Público"
+              }
+            }
+          },
+          "rfc_solicitante": {
+            "type": "string",
+            "description": "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
+            "example": "GOAP780710RH7"
+          }
+        }
+      },
+      "error_post": {
+        "description": " Estos valores son definidos por el sistema del API.",
+        "required": [
+          "code",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Código alfa númerico del error de la consulta.",
+            "example": "abc123"
+          },
+          "message": {
+            "type": "string",
+            "description": "Texto descriptivo para el usuario final del error en la consulta",
+            "example": "Error al formar la consulta, revise el formato de los campos."
+          }
+        }
+      }
+    }
+  }
 }

@@ -246,45 +246,47 @@
             "type": "array",
             "items": {
               "type": "object",
+              "required" : [ "fecha_captura", "ejercicio_fiscal", "periodo_ejercicio", "id_ramo", "ramo", "sistema_origen", "rfc", "nombres", "primer_apellido", "institucion_dependencia", "puesto", "tipo_area", "nivel_responsabilidad", "tipo_procedimiento" ],
               "properties": {
                 "fecha_captura": {
                   "type": "string",
                   "format": "date-time",
-                  "description": "Fecha de captura del registro",
+                  "description": "La fecha y hora en la que se agrega o modifica el registro",
                   "example": "20180820T00:00:00Z"
                 },
                 "expediente": {
                   "type": "string",
-                  "description": "Identificador del expediente",
+                  "description": "En su caso, proporcionar el número de CompraNet asociado al proceso de contratación ",
                   "example": "ABC123"
                 },
                 "ejercicio_fiscal": {
-                  "type": "number",
+                  "type": "integer",
                   "description": "Ejercicio fiscal",
                   "example": 2018
                 },
                 "periodo_ejercicio": {
-                  "description": "Periodo al que corresponde la información",
+                  "description": "E.g., 2018",
                   "type": "object",
+                  "required": ["fecha_inicial", "fecha_final"],
                   "properties": {
                     "fecha_inicial": {
                       "type": "string",
                       "format": "date",
-                      "description": "Fecha inicial del periodo al que corresponde la información",
+                      "description": "Periodo o ejercicio fiscal al que corresponde la información. e.g., 2018-01-01",
                       "example": "2018-01-01"
                     },
                     "fecha_final": {
                       "type": "string",
                       "format": "date",
-                      "description": "Fecha final del periodo al que corresponde la información",
+                      "description": "Periodo o ejercicio fiscal al que corresponde la información. e.g., 2018-12-31 ",
                       "example": "2018-12-31"
                     }
                   }
                 },
                 "id_ramo": {
-                  "type": "number",
+                  "type": "integer",
                   "minimum": 1,
-                  "description": "Elemento identificador del Ramo",
+                  "description": "Identificador del ramo",
                   "example": 23
                 },
                 "ramo": {
@@ -294,17 +296,22 @@
                 },
                 "sistema_origen": {
                   "type": "string",
-                  "description": "Description goes here",
+                  "description": "Sistema o base de datos donde se origina el número de expediente. e.g., CompraNet",
                   "example": "RENIRESP"
                 },
                 "rfc": {
                   "type": "string",
-                  "description": "Description goes here",
+                  "description": "RFC del Servidor Público con homoclave",
                   "example": "JPM851111C44"
+                },
+                "curp": {
+                  "type": "string",
+                  "description": "CURP del Servidor Público",
+                  "example": "BEML920313HMCLNS09"
                 },
                 "nombres": {
                   "type": "string",
-                  "description": "Nombre o nombres del servidor público",
+                  "description": "Nombre o nombres del Servidor Público",
                   "example": "John Juan"
                 },
                 "primer_apellido": {
@@ -320,52 +327,68 @@
                 "genero": {
                   "type": "string",
                   "enum": [
-                    "Masculino",
-                    "Femenino",
-                    "Otro"
+                    "F",
+                    "M",
+                    "O"
                   ],
-                  "description": "Genero",
+                  "description": "F= Femenino, M= Másculino, O=Otro",
                   "example": "Masculino"
                 },
                 "institucion_dependencia": {
                   "description": "Indicar el nombre de la institución donde se encuentren registradas las inversiones, cuentas o valores",
                   "type": "object",
+                  "required": ["nombre", "siglas"],
                   "properties": {
                     "nombre": {
                       "type": "string",
-                      "description": "Nombre de la institucion"
+                      "description": "Institución o dependencia a la que pertenece el Servidor Público "
                     },
                     "siglas": {
                       "type": "string",
                       "maxLength": 20,
-                      "description": "Siglas de la institucion",
+                      "description": "Siglas de la institución o dependencia a la que pertenece el servidor público",
                       "example": "SHCP"
                     }
                   }
                 },
                 "puesto": {
                   "type": "string",
-                  "description": "Se deberá indicar el puesto o cargo ocupado.",
+                  "description": "Puesto del Servidor Público",
                   "example": "Director de área"
                 },
                 "tipo_area": {
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "description": "Se debe definir el tipo de area",
+                    "enum": [
+                      "T",
+                      "RE",
+                      "RC",
+                      "O",
+                      "C",
+                      "R"
+                    ],
+                    "description": "v=[T=Técnica, RE= Responsable de la ejecución de los trabajos, RC= Responsable de la contratación, O= Otra, C= Contratante, R= Requirente]",
                     "example": "T"
                   }
                 },
                 "nivel_responsabilidad": {
+                  "description": "v=[A= Atención, T= Tramitación, R= Resolución]",
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                      "A",
+                      "T",
+                      "R"
+                    ],
+                    "example": "T"
                   }
                 },
                 "tipo_procedimiento": {
-                  "type": "number",
+                  "type": "integer",
                   "minimum": 1,
-                  "description": "Especificar el tipo de procedimiento",
+                  "description": "1.- Contrataciones Públicas 2.- Concesiones, licencias, permisos, autorizaciones y prórrogas 3.- Enajenación de bienes muebles 4.- Asignación y emisión de dictámenes de avalúos nacionales",
                   "example": 1
                 }
               }

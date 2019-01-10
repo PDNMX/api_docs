@@ -1,39 +1,37 @@
 {
   "pagination": {
-    "pageSize": 1,
-    "page": 1,
-    "total": 77523
+    "page_size": 100,
+    "page": 20,
+    "total": 30
   },
-  "results":[
+  "results": [
     {
       "fecha_captura": "20180820T00:00:00Z",
       "expediente": "ABC123",
       "ejercicio_fiscal": 2018,
       "periodo_ejercicio": {
-        "fecha_inicial":"2018-01-01",
-        "fecha_final":"2018-12-31"
+        "fecha_inicial": "2018-01-01",
+        "fecha_final": "2018-12-31"
       },
-      "id_ramo": 23, 
+      "id_ramo": 23,
       "ramo": "Provisiones salariales y económicas",
       "sistema_origen": "RENIRESP",
       "rfc": "JPM851111C44",
-      "nombre": "Juan",
-      "apellido_paterno": "Pérez",
-      "apellido_materno": "Mendez",
-      "genero": "M",
+      "curp": "BEML920313HMCLNS09",
+      "nombres": "John Juan",
+      "primer_apellido": "Pérez",
+      "segundo_apellido": "Mendez",
+      "genero": "Masculino",
       "institucion_dependencia": {
-        "nombre": "Secretaría de Hacienda y Crédito Público",
-        "SIGLAS": "SHCP"
+        "nombre": "string",
+        "siglas": "SHCP"
       },
-      "puesto": "Director de area",
+      "puesto": "Director de área",
       "tipo_area": [
-        "T",
-        "C"
+        "T"
       ],
       "nivel_responsabilidad": [
-        "A",
-        "T",
-        "R"
+        "T"
       ],
       "tipo_procedimiento": 1
     }

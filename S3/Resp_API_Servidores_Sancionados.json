@@ -12,7 +12,7 @@
       "nombres": "Carlos",
       "primer_apellido": "Pérez",
       "segundo_apellido": "López",
-      "genero": "Masculino",
+      "genero": "M",
       "institucion_dependencia": {
         "nombre": "Secretaría de Hacienda y Crédito Público",
         "siglas": "SHCP"

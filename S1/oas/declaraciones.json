@@ -1460,7 +1460,7 @@
                   "type" : "string",
                   "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.",
-                  "example" : [ "Sergio Rodriguez" ]
+                  "example" : "Sergio Rodriguez"
                 },
                 "fecha_inicio_relacion" : {
                   "$ref" : "#/components/schemas/fecha"
@@ -3698,7 +3698,7 @@
                     "type" : "string",
                     "description" : "Nombre/nombres de propietario de los derechos respecto de los bienes intangibles. Este dato es información confidencial."
                   },
-                  "example" : "Sergio Perez"
+                  "example" : [ "Sergio Perez" ]
                 },
                 "descripcion" : {
                   "type" : "string",

@@ -527,9 +527,7 @@
           {
             "id": 123,
             "tipo_relacion": "Garantes de Préstamos Recibidos",
-            "nombre_denominacion_parte": [
-              "Sergio Rodriguez"
-            ],
+            "nombre_denominacion_parte": "Sergio Rodriguez",
             "fecha_inicio_relacion": "2010-07-26",
             "nacionalidades": [
               {
@@ -1507,7 +1505,9 @@
               "codigo": "INCP",
               "valor": "Incorporación"
             },
-            "propietario_registrado": "Sergio Perez",
+            "propietario_registrado": [
+              "Sergio Perez"
+            ],
             "descripcion": "Aquí va una descripción",
             "ente_publico_encargado": "Presidencia de la República",
             "numero_registro": 754444,

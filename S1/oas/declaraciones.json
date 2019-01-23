@@ -468,7 +468,7 @@
                   "valor" : {
                     "type" : "string",
                     "enum" : [ "Sociedad Conyugal", "Separación de Bienes", "Mixto" ],
-                    "example" : "Separación de bienes"
+                    "example" : "Separación de Bienes"
                   }
                 }
               },
@@ -529,7 +529,7 @@
                       "type" : "integer",
                       "maxLength" : 4,
                       "description" : "Se deberá señalar el año en que finalizó sus últimos estudios.",
-                      "example" : "2005"
+                      "example" : 2005
                     },
                     "documento_obtenido" : {
                       "description" : "Seleccionar la opción que corresponda de entre: (i) boleta; (ii) certificado; (iii) constancia; (iv) título o (v) diploma.",
@@ -667,7 +667,7 @@
                       "type" : "string",
                       "enum" : [ "PUB", "PRIV", "SOC", "MULT", "OTRO" ],
                       "maxLength" : 10,
-                      "example" : "Pub"
+                      "example" : "PUB"
                     },
                     "valor" : {
                       "type" : "string",
@@ -4707,7 +4707,7 @@
             "type" : "string",
             "enum" : [ "Sector Público", "Industrial (construcción, minería, electricidad, etc)", "Comercial (comercio al por mayor, comercio al por menor)", "Servicios (financieros, profesionales, científicos, técnicos, alimentación, alojamiento, esparcimiento, etc)", "Agrícola, Pecuario, Forestal, Pesca" ],
             "description" : "Valor del tipo de actividad",
-            "example" : "Sector público"
+            "example" : "Sector Público"
           }
         }
       },
@@ -4801,7 +4801,7 @@
             "type" : "string",
             "maxLength" : 5,
             "description" : "Divisa de la moneda de acuerdo al estandar ISO 4217",
-            "example" : "Peso mexicano"
+            "example" : "MXN"
           }
         }
       },

@@ -76,7 +76,7 @@
           },
           "regimen_matrimonial": {
             "codigo": "SBI",
-            "valor": "Separación de bienes"
+            "valor": "Separación de Bienes"
           },
           "fecha_declaracion": "2010-07-26"
         },
@@ -101,7 +101,7 @@
                 "codigo": "CURS",
                 "valor": "Cursando"
               },
-              "ano_conclusion": "2005",
+              "ano_conclusion": 2005,
               "documento_obtenido": {
                 "codigo": "BOL",
                 "valor": "Boleta"
@@ -178,7 +178,7 @@
         "experiencia_laboral": [
           {
             "ambito": {
-              "codigo": "Pub",
+              "codigo": "PUB",
               "valor": "Público"
             },
             "nivel_gobierno": {
@@ -413,7 +413,7 @@
           {
             "id": 123,
             "tipo_representacion": "Mandato",
-            "nombre_parte_representada": "Cecilia Gómez Urrutia",
+            "nombre_parte_representada": "Cecilia Gomez Urrutia",
             "curp_parte": "BEML920313HMCLNS09",
             "rfc_parte": "GOAP780710RH7",
             "fecha_nacimiento_parte": "2010-07-26",
@@ -433,7 +433,7 @@
               "codigo": "APOD",
               "valor": "Apoderado"
             },
-            "nombre": "Augusto Fernández Castro",
+            "nombre": "Augusto Fernandez Castro",
             "fecha_inicio_representacion": "2010-07-26",
             "nacionalidades": [
               {
@@ -460,7 +460,7 @@
             "tipo_vinculo": "Socio",
             "antiguedad_vinculo": 20,
             "rfc_entidad": "GOAP780710RH7",
-            "nombre": "Armando Rodríguez Saes",
+            "nombre": "Armando Rodriguez Saes",
             "curp": "BEML920313HMCLNS09",
             "rfc": "GOAP780710RH7",
             "lugar_nacimiento": {
@@ -488,7 +488,7 @@
             "nombre_negocio": "Nombre negocio",
             "numero_Registro": "HTC896DSFA",
             "dueno_encargado": "Salvador Hernández Torres",
-            "nombre": "AMEX.S.A.",
+            "nombre": "AMEX S A",
             "rfc": "GOAP780710RH7",
             "domicilio": {
               "pais": {
@@ -527,7 +527,7 @@
           {
             "id": 123,
             "tipo_relacion": "Garantes de Préstamos Recibidos",
-            "nombre_denominacion_parte": "Sergio Rodríguez",
+            "nombre_denominacion_parte": "Sergio Rodriguez",
             "fecha_inicio_relacion": "2010-07-26",
             "nacionalidades": [
               {
@@ -574,7 +574,7 @@
               "valor": 10000,
               "moneda": {
                 "codigo": "MXN",
-                "moneda": "Peso mexicano"
+                "moneda": "MXN"
               },
               "unidad_temporal": {
                 "codigo": "MESS",
@@ -589,7 +589,7 @@
         "sueldos_salarios_otros_empleos": [
           {
             "id": 123,
-            "nombre_denominacion_razon_social": "Max Power Inc.",
+            "nombre_denominacion_razon_social": "Max Power Inc",
             "rfc": "GOAP780710RH7",
             "curp": "BEML920313HMCLNS09",
             "sector_industria": {
@@ -598,7 +598,7 @@
             },
             "tipo_actividad_servicio": {
               "codigo": "SPU",
-              "valor": "Sector público"
+              "valor": "Sector Público"
             },
             "descripcion_actividad_servicio": "Servicio profesional de TI",
             "domicilio_persona_paga": {
@@ -630,7 +630,7 @@
               "valor": 10000,
               "moneda": {
                 "codigo": "MXN",
-                "moneda": "Peso mexicano"
+                "moneda": "MXN"
               },
               "unidad_temporal": {
                 "codigo": "MESS",
@@ -654,7 +654,7 @@
             },
             "tipo_actividad_servicio": {
               "codigo": "SPU",
-              "valor": "Sector público"
+              "valor": "Sector Público"
             },
             "descripcion_actividad_servicio": "Descripción del servicio",
             "domicilio_persona_paga": {
@@ -686,7 +686,7 @@
               "valor": 10000,
               "moneda": {
                 "codigo": "MXN",
-                "moneda": "Peso mexicano"
+                "moneda": "MXN"
               },
               "unidad_temporal": {
                 "codigo": "MESS",
@@ -710,7 +710,7 @@
             },
             "tipo_actividad_servicio": {
               "codigo": "SPU",
-              "valor": "Sector público"
+              "valor": "Sector Público"
             },
             "descripcion_actividad_servicio": "Descripción del servicio",
             "domicilio_actividad_empresarial": {
@@ -742,7 +742,7 @@
               "valor": 10000,
               "moneda": {
                 "codigo": "MXN",
-                "moneda": "Peso mexicano"
+                "moneda": "MXN"
               },
               "unidad_temporal": {
                 "codigo": "MESS",
@@ -766,7 +766,7 @@
             },
             "tipo_actividad_servicio": {
               "codigo": "SPU",
-              "valor": "Sector público"
+              "valor": "Sector Público"
             },
             "descripcion_actividad_servicio": "Descripción del servicio",
             "domicilio_actividad": {
@@ -798,7 +798,7 @@
               "valor": 10000,
               "moneda": {
                 "codigo": "MXN",
-                "moneda": "Peso mexicano"
+                "moneda": "MXN"
               },
               "unidad_temporal": {
                 "codigo": "MESS",
@@ -813,7 +813,7 @@
         "arrendamiento": [
           {
             "id": 123,
-            "nombre_denominacion_razon_social": "ABC Inc.",
+            "nombre_denominacion_razon_social": "ABC Inc",
             "rfc": "GOAP780710RH7",
             "curp": "BEML920313HMCLNS09",
             "sector_industria": {
@@ -822,7 +822,7 @@
             },
             "tipo_actividad_servicio": {
               "codigo": "SPU",
-              "valor": "Sector público"
+              "valor": "Sector Público"
             },
             "descripcion_actividad_servicio": "Descripción del servicio",
             "domicilio_actividad": {
@@ -854,7 +854,7 @@
               "valor": 10000,
               "moneda": {
                 "codigo": "MXN",
-                "moneda": "Peso mexicano"
+                "moneda": "MXN"
               },
               "unidad_temporal": {
                 "codigo": "MESS",
@@ -869,7 +869,7 @@
         "intereses": [
           {
             "id": 123,
-            "nombre_denominacion_razon_social": "BANC S.A.",
+            "nombre_denominacion_razon_social": "BANC",
             "rfc": "GOAP780710RH7",
             "curp": "BEML920313HMCLNS09",
             "sector_industria": {
@@ -878,7 +878,7 @@
             },
             "tipo_actividad_servicio": {
               "codigo": "SPU",
-              "valor": "Sector público"
+              "valor": "Sector Público"
             },
             "descripcion_actividad_servicio": "Descripción del servicio",
             "domicilio": {
@@ -910,7 +910,7 @@
               "valor": 10000,
               "moneda": {
                 "codigo": "MXN",
-                "moneda": "Peso mexicano"
+                "moneda": "MXN"
               },
               "unidad_temporal": {
                 "codigo": "MESS",
@@ -934,7 +934,7 @@
             },
             "tipo_actividad_servicio": {
               "codigo": "SPU",
-              "valor": "Sector público"
+              "valor": "Sector Público"
             },
             "descripcion_premio": "Descripción del servicio",
             "domicilio": {
@@ -966,7 +966,7 @@
               "valor": 10000,
               "moneda": {
                 "codigo": "MXN",
-                "moneda": "Peso mexicano"
+                "moneda": "MXN"
               },
               "unidad_temporal": {
                 "codigo": "MESS",
@@ -991,7 +991,7 @@
             },
             "tipo_actividad_servicio": {
               "codigo": "SPU",
-              "valor": "Sector público"
+              "valor": "Sector Público"
             },
             "descripcion_bien": "Descripción del servicio",
             "domicilio_bien_enajenado": {
@@ -1023,7 +1023,7 @@
               "valor": 10000,
               "moneda": {
                 "codigo": "MXN",
-                "moneda": "Peso mexicano"
+                "moneda": "MXN"
               },
               "unidad_temporal": {
                 "codigo": "MESS",
@@ -1047,7 +1047,7 @@
             },
             "tipo_actividad": {
               "codigo": "SPU",
-              "valor": "Sector público"
+              "valor": "Sector Público"
             },
             "descripcion_actividad": "Descripción del servicio",
             "domicilio_actividad": {
@@ -1079,7 +1079,7 @@
               "valor": 10000,
               "moneda": {
                 "codigo": "MXN",
-                "moneda": "Peso mexicano"
+                "moneda": "MXN"
               },
               "unidad_temporal": {
                 "codigo": "MESS",
@@ -1113,8 +1113,8 @@
             "porcentaje_propiedad": 70,
             "nombre_copropietario": {
               "nombres": "Carlos",
-              "primer_apellido": "Pérez",
-              "segundo_apellido": "string"
+              "primer_apellido": "Perez",
+              "segundo_apellido": "Sanchez"
             },
             "identificacion_bien": {
               "numero_escritura_publica": 202020,
@@ -1151,7 +1151,7 @@
               "codigo": "CES",
               "valor": "Cesión"
             },
-            "nombre_denominacion_quien_adquirio": "Monster Inc.",
+            "nombre_denominacion_quien_adquirio": "Monster Inc",
             "rfc_quien_adquirio": "GOAP780710RH7",
             "curp_quien_adquirio": "BEML920313HMCLNS09",
             "relacion_persona_adquirio": {
@@ -1167,7 +1167,7 @@
               "valor": 4000,
               "moneda": {
                 "codigo": "MXN",
-                "moneda": "Peso mexicano"
+                "moneda": "MXN"
               }
             },
             "valor_catastral": 800,
@@ -1205,14 +1205,14 @@
             },
             "porcentaje_propiedad": 70,
             "nombres_copropietarios": [
-              "Monstr Inc."
+              "Monstr Inc"
             ],
             "numero_registro_vehicular": 455000,
             "forma_adquisicion": {
               "codigo": "CES",
               "valor": "Cesión"
             },
-            "nombre_denominacion_adquirio": "Monstr Inc.",
+            "nombre_denominacion_adquirio": "Monstr Inc",
             "rfc_quien_adquirio": "GOAP780710RH7",
             "relacion_persona_quien_adquirio": {
               "codigo": "CONY",
@@ -1227,7 +1227,7 @@
               "valor": 4000,
               "moneda": {
                 "codigo": "MXN",
-                "moneda": "Peso mexicano"
+                "moneda": "MXN"
               }
             },
             "observaciones": "Esto es una observación"
@@ -1251,7 +1251,7 @@
             },
             "porcentaje_propiedad": 70,
             "nombres_copropietarios": [
-              "Monstr Inc."
+              "Monstr Incorporation"
             ],
             "forma_adquisicion": {
               "codigo": "CES",
@@ -1267,7 +1267,7 @@
               "valor": 4000,
               "moneda": {
                 "codigo": "MXN",
-                "moneda": "Peso mexicano"
+                "moneda": "MXN"
               }
             },
             "observaciones": "Esto es una observación"
@@ -1332,7 +1332,7 @@
             "monto_original": 80000,
             "tipo_moneda": {
               "codigo": "MXN",
-              "moneda": "Peso mexicano"
+              "moneda": "MXN"
             },
             "tasa_interes": 10,
             "saldo_anual": 5000,
@@ -1358,7 +1358,7 @@
             },
             "tipo_moneda": {
               "codigo": "MXN",
-              "moneda": "Peso mexicano"
+              "moneda": "MXN"
             },
             "monto_moneda": 78555,
             "tipo_metal": {
@@ -1397,7 +1397,7 @@
             "valor": 78555555,
             "moneda": {
               "codigo": "MXN",
-              "moneda": "Peso mexicano"
+              "moneda": "MXN"
             },
             "porcentaje_propiedad_derechos_fiduciarios": 70,
             "ingreso_monetario_obtenido": 56666,
@@ -1518,7 +1518,7 @@
               "valor": 4000,
               "moneda": {
                 "codigo": "MXN",
-                "moneda": "Peso mexicano"
+                "moneda": "MXN"
               }
             },
             "forma_adquisicion": {
@@ -1531,10 +1531,10 @@
               "valor": 4000,
               "moneda": {
                 "codigo": "MXN",
-                "moneda": "Peso mexicano"
+                "moneda": "MXN"
               }
             },
-            "nombre_copropietario": "Vien Inc,",
+            "nombre_copropietario": "Vien Incorporation",
             "porcentaje_propiedad_copropietario": 70,
             "observaciones": "Esto es una observación"
           }
@@ -1594,7 +1594,7 @@
               "valor": 4000,
               "moneda": {
                 "codigo": "MXN",
-                "moneda": "Peso mexicano"
+                "moneda": "MXN"
               }
             },
             "nombre_tercero_propietario": "Bansky Von Trier",
@@ -1694,7 +1694,7 @@
             "monto_original": 277900,
             "tipo_moneda": {
               "codigo": "MXN",
-              "moneda": "Peso mexicano"
+              "moneda": "MXN"
             },
             "tasa_interes": 12,
             "saldo_pendiente": 28000,
@@ -1768,7 +1768,7 @@
             "monto_original": 300000,
             "tipo_moneda": {
               "codigo": "MXN",
-              "moneda": "Peso mexicano"
+              "moneda": "MXN"
             },
             "tasa_interes": 12,
             "saldo_pendiente": 297000,

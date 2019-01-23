@@ -527,7 +527,9 @@
           {
             "id": 123,
             "tipo_relacion": "Garantes de Préstamos Recibidos",
-            "nombre_denominacion_parte": "Sergio Rodriguez",
+            "nombre_denominacion_parte": [
+              "Sergio Rodriguez"
+            ],
             "fecha_inicio_relacion": "2010-07-26",
             "nacionalidades": [
               {
@@ -1727,7 +1729,10 @@
               "codigo": "INSTF",
               "valor": "Institución Financiera"
             },
-            "tipo_obligacion": "Ejemplo",
+            "tipo_obligacion": {
+              "codigo": "CVH",
+              "valor": "Compra de vehículo"
+            },
             "identificador_obligacion": "FONAET8945",
             "nacional_extranjero": {
               "valor": "México",

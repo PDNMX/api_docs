@@ -766,13 +766,13 @@
                       "type" : "string",
                       "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                       "description" : "Primer apellido de la persona. Este dato es información confidencial.",
-                      "example" : "Pérez"
+                      "example" : "Perez"
                     },
                     "segundo_apellido" : {
                       "type" : "string",
                       "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                       "description" : "Segundo apellido de la persona. Este dato es información confidencial.",
-                      "example" : "López"
+                      "example" : "Lopez"
                     }
                   }
                 },
@@ -1846,7 +1846,7 @@
                   "type" : "string",
                   "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
-                  "example" : "Empresa S.A."
+                  "example" : "Empresa S A"
                 },
                 "rfc" : {
                   "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
@@ -3021,7 +3021,7 @@
                   "type" : "string",
                   "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).  ",
-                  "example" : "Tesl Mtr Inc."
+                  "example" : "Tesl Mtr Inc"
                 },
                 "relacion_quien_adquirio" : {
                   "$ref" : "#/components/schemas/relacion_con_persona"
@@ -4084,7 +4084,7 @@
                   "type" : "string",
                   "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
-                  "example" : "PNBKSRIBAS S.A. DE C.V"
+                  "example" : "PNBKSRIBAS SA DE CV"
                 },
                 "rfc_acreedor" : {
                   "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
@@ -4302,7 +4302,7 @@
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
-                  "example" : "Bansky Hola Adios"
+                  "example" : "Bansky"
                 },
                 "rfc_acreedor" : {
                   "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",

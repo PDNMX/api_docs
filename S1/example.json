@@ -236,8 +236,8 @@
           {
             "nombre_personal": {
               "nombres": "Carlos",
-              "primer_apellido": "Pérez",
-              "segundo_apellido": "López"
+              "primer_apellido": "Perez",
+              "segundo_apellido": "Lopez"
             },
             "tipo_relacion": {
               "codigo": "CONY",
@@ -701,7 +701,7 @@
         "actividad_empresarial": [
           {
             "id": 123,
-            "nombre_denominacion_razon_social": "Empresa S.A.",
+            "nombre_denominacion_razon_social": "Empresa S A",
             "rfc": "GOAP780710RH7",
             "curp": "BEML920313HMCLNS09",
             "sector_industria": {
@@ -1257,7 +1257,7 @@
               "codigo": "CES",
               "valor": "Cesión"
             },
-            "nombre_denominacion_adquirio": "Tesl Mtr Inc.",
+            "nombre_denominacion_adquirio": "Tesl Mtr Inc",
             "relacion_quien_adquirio": {
               "codigo": "CONY",
               "valor": "Cónyuge"
@@ -1661,7 +1661,7 @@
               "valor": "México",
               "codigo": "MX"
             },
-            "nombre_acreedor": "PNBKSRIBAS S.A. DE C.V",
+            "nombre_acreedor": "PNBKSRIBAS SA DE CV",
             "rfc_acreedor": "GOAP780710RH7",
             "sector_industria": {
               "codigo": "SFS",
@@ -1738,7 +1738,7 @@
               "valor": "México",
               "codigo": "MX"
             },
-            "nombre_acreedor": "Bansky Hola Adios",
+            "nombre_acreedor": "Bansky",
             "rfc_acreedor": "GOAP780710RH7",
             "sector_industria": {
               "codigo": "SFS",

@@ -2,18 +2,18 @@
   "openapi" : "3.0.0",
   "info" : {
     "version" : "1.0.0",
-    "title" : "API de las declaraciones de los servidores publicos"
+    "title" : "API de las declaraciones de los servidores públicos"
   },
   "paths" : {
     "/declaraciones" : {
       "get" : {
         "tags" : [ "declaraciones" ],
-        "summary" : "Muestra las declaraciones de los servidores publicos",
+        "summary" : "Muestra las declaraciones de los servidores públicos",
         "operationId" : "get_declaraciones",
         "parameters" : [ {
           "name" : "sort",
           "in" : "query",
-          "description" : "Ordena por fecha de actualización de forma ascendete y descendente, los valores permitidos son 'asc' y 'desc', por defecto el orden es ascendente.",
+          "description" : "Ordena por fecha de actualización de forma ascendente y descendente, los valores permitidos son 'asc' y 'desc', por defecto el orden es ascendente.",
           "schema" : {
             "type" : "string",
             "enum" : [ "asc", "desc" ]
@@ -29,7 +29,7 @@
         }, {
           "name" : "page_size",
           "in" : "query",
-          "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
+          "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el mínimo 1",
           "schema" : {
             "type" : "integer",
             "minimum" : 1,
@@ -88,7 +88,7 @@
         }, {
           "name" : "rfc_solicitante",
           "in" : "query",
-          "description" : "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
+          "description" : "RFC de la persona quien hace la consulta, si se omite este parámetro, se enviaran solo los datos públicos",
           "schema" : {
             "type" : "string"
           }
@@ -117,10 +117,10 @@
       },
       "post" : {
         "tags" : [ "declaraciones" ],
-        "summary" : "Muestra las declaraciones de los servidores publicos permitiendo busquedas avanzadas",
+        "summary" : "Muestra las declaraciones de los servidores públicos permitiendo busquedas avanzadas",
         "operationId" : "post_declaraciones",
         "requestBody" : {
-          "description" : "JSON para peticiones de busqueda avanzada",
+          "description" : "JSON para peticiones de búsqueda avanzada",
           "required" : true,
           "content" : {
             "application/json" : {
@@ -223,7 +223,7 @@
               "properties" : {
                 "id" : {
                   "type" : "string",
-                  "description" : "Identificador del declarante con valor alfanúmerico",
+                  "description" : "Identificador del declarante con valor alfanumérico",
                   "example" : "a1b2c3d4"
                 },
                 "metadata" : {
@@ -232,7 +232,7 @@
                     "actualizacion" : {
                       "type" : "string",
                       "format" : "date-time",
-                      "description" : "Fecha y hora en la que se presento la declaración",
+                      "description" : "Fecha y hora en la que se presentó la declaración",
                       "example" : "2017-07-21T17:32:28Z"
                     },
                     "institucion" : {
@@ -338,7 +338,7 @@
                   "personal" : {
                     "type" : "string",
                     "format" : "email",
-                    "description" : "Correo electronico valido. Este dato es información confidencial",
+                    "description" : "Correo electrónico válido. Este dato es información confidencial",
                     "example" : "jperez@ejemplo.com.mx"
                   },
                   "laboral" : {
@@ -445,7 +445,7 @@
                     "type" : "string",
                     "enum" : [ "CAS", "DIV", "SOL", "CONC", "VIU", "SCON", "COMP", "SEP", "OTRO" ],
                     "maxLength" : 10,
-                    "description" : "Código del estado civil, ver catalago.",
+                    "description" : "Código del estado civil, ver catálogo.",
                     "example" : "CAS"
                   },
                   "valor" : {
@@ -492,7 +492,7 @@
                   "type" : "object",
                   "properties" : {
                     "grado_obtenido" : {
-                      "description" : "Deberá señalar a que nivel educativo pertenecen sus estudios (p.ej. licenciatura, maestría, doctorado, etc.)",
+                      "description" : "Deberá señalar a qué nivel educativo pertenecen sus estudios (p.ej. licenciatura, maestría, doctorado, etc.)",
                       "type" : "string",
                       "example" : "Licenciatura"
                     },
@@ -787,7 +787,7 @@
                     "properties" : {
                       "valor" : {
                         "type" : "string",
-                        "description" : "Nombre  del pais especificado en estándar ISO3166. Este dato es información confidencial.",
+                        "description" : "Nombre  del país especificado en estándar ISO3166. Este dato es información confidencial.",
                         "example" : "México"
                       },
                       "codigo" : {
@@ -1229,7 +1229,7 @@
                     "properties" : {
                       "valor" : {
                         "type" : "string",
-                        "description" : "Nombre  del pais especificado en estándar ISO3166. Este dato es información confidencial.",
+                        "description" : "Nombre  del país especificado en estándar ISO3166. Este dato es información confidencial.",
                         "example" : "México"
                       },
                       "codigo" : {
@@ -1458,7 +1458,7 @@
                   "type" : "number",
                   "minimum" : 1,
                   "maximum" : 100,
-                  "description" : "Valor númerico porcentual. Este dato es información confidencial.",
+                  "description" : "Valor numérico porcentual. Este dato es información confidencial.",
                   "example" : 70
                 },
                 "observaciones" : {
@@ -1498,7 +1498,7 @@
                     "properties" : {
                       "valor" : {
                         "type" : "string",
-                        "description" : "Nombre  del pais especificado en estándar ISO3166. Este dato es información confidencial.",
+                        "description" : "Nombre  del país especificado en estándar ISO3166. Este dato es información confidencial.",
                         "example" : "México"
                       },
                       "codigo" : {
@@ -3027,7 +3027,7 @@
                   "type" : "number",
                   "minimum" : 1,
                   "maximum" : 100,
-                  "description" : "Valor númerico porcentual. Este dato es información confidencial.",
+                  "description" : "Valor numérico porcentual. Este dato es información confidencial.",
                   "example" : 70
                 },
                 "nombres_copropietarios" : {
@@ -4584,7 +4584,7 @@
         "properties" : {
           "valor" : {
             "type" : "string",
-            "description" : "Nombre  del pais especificado en estándar ISO3166",
+            "description" : "Nombre  del país especificado en estándar ISO3166",
             "example" : "México"
           },
           "codigo" : {
@@ -4626,14 +4626,14 @@
       "id" : {
         "type" : "integer",
         "minimum" : 1,
-        "description" : "Número identificador unico",
+        "description" : "Número identificador único",
         "example" : 123
       },
       "porcentaje" : {
         "type" : "number",
         "minimum" : 1,
         "maximum" : 100,
-        "description" : "Valor númerico porcentual",
+        "description" : "Valor numérico porcentual",
         "example" : 70
       },
       "nivel_orden_gobierno" : {
@@ -4643,7 +4643,7 @@
           "codigo" : {
             "type" : "string",
             "enum" : [ "FED", "EST", "MUN" ],
-            "description" : "Codigo del tipo de nivel de orden de gobierno",
+            "description" : "Código del tipo de nivel de orden de gobierno",
             "example" : "EST"
           },
           "valor" : {
@@ -4773,7 +4773,7 @@
           "codigo" : {
             "type" : "string",
             "enum" : [ "CES", "CONT", "CRED", "SUCE", "DON", "USU", "REG", "OTROS" ],
-            "description" : "Código de la forma de adquisicion",
+            "description" : "Código de la forma de adquisición",
             "example" : "CES"
           },
           "valor" : {
@@ -4805,7 +4805,7 @@
           "valor" : {
             "type" : "number",
             "minimum" : 1,
-            "description" : "Valor númerico del precio de adquisición",
+            "description" : "Valor numérico del precio de adquisición",
             "example" : 4000
           },
           "moneda" : {
@@ -4818,13 +4818,13 @@
         "properties" : {
           "codigo" : {
             "type" : "string",
-            "description" : "Código de la moneda de acuerdo al estandar ISO 4217",
+            "description" : "Código de la moneda de acuerdo al estándar ISO 4217",
             "example" : "MXN"
           },
           "moneda" : {
             "type" : "string",
             "maxLength" : 5,
-            "description" : "Divisa de la moneda de acuerdo al estandar ISO 4217",
+            "description" : "Divisa de la moneda de acuerdo al estándar ISO 4217",
             "example" : "MXN"
           }
         }
@@ -4865,103 +4865,103 @@
               "informacion_personal.informacion_general.nombres" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               },
               "informacion_personal.informacion_general.primer_apellido" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               },
               "informacion_personal.informacion_general.segundo_apellido" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               },
               "informacion_personal.datos_encargo_actual.ente_publico" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               },
               "informacion_personal.datos_encargo_actual.direccion_encargo.entidad_federativa.cve_ent" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               },
               "informacion_personal.datos_encargo_actual.direccion_encargo.municipio.cve_mun" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               },
               "informacion_personal.datos_encargo_actual.empleo_cargo_comision" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               },
               "informacion_personal.datos_encargo_actual.nivel_gobierno.codigo" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               },
               "activos.bienes_inmuebles.superficie_construccion" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               },
               "activos.bienes_inmuebles.superficie_terreno" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               },
               "activos.bienes_inmuebles.forma_adquisicion.codigo" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               },
               "activos.bienes_inmuebles.precio_adquisicion.valor" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               },
               "activos.bienes_inmuebles.valor_catastral" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               },
               "informacion_personal.datos_encargo_actual.nivel_encargo" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               },
               "informacion_personal.datos_curriculares.grado_maximo_escolaridad" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               },
               "ingresos.sueldos_salarios_publicos.ingreso_bruto_anual.valor" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               },
               "ingresos.sueldos_salarios_publicos.ingreso_bruto_anual.moneda.codigo" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descendente",
                 "example" : "asc"
               }
             }
@@ -5020,7 +5020,7 @@
               },
               "informacion_personal.datos_encargo_actual.nivel_gobierno.codigo" : {
                 "type" : "string",
-                "description" : "Codigo del tipo de nivel de orden de gobierno",
+                "description" : "Código del tipo de nivel de orden de gobierno",
                 "example" : ""
               },
               "activos.bienes_inmuebles.superficie_construccion" : {
@@ -5045,7 +5045,7 @@
               },
               "activos.bienes_inmuebles.valor_catastral" : {
                 "type" : "number",
-                "description" : "eberá señalar el monto y la moneda de compraventa según la escritura o contrato privado.",
+                "description" : "Deberá señalar el monto y la moneda de compraventa según la escritura o contrato privado.",
                 "example" : 800
               },
               "informacion_personal.datos_encargo_actual.nivel_encargo" : {
@@ -5060,12 +5060,12 @@
               },
               "ingresos.sueldos_salarios_publicos.ingreso_bruto_anual.valor" : {
                 "type" : "number",
-                "description" : "Valor númerico del ingreso bruto anual",
+                "description" : "Valor numérico del ingreso bruto anual",
                 "example" : 10000
               },
               "ingresos.sueldos_salarios_publicos.ingreso_bruto_anual.moneda.codigo" : {
                 "type" : "string",
-                "description" : "Código de la moneda de acuerdo al estandar ISO 4217",
+                "description" : "Código de la moneda de acuerdo al estándar ISO 4217",
                 "example" : "MXN"
               },
               "informacion_personal.informacion_general.fecha_nacimiento" : {
@@ -5087,7 +5087,7 @@
               },
               "fecha_nacimiento_exacta" : {
                 "type" : "string",
-                "description" : "En caso de que se vaya a usar este campo en el query, se buscara la fecha exacta, este campo es excluyente al anterior.",
+                "description" : "En caso de que se vaya a usar este campo en el query, se buscará la fecha exacta, este campo es excluyente al anterior.",
                 "format" : "date",
                 "example" : "2010-07-26"
               }
@@ -5095,7 +5095,7 @@
           },
           "rfc_solicitante" : {
             "type" : "string",
-            "description" : "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
+            "description" : "RFC de la persona quien hace la consulta, si se omite este parámetro, se enviaran solo los datos públicos",
             "example" : "GOAP780710RH7"
           }
         }
@@ -5106,7 +5106,7 @@
         "properties" : {
           "code" : {
             "type" : "string",
-            "description" : "Código alfa númerico del error de la consulta.",
+            "description" : "Código alfa numérico del error de la consulta.",
             "example" : "abc123"
           },
           "message" : {

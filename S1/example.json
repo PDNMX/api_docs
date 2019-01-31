@@ -293,7 +293,10 @@
               {
                 "nombre_programa": "Prospera",
                 "institucion_otorga_apoyo": "XE-IPN Canal 11",
-                "tipo_apoyo": "Servicio",
+                "tipo_apoyo": {
+                  "codigo": "OBRA",
+                  "valor": "Obra"
+                },
                 "valor_apoyo": 4000
               }
             ],
@@ -404,7 +407,10 @@
               "codigo": "EST",
               "valor": "Estatal"
             },
-            "tipo_apoyo": "Servicio",
+            "tipo_apoyo": {
+              "codigo": "OBRA",
+              "valor": "Obra"
+            },
             "valor_anual_apoyo": 7500,
             "observaciones": "Esto es una observación"
           }

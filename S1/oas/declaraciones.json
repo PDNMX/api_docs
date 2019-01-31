@@ -942,8 +942,21 @@
                         "example" : "XE-IPN Canal 11"
                       },
                       "tipo_apoyo" : {
-                        "type" : "string",
-                        "example" : "Servicio"
+                        "description" : "Se deberá señalar el tipo de apoyo que recibe el Declarante, si es un subsidio, servicio, obra u otro (especificar).",
+                        "type" : "object",
+                        "properties" : {
+                          "codigo" : {
+                            "description" : "Código del tipo de apoyo",
+                            "type" : "string",
+                            "enum" : [ "SUBS", "SERV", "OBRA", "OTRO" ],
+                            "example" : "OBRA"
+                          },
+                          "valor" : {
+                            "type" : "string",
+                            "description" : "Valor del tipo de apoyo",
+                            "example" : "Obra"
+                          }
+                        }
                       },
                       "valor_apoyo" : {
                         "type" : "number",
@@ -1108,8 +1121,20 @@
                 },
                 "tipo_apoyo" : {
                   "description" : "Se deberá señalar el tipo de apoyo que recibe el Declarante, si es un subsidio, servicio, obra u otro (especificar).",
-                  "type" : "string",
-                  "example" : "Servicio"
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "description" : "Código del tipo de apoyo",
+                      "type" : "string",
+                      "enum" : [ "SUBS", "SERV", "OBRA", "OTRO" ],
+                      "example" : "OBRA"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "description" : "Valor del tipo de apoyo",
+                      "example" : "Obra"
+                    }
+                  }
                 },
                 "valor_anual_apoyo" : {
                   "type" : "number",

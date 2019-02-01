@@ -418,7 +418,10 @@
         "representacion_activa": [
           {
             "id": 123,
-            "tipo_representacion": "Mandato",
+            "tipo_representacion": {
+              "codigo": "APOD",
+              "valor": "Apoderado"
+            },
             "nombre_parte_representada": "Cecilia Gomez Urrutia",
             "curp_parte": "BEML920313HMCLNS09",
             "rfc_parte": "GOAP780710RH7",

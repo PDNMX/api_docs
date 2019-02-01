@@ -1158,9 +1158,7 @@
                   "$ref" : "#/components/schemas/id"
                 },
                 "tipo_representacion" : {
-                  "description" : "Se deberá establecer la naturaleza jurídica de la representación que se reporte, por ejemplo: Mandato, Agencia Comercial, Representante Legal, Apoderado, otro.",
-                  "type" : "string",
-                  "example" : "Mandato"
+                  "$ref" : "#/components/schemas/tipo_representacion"
                 },
                 "nombre_parte_representada" : {
                   "type" : "string",

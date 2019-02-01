@@ -1354,7 +1354,7 @@
                   "description" : "Se deberá proporcionar el nombre, la denominación o razón social del negocio, tal y como se encuentra registrada en escritura pública (si es persona moral).",
                   "example" : "Nombre negocio"
                 },
-                "numero_Registro" : {
+                "numero_registro" : {
                   "type" : "string",
                   "description" : "En caso de que corresponda se deberá señalar el dato que identifique el negocio o actividad lucrativa.",
                   "example" : "HTC896DSFA"

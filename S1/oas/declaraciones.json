@@ -497,12 +497,62 @@
                       "example" : "Licenciatura"
                     },
                     "institucion_educativa" : {
-                      "description" : "Se deberá escribir el nombre de la institución donde se realizaron los estudios.",
+                      "description" : "Se deberá escribir el nombre de la institución donde se realizaron los estudios. En caso de que la institución esté en el extranjero se debera llenar al menos el campo país.",
                       "type" : "string",
                       "example" : "La Universidad Nacionalista México"
                     },
                     "lugar_institucion_educativa" : {
-                      "$ref" : "#/components/schemas/lugar_registro"
+                      "type" : "object",
+                      "properties" : {
+                        "pais" : {
+                          "type" : "object",
+                          "properties" : {
+                            "valor" : {
+                              "type" : "string",
+                              "description" : "Nombre  del país especificado en estándar ISO3166",
+                              "example" : "México"
+                            },
+                            "codigo" : {
+                              "type" : "string",
+                              "maxLength" : 5,
+                              "description" : "Código alpha 2 del país especificado en estándar ISO3166",
+                              "example" : "MX"
+                            }
+                          }
+                        },
+                        "entidad_federativa" : {
+                          "type" : "object",
+                          "properties" : {
+                            "nom_ent" : {
+                              "type" : "string",
+                              "description" : "Nombre de la entidad federativa del Marco Geoestadístico Nacional",
+                              "example" : "México"
+                            },
+                            "cve_ent" : {
+                              "type" : "string",
+                              "maxLength" : 5,
+                              "description" : "Clave de la entidad federativa del Marco Geoestadístico Nacional",
+                              "example" : "15"
+                            }
+                          }
+                        },
+                        "municipio" : {
+                          "type" : "object",
+                          "properties" : {
+                            "nom_mun" : {
+                              "type" : "string",
+                              "description" : "Nombre del municipio del Marco Geoestadístico Nacional",
+                              "example" : "Ecatepec de Morelos"
+                            },
+                            "cve_mun" : {
+                              "type" : "string",
+                              "maxLength" : 10,
+                              "description" : "Clave del municipio del Marco Geoestadístico Nacional",
+                              "example" : "033"
+                            }
+                          }
+                        }
+                      }
                     },
                     "carrera" : {
                       "type" : "string",
@@ -1475,9 +1525,21 @@
                   "$ref" : "#/components/schemas/id"
                 },
                 "tipo_relacion" : {
-                  "type" : "string",
                   "description" : "Se señalará el tipo de relación (copropietarios de bienes no comerciales, garantes de préstamos recibidos, otorgantes/depositarios de garantías, otro - especificar).",
-                  "example" : "Garantes de Préstamos Recibidos"
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "CBNC", "GPR", "ODG", "OTRO" ],
+                      "description" : "Código del tipo de relación con la persona",
+                      "example" : "GPR"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "description" : "Valor del tipo de relación con la persona",
+                      "example" : "Garantes de Préstamos Recibidos"
+                    }
+                  }
                 },
                 "nombre_denominacion_parte" : {
                   "type" : "string",
@@ -1597,7 +1659,7 @@
                     "valor" : {
                       "type" : "string",
                       "description" : "Nombre  del Ente Público o entidad que realiza el pago de sueldos y salarios al Declarante.",
-                      "example" : "Secretaría de Gobernación"
+                      "example" : "SECRETARIA DE GOBERNACION"
                     },
                     "codigo" : {
                       "type" : "string",
@@ -4474,6 +4536,12 @@
                   "type" : "boolean",
                   "example" : true
                 },
+                "nombre_garante" : {
+                  "type" : "string",
+                  "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
+                  "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Observaciones/Comentarios: En caso de que requiera detallar información respecto de algún adeudo. Este dato es información confidencial (si es persona física).  ",
+                  "example" : "Bansky Von Tier"
+                },
                 "observaciones" : {
                   "$ref" : "#/components/schemas/observaciones"
                 }
@@ -4676,6 +4744,7 @@
         "example" : "Esto es una observación"
       },
       "ingreso_bruto_anual" : {
+        "description" : "Se debera especificar el valor o monto, moneda, unidad temporal, duración o frecuencia, y en caso de que se sea una transacción única se debera poner la fecha de transacción.",
         "type" : "object",
         "properties" : {
           "valor" : {

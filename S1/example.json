@@ -91,9 +91,13 @@
                   "valor": "México",
                   "codigo": "MX"
                 },
-                "entidad": {
+                "entidad_federativa": {
                   "nom_ent": "México",
                   "cve_ent": "15"
+                },
+                "municipio": {
+                  "nom_mun": "Ecatepec de Morelos",
+                  "cve_mun": "033"
                 }
               },
               "carrera": "Ing. en Sistemas Computacionales",
@@ -535,7 +539,10 @@
         "otras_partes": [
           {
             "id": 123,
-            "tipo_relacion": "Garantes de Préstamos Recibidos",
+            "tipo_relacion": {
+              "codigo": "GPR",
+              "valor": "Garantes de Préstamos Recibidos"
+            },
             "nombre_denominacion_parte": "Sergio Rodriguez",
             "fecha_inicio_relacion": "2010-07-26",
             "nacionalidades": [
@@ -575,7 +582,7 @@
           {
             "id": 123,
             "ente_publico": {
-              "valor": "Secretaría de Gobernación",
+              "valor": "SECRETARIA DE GOBERNACION",
               "codigo": "SEGOB"
             },
             "rfc": "GOAP780710RH7",
@@ -1800,6 +1807,7 @@
             },
             "porcentaje_obligacion_titular": 70,
             "garantia": true,
+            "nombre_garante": "Bansky Von Tier",
             "observaciones": "Esto es una observación"
           }
         ]

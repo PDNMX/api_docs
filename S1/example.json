@@ -292,7 +292,10 @@
             },
             "proveedor_contratista_gobierno": true,
             "tiene_intereses_mismo_sector_declarante": true,
-            "desarrolla_cabildeo_sector_declarante": true,
+            "desarrolla_cabildeo_sector_declarante": {
+              "respuesta": true,
+              "observaciones": "Esto es una observación"
+            },
             "beneficiario_programa_publico": [
               {
                 "nombre_programa": "Prospera",
@@ -364,7 +367,7 @@
             "nombre_institucion": "Asociacion A.C",
             "naturaleza_membresia": {
               "codigo": "ASC",
-              "valor": "Asociaciones civiles"
+              "valor": "Asociación Civil"
             },
             "domicilio": {
               "pais": {
@@ -613,8 +616,8 @@
               "valor": "Servicios de salud y asistencia social"
             },
             "tipo_actividad_servicio": {
-              "codigo": "SPU",
-              "valor": "Sector Público"
+              "codigo": "SAL",
+              "valor": "Salud"
             },
             "descripcion_actividad_servicio": "Servicio profesional de TI",
             "domicilio_persona_paga": {
@@ -669,8 +672,8 @@
               "valor": "Servicios de salud y asistencia social"
             },
             "tipo_actividad_servicio": {
-              "codigo": "SPU",
-              "valor": "Sector Público"
+              "codigo": "SAL",
+              "valor": "Salud"
             },
             "descripcion_actividad_servicio": "Descripción del servicio",
             "domicilio_persona_paga": {
@@ -725,8 +728,8 @@
               "valor": "Servicios de salud y asistencia social"
             },
             "tipo_actividad_servicio": {
-              "codigo": "SPU",
-              "valor": "Sector Público"
+              "codigo": "SAL",
+              "valor": "Salud"
             },
             "descripcion_actividad_servicio": "Descripción del servicio",
             "domicilio_actividad_empresarial": {
@@ -781,8 +784,8 @@
               "valor": "Servicios de salud y asistencia social"
             },
             "tipo_actividad_servicio": {
-              "codigo": "SPU",
-              "valor": "Sector Público"
+              "codigo": "SAL",
+              "valor": "Salud"
             },
             "descripcion_actividad_servicio": "Descripción del servicio",
             "domicilio_actividad": {
@@ -837,8 +840,8 @@
               "valor": "Servicios de salud y asistencia social"
             },
             "tipo_actividad_servicio": {
-              "codigo": "SPU",
-              "valor": "Sector Público"
+              "codigo": "SAL",
+              "valor": "Salud"
             },
             "descripcion_actividad_servicio": "Descripción del servicio",
             "domicilio_actividad": {
@@ -893,8 +896,8 @@
               "valor": "Servicios de salud y asistencia social"
             },
             "tipo_actividad_servicio": {
-              "codigo": "SPU",
-              "valor": "Sector Público"
+              "codigo": "SAL",
+              "valor": "Salud"
             },
             "descripcion_actividad_servicio": "Descripción del servicio",
             "domicilio": {
@@ -949,8 +952,8 @@
               "valor": "Servicios de salud y asistencia social"
             },
             "tipo_actividad_servicio": {
-              "codigo": "SPU",
-              "valor": "Sector Público"
+              "codigo": "SAL",
+              "valor": "Salud"
             },
             "descripcion_premio": "Descripción del servicio",
             "domicilio": {
@@ -1000,14 +1003,17 @@
             "nombre_denominacion": "Loteria Nacional",
             "rfc": "GOAP780710RH7",
             "curp": "BEML920313HMCLNS09",
-            "tipo_bien": "Inmueble",
+            "tipo_bien": {
+              "codigo": "BAR",
+              "valor": "Barco"
+            },
             "sector_industria": {
               "codigo": "SFS",
               "valor": "Servicios de salud y asistencia social"
             },
             "tipo_actividad_servicio": {
-              "codigo": "SPU",
-              "valor": "Sector Público"
+              "codigo": "SAL",
+              "valor": "Salud"
             },
             "descripcion_bien": "Descripción del servicio",
             "domicilio_bien_enajenado": {
@@ -1062,8 +1068,8 @@
               "valor": "Servicios de salud y asistencia social"
             },
             "tipo_actividad": {
-              "codigo": "SPU",
-              "valor": "Sector Público"
+              "codigo": "SAL",
+              "valor": "Salud"
             },
             "descripcion_actividad": "Descripción del servicio",
             "domicilio_actividad": {
@@ -1117,8 +1123,8 @@
               "valor": "Incorporación"
             },
             "tipo_bien": {
-              "codigo": "VEH",
-              "valor": "Vehículo"
+              "codigo": "DPT",
+              "valor": "Departamento"
             },
             "superficie_terreno": 300,
             "superficie_construccion": 100,
@@ -1293,8 +1299,8 @@
           {
             "id": 123,
             "tipo_operacion": {
-              "codigo": "INCP",
-              "valor": "Incorporación"
+              "codigo": "SCAMB",
+              "valor": "Sin cambio"
             },
             "tipo_inversion": {
               "codigo": "VALS",
@@ -1369,8 +1375,8 @@
           {
             "id": 123,
             "tipo_operacion": {
-              "codigo": "INCP",
-              "valor": "Incorporación"
+              "codigo": "SCAMB",
+              "valor": "Sin cambio"
             },
             "tipo_moneda": {
               "codigo": "MXN",
@@ -1394,8 +1400,8 @@
           {
             "id": 123,
             "tipo_operacion": {
-              "codigo": "INCP",
-              "valor": "Incorporación"
+              "codigo": "SCAMB",
+              "valor": "Sin cambio"
             },
             "identificador_fideicomiso": "93232",
             "tipo_fideicomiso": {
@@ -1518,8 +1524,8 @@
           {
             "id": 123,
             "tipo_operacion": {
-              "codigo": "INCP",
-              "valor": "Incorporación"
+              "codigo": "SCAMB",
+              "valor": "Sin cambio"
             },
             "propietario_registrado": [
               "Sergio Perez"
@@ -1597,17 +1603,14 @@
             "saldo_pendiente": 4555,
             "fecha_vencimiento": "2010-07-26",
             "porcentaje_copropiedad": 70,
-            "nombre_copropietario": "Max Power Bansky",
+            "nombre_copropietario": "Max Power Banksy",
             "observaciones": "Esto es una observación"
           }
         ],
         "uso_especie_propiedad_tercero": [
           {
             "id": 123,
-            "tipo_bien": {
-              "codigo": "VEH",
-              "valor": "Vehículo"
-            },
+            "tipo_bien": "Bien Inmueble",
             "valor_mercado": {
               "valor": 4000,
               "moneda": {
@@ -1615,7 +1618,7 @@
                 "moneda": "MXN"
               }
             },
-            "nombre_tercero_propietario": "Bansky Von Trier",
+            "nombre_tercero_propietario": "Banksy Von Trier",
             "rfc_tercero_propietario": "GOAP780710RH7",
             "curp_tercero_propietario": "BEML920313HMCLNS09",
             "relacion_persona": {
@@ -1661,16 +1664,16 @@
           {
             "id": 123,
             "tipo_operacion": {
-              "codigo": "INCP",
-              "valor": "Incorporación"
+              "codigo": "SLD",
+              "valor": "Saldo"
             },
             "tipo_acreedor": {
               "codigo": "INSTF",
               "valor": "Institución Financiera"
             },
             "tipo_adeudo": {
-              "codigo": "CVH",
-              "valor": "Compra de vehículo"
+              "codigo": "CH",
+              "valor": "Crédito hipotecario"
             },
             "identificador_deuda": "CONT12354",
             "nacional_extranjero": {
@@ -1730,7 +1733,7 @@
             },
             "porcentaje_adeudo_titular": 70,
             "garantia": true,
-            "nombre_garante": "Bansky Von Tier",
+            "nombre_garante": "Banksy Von Tier",
             "observaciones": "Esto es una observación"
           }
         ],
@@ -1738,8 +1741,8 @@
           {
             "id": 123,
             "tipo_operacion": {
-              "codigo": "INCP",
-              "valor": "Incorporación"
+              "codigo": "SLD",
+              "valor": "Saldo"
             },
             "tipo_acreedor": {
               "codigo": "INSTF",
@@ -1754,7 +1757,7 @@
               "valor": "México",
               "codigo": "MX"
             },
-            "nombre_acreedor": "Bansky",
+            "nombre_acreedor": "Banksy",
             "rfc_acreedor": "GOAP780710RH7",
             "sector_industria": {
               "codigo": "SFS",
@@ -1807,7 +1810,7 @@
             },
             "porcentaje_obligacion_titular": 70,
             "garantia": true,
-            "nombre_garante": "Bansky Von Tier",
+            "nombre_garante": "Banksy Von Tier",
             "observaciones": "Esto es una observación"
           }
         ]

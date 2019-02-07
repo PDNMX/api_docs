@@ -966,16 +966,28 @@
                   "$ref" : "#/components/schemas/sector_industria"
                 },
                 "proveedor_contratista_gobierno" : {
+                  "description" : "Se deberá señalar si el/la cónyuge, concubina o concubino, así como de los dependientes económicos, son proveedores o contratistas del gobierno en términos de la legislación aplicable.",
                   "type" : "boolean",
                   "example" : true
                 },
                 "tiene_intereses_mismo_sector_declarante" : {
+                  "description" : "Se deberá señalar si el cónyuge, concubina o concubino, así como de los dependientes económicos, tiene intereses en el mismo sector o industria al que pertenece el empleo oficial del Declarante.",
                   "type" : "boolean",
                   "example" : true
                 },
                 "desarrolla_cabildeo_sector_declarante" : {
-                  "type" : "boolean",
-                  "example" : true
+                  "description" : "Se entiende por \"cabildeo\" la gestión de intereses ante autoridades públicas, que tiene por objeto alcanzar la materialización del interés que se gestiona. Se deberá señalar y explicar si el cónyuge, concubina o concubino, así como de los dependientes económicos, desarrollan actividades de cabildeo en el mismo sector o industrial al que pertenece el empleo oficial del Declarante.",
+                  "type" : "object",
+                  "properties" : {
+                    "respuesta" : {
+                      "type" : "boolean",
+                      "example" : true
+                    },
+                    "observaciones" : {
+                      "type" : "string",
+                      "example" : "Esto es una observación"
+                    }
+                  }
                 },
                 "beneficiario_programa_publico" : {
                   "description" : "Se deberá señalar si el cónyuge, concubina o concubino, así como de los dependientes económicos, son beneficiarios directos de algún programa público. Señalar el nombre del programa, la institución que otorga el apoyo, así como el tipo (subsidio, servicio, obra u otro - especificar) y valor del mismo.",
@@ -996,9 +1008,9 @@
                         "type" : "object",
                         "properties" : {
                           "codigo" : {
-                            "description" : "Código del tipo de apoyo",
                             "type" : "string",
                             "enum" : [ "SUBS", "SERV", "OBRA", "OTRO" ],
+                            "description" : "Significado de Abreviaturas:\n  * `SUBS` - Subsidio\n  * `SERV` - Servicio\n  * `OBRA` - Obra\n  * `OTRO` - Otro (especifique)\n",
                             "example" : "OBRA"
                           },
                           "valor" : {
@@ -1110,12 +1122,13 @@
                   "properties" : {
                     "codigo" : {
                       "type" : "string",
-                      "enum" : [ "CJU", "ASC", "OBE", "PPL", "OTRO" ],
+                      "enum" : [ "CSJ", "DIR", "JNT", "ASC", "FUN", "ORGB", "PP", "OTRO" ],
+                      "description" : "Significado de Abreviaturas:\n  * `CSJ` - Consejo\n  * `DIR` - Directorio\n  * `JNT` - Junta\n  * `ASC` - Asociación Civil\n  * `FUN` - Fundación\n  * `ORGB` - Organización benéfica\n  * `PP` - Partido político\n  * `OTRO` - Otro (especifique)\n",
                       "example" : "ASC"
                     },
                     "valor" : {
                       "type" : "string",
-                      "example" : "Asociaciones civiles"
+                      "example" : "Asociación Civil"
                     }
                   }
                 },
@@ -2538,9 +2551,20 @@
                   "example" : "BEML920313HMCLNS09"
                 },
                 "tipo_bien" : {
-                  "description" : "Deberá señalar el tipo de bien (mueble o inmueble) a que haga referencia.",
-                  "type" : "string",
-                  "example" : "Inmueble"
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "VEH", "BAR", "ANV", "MAQ", "INM", "OTRO" ],
+                      "description" : "Significado de Abreviaturas:\n  * `VEH` - Vehículo\n  * `BAR` - Barco\n  * `ANV` - Aeronave\n  * `MAQ` - Maquinaria\n  * `INM` - Inmueble\n  * `OTRO` - Otro (especifique)\n",
+                      "example" : "BAR"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "description" : "Valor del tipo de bien",
+                      "example" : "Barco"
+                    }
+                  }
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -2771,10 +2795,23 @@
                   "$ref" : "#/components/schemas/id"
                 },
                 "tipo_operacion" : {
-                  "$ref" : "#/components/schemas/tipo_operacion"
+                  "$ref" : "#/components/schemas/toperacion1"
                 },
                 "tipo_bien" : {
-                  "$ref" : "#/components/schemas/tipo_bien"
+                  "type" : "object",
+                  "properties" : {
+                    "codigo" : {
+                      "type" : "string",
+                      "enum" : [ "CAS", "DPT", "TRN", "OTRO" ],
+                      "description" : "Significado de Abreviaturas:\n  * `CAS` - Casa\n  * `DPT` - Departamento\n  * `TRN` - Terreno\n  * `OTRO` - Otro (especifique)\n",
+                      "example" : "DPT"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "description" : "Valor del tipo de bien",
+                      "example" : "Departamento"
+                    }
+                  }
                 },
                 "superficie_terreno" : {
                   "type" : "number",
@@ -2937,7 +2974,7 @@
                   "example" : "BEML920313HMCLNS09"
                 },
                 "relacion_persona_adquirio" : {
-                  "$ref" : "#/components/schemas/relacion_con_persona"
+                  "$ref" : "#/components/schemas/relacion_con_persona2"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -2970,7 +3007,7 @@
                   "$ref" : "#/components/schemas/id"
                 },
                 "tipo_operacion" : {
-                  "$ref" : "#/components/schemas/tipo_operacion"
+                  "$ref" : "#/components/schemas/toperacion1"
                 },
                 "tipo_bien_mueble" : {
                   "$ref" : "#/components/schemas/tipo_bien"
@@ -3043,7 +3080,7 @@
                   "example" : "GOAP780710RH7"
                 },
                 "relacion_persona_quien_adquirio" : {
-                  "$ref" : "#/components/schemas/relacion_con_persona"
+                  "$ref" : "#/components/schemas/relacion_con_persona2"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -3070,7 +3107,7 @@
                   "$ref" : "#/components/schemas/id"
                 },
                 "tipo_operacion" : {
-                  "$ref" : "#/components/schemas/tipo_operacion"
+                  "$ref" : "#/components/schemas/toperacion1"
                 },
                 "tipo_bien" : {
                   "$ref" : "#/components/schemas/tipo_bien"
@@ -3109,7 +3146,7 @@
                   "example" : "Tesl Mtr Inc"
                 },
                 "relacion_quien_adquirio" : {
-                  "$ref" : "#/components/schemas/relacion_con_persona"
+                  "$ref" : "#/components/schemas/relacion_con_persona2"
                 },
                 "fecha_adquisicion" : {
                   "$ref" : "#/components/schemas/fecha"
@@ -3133,7 +3170,7 @@
                   "$ref" : "#/components/schemas/id"
                 },
                 "tipo_operacion" : {
-                  "$ref" : "#/components/schemas/tipo_operacion"
+                  "$ref" : "#/components/schemas/toperacion2"
                 },
                 "tipo_inversion" : {
                   "description" : "Se deberá reportar el tipo de inversión conforme a la normatividad aplicable (inversión, valores, cuenta, u otro - especificar).",
@@ -3336,7 +3373,7 @@
                   "$ref" : "#/components/schemas/id"
                 },
                 "tipo_operacion" : {
-                  "$ref" : "#/components/schemas/tipo_operacion"
+                  "$ref" : "#/components/schemas/toperacion2"
                 },
                 "tipo_moneda" : {
                   "$ref" : "#/components/schemas/moneda"
@@ -3392,7 +3429,7 @@
                   "$ref" : "#/components/schemas/id"
                 },
                 "tipo_operacion" : {
-                  "$ref" : "#/components/schemas/tipo_operacion"
+                  "$ref" : "#/components/schemas/toperacion2"
                 },
                 "identificador_fideicomiso" : {
                   "type" : "string",
@@ -3775,7 +3812,7 @@
                   "$ref" : "#/components/schemas/id"
                 },
                 "tipo_operacion" : {
-                  "$ref" : "#/components/schemas/tipo_operacion"
+                  "$ref" : "#/components/schemas/toperacion2"
                 },
                 "propietario_registrado" : {
                   "type" : "array",
@@ -3968,7 +4005,7 @@
                   "type" : "string",
                   "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
-                  "example" : "Max Power Bansky"
+                  "example" : "Max Power Banksy"
                 },
                 "observaciones" : {
                   "$ref" : "#/components/schemas/observaciones"
@@ -3986,7 +4023,9 @@
                   "$ref" : "#/components/schemas/id"
                 },
                 "tipo_bien" : {
-                  "$ref" : "#/components/schemas/tipo_bien"
+                  "type" : "string",
+                  "description" : "Se deberá indicar la naturaleza del bien o servicio del que se goza el uso o beneficios en especie por parte del Declarante.",
+                  "example" : "Bien Inmueble"
                 },
                 "valor_mercado" : {
                   "type" : "object",
@@ -4005,8 +4044,8 @@
                 "nombre_tercero_propietario" : {
                   "type" : "string",
                   "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
-                  "description" : "Se deberá escribir el nombre o nombres completos del tercero propietario. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).  ",
-                  "example" : "Bansky Von Trier"
+                  "description" : "Se deberá escribir el nombre o nombres completos del tercero propietario. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
+                  "example" : "Banksy Von Trier"
                 },
                 "rfc_tercero_propietario" : {
                   "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
@@ -4019,7 +4058,7 @@
                   "example" : "BEML920313HMCLNS09"
                 },
                 "relacion_persona" : {
-                  "$ref" : "#/components/schemas/relacion_con_persona"
+                  "$ref" : "#/components/schemas/relacion_con_persona2"
                 },
                 "sector_industria" : {
                   "$ref" : "#/components/schemas/sector_industria"
@@ -4123,7 +4162,7 @@
                   "$ref" : "#/components/schemas/id"
                 },
                 "tipo_operacion" : {
-                  "$ref" : "#/components/schemas/tipo_operacion"
+                  "$ref" : "#/components/schemas/toperacion3"
                 },
                 "tipo_acreedor" : {
                   "description" : "Se deberá seleccionar el tipo de prestador que corresponda al adeudo que declare (institución financiera, persona moral no financiera, persona física u otro - especificar).",
@@ -4147,13 +4186,13 @@
                   "properties" : {
                     "codigo" : {
                       "type" : "string",
-                      "enum" : [ "CVH", "CCRED", "CHIP", "PPERS", "TDC", "OTRO" ],
-                      "maxLength" : 10,
-                      "example" : "CVH"
+                      "enum" : [ "VCL", "CH", "CP", "TC", "DC", "OTRO" ],
+                      "description" : "Significado de Abreviaturas:\n  * `VCL` - Vehículo\n  * `CH` - Crédito hipotecario\n  * `CP` - Crédito personal\n  * `TC` - Tarjeta de crédito\n  * `DC` - Deudas comerciales\n  * `OTRO` - Otro (especifique)\n",
+                      "example" : "CH"
                     },
                     "valor" : {
                       "type" : "string",
-                      "example" : "Compra de vehículo"
+                      "example" : "Crédito hipotecario"
                     }
                   }
                 },
@@ -4323,7 +4362,7 @@
                   "type" : "string",
                   "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Observaciones/Comentarios: En caso de que requiera detallar información respecto de algún adeudo. Este dato es información confidencial (si es persona física).  ",
-                  "example" : "Bansky Von Tier"
+                  "example" : "Banksy Von Tier"
                 },
                 "observaciones" : {
                   "$ref" : "#/components/schemas/observaciones"
@@ -4341,7 +4380,7 @@
                   "$ref" : "#/components/schemas/id"
                 },
                 "tipo_operacion" : {
-                  "$ref" : "#/components/schemas/tipo_operacion"
+                  "$ref" : "#/components/schemas/toperacion3"
                 },
                 "tipo_acreedor" : {
                   "description" : "Se deberá seleccionar el tipo de prestador que corresponda al adeudo que declare (institución financiera, persona moral no financiera, persona física u otro - especificar).",
@@ -4387,7 +4426,7 @@
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
-                  "example" : "Bansky"
+                  "example" : "Banksy"
                 },
                 "rfc_acreedor" : {
                   "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
@@ -4540,7 +4579,7 @@
                   "type" : "string",
                   "pattern" : "^[A-Za-z0-9ñÑ\\s]+$",
                   "description" : "Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Observaciones/Comentarios: En caso de que requiera detallar información respecto de algún adeudo. Este dato es información confidencial (si es persona física).  ",
-                  "example" : "Bansky Von Tier"
+                  "example" : "Banksy Von Tier"
                 },
                 "observaciones" : {
                   "$ref" : "#/components/schemas/observaciones"
@@ -4726,8 +4765,7 @@
           "codigo" : {
             "type" : "string",
             "enum" : [ "MAND", "ACOM", "RLEG", "APOD", "OTRO" ],
-            "maxLength" : 10,
-            "description" : "Código del tipo de representación",
+            "description" : "Significado de Abreviaturas:\n  * `MAND` - Mandato\n  * `ACOM` - Agencia Comercial\n  * `RLEG` - Representante Legal\n  * `APOD` - Apoderado\n  * `OTRO` - Otro (especifique)\n",
             "example" : "APOD"
           },
           "valor" : {
@@ -4789,26 +4827,24 @@
         "properties" : {
           "codigo" : {
             "type" : "string",
-            "enum" : [ "SPU", "IND", "COM", "SER", "APFP" ],
-            "maxLength" : 10,
-            "description" : "Código del tipo de actividad",
-            "example" : "SPU"
+            "enum" : [ "AVS", "AL", "BR", "COM", "DEC", "EDU", "ENR", "OTRO", "MAE", "SAL", "SEG", "SF", "TRP", "TUR" ],
+            "description" : "Significado de Abreviaturas:\n  * `AVS` - Agricultura y vida silvestre\n  * `AL` - Asuntos legales\n  * `BR` - Bienes raíces\n  * `COM` - Comunicaciones\n  * `DEC` - Desarrollo económico\n  * `EDU` - Educación\n  * `ENR` - Energía\n  * `OTRO` - Otro (especifique)\n  * `MAE` - Medio ambiente y ecología\n  * `SAL` - Salud\n  * `SEG` - Seguridad\n  * `SF` - Servicios financieros\n  * `TRP` - Transportes\n  * `TUR` - Turismo\n",
+            "example" : "SAL"
           },
           "valor" : {
             "type" : "string",
-            "enum" : [ "Sector Público", "Industrial (construcción, minería, electricidad, etc)", "Comercial (comercio al por mayor, comercio al por menor)", "Servicios (financieros, profesionales, científicos, técnicos, alimentación, alojamiento, esparcimiento, etc)", "Agrícola, Pecuario, Forestal, Pesca" ],
             "description" : "Valor del tipo de actividad",
-            "example" : "Sector Público"
+            "example" : "Salud"
           }
         }
       },
-      "tipo_operacion" : {
+      "toperacion1" : {
         "type" : "object",
         "properties" : {
           "codigo" : {
             "type" : "string",
-            "enum" : [ "INCP", "MODF", "VENT", "SCAMB", "NARI", "OTRO" ],
-            "description" : "Código del tipo de operación",
+            "enum" : [ "INCP", "OBR", "VNT", "SCAMB", "OTRO" ],
+            "description" : "Significado de Abreviaturas:\n  * `INCP` - Incorporación\n  * `OBR` - Obra\n  * `VNT` - Venta\n  * `SCAMB` - Sin cambio\n  * `OTRO` - Otro (especifique)\n",
             "example" : "INCP"
           },
           "valor" : {
@@ -4818,18 +4854,50 @@
           }
         }
       },
+      "toperacion2" : {
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "enum" : [ "INCP", "VNT", "SCAMB", "OTRO" ],
+            "description" : "Significado de Abreviaturas:\n  * `INCP` - Incorporación\n  * `VNT` - Venta\n  * `SCAMB` - Sin cambio\n  * `OTRO` - Otro (especifique)\n",
+            "example" : "SCAMB"
+          },
+          "valor" : {
+            "type" : "string",
+            "description" : "Valor del tipo de operación",
+            "example" : "Sin cambio"
+          }
+        }
+      },
+      "toperacion3" : {
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "enum" : [ "INCP", "SLD", "FNQT", "SCAMB", "OTRO" ],
+            "description" : "Significado de Abreviaturas:\n  * `INCP` - Incorporación\n  * `SLD` - Saldo\n  * `FNQT` - Finiquito\n  * `SCAMB` - Sin cambio\n  * `OTRO` - Otro (especifique)\n",
+            "example" : "SLD"
+          },
+          "valor" : {
+            "type" : "string",
+            "description" : "Valor del tipo de operación",
+            "example" : "Saldo"
+          }
+        }
+      },
       "tipo_bien" : {
         "type" : "object",
         "properties" : {
           "codigo" : {
             "type" : "string",
             "enum" : [ "VEH", "BAR", "ANV", "MAQ", "OTRO" ],
-            "description" : "Código del tipo de bien",
+            "description" : "Significado de Abreviaturas:\n  * `VEH` - Vehículo\n  * `BAR` - Barco\n  * `ANV` - Aeronave\n  * `MAQ` - Maquinaria\n  * `OTRO` - Otro (especifique)\n",
             "example" : "VEH"
           },
           "valor" : {
             "type" : "string",
-            "description" : "Código del tipo de bien",
+            "description" : "Valor del tipo de bien",
             "example" : "Vehículo"
           }
         }
@@ -4857,6 +4925,22 @@
             "type" : "string",
             "enum" : [ "CONY", "CONC", "PSC", "DEC", "OTRO" ],
             "description" : "Código del tipo de relación con la persona",
+            "example" : "CONY"
+          },
+          "valor" : {
+            "type" : "string",
+            "description" : "Valor del tipo de relación con la persona",
+            "example" : "Cónyuge"
+          }
+        }
+      },
+      "relacion_con_persona2" : {
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "enum" : [ "CONY", "CCB", "HJ", "PM", "SGR", "YN", "OFM", "AMG", "SCO", "JF", "EPD", "CT", "OTRO" ],
+            "description" : "Significado de Abreviaturas:\n  * `CONY` - Cónyuge\n  * `CCB` - Concubina o concubinario\n  * `HJ` - Hijo/Hija\n  * `PM` - Padre/Madre\n  * `SGR` - Suegro/Suegra\n  * `YN` - Yerno/Nuera\n  * `OFM` - Otro familiar (especifique)\n  * `AMG` - Amigo\n  * `SCO` - Socio\n  * `JF` - Jefe\n  * `EPD` - Empleado\n  * `CT` - Cliente\n  * `OTRO` - Otro (especifique)\n",
             "example" : "CONY"
           },
           "valor" : {

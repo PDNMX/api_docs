@@ -16,7 +16,8 @@
           "description" : "Ordena por fecha de actualización de forma ascendente y descendente, los valores permitidos son 'asc' y 'desc', por defecto el orden es ascendente.",
           "schema" : {
             "type" : "string",
-            "enum" : [ "asc", "desc" ]
+            "enum" : [ "asc", "desc" ],
+            "description" : "Significado de Códigos: * asc - ascendente * desc - descendente\n"
           }
         }, {
           "name" : "page",
@@ -444,8 +445,7 @@
                   "codigo" : {
                     "type" : "string",
                     "enum" : [ "CAS", "DIV", "SOL", "CONC", "VIU", "SCON", "COMP", "SEP", "OTRO" ],
-                    "maxLength" : 10,
-                    "description" : "Código del estado civil, ver catálogo.",
+                    "description" : "Significado de Códigos:\n  * `CAS` - Casado (a)\n  * `DIV` - Divorciado (a)\n  * `SOL` - Soltero (a)\n  * `CONC` - Concubinato\n  * `VIU` - Viudo (a)\n  * `SCON` - Sociedad en convivencia\n  * `COMP` - Comprometido\n  * `SEP` - Separado (a)\n  * `OTRO` - Otro\n",
                     "example" : "CAS"
                   },
                   "valor" : {
@@ -462,7 +462,7 @@
                   "codigo" : {
                     "type" : "string",
                     "enum" : [ "SCO", "SBI", "MIX" ],
-                    "maxLength" : 10,
+                    "description" : "Significado de Códigos:\n  * `SCO` - Sociedad Conyugal\n  * `SBI` - Separación de Bienes\n  * `MIX` - Mixto\n",
                     "example" : "SBI"
                   },
                   "valor" : {
@@ -565,8 +565,8 @@
                         "codigo" : {
                           "type" : "string",
                           "enum" : [ "CURS", "FIN", "TRUN" ],
-                          "maxLength" : 10,
-                          "example" : "CURS"
+                          "example" : "CURS",
+                          "description" : "Significado de Códigos:\n  * `CURS` - Cursando\n  * `FIN` - Finalizado\n  * `TRUN` - Trunco\n"
                         },
                         "valor" : {
                           "type" : "string",
@@ -587,8 +587,8 @@
                         "codigo" : {
                           "type" : "string",
                           "enum" : [ "BOL", "CERT", "CONST", "TIT", "DIP" ],
-                          "maxLength" : 10,
-                          "example" : "BOL"
+                          "example" : "BOL",
+                          "description" : "Significado de Códigos:\n  * `BOL` - Boleta\n  * `CERT` - Certificado\n  * `CONST` - Constancia\n  * `TIT` - Título\n  * `DIP` - Diploma\n"
                         },
                         "valor" : {
                           "type" : "string",
@@ -625,19 +625,7 @@
                 "$ref" : "#/components/schemas/nivel_orden_gobierno"
               },
               "poder_juridico" : {
-                "description" : "Se deberá señalar la naturaleza jurídica al que pertenece: Ejecutivo, Legislativo, Judicial, órgano constitucional autónomo u otro (especificar).",
-                "properties" : {
-                  "codigo" : {
-                    "type" : "string",
-                    "enum" : [ "EJE", "JUD", "LEG", "OCA", "OTRO" ],
-                    "maxLength" : 10,
-                    "example" : "JUD"
-                  },
-                  "valor" : {
-                    "type" : "string",
-                    "example" : "Judicial"
-                  }
-                }
+                "$ref" : "#/components/schemas/poder"
               },
               "contratado_honorarios" : {
                 "description" : "Se deberá señalar si está contratado por honorarios (sí/no).",
@@ -683,23 +671,7 @@
                 "$ref" : "#/components/schemas/sector_industria"
               },
               "funciones_principales" : {
-                "description" : "Se deberá indicar las funciones principales a realizar por el Servidor Público de entre los enlistados.",
-                "type" : "array",
-                "items" : {
-                  "type" : "object",
-                  "properties" : {
-                    "codigo" : {
-                      "type" : "string",
-                      "enum" : [ "ABI", "ARH", "AFIN", "ATEC", "ADP", "AUDI", "CASOP", "FSI", "LEG", "OTORG", "PJUS", "RPP", "OTRO" ],
-                      "maxLength" : 10,
-                      "example" : "ABI"
-                    },
-                    "valor" : {
-                      "type" : "string",
-                      "example" : "Administración de bienes"
-                    }
-                  }
-                }
+                "$ref" : "#/components/schemas/funciones"
               }
             }
           },
@@ -716,8 +688,8 @@
                     "codigo" : {
                       "type" : "string",
                       "enum" : [ "PUB", "PRIV", "SOC", "MULT", "OTRO" ],
-                      "maxLength" : 10,
-                      "example" : "PUB"
+                      "example" : "PUB",
+                      "description" : "Significado de Códigos:\n  * `PUB` - Público\n  * `PRIV` - Privado\n  * `SOC` - Social\n  * `MULT` - Multilateral\n  * `OTRO` - Otro (especifique)\n"
                     },
                     "valor" : {
                       "type" : "string",
@@ -729,19 +701,7 @@
                   "$ref" : "#/components/schemas/nivel_orden_gobierno"
                 },
                 "poder_ente" : {
-                  "type" : "object",
-                  "properties" : {
-                    "codigo" : {
-                      "type" : "string",
-                      "enum" : [ "EJE", "JUD", "LEG", "OCA", "OTRO" ],
-                      "maxLength" : 10,
-                      "example" : "JUD"
-                    },
-                    "valor" : {
-                      "type" : "string",
-                      "example" : "Judicial"
-                    }
-                  }
+                  "$ref" : "#/components/schemas/poder"
                 },
                 "nombre_institucion" : {
                   "type" : "string",
@@ -775,23 +735,7 @@
                   "$ref" : "#/components/schemas/fecha"
                 },
                 "funciones_principales" : {
-                  "description" : "Se deberá seleccionar las funciones principales que el Servidor Público Declarante realizaba.",
-                  "type" : "array",
-                  "items" : {
-                    "type" : "object",
-                    "properties" : {
-                      "codigo" : {
-                        "type" : "string",
-                        "enum" : [ "ABI", "ARH", "AFIN", "ATEC", "ADP", "AUDI", "CASOP", "FSI", "LEG", "OTORG", "PJUS", "RPP", "OTRO" ],
-                        "maxLength" : 10,
-                        "example" : "ABI"
-                      },
-                      "valor" : {
-                        "type" : "string",
-                        "example" : "Administración de bienes"
-                      }
-                    }
-                  }
+                  "$ref" : "#/components/schemas/poder"
                 }
               }
             }
@@ -1004,21 +948,7 @@
                         "example" : "XE-IPN Canal 11"
                       },
                       "tipo_apoyo" : {
-                        "description" : "Se deberá señalar el tipo de apoyo que recibe el Declarante, si es un subsidio, servicio, obra u otro (especificar).",
-                        "type" : "object",
-                        "properties" : {
-                          "codigo" : {
-                            "type" : "string",
-                            "enum" : [ "SUBS", "SERV", "OBRA", "OTRO" ],
-                            "description" : "Significado de Abreviaturas:\n  * `SUBS` - Subsidio\n  * `SERV` - Servicio\n  * `OBRA` - Obra\n  * `OTRO` - Otro (especifique)\n",
-                            "example" : "OBRA"
-                          },
-                          "valor" : {
-                            "type" : "string",
-                            "description" : "Valor del tipo de apoyo",
-                            "example" : "Obra"
-                          }
-                        }
+                        "$ref" : "#/components/schemas/tipo_apoyo"
                       },
                       "valor_apoyo" : {
                         "type" : "number",
@@ -1103,7 +1033,8 @@
                     "codigo" : {
                       "type" : "string",
                       "enum" : [ "CJU", "ASC", "OBE", "PPL", "OTRO" ],
-                      "example" : "ASC"
+                      "example" : "ASC",
+                      "description" : "Significado de Códigos:\n  * `CJU` - Consejo y/o junta\n  * `ASC` - Asociaciones civiles\n  * `OBE` - Organizaciones benéficas\n  * `PPL` - Partidos políticos\n  * `OTRO` - Otro (especifique)\n"
                     },
                     "valor" : {
                       "type" : "string",
@@ -1123,7 +1054,7 @@
                     "codigo" : {
                       "type" : "string",
                       "enum" : [ "CSJ", "DIR", "JNT", "ASC", "FUN", "ORGB", "PP", "OTRO" ],
-                      "description" : "Significado de Abreviaturas:\n  * `CSJ` - Consejo\n  * `DIR` - Directorio\n  * `JNT` - Junta\n  * `ASC` - Asociación Civil\n  * `FUN` - Fundación\n  * `ORGB` - Organización benéfica\n  * `PP` - Partido político\n  * `OTRO` - Otro (especifique)\n",
+                      "description" : "Significado de Códigos:\n  * CSJ - Consejo\n  * DIR - Directorio\n  * JNT - Junta\n  * ASC - Asociación Civil\n  * FUN - Fundación\n  * ORGB - Organización benéfica\n  * PP - Partido político\n  * OTRO - Otro (especifique)\n",
                       "example" : "ASC"
                     },
                     "valor" : {
@@ -1183,21 +1114,7 @@
                   "$ref" : "#/components/schemas/nivel_orden_gobierno"
                 },
                 "tipo_apoyo" : {
-                  "description" : "Se deberá señalar el tipo de apoyo que recibe el Declarante, si es un subsidio, servicio, obra u otro (especificar).",
-                  "type" : "object",
-                  "properties" : {
-                    "codigo" : {
-                      "description" : "Código del tipo de apoyo",
-                      "type" : "string",
-                      "enum" : [ "SUBS", "SERV", "OBRA", "OTRO" ],
-                      "example" : "OBRA"
-                    },
-                    "valor" : {
-                      "type" : "string",
-                      "description" : "Valor del tipo de apoyo",
-                      "example" : "Obra"
-                    }
-                  }
+                  "$ref" : "#/components/schemas/tipo_apoyo"
                 },
                 "valor_anual_apoyo" : {
                   "type" : "number",
@@ -1544,8 +1461,8 @@
                     "codigo" : {
                       "type" : "string",
                       "enum" : [ "CBNC", "GPR", "ODG", "OTRO" ],
-                      "description" : "Código del tipo de relación con la persona",
-                      "example" : "GPR"
+                      "example" : "GPR",
+                      "description" : "Significado de Códigos:\n  * `CBNC` - Copropietarios de bienes no comerciales\n  * `GPR` - Garantes de Préstamos Recibidos\n  * `ODG` - Otorgantes/Depositarios de Garantías\n  * `OTRO` - Otro (especifique)\n"
                     },
                     "valor" : {
                       "type" : "string",
@@ -2556,7 +2473,7 @@
                     "codigo" : {
                       "type" : "string",
                       "enum" : [ "VEH", "BAR", "ANV", "MAQ", "INM", "OTRO" ],
-                      "description" : "Significado de Abreviaturas:\n  * `VEH` - Vehículo\n  * `BAR` - Barco\n  * `ANV` - Aeronave\n  * `MAQ` - Maquinaria\n  * `INM` - Inmueble\n  * `OTRO` - Otro (especifique)\n",
+                      "description" : "Significado de Códigos:\n  * `VEH` - Vehículo\n  * `BAR` - Barco\n  * `ANV` - Aeronave\n  * `MAQ` - Maquinaria\n  * `INM` - Inmueble\n  * `OTRO` - Otro (especifique)\n",
                       "example" : "BAR"
                     },
                     "valor" : {
@@ -2803,7 +2720,7 @@
                     "codigo" : {
                       "type" : "string",
                       "enum" : [ "CAS", "DPT", "TRN", "OTRO" ],
-                      "description" : "Significado de Abreviaturas:\n  * `CAS` - Casa\n  * `DPT` - Departamento\n  * `TRN` - Terreno\n  * `OTRO` - Otro (especifique)\n",
+                      "description" : "Significado de Códigos:\n  * `CAS` - Casa\n  * `DPT` - Departamento\n  * `TRN` - Terreno\n  * `OTRO` - Otro (especifique)\n",
                       "example" : "DPT"
                     },
                     "valor" : {
@@ -3179,7 +3096,8 @@
                     "codigo" : {
                       "type" : "string",
                       "enum" : [ "INVS", "VALS", "CTAS", "OTRO" ],
-                      "example" : "VALS"
+                      "example" : "VALS",
+                      "description" : "Significado de Códigos:\n  * `INVS` - Inversiones\n  * `VALS` - Valores\n  * `CTAS` - Cuentas\n  * `OTRO` - Otro (especifique)\n"
                     },
                     "valor" : {
                       "type" : "string",
@@ -3193,7 +3111,8 @@
                     "codigo" : {
                       "type" : "string",
                       "enum" : [ "ACCS", "BONS", "VALRS", "TITLS", "CONTSA", "FRET", "FINV", "OTRO" ],
-                      "example" : "VALRS"
+                      "example" : "VALRS",
+                      "description" : "Significado de Códigos:\n  * `ACCS` - Acciones\n  * `BONS` - Bonos\n  * `VALRS` - Valores\n  * `TITLS` - Títulos\n  * `CONTSA` - Cuentas de ahorro\n  * `FRET` - Fondo de Retiro\n  * `FINV` - Fondo de Inversión\n  * `OTRO` - Otro (especifique)\n"
                     },
                     "valor" : {
                       "type" : "string",
@@ -3339,8 +3258,7 @@
                     "codigo" : {
                       "type" : "string",
                       "enum" : [ "DIAS", "SEMS", "MESS", "TUNI" ],
-                      "maxLength" : 10,
-                      "description" : "Código de la unidad temporal. Este dato es información confidencial.",
+                      "description" : "Significado de Códigos. Este dato es información confidencial:\n  * `DIAS` - Días\n  * `SEMS` - Semanas\n  * `MESS` - Meses\n  * `TUNI` - Transacción única\n",
                       "example" : "MESS"
                     },
                     "valor" : {
@@ -3390,7 +3308,6 @@
                     "codigo" : {
                       "type" : "string",
                       "enum" : [ "ORO", "PLATA", "COBRE", "OTRO" ],
-                      "maxLength" : 10,
                       "example" : "ORO"
                     },
                     "valor" : {
@@ -3442,8 +3359,8 @@
                     "codigo" : {
                       "type" : "string",
                       "enum" : [ "GARNT", "ADMON", "INVRSN", "TESTM", "OTRO" ],
-                      "maxLength" : 10,
-                      "example" : "GARNT"
+                      "example" : "GARNT",
+                      "description" : "Significado de Códigos:\n  * `GARNT` - Garantía\n  * `ADMON` - Administración\n  * `INVRSN` - Inversión\n  * `TESTM` - Testamentario\n  * `OTRO` - Otro (especifique)\n"
                     },
                     "valor" : {
                       "type" : "string",
@@ -4165,20 +4082,7 @@
                   "$ref" : "#/components/schemas/toperacion3"
                 },
                 "tipo_acreedor" : {
-                  "description" : "Se deberá seleccionar el tipo de prestador que corresponda al adeudo que declare (institución financiera, persona moral no financiera, persona física u otro - especificar).",
-                  "type" : "object",
-                  "properties" : {
-                    "codigo" : {
-                      "type" : "string",
-                      "enum" : [ "INSTF", "PMNF", "PFIS", "OTRO" ],
-                      "maxLength" : 10,
-                      "example" : "INSTF"
-                    },
-                    "valor" : {
-                      "type" : "string",
-                      "example" : "Institución Financiera"
-                    }
-                  }
+                  "$ref" : "#/components/schemas/tipo_acreedor"
                 },
                 "tipo_adeudo" : {
                   "description" : "Se deberá señalar el tipo de adeudo que se declara (vehículo, crédito hipotecario, crédito personal, tarjeta de crédito, deudas comerciales u otro - especificar).",
@@ -4187,7 +4091,7 @@
                     "codigo" : {
                       "type" : "string",
                       "enum" : [ "VCL", "CH", "CP", "TC", "DC", "OTRO" ],
-                      "description" : "Significado de Abreviaturas:\n  * `VCL` - Vehículo\n  * `CH` - Crédito hipotecario\n  * `CP` - Crédito personal\n  * `TC` - Tarjeta de crédito\n  * `DC` - Deudas comerciales\n  * `OTRO` - Otro (especifique)\n",
+                      "description" : "Significado de Códigos:\n  * `VCL` - Vehículo\n  * `CH` - Crédito hipotecario\n  * `CP` - Crédito personal\n  * `TC` - Tarjeta de crédito\n  * `DC` - Deudas comerciales\n  * `OTRO` - Otro (especifique)\n",
                       "example" : "CH"
                     },
                     "valor" : {
@@ -4332,21 +4236,7 @@
                   "example" : 24
                 },
                 "unidad_medida_adeudo" : {
-                  "type" : "object",
-                  "properties" : {
-                    "codigo" : {
-                      "type" : "string",
-                      "enum" : [ "DIAS", "SEMS", "MESS", "TUNI" ],
-                      "description" : "Código de la unidad temporal",
-                      "example" : "MESS"
-                    },
-                    "valor" : {
-                      "type" : "string",
-                      "enum" : [ "Días", "Semanas", "Meses", "Transacción única" ],
-                      "description" : "Valor de la unidad temporal",
-                      "example" : "Meses"
-                    }
-                  }
+                  "$ref" : "#/components/schemas/temporalidad"
                 },
                 "titularidad_deuda" : {
                   "$ref" : "#/components/schemas/titular_bien"
@@ -4383,20 +4273,7 @@
                   "$ref" : "#/components/schemas/toperacion3"
                 },
                 "tipo_acreedor" : {
-                  "description" : "Se deberá seleccionar el tipo de prestador que corresponda al adeudo que declare (institución financiera, persona moral no financiera, persona física u otro - especificar).",
-                  "type" : "object",
-                  "properties" : {
-                    "codigo" : {
-                      "type" : "string",
-                      "enum" : [ "INSTF", "PMNF", "PFIS", "OTRO" ],
-                      "maxLength" : 10,
-                      "example" : "INSTF"
-                    },
-                    "valor" : {
-                      "type" : "string",
-                      "example" : "Institución Financiera"
-                    }
-                  }
+                  "$ref" : "#/components/schemas/tipo_acreedor"
                 },
                 "tipo_obligacion" : {
                   "description" : "Se deberá señalar el tipo de obligación que se declara diverso a los descritos en la subsección I. Deudas, de este decimotercer numeral.",
@@ -4405,8 +4282,8 @@
                     "codigo" : {
                       "type" : "string",
                       "enum" : [ "CVH", "CCRED", "CHIP", "PPERS", "TDC", "OTRO" ],
-                      "maxLength" : 10,
-                      "example" : "CVH"
+                      "example" : "CVH",
+                      "description" : "Significado de Códigos:\n  * `CVH` - Compra de vehículo\n  * `CCRED` - Compras a crédito\n  * `CHIP` - Créditos hipotecarios\n  * `PPERS` - Préstamos personales\n  * `TDC` - Tarjetas de crédito\n  * `OTRO` - Otro (especifique)\n"
                     },
                     "valor" : {
                       "type" : "string",
@@ -4548,22 +4425,7 @@
                   "example" : 360
                 },
                 "unidad_medida_plazo" : {
-                  "description" : "Se deberá indicar solamente las unidades con las que se podría medir la inversión/valor.",
-                  "type" : "object",
-                  "properties" : {
-                    "codigo" : {
-                      "type" : "string",
-                      "enum" : [ "DIAS", "SEMS", "MESS", "TUNI" ],
-                      "description" : "Código de la unidad temporal",
-                      "example" : "MESS"
-                    },
-                    "valor" : {
-                      "type" : "string",
-                      "enum" : [ "Días", "Semanas", "Meses", "Transacción única" ],
-                      "description" : "Valor de la unidad temporal",
-                      "example" : "Meses"
-                    }
-                  }
+                  "$ref" : "#/components/schemas/temporalidad"
                 },
                 "titularidad_obligacion" : {
                   "$ref" : "#/components/schemas/titular_bien"
@@ -4748,8 +4610,8 @@
           "codigo" : {
             "type" : "string",
             "enum" : [ "FED", "EST", "MUN" ],
-            "description" : "Código del tipo de nivel de orden de gobierno",
-            "example" : "EST"
+            "example" : "EST",
+            "description" : "Significado de Códigos:\n  * `FED` - Federal\n  * `EST` - Estatal\n  * `MUN` - Municipal\n"
           },
           "valor" : {
             "type" : "string",
@@ -4765,7 +4627,7 @@
           "codigo" : {
             "type" : "string",
             "enum" : [ "MAND", "ACOM", "RLEG", "APOD", "OTRO" ],
-            "description" : "Significado de Abreviaturas:\n  * `MAND` - Mandato\n  * `ACOM` - Agencia Comercial\n  * `RLEG` - Representante Legal\n  * `APOD` - Apoderado\n  * `OTRO` - Otro (especifique)\n",
+            "description" : "Significado de Códigos:\n  * `MAND` - Mandato\n  * `ACOM` - Agencia Comercial\n  * `RLEG` - Representante Legal\n  * `APOD` - Apoderado\n  * `OTRO` - Otro (especifique)\n",
             "example" : "APOD"
           },
           "valor" : {
@@ -4794,22 +4656,7 @@
             "$ref" : "#/components/schemas/moneda"
           },
           "unidad_temporal" : {
-            "type" : "object",
-            "properties" : {
-              "codigo" : {
-                "type" : "string",
-                "enum" : [ "DIAS", "SEMS", "MESS", "TUNI" ],
-                "maxLength" : 10,
-                "description" : "Código de la unidad temporal",
-                "example" : "MESS"
-              },
-              "valor" : {
-                "type" : "string",
-                "enum" : [ "Días", "Semanas", "Meses", "Transacción única" ],
-                "description" : "Valor de la unidad temporal",
-                "example" : "Meses"
-              }
-            }
+            "$ref" : "#/components/schemas/temporalidad"
           },
           "duracion_frecuencia" : {
             "type" : "number",
@@ -4828,7 +4675,7 @@
           "codigo" : {
             "type" : "string",
             "enum" : [ "AVS", "AL", "BR", "COM", "DEC", "EDU", "ENR", "OTRO", "MAE", "SAL", "SEG", "SF", "TRP", "TUR" ],
-            "description" : "Significado de Abreviaturas:\n  * `AVS` - Agricultura y vida silvestre\n  * `AL` - Asuntos legales\n  * `BR` - Bienes raíces\n  * `COM` - Comunicaciones\n  * `DEC` - Desarrollo económico\n  * `EDU` - Educación\n  * `ENR` - Energía\n  * `OTRO` - Otro (especifique)\n  * `MAE` - Medio ambiente y ecología\n  * `SAL` - Salud\n  * `SEG` - Seguridad\n  * `SF` - Servicios financieros\n  * `TRP` - Transportes\n  * `TUR` - Turismo\n",
+            "description" : "Significado de Códigos:\n  * `AVS` - Agricultura y vida silvestre\n  * `AL` - Asuntos legales\n  * `BR` - Bienes raíces\n  * `COM` - Comunicaciones\n  * `DEC` - Desarrollo económico\n  * `EDU` - Educación\n  * `ENR` - Energía\n  * `OTRO` - Otro (especifique)\n  * `MAE` - Medio ambiente y ecología\n  * `SAL` - Salud\n  * `SEG` - Seguridad\n  * `SF` - Servicios financieros\n  * `TRP` - Transportes\n  * `TUR` - Turismo\n",
             "example" : "SAL"
           },
           "valor" : {
@@ -4844,7 +4691,7 @@
           "codigo" : {
             "type" : "string",
             "enum" : [ "INCP", "OBR", "VNT", "SCAMB", "OTRO" ],
-            "description" : "Significado de Abreviaturas:\n  * `INCP` - Incorporación\n  * `OBR` - Obra\n  * `VNT` - Venta\n  * `SCAMB` - Sin cambio\n  * `OTRO` - Otro (especifique)\n",
+            "description" : "Significado de Códigos:\n  * `INCP` - Incorporación\n  * `OBR` - Obra\n  * `VNT` - Venta\n  * `SCAMB` - Sin cambio\n  * `OTRO` - Otro (especifique)\n",
             "example" : "INCP"
           },
           "valor" : {
@@ -4860,7 +4707,7 @@
           "codigo" : {
             "type" : "string",
             "enum" : [ "INCP", "VNT", "SCAMB", "OTRO" ],
-            "description" : "Significado de Abreviaturas:\n  * `INCP` - Incorporación\n  * `VNT` - Venta\n  * `SCAMB` - Sin cambio\n  * `OTRO` - Otro (especifique)\n",
+            "description" : "Significado de Códigos:\n  * `INCP` - Incorporación\n  * `VNT` - Venta\n  * `SCAMB` - Sin cambio\n  * `OTRO` - Otro (especifique)\n",
             "example" : "SCAMB"
           },
           "valor" : {
@@ -4876,7 +4723,7 @@
           "codigo" : {
             "type" : "string",
             "enum" : [ "INCP", "SLD", "FNQT", "SCAMB", "OTRO" ],
-            "description" : "Significado de Abreviaturas:\n  * `INCP` - Incorporación\n  * `SLD` - Saldo\n  * `FNQT` - Finiquito\n  * `SCAMB` - Sin cambio\n  * `OTRO` - Otro (especifique)\n",
+            "description" : "Significado de Códigos:\n  * `INCP` - Incorporación\n  * `SLD` - Saldo\n  * `FNQT` - Finiquito\n  * `SCAMB` - Sin cambio\n  * `OTRO` - Otro (especifique)\n",
             "example" : "SLD"
           },
           "valor" : {
@@ -4892,7 +4739,7 @@
           "codigo" : {
             "type" : "string",
             "enum" : [ "VEH", "BAR", "ANV", "MAQ", "OTRO" ],
-            "description" : "Significado de Abreviaturas:\n  * `VEH` - Vehículo\n  * `BAR` - Barco\n  * `ANV` - Aeronave\n  * `MAQ` - Maquinaria\n  * `OTRO` - Otro (especifique)\n",
+            "description" : "Significado de Códigos:\n  * `VEH` - Vehículo\n  * `BAR` - Barco\n  * `ANV` - Aeronave\n  * `MAQ` - Maquinaria\n  * `OTRO` - Otro (especifique)\n",
             "example" : "VEH"
           },
           "valor" : {
@@ -4907,9 +4754,9 @@
         "properties" : {
           "codigo" : {
             "type" : "string",
-            "enum" : [ "CES", "CONT", "CRED", "SUCE", "DON", "USU", "REG", "OTROS" ],
-            "description" : "Código de la forma de adquisición",
-            "example" : "CES"
+            "enum" : [ "CES", "CONT", "CRED", "SUCE", "DON", "USU", "REG", "OTRO" ],
+            "example" : "CES",
+            "description" : "Significado de Códigos:\n  * `CES` - Cesión\n  * `CONT` - Contado\n  * `CRED` - Crédito\n  * `SUCE` - Sucesion\n  * `DON` - Donación\n  * `USU` - Usucapión\n  * `REG` - Regalo\n  * `OTRO` - Otro (especifique)\n"
           },
           "valor" : {
             "type" : "string",
@@ -4924,8 +4771,8 @@
           "codigo" : {
             "type" : "string",
             "enum" : [ "CONY", "CONC", "PSC", "DEC", "OTRO" ],
-            "description" : "Código del tipo de relación con la persona",
-            "example" : "CONY"
+            "example" : "CONY",
+            "description" : "Significado de Códigos:\n  * `CONY` - Cónyuge\n  * `CONC` - Concubina/Concubinario\n  * `PSC` - Pareja en Sociedad en Convivencia\n  * `DEC` - Dependiente económico\n  * `OTRO` - Otro (especifique)\n"
           },
           "valor" : {
             "type" : "string",
@@ -4940,7 +4787,7 @@
           "codigo" : {
             "type" : "string",
             "enum" : [ "CONY", "CCB", "HJ", "PM", "SGR", "YN", "OFM", "AMG", "SCO", "JF", "EPD", "CT", "OTRO" ],
-            "description" : "Significado de Abreviaturas:\n  * `CONY` - Cónyuge\n  * `CCB` - Concubina o concubinario\n  * `HJ` - Hijo/Hija\n  * `PM` - Padre/Madre\n  * `SGR` - Suegro/Suegra\n  * `YN` - Yerno/Nuera\n  * `OFM` - Otro familiar (especifique)\n  * `AMG` - Amigo\n  * `SCO` - Socio\n  * `JF` - Jefe\n  * `EPD` - Empleado\n  * `CT` - Cliente\n  * `OTRO` - Otro (especifique)\n",
+            "description" : "Significado de Códigos:\n  * `CONY` - Cónyuge\n  * `CCB` - Concubina o concubinario\n  * `HJ` - Hijo/Hija\n  * `PM` - Padre/Madre\n  * `SGR` - Suegro/Suegra\n  * `YN` - Yerno/Nuera\n  * `OFM` - Otro familiar (especifique)\n  * `AMG` - Amigo\n  * `SCO` - Socio\n  * `JF` - Jefe\n  * `EPD` - Empleado\n  * `CT` - Cliente\n  * `OTRO` - Otro (especifique)\n",
             "example" : "CONY"
           },
           "valor" : {
@@ -4986,8 +4833,8 @@
           "codigo" : {
             "type" : "string",
             "enum" : [ "DECL", "CONY", "DEPND", "PREST", "EPROP", "OTRO" ],
-            "maxLength" : 10,
-            "example" : "DECL"
+            "example" : "DECL",
+            "description" : "Significado de Códigos:\n  * `DECL` - Declarante\n  * `CONY` - Cónyuge\n  * `DEPND` - Dependiente\n  * `PREST` - Prestanombre\n  * `EPROP` - Empresa propia\n  * `OTRO` - Otro (especifique)\n"
           },
           "valor" : {
             "type" : "string",
@@ -5007,6 +4854,96 @@
           }
         }
       },
+      "poder" : {
+        "description" : "Se deberá señalar la naturaleza jurídica al que pertenece: Ejecutivo, Legislativo, Judicial, órgano constitucional autónomo u otro (especificar).",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "enum" : [ "EJE", "JUD", "LEG", "OCA", "OTRO" ],
+            "example" : "JUD",
+            "description" : "Significado de Códigos:\n  * `EJE` - Ejecutivo\n  * `JUD` - Judicial\n  * `LEG` - Legislativo\n  * `OCA` - Órgano Constitucional Autónomo\n  * `OTRO` - Otro (especifique)\n"
+          },
+          "valor" : {
+            "type" : "string",
+            "example" : "Judicial"
+          }
+        }
+      },
+      "funciones" : {
+        "description" : "Se deberá indicar las funciones principales a realizar por el Servidor Público de entre los enlistados.",
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "codigo" : {
+              "type" : "string",
+              "enum" : [ "ABI", "ARH", "AFIN", "ATEC", "ADP", "AUDI", "CASOP", "FSI", "LEG", "OTORG", "PJUS", "RPP", "OTRO" ],
+              "example" : "ABI",
+              "description" : "Significado de Códigos:\n  * `ABI` - Administración de bienes\n  * `ARH` - Administración de recursos humanos\n  * `AFIN` - Administración Financiera (Recaudación de Ingresos, Desembolso de Fondos, Presupuestos, Contabilidad)\n  * `ATEC` - Áreas técnicas\n  * `ADP` - Atención directa al público\n  * `AUDI` - Auditoría, control interno, fiscalización, vigilancia, interventorías, inspección\n  * `CASOP` - Contratos, adquisiciones, servicios y obra pública\n  * `FSI` - Fuerza de seguridad e inteligencia\n  * `LEG` - Legislar a nivel federal, estatal y cabildo municipal\n  * `OTORG` - Otorgamiento de permisos, beneficios, subsidios, concesiones, licencias, derechos de uso inmobiliario, recursos naturales o propiedad\n  * `PJUS` - Procuración de justicia (sentencias, ministerios públicos, fiscales, policías de investigación, auxiliares ministeriales, etc.)\n  * `RPP` - Regulación y políticas públicas\n  * `OTRO` - Otro (especifique)\n"
+            },
+            "valor" : {
+              "type" : "string",
+              "example" : "Administración de bienes"
+            }
+          }
+        }
+      },
+      "tipo_apoyo" : {
+        "description" : "Se deberá señalar el tipo de apoyo, si es un subsidio, servicio, obra u otro (especificar).",
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "enum" : [ "SUBS", "SERV", "OBRA", "OTRO" ],
+            "description" : "Significado de Códigos:\n  * `SUBS` - Subsidio\n  * `SERV` - Servicio\n  * `OBRA` - Obra\n  * `OTRO` - Otro (especifique)\n",
+            "example" : "OBRA"
+          },
+          "valor" : {
+            "type" : "string",
+            "description" : "Valor del tipo de apoyo",
+            "example" : "Obra"
+          }
+        }
+      },
+      "tipo_acreedor" : {
+        "description" : "Se deberá seleccionar el tipo de prestador que corresponda al adeudo que declare (institución financiera, persona moral no financiera, persona física u otro - especificar).",
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "enum" : [ "INSTF", "PMNF", "PFIS", "OTRO" ],
+            "example" : "INSTF",
+            "description" : "Significado de Códigos:\n  * `INSTF` - Institución Financiera\n  * `PMNF` - Persona Moral No Financiera\n  * `PFIS` - Persona Física\n  * `OTRO` - Otro (especifique)\n"
+          },
+          "valor" : {
+            "type" : "string",
+            "example" : "Institución Financiera"
+          }
+        }
+      },
+      "temporalidad" : {
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "enum" : [ "DIAS", "SEMS", "MESS", "TUNI" ],
+            "example" : "MESS",
+            "description" : "Significado de Códigos:\n  * `DIAS` - Días\n  * `SEMS` - Semanas\n  * `MESS` - Meses\n  * `TUNI` - Transacción única\n"
+          },
+          "valor" : {
+            "type" : "string",
+            "enum" : [ "Días", "Semanas", "Meses", "Transacción única" ],
+            "description" : "Valor de la unidad temporal",
+            "example" : "Meses"
+          }
+        }
+      },
+      "ordenamiento" : {
+        "type" : "string",
+        "enum" : [ "asc", "desc" ],
+        "description" : "Campo a ordenar de forma ascendente (asc) o descendente (desc).",
+        "example" : "asc"
+      },
       "post_query" : {
         "type" : "object",
         "properties" : {
@@ -5014,106 +4951,55 @@
             "type" : "object",
             "properties" : {
               "informacion_personal.informacion_general.nombres" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               },
               "informacion_personal.informacion_general.primer_apellido" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               },
               "informacion_personal.informacion_general.segundo_apellido" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               },
               "informacion_personal.datos_encargo_actual.ente_publico" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               },
               "informacion_personal.datos_encargo_actual.direccion_encargo.entidad_federativa.cve_ent" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               },
               "informacion_personal.datos_encargo_actual.direccion_encargo.municipio.cve_mun" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               },
               "informacion_personal.datos_encargo_actual.empleo_cargo_comision" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               },
               "informacion_personal.datos_encargo_actual.nivel_gobierno.codigo" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               },
               "activos.bienes_inmuebles.superficie_construccion" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               },
               "activos.bienes_inmuebles.superficie_terreno" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               },
               "activos.bienes_inmuebles.forma_adquisicion.codigo" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               },
               "activos.bienes_inmuebles.precio_adquisicion.valor" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               },
               "activos.bienes_inmuebles.valor_catastral" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               },
               "informacion_personal.datos_encargo_actual.nivel_encargo" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               },
               "informacion_personal.datos_curriculares.grado_maximo_escolaridad" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               },
               "ingresos.sueldos_salarios_publicos.ingreso_bruto_anual.valor" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               },
               "ingresos.sueldos_salarios_publicos.ingreso_bruto_anual.moneda.codigo" : {
-                "type" : "string",
-                "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descendente",
-                "example" : "asc"
+                "$ref" : "#/components/schemas/ordenamiento"
               }
             }
           },

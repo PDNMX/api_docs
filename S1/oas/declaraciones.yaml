@@ -18,6 +18,10 @@ paths:
             enum:
               - asc
               - desc
+            description: >
+              Significado de Códigos:
+              * asc - ascendente
+              * desc - descendente
         - name: page
           in: query
           description: Número de página a mostrar
@@ -344,8 +348,17 @@ components:
                     - COMP
                     - SEP
                     - OTRO
-                  maxLength: 10
-                  description: 'Código del estado civil, ver catálogo.'
+                  description: >
+                    Significado de Códigos:
+                      * `CAS` - Casado (a)
+                      * `DIV` - Divorciado (a)
+                      * `SOL` - Soltero (a)
+                      * `CONC` - Concubinato
+                      * `VIU` - Viudo (a)
+                      * `SCON` - Sociedad en convivencia
+                      * `COMP` - Comprometido
+                      * `SEP` - Separado (a)
+                      * `OTRO` - Otro
                   example: CAS
                 valor:
                   type: string
@@ -361,7 +374,11 @@ components:
                     - SCO
                     - SBI
                     - MIX
-                  maxLength: 10
+                  description: >
+                    Significado de Códigos:
+                      * `SCO` - Sociedad Conyugal
+                      * `SBI` - Separación de Bienes
+                      * `MIX` - Mixto
                   example: SBI
                 valor:
                   type: string
@@ -445,8 +462,12 @@ components:
                           - CURS
                           - FIN
                           - TRUN
-                        maxLength: 10
                         example: CURS
+                        description: >
+                          Significado de Códigos:
+                            * `CURS` - Cursando
+                            * `FIN` - Finalizado
+                            * `TRUN` - Trunco
                       valor:
                         type: string
                         enum:
@@ -470,8 +491,14 @@ components:
                           - CONST
                           - TIT
                           - DIP
-                        maxLength: 10
                         example: BOL
+                        description: >
+                          Significado de Códigos:
+                            * `BOL` - Boleta
+                            * `CERT` - Certificado
+                            * `CONST` - Constancia
+                            * `TIT` - Título
+                            * `DIP` - Diploma
                       valor:
                         type: string
                         enum:
@@ -500,21 +527,7 @@ components:
             nivel_gobierno:
               $ref: '#/components/schemas/nivel_orden_gobierno'
             poder_juridico:
-              description: 'Se deberá señalar la naturaleza jurídica al que pertenece: Ejecutivo, Legislativo, Judicial, órgano constitucional autónomo u otro (especificar).'
-              properties:
-                codigo:
-                  type: string
-                  enum:
-                    - EJE
-                    - JUD
-                    - LEG
-                    - OCA
-                    - OTRO
-                  maxLength: 10
-                  example: JUD
-                valor:
-                  type: string
-                  example: Judicial
+              $ref: '#/components/schemas/poder'
             contratado_honorarios:
               description: Se deberá señalar si está contratado por honorarios (sí/no).
               type: boolean
@@ -548,32 +561,7 @@ components:
             sector_industria:
               $ref: '#/components/schemas/sector_industria'
             funciones_principales:
-              description: Se deberá indicar las funciones principales a realizar por el Servidor Público de entre los enlistados.
-              type: array
-              items:
-                type: object
-                properties:
-                  codigo:
-                    type: string
-                    enum:
-                      - ABI
-                      - ARH
-                      - AFIN
-                      - ATEC
-                      - ADP
-                      - AUDI
-                      - CASOP
-                      - FSI
-                      - LEG
-                      - OTORG
-                      - PJUS
-                      - RPP
-                      - OTRO
-                    maxLength: 10
-                    example: ABI
-                  valor:
-                    type: string
-                    example: Administración de bienes
+              $ref: '#/components/schemas/funciones'
         experiencia_laboral:
           description: 'En este apartado se deberá proporcionar información correspondiente a los últimos diez años de experiencia laboral. Se llenará la información relativa a todos los encargos, empleos o comisiones públicos o privados que se hayan tenido en dicho periodo.'
           type: array
@@ -592,29 +580,21 @@ components:
                       - SOC
                       - MULT
                       - OTRO
-                    maxLength: 10
                     example: PUB
+                    description: >
+                      Significado de Códigos:
+                        * `PUB` - Público
+                        * `PRIV` - Privado
+                        * `SOC` - Social
+                        * `MULT` - Multilateral
+                        * `OTRO` - Otro (especifique)
                   valor:
                     type: string
                     example: Público
               nivel_gobierno:
                 $ref: '#/components/schemas/nivel_orden_gobierno'
               poder_ente:
-                type: object
-                properties:
-                  codigo:
-                    type: string
-                    enum:
-                      - EJE
-                      - JUD
-                      - LEG
-                      - OCA
-                      - OTRO
-                    maxLength: 10
-                    example: JUD
-                  valor:
-                    type: string
-                    example: Judicial
+                $ref: '#/components/schemas/poder'
               nombre_institucion:
                 type: string
                 description: Se deberá especificar el nombre de la institución en que se desempeñó profesionalmente.
@@ -639,32 +619,7 @@ components:
               fecha_salida:
                 $ref: '#/components/schemas/fecha'
               funciones_principales:
-                description: Se deberá seleccionar las funciones principales que el Servidor Público Declarante realizaba.
-                type: array
-                items:
-                  type: object
-                  properties:
-                    codigo:
-                      type: string
-                      enum:
-                        - ABI
-                        - ARH
-                        - AFIN
-                        - ATEC
-                        - ADP
-                        - AUDI
-                        - CASOP
-                        - FSI
-                        - LEG
-                        - OTORG
-                        - PJUS
-                        - RPP
-                        - OTRO
-                      maxLength: 10
-                      example: ABI
-                    valor:
-                      type: string
-                      example: Administración de bienes
+                $ref: '#/components/schemas/poder'
         dependientes_economicos:
           description: 'Aquí se deberán proporcionar los datos del cónyuge, concubina o concubinario, pareja en sociedad de convivencia, así como de los dependientes económicos, que son aquellas personas, familiares o no, cuya manutención depende principalmente de los ingresos del Servidor Público Declarante, conforme a la legislación civil aplicable. Para llenar este rubro es necesario tener a la vista actas de nacimiento, CURP del cónyuge, concubina o concubinario y/o dependientes económicos, y cualquier otro documento necesario en el que se incluya la información.'
           type: array
@@ -826,27 +781,7 @@ components:
                       type: string
                       example: XE-IPN Canal 11
                     tipo_apoyo:
-                      description: 'Se deberá señalar el tipo de apoyo que recibe el Declarante, si es un subsidio, servicio, obra u otro (especificar).'
-                      type: object
-                      properties:
-                        codigo:
-                          type: string
-                          enum:
-                            - SUBS
-                            - SERV
-                            - OBRA
-                            - OTRO
-                          description: >
-                            Significado de Abreviaturas:
-                              * `SUBS` - Subsidio
-                              * `SERV` - Servicio
-                              * `OBRA` - Obra
-                              * `OTRO` - Otro (especifique)
-                          example: OBRA
-                        valor:
-                          type: string
-                          description: Valor del tipo de apoyo
-                          example: Obra
+                      $ref: '#/components/schemas/tipo_apoyo'
                     valor_apoyo:
                       type: number
                       minimum: 1
@@ -911,6 +846,13 @@ components:
                       - PPL
                       - OTRO
                     example: ASC
+                    description: >
+                      Significado de Códigos:
+                        * `CJU` - Consejo y/o junta
+                        * `ASC` - Asociaciones civiles
+                        * `OBE` - Organizaciones benéficas
+                        * `PPL` - Partidos políticos
+                        * `OTRO` - Otro (especifique)
                   valor:
                     type: string
                     example: Asociaciones civiles
@@ -934,15 +876,15 @@ components:
                       - PP
                       - OTRO
                     description: >
-                      Significado de Abreviaturas:
-                        * `CSJ` - Consejo
-                        * `DIR` - Directorio
-                        * `JNT` - Junta
-                        * `ASC` - Asociación Civil
-                        * `FUN` - Fundación
-                        * `ORGB` - Organización benéfica
-                        * `PP` - Partido político
-                        * `OTRO` - Otro (especifique)
+                      Significado de Códigos:
+                        * CSJ - Consejo
+                        * DIR - Directorio
+                        * JNT - Junta
+                        * ASC - Asociación Civil
+                        * FUN - Fundación
+                        * ORGB - Organización benéfica
+                        * PP - Partido político
+                        * OTRO - Otro (especifique)
                     example: ASC
                   valor:
                     type: string
@@ -984,22 +926,7 @@ components:
               nivel_orden_gobierno:
                 $ref: '#/components/schemas/nivel_orden_gobierno'
               tipo_apoyo:
-                description: 'Se deberá señalar el tipo de apoyo que recibe el Declarante, si es un subsidio, servicio, obra u otro (especificar).'
-                type: object
-                properties:
-                  codigo:
-                    description: Código del tipo de apoyo
-                    type: string
-                    enum:
-                      - SUBS
-                      - SERV
-                      - OBRA
-                      - OTRO
-                    example: OBRA
-                  valor:
-                    type: string
-                    description: Valor del tipo de apoyo
-                    example: Obra
+                $ref: '#/components/schemas/tipo_apoyo'
               valor_anual_apoyo:
                 type: number
                 minimum: 1
@@ -1264,8 +1191,13 @@ components:
                       - GPR
                       - ODG
                       - OTRO
-                    description: Código del tipo de relación con la persona
                     example: GPR
+                    description: >
+                      Significado de Códigos:
+                        * `CBNC` - Copropietarios de bienes no comerciales
+                        * `GPR` - Garantes de Préstamos Recibidos
+                        * `ODG` - Otorgantes/Depositarios de Garantías
+                        * `OTRO` - Otro (especifique)
                   valor:
                     type: string
                     description: Valor del tipo de relación con la persona
@@ -2019,7 +1951,7 @@ components:
                       - INM
                       - OTRO
                     description: >
-                      Significado de Abreviaturas:
+                      Significado de Códigos:
                         * `VEH` - Vehículo
                         * `BAR` - Barco
                         * `ANV` - Aeronave
@@ -2211,7 +2143,7 @@ components:
                       - TRN
                       - OTRO
                     description: >
-                      Significado de Abreviaturas:
+                      Significado de Códigos:
                         * `CAS` - Casa
                         * `DPT` - Departamento
                         * `TRN` - Terreno
@@ -2499,6 +2431,12 @@ components:
                       - CTAS
                       - OTRO
                     example: VALS
+                    description: >
+                      Significado de Códigos:
+                        * `INVS` - Inversiones
+                        * `VALS` - Valores
+                        * `CTAS` - Cuentas
+                        * `OTRO` - Otro (especifique)
                   valor:
                     type: string
                     example: Valores
@@ -2517,6 +2455,16 @@ components:
                       - FINV
                       - OTRO
                     example: VALRS
+                    description: >
+                      Significado de Códigos:
+                        * `ACCS` - Acciones
+                        * `BONS` - Bonos
+                        * `VALRS` - Valores
+                        * `TITLS` - Títulos
+                        * `CONTSA` - Cuentas de ahorro
+                        * `FRET` - Fondo de Retiro
+                        * `FINV` - Fondo de Inversión
+                        * `OTRO` - Otro (especifique)
                   valor:
                     type: string
                     example: Valores
@@ -2631,8 +2579,12 @@ components:
                       - SEMS
                       - MESS
                       - TUNI
-                    maxLength: 10
-                    description: Código de la unidad temporal. Este dato es información confidencial.
+                    description: >
+                      Significado de Códigos. Este dato es información confidencial:
+                        * `DIAS` - Días
+                        * `SEMS` - Semanas
+                        * `MESS` - Meses
+                        * `TUNI` - Transacción única
                     example: MESS
                   valor:
                     type: string
@@ -2676,7 +2628,6 @@ components:
                       - PLATA
                       - COBRE
                       - OTRO
-                    maxLength: 10
                     example: ORO
                   valor:
                     type: string
@@ -2719,8 +2670,14 @@ components:
                       - INVRSN
                       - TESTM
                       - OTRO
-                    maxLength: 10
                     example: GARNT
+                    description: >
+                      Significado de Códigos:
+                        * `GARNT` - Garantía
+                        * `ADMON` - Administración
+                        * `INVRSN` - Inversión
+                        * `TESTM` - Testamentario
+                        * `OTRO` - Otro (especifique)
                   valor:
                     type: string
                     example: Garantía
@@ -3257,21 +3214,7 @@ components:
               tipo_operacion:
                 $ref: '#/components/schemas/toperacion3'
               tipo_acreedor:
-                description: 'Se deberá seleccionar el tipo de prestador que corresponda al adeudo que declare (institución financiera, persona moral no financiera, persona física u otro - especificar).'
-                type: object
-                properties:
-                  codigo:
-                    type: string
-                    enum:
-                      - INSTF
-                      - PMNF
-                      - PFIS
-                      - OTRO
-                    maxLength: 10
-                    example: INSTF
-                  valor:
-                    type: string
-                    example: Institución Financiera
+                $ref: '#/components/schemas/tipo_acreedor'
               tipo_adeudo:
                 description: 'Se deberá señalar el tipo de adeudo que se declara (vehículo, crédito hipotecario, crédito personal, tarjeta de crédito, deudas comerciales u otro - especificar).'
                 type: object
@@ -3286,7 +3229,7 @@ components:
                       - DC
                       - OTRO
                     description: >
-                      Significado de Abreviaturas:
+                      Significado de Códigos:
                         * `VCL` - Vehículo
                         * `CH` - Crédito hipotecario
                         * `CP` - Crédito personal
@@ -3401,26 +3344,7 @@ components:
                 description: 'Se deberá indicar la cantidad de tiempo (días, meses, años) en la cual se convino el préstamo. En el caso de crédito hipotecario, indicar el plazo original del adeudo en años. Para compra de vehículos indicar el plazo del adeudo en meses. De haber efectuado una reestructuración indicar el plazo y monto en el apartado de observaciones/comentarios.'
                 example: 24
               unidad_medida_adeudo:
-                type: object
-                properties:
-                  codigo:
-                    type: string
-                    enum:
-                      - DIAS
-                      - SEMS
-                      - MESS
-                      - TUNI
-                    description: Código de la unidad temporal
-                    example: MESS
-                  valor:
-                    type: string
-                    enum:
-                      - Días
-                      - Semanas
-                      - Meses
-                      - Transacción única
-                    description: Valor de la unidad temporal
-                    example: Meses
+                $ref: '#/components/schemas/temporalidad'
               titularidad_deuda:
                 $ref: '#/components/schemas/titular_bien'
               porcentaje_adeudo_titular:
@@ -3446,21 +3370,7 @@ components:
               tipo_operacion:
                 $ref: '#/components/schemas/toperacion3'
               tipo_acreedor:
-                description: 'Se deberá seleccionar el tipo de prestador que corresponda al adeudo que declare (institución financiera, persona moral no financiera, persona física u otro - especificar).'
-                type: object
-                properties:
-                  codigo:
-                    type: string
-                    enum:
-                      - INSTF
-                      - PMNF
-                      - PFIS
-                      - OTRO
-                    maxLength: 10
-                    example: INSTF
-                  valor:
-                    type: string
-                    example: Institución Financiera
+                $ref: '#/components/schemas/tipo_acreedor'
               tipo_obligacion:
                 description: 'Se deberá señalar el tipo de obligación que se declara diverso a los descritos en la subsección I. Deudas, de este decimotercer numeral.'
                 type: object
@@ -3474,8 +3384,15 @@ components:
                       - PPERS
                       - TDC
                       - OTRO
-                    maxLength: 10
                     example: CVH
+                    description: >
+                      Significado de Códigos:
+                        * `CVH` - Compra de vehículo
+                        * `CCRED` - Compras a crédito
+                        * `CHIP` - Créditos hipotecarios
+                        * `PPERS` - Préstamos personales
+                        * `TDC` - Tarjetas de crédito
+                        * `OTRO` - Otro (especifique)
                   valor:
                     type: string
                     example: Compra de vehículo
@@ -3581,27 +3498,7 @@ components:
                 description: 'Se deberá indicar la cantidad de tiempo (días, meses, años) en la cual se convino el préstamo.'
                 example: 360
               unidad_medida_plazo:
-                description: Se deberá indicar solamente las unidades con las que se podría medir la inversión/valor.
-                type: object
-                properties:
-                  codigo:
-                    type: string
-                    enum:
-                      - DIAS
-                      - SEMS
-                      - MESS
-                      - TUNI
-                    description: Código de la unidad temporal
-                    example: MESS
-                  valor:
-                    type: string
-                    enum:
-                      - Días
-                      - Semanas
-                      - Meses
-                      - Transacción única
-                    description: Valor de la unidad temporal
-                    example: Meses
+                $ref: '#/components/schemas/temporalidad'
               titularidad_obligacion:
                 $ref: '#/components/schemas/titular_bien'
               porcentaje_obligacion_titular:
@@ -3742,8 +3639,12 @@ components:
             - FED
             - EST
             - MUN
-          description: Código del tipo de nivel de orden de gobierno
           example: EST
+          description: >
+            Significado de Códigos:
+              * `FED` - Federal
+              * `EST` - Estatal
+              * `MUN` - Municipal
         valor:
           type: string
           enum:
@@ -3764,7 +3665,7 @@ components:
             - APOD
             - OTRO
           description: >
-            Significado de Abreviaturas:
+            Significado de Códigos:
               * `MAND` - Mandato
               * `ACOM` - Agencia Comercial
               * `RLEG` - Representante Legal
@@ -3791,27 +3692,7 @@ components:
         moneda:
           $ref: '#/components/schemas/moneda'
         unidad_temporal:
-          type: object
-          properties:
-            codigo:
-              type: string
-              enum:
-                - DIAS
-                - SEMS
-                - MESS
-                - TUNI
-              maxLength: 10
-              description: Código de la unidad temporal
-              example: MESS
-            valor:
-              type: string
-              enum:
-                - Días
-                - Semanas
-                - Meses
-                - Transacción única
-              description: Valor de la unidad temporal
-              example: Meses
+          $ref: '#/components/schemas/temporalidad'
         duracion_frecuencia:
           type: number
           minimum: 1
@@ -3840,7 +3721,7 @@ components:
             - TRP
             - TUR
           description: >
-            Significado de Abreviaturas:
+            Significado de Códigos:
               * `AVS` - Agricultura y vida silvestre
               * `AL` - Asuntos legales
               * `BR` - Bienes raíces
@@ -3872,7 +3753,7 @@ components:
             - SCAMB
             - OTRO
           description: >
-            Significado de Abreviaturas:
+            Significado de Códigos:
               * `INCP` - Incorporación
               * `OBR` - Obra
               * `VNT` - Venta
@@ -3894,7 +3775,7 @@ components:
             - SCAMB
             - OTRO
           description: >
-            Significado de Abreviaturas:
+            Significado de Códigos:
               * `INCP` - Incorporación
               * `VNT` - Venta
               * `SCAMB` - Sin cambio
@@ -3916,7 +3797,7 @@ components:
             - SCAMB
             - OTRO
           description: >
-            Significado de Abreviaturas:
+            Significado de Códigos:
               * `INCP` - Incorporación
               * `SLD` - Saldo
               * `FNQT` - Finiquito
@@ -3940,7 +3821,7 @@ components:
             - MAQ
             - OTRO
           description: >
-            Significado de Abreviaturas:
+            Significado de Códigos:
               * `VEH` - Vehículo
               * `BAR` - Barco
               * `ANV` - Aeronave
@@ -3964,9 +3845,18 @@ components:
             - DON
             - USU
             - REG
-            - OTROS
-          description: Código de la forma de adquisición
+            - OTRO
           example: CES
+          description: >
+            Significado de Códigos:
+              * `CES` - Cesión
+              * `CONT` - Contado
+              * `CRED` - Crédito
+              * `SUCE` - Sucesion
+              * `DON` - Donación
+              * `USU` - Usucapión
+              * `REG` - Regalo
+              * `OTRO` - Otro (especifique)
         valor:
           type: string
           description: Valor de la forma de adquisición
@@ -3982,13 +3872,19 @@ components:
             - PSC
             - DEC
             - OTRO
-          description: Código del tipo de relación con la persona
           example: CONY
+          description: >
+            Significado de Códigos:
+              * `CONY` - Cónyuge
+              * `CONC` - Concubina/Concubinario
+              * `PSC` - Pareja en Sociedad en Convivencia
+              * `DEC` - Dependiente económico
+              * `OTRO` - Otro (especifique)
         valor:
           type: string
           description: Valor del tipo de relación con la persona
           example: Cónyuge
-          
+
     relacion_con_persona2:
       type: object
       properties:
@@ -4009,7 +3905,7 @@ components:
             - CT
             - OTRO
           description: >
-            Significado de Abreviaturas:
+            Significado de Códigos:
               * `CONY` - Cónyuge
               * `CCB` - Concubina o concubinario
               * `HJ` - Hijo/Hija
@@ -4062,8 +3958,15 @@ components:
             - PREST
             - EPROP
             - OTRO
-          maxLength: 10
           example: DECL
+          description: >
+            Significado de Códigos:
+              * `DECL` - Declarante
+              * `CONY` - Cónyuge
+              * `DEPND` - Dependiente
+              * `PREST` - Prestanombre
+              * `EPROP` - Empresa propia
+              * `OTRO` - Otro (especifique)
         valor:
           type: string
           description: Valor del titular de bien
@@ -4075,6 +3978,145 @@ components:
           $ref: '#/components/schemas/pais'
         entidad:
           $ref: '#/components/schemas/entidad_federativa'
+    poder:
+      description: 'Se deberá señalar la naturaleza jurídica al que pertenece: Ejecutivo, Legislativo, Judicial, órgano constitucional autónomo u otro (especificar).'
+      properties:
+        codigo:
+          type: string
+          enum:
+            - EJE
+            - JUD
+            - LEG
+            - OCA
+            - OTRO
+          example: JUD
+          description: >
+            Significado de Códigos:
+              * `EJE` - Ejecutivo
+              * `JUD` - Judicial
+              * `LEG` - Legislativo
+              * `OCA` - Órgano Constitucional Autónomo
+              * `OTRO` - Otro (especifique)
+        valor:
+          type: string
+          example: Judicial
+    funciones:
+      description: Se deberá indicar las funciones principales a realizar por el Servidor Público de entre los enlistados.
+      type: array
+      items:
+        type: object
+        properties:
+          codigo:
+            type: string
+            enum:
+              - ABI
+              - ARH
+              - AFIN
+              - ATEC
+              - ADP
+              - AUDI
+              - CASOP
+              - FSI
+              - LEG
+              - OTORG
+              - PJUS
+              - RPP
+              - OTRO
+            example: ABI
+            description: >
+              Significado de Códigos:
+                * `ABI` - Administración de bienes
+                * `ARH` - Administración de recursos humanos
+                * `AFIN` - Administración Financiera (Recaudación de Ingresos, Desembolso de Fondos, Presupuestos, Contabilidad)
+                * `ATEC` - Áreas técnicas
+                * `ADP` - Atención directa al público
+                * `AUDI` - Auditoría, control interno, fiscalización, vigilancia, interventorías, inspección
+                * `CASOP` - Contratos, adquisiciones, servicios y obra pública
+                * `FSI` - Fuerza de seguridad e inteligencia
+                * `LEG` - Legislar a nivel federal, estatal y cabildo municipal
+                * `OTORG` - Otorgamiento de permisos, beneficios, subsidios, concesiones, licencias, derechos de uso inmobiliario, recursos naturales o propiedad
+                * `PJUS` - Procuración de justicia (sentencias, ministerios públicos, fiscales, policías de investigación, auxiliares ministeriales, etc.)
+                * `RPP` - Regulación y políticas públicas
+                * `OTRO` - Otro (especifique)
+          valor:
+            type: string
+            example: Administración de bienes
+    tipo_apoyo:
+      description: 'Se deberá señalar el tipo de apoyo, si es un subsidio, servicio, obra u otro (especificar).'
+      type: object
+      properties:
+        codigo:
+          type: string
+          enum:
+            - SUBS
+            - SERV
+            - OBRA
+            - OTRO
+          description: >
+            Significado de Códigos:
+              * `SUBS` - Subsidio
+              * `SERV` - Servicio
+              * `OBRA` - Obra
+              * `OTRO` - Otro (especifique)
+          example: OBRA
+        valor:
+          type: string
+          description: Valor del tipo de apoyo
+          example: Obra
+    tipo_acreedor:
+      description: 'Se deberá seleccionar el tipo de prestador que corresponda al adeudo que declare (institución financiera, persona moral no financiera, persona física u otro - especificar).'
+      type: object
+      properties:
+        codigo:
+          type: string
+          enum:
+            - INSTF
+            - PMNF
+            - PFIS
+            - OTRO
+          example: INSTF
+          description: >
+            Significado de Códigos:
+              * `INSTF` - Institución Financiera
+              * `PMNF` - Persona Moral No Financiera
+              * `PFIS` - Persona Física
+              * `OTRO` - Otro (especifique)
+        valor:
+          type: string
+          example: Institución Financiera
+    temporalidad:
+      type: object
+      properties:
+        codigo:
+          type: string
+          enum:
+            - DIAS
+            - SEMS
+            - MESS
+            - TUNI
+          example: MESS
+          description: >
+            Significado de Códigos:
+              * `DIAS` - Días
+              * `SEMS` - Semanas
+              * `MESS` - Meses
+              * `TUNI` - Transacción única
+        valor:
+          type: string
+          enum:
+            - Días
+            - Semanas
+            - Meses
+            - Transacción única
+          description: Valor de la unidad temporal
+          example: Meses
+    ordenamiento:
+      type: string
+      enum:
+        - asc
+        - desc
+      description: Campo a ordenar de forma ascendente (asc) o descendente (desc).
+      example: asc
     post_query:
       type: object
       properties:
@@ -4082,124 +4124,39 @@ components:
           type: object
           properties:
             informacion_personal.informacion_general.nombres:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
             informacion_personal.informacion_general.primer_apellido:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
             informacion_personal.informacion_general.segundo_apellido:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
             informacion_personal.datos_encargo_actual.ente_publico:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
             informacion_personal.datos_encargo_actual.direccion_encargo.entidad_federativa.cve_ent:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
             informacion_personal.datos_encargo_actual.direccion_encargo.municipio.cve_mun:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
             informacion_personal.datos_encargo_actual.empleo_cargo_comision:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
             informacion_personal.datos_encargo_actual.nivel_gobierno.codigo:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
             activos.bienes_inmuebles.superficie_construccion:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
             activos.bienes_inmuebles.superficie_terreno:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
             activos.bienes_inmuebles.forma_adquisicion.codigo:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
             activos.bienes_inmuebles.precio_adquisicion.valor:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
             activos.bienes_inmuebles.valor_catastral:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
             informacion_personal.datos_encargo_actual.nivel_encargo:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
             informacion_personal.datos_curriculares.grado_maximo_escolaridad:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
             ingresos.sueldos_salarios_publicos.ingreso_bruto_anual.valor:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
             ingresos.sueldos_salarios_publicos.ingreso_bruto_anual.moneda.codigo:
-              type: string
-              enum:
-                - asc
-                - desc
-              description: Campo a ordenar de forma ascendente o descendente
-              example: asc
+              $ref: '#/components/schemas/ordenamiento'
         page:
           type: integer
           description: Número de página a mostrar

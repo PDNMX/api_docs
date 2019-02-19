@@ -1085,10 +1085,10 @@
                 "nom_mun": "Ecatepec de Morelos",
                 "cve_mun": "033"
               },
-              "cp": 55018,
+              "cp": "55018",
               "localidad": {
                 "nom_loc": "Ecatepec de Morelos",
-                "cve_loc": 1
+                "cve_loc": "0001"
               },
               "vialidad": {
                 "tipo_vial": "CALLE",

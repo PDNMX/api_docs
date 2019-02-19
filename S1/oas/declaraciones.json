@@ -2613,7 +2613,7 @@
                     "cp" : {
                       "type" : "string",
                       "description" : "Código postal del domicilio",
-                      "example" : 55018
+                      "example" : "55018"
                     },
                     "localidad" : {
                       "type" : "object",
@@ -2626,7 +2626,7 @@
                         "cve_loc" : {
                           "type" : "string",
                           "description" : "Clave de la localidad",
-                          "example" : 1
+                          "example" : "0001"
                         }
                       }
                     },

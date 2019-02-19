@@ -2053,7 +2053,7 @@ components:
                   cp:
                     type: string
                     description: Código postal del domicilio
-                    example: 55018
+                    example: '55018'
                   localidad:
                     type: object
                     properties:
@@ -2064,7 +2064,7 @@ components:
                       cve_loc:
                         type: string
                         description: Clave de la localidad
-                        example: 0001
+                        example: '0001'
                   vialidad:
                     type: object
                     properties:
@@ -4158,7 +4158,7 @@ components:
         id:
           type: string
           description: 'Devuelve resultados al buscar una declaración por su ID. Si se especifica este valor, el objeto query es omitido.'
-          example: 123abc
+          example: '123abc'
         query:
           properties:
             informacion_personal.informacion_general.nombres:

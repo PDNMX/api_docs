@@ -169,8 +169,8 @@
             "extension": 1020
           },
           "sector_industria": {
-            "codigo": "SFS",
-            "valor": "Servicios de salud y asistencia social"
+            "codigo": "MIN",
+            "valor": "Minería"
           },
           "funciones_principales": [
             {
@@ -221,17 +221,19 @@
               "numInt": "48"
             },
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "jerarquia_rango": "string",
             "cargo_puesto": "Jefe de Departamento",
             "fecha_ingreso": "2010-07-26",
             "fecha_salida": "2010-07-26",
-            "funciones_principales": {
-              "codigo": "JUD",
-              "valor": "Judicial"
-            }
+            "funciones_principales": [
+              {
+                "codigo": "ABI",
+                "valor": "Administración de bienes"
+              }
+            ]
           }
         ],
         "dependientes_economicos": [
@@ -285,8 +287,8 @@
             "ingresos_propios": true,
             "ocupacion_profesion": "Administrador de empresas",
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "proveedor_contratista_gobierno": true,
             "tiene_intereses_mismo_sector_declarante": true,
@@ -349,8 +351,8 @@
             "rol": "Dueño",
             "actividad_economica": true,
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "porcentaje_participacion": 70
           }
@@ -393,8 +395,8 @@
               "numInt": "48"
             },
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "puesto_rol": "Titular",
             "fecha_inicio": "2010-07-26",
@@ -432,8 +434,8 @@
             "rfc_parte": "GOAP780710RH7",
             "fecha_nacimiento_parte": "2010-07-26",
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "fecha_inicio": "2010-07-26",
             "pagado": true,
@@ -461,8 +463,8 @@
             "tiene_intereses": true,
             "ocupacion_profesion": "Contador",
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "observaciones": "Esto es una observación"
           }
@@ -490,8 +492,8 @@
             "fecha_nacimiento": "2010-07-26",
             "porcentaje_participacion": 70,
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "observaciones": "Esto es una observación"
           }
@@ -530,8 +532,8 @@
               "numInt": "48"
             },
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "porcentaje_participacion": 70,
             "observaciones": "Esto es una observación"
@@ -558,8 +560,8 @@
             "ocupacion": "Administrador de empresas",
             "tiene_interes": true,
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "observaciones": "Esto es una observación"
           }
@@ -570,8 +572,8 @@
             "tipo_beneficio": "Tarjetas o monederos electrónicos",
             "origen_beneficio": "Prestación laboral",
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "valor_beneficio": 1256,
             "observaciones": "Esto es una observación"
@@ -610,8 +612,8 @@
             "rfc": "GOAP780710RH7",
             "curp": "BEML920313HMCLNS09",
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "tipo_actividad_servicio": {
               "codigo": "SAL",
@@ -666,8 +668,8 @@
             "rfc": "GOAP780710RH7",
             "curp": "BEML920313HMCLNS09",
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "tipo_actividad_servicio": {
               "codigo": "SAL",
@@ -722,8 +724,8 @@
             "rfc": "GOAP780710RH7",
             "curp": "BEML920313HMCLNS09",
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "tipo_actividad_servicio": {
               "codigo": "SAL",
@@ -778,8 +780,8 @@
             "rfc": "GOAP780710RH7",
             "curp": "BEML920313HMCLNS09",
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "tipo_actividad_servicio": {
               "codigo": "SAL",
@@ -834,8 +836,8 @@
             "rfc": "GOAP780710RH7",
             "curp": "BEML920313HMCLNS09",
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "tipo_actividad_servicio": {
               "codigo": "SAL",
@@ -890,8 +892,8 @@
             "rfc": "GOAP780710RH7",
             "curp": "BEML920313HMCLNS09",
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "tipo_actividad_servicio": {
               "codigo": "SAL",
@@ -946,8 +948,8 @@
             "rfc": "GOAP780710RH7",
             "curp": "BEML920313HMCLNS09",
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "tipo_actividad_servicio": {
               "codigo": "SAL",
@@ -1006,8 +1008,8 @@
               "valor": "Barco"
             },
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "tipo_actividad_servicio": {
               "codigo": "SAL",
@@ -1062,8 +1064,8 @@
             "rfc": "GOAP780710RH7",
             "curp": "BEML920313HMCLNS09",
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "tipo_actividad": {
               "codigo": "SAL",
@@ -1083,10 +1085,10 @@
                 "nom_mun": "Ecatepec de Morelos",
                 "cve_mun": "033"
               },
-              "cp": "55018",
+              "cp": 55018,
               "localidad": {
                 "nom_loc": "Ecatepec de Morelos",
-                "cve_loc": "0001"
+                "cve_loc": 1
               },
               "vialidad": {
                 "tipo_vial": "CALLE",
@@ -1179,8 +1181,8 @@
               "valor": "Cónyuge"
             },
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "fecha_adquisicion": "2010-07-26",
             "precio_adquisicion": {
@@ -1239,8 +1241,8 @@
               "valor": "Cónyuge"
             },
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "fecha_adquisicion": "2010-07-26",
             "precio_adquisicion": {
@@ -1316,8 +1318,8 @@
             "nombre_institucion": "Bank Inkc",
             "rfc_institucion": "GOAP780710RH7",
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "domicilio_institucion": {
               "pais": {
@@ -1533,8 +1535,8 @@
             "numero_registro": 754444,
             "fecha_registro": "2010-07-26",
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "precio_adquisicion": {
               "valor": 4000,
@@ -1592,8 +1594,8 @@
               "numInt": "48"
             },
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "fecha_prestamo": "2010-07-26",
             "monto_original_prestamo": 488844,
@@ -1624,8 +1626,8 @@
               "valor": "Cónyuge"
             },
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "fecha_inicio": "2010-07-26",
             "domicilio_persona": {
@@ -1681,8 +1683,8 @@
             "nombre_acreedor": "PNBKSRIBAS SA DE CV",
             "rfc_acreedor": "GOAP780710RH7",
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "domicilio_acreedor": {
               "pais": {
@@ -1758,8 +1760,8 @@
             "nombre_acreedor": "Banksy",
             "rfc_acreedor": "GOAP780710RH7",
             "sector_industria": {
-              "codigo": "SFS",
-              "valor": "Servicios de salud y asistencia social"
+              "codigo": "MIN",
+              "valor": "Minería"
             },
             "domicilio_acreedor": {
               "pais": {

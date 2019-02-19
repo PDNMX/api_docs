@@ -13,7 +13,7 @@
         "parameters" : [ {
           "name" : "sort",
           "in" : "query",
-          "description" : "Ordena por fecha de actualización de forma ascendente y descendente, los valores permitidos son 'asc' y 'desc', por defecto el orden es ascendente.",
+          "description" : "Ordena por fecha de actualización de forma ascendente y descendente, por defecto el orden es ascendente.",
           "schema" : {
             "type" : "string",
             "enum" : [ "asc", "desc" ],
@@ -352,13 +352,11 @@
                 "properties" : {
                   "particular" : {
                     "type" : "string",
-                    "maxLength" : 15,
                     "description" : "Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf. Este dato es información confidencial",
                     "example" : "+525510203040"
                   },
                   "celular" : {
                     "type" : "string",
-                    "maxLength" : 15,
                     "description" : "Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf. Este dato es información confidencial",
                     "example" : "+525510203040"
                   }
@@ -384,7 +382,6 @@
                       },
                       "cve_mun" : {
                         "type" : "string",
-                        "maxLength" : 10,
                         "description" : "Clave del municipio",
                         "example" : "033"
                       }
@@ -405,7 +402,6 @@
                       },
                       "cve_loc" : {
                         "type" : "string",
-                        "maxLength" : 10,
                         "description" : "Clave de la localidad",
                         "example" : "0001"
                       }
@@ -514,7 +510,7 @@
                             },
                             "codigo" : {
                               "type" : "string",
-                              "maxLength" : 5,
+                              "maxLength" : 2,
                               "description" : "Código alpha 2 del país especificado en estándar ISO3166",
                               "example" : "MX"
                             }
@@ -530,7 +526,6 @@
                             },
                             "cve_ent" : {
                               "type" : "string",
-                              "maxLength" : 5,
                               "description" : "Clave de la entidad federativa del Marco Geoestadístico Nacional",
                               "example" : "15"
                             }
@@ -546,7 +541,6 @@
                             },
                             "cve_mun" : {
                               "type" : "string",
-                              "maxLength" : 10,
                               "description" : "Clave del municipio del Marco Geoestadístico Nacional",
                               "example" : "033"
                             }
@@ -655,13 +649,11 @@
                 "properties" : {
                   "numero" : {
                     "type" : "string",
-                    "maxLength" : 15,
                     "description" : "Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf. Este dato es información confidencial",
                     "example" : "+525510203040"
                   },
                   "extension" : {
                     "type" : "integer",
-                    "maxLength" : 10,
                     "description" : "Extensión del número laboral, en caso de aplicar",
                     "example" : 1020
                   }
@@ -735,7 +727,7 @@
                   "$ref" : "#/components/schemas/fecha"
                 },
                 "funciones_principales" : {
-                  "$ref" : "#/components/schemas/poder"
+                  "$ref" : "#/components/schemas/funciones"
                 }
               }
             }
@@ -838,7 +830,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -859,7 +850,6 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
                           "example" : "0001"
                         }
@@ -1375,7 +1365,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -1396,7 +1385,6 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
                           "example" : "0001"
                         }
@@ -1666,7 +1654,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -1687,7 +1674,6 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
                           "example" : "0001"
                         }
@@ -1785,7 +1771,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -1806,7 +1791,6 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
                           "example" : "0001"
                         }
@@ -1904,7 +1888,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -1925,7 +1908,6 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
                           "example" : "0001"
                         }
@@ -2023,7 +2005,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -2044,7 +2025,6 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
                           "example" : "0001"
                         }
@@ -2142,7 +2122,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -2163,7 +2142,6 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
                           "example" : "0001"
                         }
@@ -2261,7 +2239,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -2282,7 +2259,6 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
                           "example" : "0001"
                         }
@@ -2379,7 +2355,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -2400,7 +2375,6 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
                           "example" : "0001"
                         }
@@ -2514,7 +2488,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -2535,7 +2508,6 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
                           "example" : "0001"
                         }
@@ -2633,7 +2605,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -2642,7 +2613,7 @@
                     "cp" : {
                       "type" : "string",
                       "description" : "Código postal del domicilio",
-                      "example" : "55018"
+                      "example" : 55018
                     },
                     "localidad" : {
                       "type" : "object",
@@ -2654,9 +2625,8 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
-                          "example" : "0001"
+                          "example" : 1
                         }
                       }
                     },
@@ -2817,7 +2787,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -2838,7 +2807,6 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
                           "example" : "0001"
                         }
@@ -3161,7 +3129,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -3182,7 +3149,6 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
                           "example" : "0001"
                         }
@@ -3449,7 +3415,6 @@
                             },
                             "cve_mun" : {
                               "type" : "string",
-                              "maxLength" : 10,
                               "description" : "Clave del municipio",
                               "example" : "033"
                             }
@@ -3470,7 +3435,6 @@
                             },
                             "cve_loc" : {
                               "type" : "string",
-                              "maxLength" : 10,
                               "description" : "Clave de la localidad",
                               "example" : "0001"
                             }
@@ -3550,7 +3514,6 @@
                             },
                             "cve_mun" : {
                               "type" : "string",
-                              "maxLength" : 10,
                               "description" : "Clave del municipio",
                               "example" : "033"
                             }
@@ -3571,7 +3534,6 @@
                             },
                             "cve_loc" : {
                               "type" : "string",
-                              "maxLength" : 10,
                               "description" : "Clave de la localidad",
                               "example" : "0001"
                             }
@@ -3651,7 +3613,6 @@
                             },
                             "cve_mun" : {
                               "type" : "string",
-                              "maxLength" : 10,
                               "description" : "Clave del municipio",
                               "example" : "033"
                             }
@@ -3672,7 +3633,6 @@
                             },
                             "cve_loc" : {
                               "type" : "string",
-                              "maxLength" : 10,
                               "description" : "Clave de la localidad",
                               "example" : "0001"
                             }
@@ -3834,7 +3794,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -3855,7 +3814,6 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
                           "example" : "0001"
                         }
@@ -4003,7 +3961,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -4024,7 +3981,6 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
                           "example" : "0001"
                         }
@@ -4142,7 +4098,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -4163,7 +4118,6 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
                           "example" : "0001"
                         }
@@ -4236,7 +4190,7 @@
                   "example" : 24
                 },
                 "unidad_medida_adeudo" : {
-                  "$ref" : "#/components/schemas/temporalidad"
+                  "$ref" : "#/components/schemas/unidad_medida"
                 },
                 "titularidad_deuda" : {
                   "$ref" : "#/components/schemas/titular_bien"
@@ -4333,7 +4287,6 @@
                         },
                         "cve_mun" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave del municipio",
                           "example" : "033"
                         }
@@ -4354,7 +4307,6 @@
                         },
                         "cve_loc" : {
                           "type" : "string",
-                          "maxLength" : 10,
                           "description" : "Clave de la localidad",
                           "example" : "0001"
                         }
@@ -4425,7 +4377,7 @@
                   "example" : 360
                 },
                 "unidad_medida_plazo" : {
-                  "$ref" : "#/components/schemas/temporalidad"
+                  "$ref" : "#/components/schemas/unidad_medida"
                 },
                 "titularidad_obligacion" : {
                   "$ref" : "#/components/schemas/titular_bien"
@@ -4470,7 +4422,6 @@
               },
               "cve_mun" : {
                 "type" : "string",
-                "maxLength" : 10,
                 "description" : "Clave del municipio",
                 "example" : "033"
               }
@@ -4491,7 +4442,6 @@
               },
               "cve_loc" : {
                 "type" : "string",
-                "maxLength" : 10,
                 "description" : "Clave de la localidad",
                 "example" : "0001"
               }
@@ -4530,14 +4480,14 @@
         "properties" : {
           "codigo" : {
             "type" : "string",
-            "maxLength" : 10,
-            "description" : "Código del sector o industria",
-            "example" : "SFS"
+            "enum" : [ "ALGIJOIE", "ACEAAFPC", "COMMAYOR", "COMMENOR", "CONST", "CORP", "GTDEESAGDCF", "INDMAN", "IMM", "MIN", "OTRO", "OSEAG", "SATPAB", "SANMDSR", "SECDOSR", "SSAS", "SERVEDU", "SFS", "SIABMI", "SPCT", "TCA" ],
+            "example" : "MIN",
+            "description" : "Significado de Códigos: * `ALGIJOIE` - Actividades legislativas, gubernamentales, de impartición de justicia y de organismos internacionales y extraterritoriales * `ACEAAFPC` - Agricultura, cría y explotación de animales, aprovechamiento forestal, pesca y caza * `COMMAYOR` - Comercio al por mayor * `COMMENOR` - Comercio al por menor * `CONST` - Construcción * `CORP` - Corporativos * `GTDEESAGDCF` - Generación, transmisión y distribución de energía eléctrica, suministro de agua y de gas por ductos al consumidor final * `INDMAN` - Industrias manufactureras * `IMM` - Información en medios masivos * `MIN` - Minería * `OTRO` - Otro (especifique) * `OSEAG` - Otros servicios excepto actividades gubernamentales * `SATPAB` - Servicios de alojamiento temporal y de preparación de alimentos y bebidas * `SANMDSR` - Servicios de apoyo a los negocios y manejo de desechos y servicios de remediación * `SECDOSR` - Servicios de esparcimiento culturales y deportivos, y otros servicios recreativos * `SSAS` - Servicios de salud y de asistencia social * `SERVEDU` - Servicios educativos * `SFS` - Servicios financieros y seguros * `SIABMI` - Servicios inmobiliarios y de alquiler de bienes muebles e intangibles * `SPCT` - Servicios profesionales, científicos y técnicos * `TCA` - Transportes, correos y almacenamiento\n"
           },
           "valor" : {
             "type" : "string",
             "description" : "Valor del sector o industria a la que pertenece",
-            "example" : "Servicios de salud y asistencia social"
+            "example" : "Minería"
           }
         }
       },
@@ -4556,7 +4506,7 @@
           },
           "codigo" : {
             "type" : "string",
-            "maxLength" : 5,
+            "maxLength" : 2,
             "description" : "Código alpha 2 del país especificado en estándar ISO3166",
             "example" : "MX"
           }
@@ -4584,7 +4534,6 @@
           },
           "cve_ent" : {
             "type" : "string",
-            "maxLength" : 5,
             "description" : "Clave de la entidad federativa del Marco Geoestadístico Nacional",
             "example" : "15"
           }
@@ -4639,7 +4588,6 @@
       },
       "observaciones" : {
         "type" : "string",
-        "maxLength" : 200,
         "description" : "Observaciones correspondientes",
         "example" : "Esto es una observación"
       },
@@ -4656,7 +4604,7 @@
             "$ref" : "#/components/schemas/moneda"
           },
           "unidad_temporal" : {
-            "$ref" : "#/components/schemas/temporalidad"
+            "$ref" : "#/components/schemas/unidad_medida"
           },
           "duracion_frecuencia" : {
             "type" : "number",
@@ -4821,7 +4769,6 @@
           },
           "moneda" : {
             "type" : "string",
-            "maxLength" : 5,
             "description" : "Divisa de la moneda de acuerdo al estándar ISO 4217",
             "example" : "MXN"
           }
@@ -4921,7 +4868,7 @@
           }
         }
       },
-      "temporalidad" : {
+      "unidad_medida" : {
         "type" : "object",
         "properties" : {
           "codigo" : {

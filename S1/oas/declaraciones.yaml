@@ -12,7 +12,7 @@ paths:
       parameters:
         - name: sort
           in: query
-          description: 'Ordena por fecha de actualización de forma ascendente y descendente, los valores permitidos son ''asc'' y ''desc'', por defecto el orden es ascendente.'
+          description: 'Ordena por fecha de actualización de forma ascendente y descendente, por defecto el orden es ascendente.'
           schema:
             type: string
             enum:
@@ -269,12 +269,10 @@ components:
               properties:
                 particular:
                   type: string
-                  maxLength: 15
                   description: 'Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf. Este dato es información confidencial'
                   example: '+525510203040'
                 celular:
                   type: string
-                  maxLength: 15
                   description: 'Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf. Este dato es información confidencial'
                   example: '+525510203040'
             domicilio:
@@ -294,7 +292,6 @@ components:
                       example: Ecatepec de Morelos
                     cve_mun:
                       type: string
-                      maxLength: 10
                       description: Clave del municipio
                       example: '033'
                 cp:
@@ -310,7 +307,6 @@ components:
                       example: Ecatepec de Morelos
                     cve_loc:
                       type: string
-                      maxLength: 10
                       description: Clave de la localidad
                       example: '0001'
                 vialidad:
@@ -422,7 +418,7 @@ components:
                             example: México
                           codigo:
                             type: string
-                            maxLength: 5
+                            maxLength: 2
                             description: Código alpha 2 del país especificado en estándar ISO3166
                             example: MX
                       entidad_federativa:
@@ -434,7 +430,6 @@ components:
                             example: México
                           cve_ent:
                             type: string
-                            maxLength: 5
                             description: Clave de la entidad federativa del Marco Geoestadístico Nacional
                             example: '15'
                       municipio:
@@ -446,7 +441,6 @@ components:
                             example: Ecatepec de Morelos
                           cve_mun:
                             type: string
-                            maxLength: 10
                             description: Clave del municipio del Marco Geoestadístico Nacional
                             example: '033'
                   carrera:
@@ -550,12 +544,10 @@ components:
               properties:
                 numero:
                   type: string
-                  maxLength: 15
                   description: 'Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf. Este dato es información confidencial'
                   example: '+525510203040'
                 extension:
                   type: integer
-                  maxLength: 10
                   description: 'Extensión del número laboral, en caso de aplicar'
                   example: 1020
             sector_industria:
@@ -619,7 +611,7 @@ components:
               fecha_salida:
                 $ref: '#/components/schemas/fecha'
               funciones_principales:
-                $ref: '#/components/schemas/poder'
+                $ref: '#/components/schemas/funciones'
         dependientes_economicos:
           description: 'Aquí se deberán proporcionar los datos del cónyuge, concubina o concubinario, pareja en sociedad de convivencia, así como de los dependientes económicos, que son aquellas personas, familiares o no, cuya manutención depende principalmente de los ingresos del Servidor Público Declarante, conforme a la legislación civil aplicable. Para llenar este rubro es necesario tener a la vista actas de nacimiento, CURP del cónyuge, concubina o concubinario y/o dependientes económicos, y cualquier otro documento necesario en el que se incluya la información.'
           type: array
@@ -699,7 +691,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
@@ -715,7 +706,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
                         example: '0001'
                   vialidad:
@@ -1124,7 +1114,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
@@ -1140,7 +1129,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
                         example: '0001'
                   vialidad:
@@ -1348,7 +1336,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
@@ -1364,7 +1351,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
                         example: '0001'
                   vialidad:
@@ -1436,7 +1422,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
@@ -1452,7 +1437,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
                         example: '0001'
                   vialidad:
@@ -1524,7 +1508,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
@@ -1540,7 +1523,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
                         example: '0001'
                   vialidad:
@@ -1612,7 +1594,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
@@ -1628,7 +1609,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
                         example: '0001'
                   vialidad:
@@ -1700,7 +1680,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
@@ -1716,7 +1695,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
                         example: '0001'
                   vialidad:
@@ -1788,7 +1766,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
@@ -1804,7 +1781,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
                         example: '0001'
                   vialidad:
@@ -1875,7 +1851,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
@@ -1891,7 +1866,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
                         example: '0001'
                   vialidad:
@@ -1988,7 +1962,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
@@ -2004,7 +1977,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
                         example: '0001'
                   vialidad:
@@ -2076,13 +2048,12 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
                     type: string
                     description: Código postal del domicilio
-                    example: '55018'
+                    example: 55018
                   localidad:
                     type: object
                     properties:
@@ -2092,9 +2063,8 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
-                        example: '0001'
+                        example: 0001
                   vialidad:
                     type: object
                     properties:
@@ -2222,7 +2192,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
@@ -2238,7 +2207,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
                         example: '0001'
                   vialidad:
@@ -2501,7 +2469,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
@@ -2517,7 +2484,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
                         example: '0001'
                   vialidad:
@@ -2746,7 +2712,6 @@ components:
                             example: Ecatepec de Morelos
                           cve_mun:
                             type: string
-                            maxLength: 10
                             description: Clave del municipio
                             example: '033'
                       cp:
@@ -2762,7 +2727,6 @@ components:
                             example: Ecatepec de Morelos
                           cve_loc:
                             type: string
-                            maxLength: 10
                             description: Clave de la localidad
                             example: '0001'
                       vialidad:
@@ -2822,7 +2786,6 @@ components:
                             example: Ecatepec de Morelos
                           cve_mun:
                             type: string
-                            maxLength: 10
                             description: Clave del municipio
                             example: '033'
                       cp:
@@ -2838,7 +2801,6 @@ components:
                             example: Ecatepec de Morelos
                           cve_loc:
                             type: string
-                            maxLength: 10
                             description: Clave de la localidad
                             example: '0001'
                       vialidad:
@@ -2898,7 +2860,6 @@ components:
                             example: Ecatepec de Morelos
                           cve_mun:
                             type: string
-                            maxLength: 10
                             description: Clave del municipio
                             example: '033'
                       cp:
@@ -2914,7 +2875,6 @@ components:
                             example: Ecatepec de Morelos
                           cve_loc:
                             type: string
-                            maxLength: 10
                             description: Clave de la localidad
                             example: '0001'
                       vialidad:
@@ -3033,7 +2993,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
@@ -3049,7 +3008,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
                         example: '0001'
                   vialidad:
@@ -3159,7 +3117,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
@@ -3175,7 +3132,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
                         example: '0001'
                   vialidad:
@@ -3274,7 +3230,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
@@ -3290,7 +3245,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
                         example: '0001'
                   vialidad:
@@ -3344,7 +3298,7 @@ components:
                 description: 'Se deberá indicar la cantidad de tiempo (días, meses, años) en la cual se convino el préstamo. En el caso de crédito hipotecario, indicar el plazo original del adeudo en años. Para compra de vehículos indicar el plazo del adeudo en meses. De haber efectuado una reestructuración indicar el plazo y monto en el apartado de observaciones/comentarios.'
                 example: 24
               unidad_medida_adeudo:
-                $ref: '#/components/schemas/temporalidad'
+                $ref: '#/components/schemas/unidad_medida'
               titularidad_deuda:
                 $ref: '#/components/schemas/titular_bien'
               porcentaje_adeudo_titular:
@@ -3430,7 +3384,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_mun:
                         type: string
-                        maxLength: 10
                         description: Clave del municipio
                         example: '033'
                   cp:
@@ -3446,7 +3399,6 @@ components:
                         example: Ecatepec de Morelos
                       cve_loc:
                         type: string
-                        maxLength: 10
                         description: Clave de la localidad
                         example: '0001'
                   vialidad:
@@ -3498,7 +3450,7 @@ components:
                 description: 'Se deberá indicar la cantidad de tiempo (días, meses, años) en la cual se convino el préstamo.'
                 example: 360
               unidad_medida_plazo:
-                $ref: '#/components/schemas/temporalidad'
+                $ref: '#/components/schemas/unidad_medida'
               titularidad_obligacion:
                 $ref: '#/components/schemas/titular_bien'
               porcentaje_obligacion_titular:
@@ -3529,7 +3481,6 @@ components:
               example: Ecatepec de Morelos
             cve_mun:
               type: string
-              maxLength: 10
               description: Clave del municipio
               example: '033'
         cp:
@@ -3545,7 +3496,6 @@ components:
               example: Ecatepec de Morelos
             cve_loc:
               type: string
-              maxLength: 10
               description: Clave de la localidad
               example: '0001'
         vialidad:
@@ -3573,13 +3523,56 @@ components:
       properties:
         codigo:
           type: string
-          maxLength: 10
-          description: Código del sector o industria
-          example: SFS
+          enum:
+          - ALGIJOIE
+          - ACEAAFPC
+          - COMMAYOR
+          - COMMENOR
+          - CONST
+          - CORP
+          - GTDEESAGDCF
+          - INDMAN
+          - IMM
+          - MIN
+          - OTRO
+          - OSEAG
+          - SATPAB
+          - SANMDSR
+          - SECDOSR
+          - SSAS
+          - SERVEDU
+          - SFS
+          - SIABMI
+          - SPCT
+          - TCA
+          example: MIN
+          description: >
+            Significado de Códigos:
+            * `ALGIJOIE` - Actividades legislativas, gubernamentales, de impartición de justicia y de organismos internacionales y extraterritoriales
+            * `ACEAAFPC` - Agricultura, cría y explotación de animales, aprovechamiento forestal, pesca y caza
+            * `COMMAYOR` - Comercio al por mayor
+            * `COMMENOR` - Comercio al por menor
+            * `CONST` - Construcción
+            * `CORP` - Corporativos
+            * `GTDEESAGDCF` - Generación, transmisión y distribución de energía eléctrica, suministro de agua y de gas por ductos al consumidor final
+            * `INDMAN` - Industrias manufactureras
+            * `IMM` - Información en medios masivos
+            * `MIN` - Minería
+            * `OTRO` - Otro (especifique)
+            * `OSEAG` - Otros servicios excepto actividades gubernamentales
+            * `SATPAB` - Servicios de alojamiento temporal y de preparación de alimentos y bebidas
+            * `SANMDSR` - Servicios de apoyo a los negocios y manejo de desechos y servicios de remediación
+            * `SECDOSR` - Servicios de esparcimiento culturales y deportivos, y otros servicios recreativos
+            * `SSAS` - Servicios de salud y de asistencia social
+            * `SERVEDU` - Servicios educativos
+            * `SFS` - Servicios financieros y seguros
+            * `SIABMI` - Servicios inmobiliarios y de alquiler de bienes muebles e intangibles
+            * `SPCT` - Servicios profesionales, científicos y técnicos
+            * `TCA` - Transportes, correos y almacenamiento
         valor:
           type: string
           description: Valor del sector o industria a la que pertenece
-          example: Servicios de salud y asistencia social
+          example: Minería
     rfc:
       description: 'Se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria.'
       type: string
@@ -3593,7 +3586,7 @@ components:
           example: México
         codigo:
           type: string
-          maxLength: 5
+          maxLength: 2
           description: Código alpha 2 del país especificado en estándar ISO3166
           example: MX
     fecha:
@@ -3615,7 +3608,6 @@ components:
           example: México
         cve_ent:
           type: string
-          maxLength: 5
           description: Clave de la entidad federativa del Marco Geoestadístico Nacional
           example: '15'
     id:
@@ -3678,7 +3670,6 @@ components:
           example: Apoderado
     observaciones:
       type: string
-      maxLength: 200
       description: Observaciones correspondientes
       example: Esto es una observación
     ingreso_bruto_anual:
@@ -3692,7 +3683,7 @@ components:
         moneda:
           $ref: '#/components/schemas/moneda'
         unidad_temporal:
-          $ref: '#/components/schemas/temporalidad'
+          $ref: '#/components/schemas/unidad_medida'
         duracion_frecuencia:
           type: number
           minimum: 1
@@ -3943,7 +3934,6 @@ components:
           example: MXN
         moneda:
           type: string
-          maxLength: 5
           description: Divisa de la moneda de acuerdo al estándar ISO 4217
           example: MXN
     titular_bien:
@@ -4084,7 +4074,7 @@ components:
         valor:
           type: string
           example: Institución Financiera
-    temporalidad:
+    unidad_medida:
       type: object
       properties:
         codigo:

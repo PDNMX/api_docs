@@ -246,7 +246,25 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["fecha_captura", "numero_expediente", "sistema_origen", "nombre_razon_social", "rfc", "tipo_sancion", "institucion_dependencia", "tipo_falta", "causa_motivo_hechos", "objeto_social", "objeto_contrato", "autoridad_sancionadora", "responsable", "resolucion", "multa", "inhabilitacion", "documentos"],
+              "required": [
+                "fecha_captura",
+                "numero_expediente",
+                "sistema_origen",
+                "nombre_razon_social",
+                "rfc",
+                "tipo_sancion",
+                "institucion_dependencia",
+                "tipo_falta",
+                "causa_motivo_hechos",
+                "objeto_social",
+                "objeto_contrato",
+                "autoridad_sancionadora",
+                "responsable",
+                "resolucion",
+                "multa",
+                "inhabilitacion",
+                "documentos"
+              ],
               "properties": {
                 "fecha_captura": {
                   "type": "string",
@@ -254,7 +272,7 @@
                   "description": "La fecha y hora en la que se agrega o modifica el registro",
                   "example": "2017-07-21T17:32:28Z"
                 },
-                "numero_expediente": {
+                "expediente": {
                   "type": "string",
                   "description": "Número de expediente",
                   "example": "ABC123"
@@ -263,6 +281,16 @@
                   "type": "string",
                   "description": "Sistema o base de datos donde se origina el número de expediente.",
                   "example": "Directorio de Sancionados, Secretaría de la Función Pública"
+                },
+                "sistema_dependencia": {
+                  "type": "string",
+                  "description": "Nombre del Sistema en que se almacena la información del contrato, acto de autoridad",
+                  "example": "COMPRANET"
+                },
+                "expediente_dependencia": {
+                  "type": "string",
+                  "description": "Número de Expediente en el Sistema que contiene el contrato o acto de autoridad",
+                  "example": "ACD321"
                 },
                 "nombre_razon_social": {
                   "type": "string",
@@ -385,13 +413,21 @@
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "enum": ["I", "M", "S", "D"],
+                    "enum": [
+                      "I",
+                      "M",
+                      "S",
+                      "D"
+                    ],
                     "example": "I"
                   }
                 },
                 "institucion_dependencia": {
                   "type": "object",
-                  "required": ["nombre", "siglas"],
+                  "required": [
+                    "nombre",
+                    "siglas"
+                  ],
                   "properties": {
                     "nombre": {
                       "type": "string",
@@ -402,6 +438,10 @@
                       "type": "string",
                       "description": "Siglas de la institución o dependencia donde el contratista cometió la irregularidad",
                       "example": "SHCP"
+                    },
+                    "clave": {
+                      "type": "string",
+                      "example": "XYZ987"
                     }
                   }
                 },
@@ -414,6 +454,11 @@
                   "type": "string",
                   "description": "Causa/motivo o hechos que dieron origen a la multa o inhabilitación ",
                   "example": "Causa o motivo de la sanción"
+                },
+                "acto": {
+                  "type": "string",
+                  "description": "Acto que originó la investigación",
+                  "example": "Contrataciones"
                 },
                 "objeto_social": {
                   "type": "string",
@@ -432,7 +477,10 @@
                 },
                 "responsable": {
                   "type": "object",
-                  "required": ["nombres", "primer_apellido"],
+                  "required": [
+                    "nombres",
+                    "primer_apellido"
+                  ],
                   "properties": {
                     "nombres": {
                       "type": "string",
@@ -454,9 +502,54 @@
                     }
                   }
                 },
+                "director_general": {
+                  "type": "object",
+                  "properties": {
+                    "nombres": {
+                      "type": "string",
+                      "example": "Carlos"
+                    },
+                    "primer_apellido": {
+                      "type": "string",
+                      "example": "Pérez"
+                    },
+                    "segundo_apellido": {
+                      "type": "string",
+                      "example": "López"
+                    },
+                    "curp": {
+                      "type": "string",
+                      "example": "BADD110313HCMLNS09"
+                    }
+                  }
+                },
+                "apoderado_legal": {
+                  "type": "object",
+                  "properties": {
+                    "nombres": {
+                      "type": "string",
+                      "example": "Carlos"
+                    },
+                    "primer_apellido": {
+                      "type": "string",
+                      "example": "Pérez"
+                    },
+                    "segundo_apellido": {
+                      "type": "string",
+                      "example": "López"
+                    },
+                    "curp": {
+                      "type": "string",
+                      "example": "BADD110313HCMLNS09"
+                    }
+                  }
+                },
                 "resolucion": {
                   "type": "object",
-                  "required": ["url", "fecha_notificacion"],
+                  "required": [
+                    "url",
+                    "fecha_notificacion"
+                  ],
                   "properties": {
                     "sentido": {
                       "type": "string",
@@ -479,7 +572,10 @@
                 },
                 "multa": {
                   "type": "object",
-                  "required": ["monto", "moneda"],
+                  "required": [
+                    "monto",
+                    "moneda"
+                  ],
                   "properties": {
                     "monto": {
                       "type": "integer",
@@ -496,7 +592,10 @@
                 },
                 "inhabilitacion": {
                   "type": "object",
-                  "required": ["fecha_inicial", "fecha_final"],
+                  "required": [
+                    "fecha_inicial",
+                    "fecha_final"
+                  ],
                   "properties": {
                     "plazo": {
                       "type": "string",
@@ -527,7 +626,13 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "required": ["id", "titulo", "descripcion", "url", "fecha"],
+                    "required": [
+                      "id",
+                      "titulo",
+                      "descripcion",
+                      "url",
+                      "fecha"
+                    ],
                     "properties": {
                       "id": {
                         "type": "string",

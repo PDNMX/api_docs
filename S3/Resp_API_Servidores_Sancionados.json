@@ -15,14 +15,17 @@
       "genero": "M",
       "institucion_dependencia": {
         "nombre": "Secretaría de Hacienda y Crédito Público",
-        "siglas": "SHCP"
+        "siglas": "SHCP",
+        "clave": "TRE345"
       },
       "puesto": "Director de área",
+      "nivel": "ABCD1234",
       "autoridad_sancionadora": "Organo Interno de Control",
       "tipo_sancion": "M",
       "tipo_falta": "AG",
       "causa": "ABUSO DE AUTORIDAD",
       "expediente": "0047/2016",
+      "sistema_origen": "COMPRANET",
       "resolucion": {
         "url": "https://ejemplo.mx/archivo/documento.pdf",
         "fecha_notificacion": "2018-05-21"

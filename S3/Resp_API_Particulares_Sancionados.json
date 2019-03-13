@@ -7,8 +7,10 @@
   "results": [
     {
       "fecha_captura": "2017-07-21T17:32:28Z",
-      "numero_expediente": "ABC123",
+      "expediente": "ABC123",
       "sistema_origen": "Directorio de Sancionados, Secretaría de la Función Pública",
+      "sistema_dependencia": "COMPRANET",
+      "expediente_dependencia": "ACD321",
       "nombre_razon_social": "PATITO TELECOM S.A. de C.V.",
       "rfc": "PAT21343213",
       "telefono": "552123244",
@@ -42,10 +44,12 @@
       ],
       "institucion_dependencia": {
         "nombre": "Secretaría de Hacienda y Crédito Público",
-        "siglas": "SHCP"
+        "siglas": "SHCP",
+        "clave": "XYZ987"
       },
       "tipo_falta": "contratación indebida",
       "causa_motivo_hechos": "Causa o motivo de la sanción",
+      "acto": "Contrataciones",
       "objeto_social": "Objeto social de la empresa",
       "objeto_contrato": "Servicio de telefonía fija",
       "autoridad_sancionadora": "OIC",
@@ -53,6 +57,18 @@
         "nombres": "Carlos",
         "primer_apellido": "Pérez",
         "segundo_apellido": "López"
+      },
+      "director_general": {
+        "nombres": "Carlos",
+        "primer_apellido": "Pérez",
+        "segundo_apellido": "López",
+        "curp": "BADD110313HCMLNS09"
+      },
+      "apoderado_legal": {
+        "nombres": "Carlos",
+        "primer_apellido": "Pérez",
+        "segundo_apellido": "López",
+        "curp": "BADD110313HCMLNS09"
       },
       "resolucion": {
         "sentido": "Sansionatoria con multa",

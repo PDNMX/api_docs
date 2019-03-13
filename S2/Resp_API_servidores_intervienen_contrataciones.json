@@ -23,17 +23,30 @@
       "segundo_apellido": "Mendez",
       "genero": "Masculino",
       "institucion_dependencia": {
-        "nombre": "string",
-        "siglas": "SHCP"
+        "nombre": "Secretaría de Hacienda y Crédito Público",
+        "siglas": "SHCP",
+        "clave": "XYZ987"
       },
-      "puesto": "Director de área",
+      "puesto": {
+        "nombre": "Director de área",
+        "nivel": "1234567890"
+      },
       "tipo_area": [
         "T"
       ],
       "nivel_responsabilidad": [
         "T"
       ],
-      "tipo_procedimiento": 1
+      "tipo_procedimiento": 1,
+      "tipo_actos": "Contrataciones",
+      "superior_inmediato": {
+        "nombres": "Juan",
+        "primer_apellido": "Lopez",
+        "segundo_apellido": "Perez",
+        "curp": "BADD110313HCMLNS09",
+        "rfc": "CUPU800825569",
+        "puesto": "Director General"
+      }
     }
   ]
 }

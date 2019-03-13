@@ -246,7 +246,22 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required" : [ "fecha_captura", "ejercicio_fiscal", "periodo_ejercicio", "id_ramo", "ramo", "sistema_origen", "rfc", "nombres", "primer_apellido", "institucion_dependencia", "puesto", "tipo_area", "nivel_responsabilidad", "tipo_procedimiento" ],
+              "required": [
+                "fecha_captura",
+                "ejercicio_fiscal",
+                "periodo_ejercicio",
+                "id_ramo",
+                "ramo",
+                "sistema_origen",
+                "rfc",
+                "nombres",
+                "primer_apellido",
+                "institucion_dependencia",
+                "puesto",
+                "tipo_area",
+                "nivel_responsabilidad",
+                "tipo_procedimiento"
+              ],
               "properties": {
                 "fecha_captura": {
                   "type": "string",
@@ -267,7 +282,10 @@
                 "periodo_ejercicio": {
                   "description": "E.g., 2018",
                   "type": "object",
-                  "required": ["fecha_inicial", "fecha_final"],
+                  "required": [
+                    "fecha_inicial",
+                    "fecha_final"
+                  ],
                   "properties": {
                     "fecha_inicial": {
                       "type": "string",
@@ -337,24 +355,43 @@
                 "institucion_dependencia": {
                   "description": "Indicar el nombre de la institución donde se encuentren registradas las inversiones, cuentas o valores",
                   "type": "object",
-                  "required": ["nombre", "siglas"],
+                  "required": [
+                    "nombre",
+                    "siglas"
+                  ],
                   "properties": {
                     "nombre": {
                       "type": "string",
-                      "description": "Institución o dependencia a la que pertenece el Servidor Público "
+                      "description": "Institución o dependencia a la que pertenece el Servidor Público ",
+                      "example": "Secretaría de Hacienda y Crédito Público"
                     },
                     "siglas": {
                       "type": "string",
-                      "maxLength": 20,
                       "description": "Siglas de la institución o dependencia a la que pertenece el servidor público",
                       "example": "SHCP"
+                    },
+                    "clave": {
+                      "type": "string",
+                      "description": "Clave del puesto del nivel del Servidor Público",
+                      "example": "XYZ987"
                     }
                   }
                 },
                 "puesto": {
-                  "type": "string",
-                  "description": "Puesto del Servidor Público",
-                  "example": "Director de área"
+                  "type": "object",
+                  "properties": {
+                    "nombre": {
+                      "type": "string",
+                      "description": "Puesto del Servidor Público",
+                      "example": "Director de área"
+                    },
+                    "nivel": {
+                      "type": "string",
+                      "maxLength": 12,
+                      "description": "Clave del puesto del nivel del Servidor Público",
+                      "example": "1234567890"
+                    }
+                  }
                 },
                 "tipo_area": {
                   "type": "array",
@@ -390,6 +427,46 @@
                   "minimum": 1,
                   "description": "1.- Contrataciones Públicas 2.- Concesiones, licencias, permisos, autorizaciones y prórrogas 3.- Enajenación de bienes muebles 4.- Asignación y emisión de dictámenes de avalúos nacionales",
                   "example": 1
+                },
+                "tipo_actos": {
+                  "type": "string",
+                  "description": "Tipos de actos en los que puede participar",
+                  "example": "Contrataciones"
+                },
+                "superior_inmediato": {
+                  "type": "object",
+                  "properties": {
+                    "nombres": {
+                      "type": "string",
+                      "maxLength": 50,
+                      "example": "Juan"
+                    },
+                    "primer_apellido": {
+                      "type": "string",
+                      "maxLength": 50,
+                      "example": "Lopez"
+                    },
+                    "segundo_apellido": {
+                      "type": "string",
+                      "maxLength": 50,
+                      "example": "Perez"
+                    },
+                    "curp": {
+                      "type": "string",
+                      "maxLength": 18,
+                      "example": "BADD110313HCMLNS09"
+                    },
+                    "rfc": {
+                      "type": "string",
+                      "maxLength": 13,
+                      "example": "CUPU800825569"
+                    },
+                    "puesto": {
+                      "type": "string",
+                      "maxLength": 250,
+                      "example": "Director General"
+                    }
+                  }
                 }
               }
             }

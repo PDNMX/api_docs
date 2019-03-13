@@ -254,7 +254,23 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["fecha_captura", "rfc", "nombres", "primer_apellido", "institucion_dependencia", "puesto", "expediente", "autoridad_sancionadora", "tipo_sancion", "tipo_falta", "causa", "resolucion", "multa", "inhabilitacion", "documentos"],
+              "required": [
+                "fecha_captura",
+                "rfc",
+                "nombres",
+                "primer_apellido",
+                "institucion_dependencia",
+                "puesto",
+                "expediente",
+                "autoridad_sancionadora",
+                "tipo_sancion",
+                "tipo_falta",
+                "causa",
+                "resolucion",
+                "multa",
+                "inhabilitacion",
+                "documentos"
+              ],
               "properties": {
                 "fecha_captura": {
                   "type": "string",
@@ -299,7 +315,10 @@
                 },
                 "institucion_dependencia": {
                   "type": "object",
-                  "required": ["nombre", "siglas"],
+                  "required": [
+                    "nombre",
+                    "siglas"
+                  ],
                   "properties": {
                     "nombre": {
                       "type": "string",
@@ -310,13 +329,23 @@
                       "type": "string",
                       "description": "Siglas de la institución o dependencia a la que pertenece el servidor público",
                       "example": "SHCP"
+                    },
+                    "clave": {
+                      "type": "string",
+                      "description": "Clave de dependencia",
+                      "example": "TRE345"
                     }
                   }
                 },
                 "puesto": {
                   "type": "string",
-                  "description": "Puesto del Servidor Público",
+                  "description": "Clave del puesto del nivel del Servidor Público",
                   "example": "Director de área"
+                },
+                "nivel": {
+                  "type": "string",
+                  "description": "Puesto del Servidor Público",
+                  "example": "ABCD1234"
                 },
                 "autoridad_sancionadora": {
                   "type": "string",
@@ -325,13 +354,23 @@
                 },
                 "tipo_sancion": {
                   "type": "string",
-                  "enum": ["I", "M", "MI", "S", "D"],
+                  "enum": [
+                    "I",
+                    "M",
+                    "MI",
+                    "S",
+                    "D"
+                  ],
                   "description": "I = Inhabilitado, M = Multado, MI = Multado e Inhabilitado, S= Suspensión del empleo, cargo o comisión, D= Destitución del emplo, cargo o comisión",
                   "example": "M"
                 },
                 "tipo_falta": {
                   "type": "string",
-                  "enum": ["AG", "ANG", "AC"],
+                  "enum": [
+                    "AG",
+                    "ANG",
+                    "AC"
+                  ],
                   "description": "eg., AG= Administrativa grave, ANG= Administrativa no grave, AC=Acto de corrupción",
                   "example": "AG"
                 },
@@ -345,9 +384,17 @@
                   "description": "El expediente derivado de la investigación que las Autoridades Investigadoras realizan.",
                   "example": "0047/2016"
                 },
+                "sistema_origen": {
+                  "type": "string",
+                  "description": "Sistema en que se almacena la información del contrato, acto de autoridad",
+                  "example": "COMPRANET"
+                },
                 "resolucion": {
                   "type": "object",
-                  "required": ["url", "fecha_notificacion"],
+                  "required": [
+                    "url",
+                    "fecha_notificacion"
+                  ],
                   "properties": {
                     "url": {
                       "type": "string",
@@ -364,7 +411,10 @@
                 },
                 "multa": {
                   "type": "object",
-                  "required": ["monto", "moneda"],
+                  "required": [
+                    "monto",
+                    "moneda"
+                  ],
                   "properties": {
                     "monto": {
                       "type": "integer",
@@ -381,7 +431,10 @@
                 },
                 "inhabilitacion": {
                   "type": "object",
-                  "required": ["fecha_inicial", "fecha_final"],
+                  "required": [
+                    "fecha_inicial",
+                    "fecha_final"
+                  ],
                   "properties": {
                     "plazo": {
                       "type": "string",
@@ -412,7 +465,13 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "required": ["id", "titulo", "descripcion", "url", "fecha"],
+                    "required": [
+                      "id",
+                      "titulo",
+                      "descripcion",
+                      "url",
+                      "fecha"
+                    ],
                     "properties": {
                       "id": {
                         "type": "string",

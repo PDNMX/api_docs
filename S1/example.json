@@ -63,6 +63,11 @@
               "nom_loc": "Ecatepec de Morelos",
               "cve_loc": "0001"
             },
+            "asentamiento": {
+              "cve_asen": 1,
+              "nom_asen": "AGUA CLARA",
+              "cve_tipo_asen": 16
+            },
             "vialidad": {
               "tipo_vial": "CALLE",
               "nom_vial": "El Rosal"
@@ -157,6 +162,11 @@
               "nom_loc": "Ecatepec de Morelos",
               "cve_loc": "0001"
             },
+            "asentamiento": {
+              "cve_asen": 1,
+              "nom_asen": "AGUA CLARA",
+              "cve_tipo_asen": 16
+            },
             "vialidad": {
               "tipo_vial": "CALLE",
               "nom_vial": "El Rosal"
@@ -212,6 +222,11 @@
               "localidad": {
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
+              },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
               },
               "vialidad": {
                 "tipo_vial": "CALLE",
@@ -275,6 +290,11 @@
               "localidad": {
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
+              },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
               },
               "vialidad": {
                 "tipo_vial": "CALLE",
@@ -341,6 +361,11 @@
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
               },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
+              },
               "vialidad": {
                 "tipo_vial": "CALLE",
                 "nom_vial": "El Rosal"
@@ -386,6 +411,11 @@
               "localidad": {
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
+              },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
               },
               "vialidad": {
                 "tipo_vial": "CALLE",
@@ -524,6 +554,11 @@
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
               },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
+              },
               "vialidad": {
                 "tipo_vial": "CALLE",
                 "nom_vial": "El Rosal"
@@ -638,6 +673,11 @@
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
               },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
+              },
               "vialidad": {
                 "tipo_vial": "CALLE",
                 "nom_vial": "El Rosal"
@@ -693,6 +733,11 @@
               "localidad": {
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
+              },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
               },
               "vialidad": {
                 "tipo_vial": "CALLE",
@@ -806,6 +851,11 @@
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
               },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
+              },
               "vialidad": {
                 "tipo_vial": "CALLE",
                 "nom_vial": "El Rosal"
@@ -861,6 +911,11 @@
               "localidad": {
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
+              },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
               },
               "vialidad": {
                 "tipo_vial": "CALLE",
@@ -918,6 +973,11 @@
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
               },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
+              },
               "vialidad": {
                 "tipo_vial": "CALLE",
                 "nom_vial": "El Rosal"
@@ -973,6 +1033,11 @@
               "localidad": {
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
+              },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
               },
               "vialidad": {
                 "tipo_vial": "CALLE",
@@ -1034,6 +1099,11 @@
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
               },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
+              },
               "vialidad": {
                 "tipo_vial": "CALLE",
                 "nom_vial": "El Rosal"
@@ -1089,6 +1159,11 @@
               "localidad": {
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
+              },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
               },
               "vialidad": {
                 "tipo_vial": "CALLE",
@@ -1161,6 +1236,11 @@
               "localidad": {
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
+              },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
               },
               "vialidad": {
                 "tipo_vial": "CALLE",
@@ -1339,6 +1419,11 @@
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
               },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
+              },
               "vialidad": {
                 "tipo_vial": "CALLE",
                 "nom_vial": "El Rosal"
@@ -1446,6 +1531,11 @@
                   "nom_loc": "Ecatepec de Morelos",
                   "cve_loc": "0001"
                 },
+                "asentamiento": {
+                  "cve_asen": 1,
+                  "nom_asen": "AGUA CLARA",
+                  "cve_tipo_asen": 16
+                },
                 "vialidad": {
                   "tipo_vial": "CALLE",
                   "nom_vial": "El Rosal"
@@ -1477,6 +1567,11 @@
                   "nom_loc": "Ecatepec de Morelos",
                   "cve_loc": "0001"
                 },
+                "asentamiento": {
+                  "cve_asen": 1,
+                  "nom_asen": "AGUA CLARA",
+                  "cve_tipo_asen": 16
+                },
                 "vialidad": {
                   "tipo_vial": "CALLE",
                   "nom_vial": "El Rosal"
@@ -1507,6 +1602,11 @@
                 "localidad": {
                   "nom_loc": "Ecatepec de Morelos",
                   "cve_loc": "0001"
+                },
+                "asentamiento": {
+                  "cve_asen": 1,
+                  "nom_asen": "AGUA CLARA",
+                  "cve_tipo_asen": 16
                 },
                 "vialidad": {
                   "tipo_vial": "CALLE",
@@ -1586,6 +1686,11 @@
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
               },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
+              },
               "vialidad": {
                 "tipo_vial": "CALLE",
                 "nom_vial": "El Rosal"
@@ -1648,6 +1753,11 @@
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
               },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
+              },
               "vialidad": {
                 "tipo_vial": "CALLE",
                 "nom_vial": "El Rosal"
@@ -1703,6 +1813,11 @@
               "localidad": {
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
+              },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
               },
               "vialidad": {
                 "tipo_vial": "CALLE",
@@ -1780,6 +1895,11 @@
               "localidad": {
                 "nom_loc": "Ecatepec de Morelos",
                 "cve_loc": "0001"
+              },
+              "asentamiento": {
+                "cve_asen": 1,
+                "nom_asen": "AGUA CLARA",
+                "cve_tipo_asen": 16
               },
               "vialidad": {
                 "tipo_vial": "CALLE",

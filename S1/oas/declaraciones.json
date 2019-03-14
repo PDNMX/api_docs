@@ -407,6 +407,26 @@
                       }
                     }
                   },
+                  "asentamiento" : {
+                    "type" : "object",
+                    "properties" : {
+                      "cve_asen" : {
+                        "type" : "integer",
+                        "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                        "example" : 1
+                      },
+                      "nom_asen" : {
+                        "type" : "string",
+                        "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                        "example" : "AGUA CLARA"
+                      },
+                      "cve_tipo_asen" : {
+                        "type" : "integer",
+                        "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                        "example" : 16
+                      }
+                    }
+                  },
                   "vialidad" : {
                     "type" : "object",
                     "properties" : {
@@ -852,6 +872,26 @@
                           "type" : "string",
                           "description" : "Clave de la localidad",
                           "example" : "0001"
+                        }
+                      }
+                    },
+                    "asentamiento" : {
+                      "type" : "object",
+                      "properties" : {
+                        "cve_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : 1
+                        },
+                        "nom_asen" : {
+                          "type" : "string",
+                          "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : "AGUA CLARA"
+                        },
+                        "cve_tipo_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                          "example" : 16
                         }
                       }
                     },
@@ -1390,6 +1430,26 @@
                         }
                       }
                     },
+                    "asentamiento" : {
+                      "type" : "object",
+                      "properties" : {
+                        "cve_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : 1
+                        },
+                        "nom_asen" : {
+                          "type" : "string",
+                          "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : "AGUA CLARA"
+                        },
+                        "cve_tipo_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                          "example" : 16
+                        }
+                      }
+                    },
                     "vialidad" : {
                       "type" : "object",
                       "properties" : {
@@ -1679,6 +1739,26 @@
                         }
                       }
                     },
+                    "asentamiento" : {
+                      "type" : "object",
+                      "properties" : {
+                        "cve_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : 1
+                        },
+                        "nom_asen" : {
+                          "type" : "string",
+                          "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : "AGUA CLARA"
+                        },
+                        "cve_tipo_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                          "example" : 16
+                        }
+                      }
+                    },
                     "vialidad" : {
                       "type" : "object",
                       "properties" : {
@@ -1793,6 +1873,26 @@
                           "type" : "string",
                           "description" : "Clave de la localidad",
                           "example" : "0001"
+                        }
+                      }
+                    },
+                    "asentamiento" : {
+                      "type" : "object",
+                      "properties" : {
+                        "cve_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : 1
+                        },
+                        "nom_asen" : {
+                          "type" : "string",
+                          "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : "AGUA CLARA"
+                        },
+                        "cve_tipo_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                          "example" : 16
                         }
                       }
                     },
@@ -2030,6 +2130,26 @@
                         }
                       }
                     },
+                    "asentamiento" : {
+                      "type" : "object",
+                      "properties" : {
+                        "cve_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : 1
+                        },
+                        "nom_asen" : {
+                          "type" : "string",
+                          "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : "AGUA CLARA"
+                        },
+                        "cve_tipo_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                          "example" : 16
+                        }
+                      }
+                    },
                     "vialidad" : {
                       "type" : "object",
                       "properties" : {
@@ -2144,6 +2264,26 @@
                           "type" : "string",
                           "description" : "Clave de la localidad",
                           "example" : "0001"
+                        }
+                      }
+                    },
+                    "asentamiento" : {
+                      "type" : "object",
+                      "properties" : {
+                        "cve_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : 1
+                        },
+                        "nom_asen" : {
+                          "type" : "string",
+                          "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : "AGUA CLARA"
+                        },
+                        "cve_tipo_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                          "example" : 16
                         }
                       }
                     },
@@ -2264,6 +2404,26 @@
                         }
                       }
                     },
+                    "asentamiento" : {
+                      "type" : "object",
+                      "properties" : {
+                        "cve_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : 1
+                        },
+                        "nom_asen" : {
+                          "type" : "string",
+                          "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : "AGUA CLARA"
+                        },
+                        "cve_tipo_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                          "example" : 16
+                        }
+                      }
+                    },
                     "vialidad" : {
                       "type" : "object",
                       "properties" : {
@@ -2377,6 +2537,26 @@
                           "type" : "string",
                           "description" : "Clave de la localidad",
                           "example" : "0001"
+                        }
+                      }
+                    },
+                    "asentamiento" : {
+                      "type" : "object",
+                      "properties" : {
+                        "cve_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : 1
+                        },
+                        "nom_asen" : {
+                          "type" : "string",
+                          "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : "AGUA CLARA"
+                        },
+                        "cve_tipo_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                          "example" : 16
                         }
                       }
                     },
@@ -2513,6 +2693,26 @@
                         }
                       }
                     },
+                    "asentamiento" : {
+                      "type" : "object",
+                      "properties" : {
+                        "cve_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : 1
+                        },
+                        "nom_asen" : {
+                          "type" : "string",
+                          "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : "AGUA CLARA"
+                        },
+                        "cve_tipo_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                          "example" : 16
+                        }
+                      }
+                    },
                     "vialidad" : {
                       "type" : "object",
                       "properties" : {
@@ -2627,6 +2827,26 @@
                           "type" : "string",
                           "description" : "Clave de la localidad",
                           "example" : "0001"
+                        }
+                      }
+                    },
+                    "asentamiento" : {
+                      "type" : "object",
+                      "properties" : {
+                        "cve_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : 1
+                        },
+                        "nom_asen" : {
+                          "type" : "string",
+                          "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : "AGUA CLARA"
+                        },
+                        "cve_tipo_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                          "example" : 16
                         }
                       }
                     },
@@ -2809,6 +3029,26 @@
                           "type" : "string",
                           "description" : "Clave de la localidad",
                           "example" : "0001"
+                        }
+                      }
+                    },
+                    "asentamiento" : {
+                      "type" : "object",
+                      "properties" : {
+                        "cve_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : 1
+                        },
+                        "nom_asen" : {
+                          "type" : "string",
+                          "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : "AGUA CLARA"
+                        },
+                        "cve_tipo_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                          "example" : 16
                         }
                       }
                     },
@@ -3154,6 +3394,26 @@
                         }
                       }
                     },
+                    "asentamiento" : {
+                      "type" : "object",
+                      "properties" : {
+                        "cve_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : 1
+                        },
+                        "nom_asen" : {
+                          "type" : "string",
+                          "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : "AGUA CLARA"
+                        },
+                        "cve_tipo_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                          "example" : 16
+                        }
+                      }
+                    },
                     "vialidad" : {
                       "type" : "object",
                       "properties" : {
@@ -3440,6 +3700,26 @@
                             }
                           }
                         },
+                        "asentamiento" : {
+                          "type" : "object",
+                          "properties" : {
+                            "cve_asen" : {
+                              "type" : "integer",
+                              "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                              "example" : 1
+                            },
+                            "nom_asen" : {
+                              "type" : "string",
+                              "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                              "example" : "AGUA CLARA"
+                            },
+                            "cve_tipo_asen" : {
+                              "type" : "integer",
+                              "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                              "example" : 16
+                            }
+                          }
+                        },
                         "vialidad" : {
                           "type" : "object",
                           "properties" : {
@@ -3539,6 +3819,26 @@
                             }
                           }
                         },
+                        "asentamiento" : {
+                          "type" : "object",
+                          "properties" : {
+                            "cve_asen" : {
+                              "type" : "integer",
+                              "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                              "example" : 1
+                            },
+                            "nom_asen" : {
+                              "type" : "string",
+                              "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                              "example" : "AGUA CLARA"
+                            },
+                            "cve_tipo_asen" : {
+                              "type" : "integer",
+                              "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                              "example" : 16
+                            }
+                          }
+                        },
                         "vialidad" : {
                           "type" : "object",
                           "properties" : {
@@ -3635,6 +3935,26 @@
                               "type" : "string",
                               "description" : "Clave de la localidad",
                               "example" : "0001"
+                            }
+                          }
+                        },
+                        "asentamiento" : {
+                          "type" : "object",
+                          "properties" : {
+                            "cve_asen" : {
+                              "type" : "integer",
+                              "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                              "example" : 1
+                            },
+                            "nom_asen" : {
+                              "type" : "string",
+                              "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                              "example" : "AGUA CLARA"
+                            },
+                            "cve_tipo_asen" : {
+                              "type" : "integer",
+                              "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                              "example" : 16
                             }
                           }
                         },
@@ -3819,6 +4139,26 @@
                         }
                       }
                     },
+                    "asentamiento" : {
+                      "type" : "object",
+                      "properties" : {
+                        "cve_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : 1
+                        },
+                        "nom_asen" : {
+                          "type" : "string",
+                          "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : "AGUA CLARA"
+                        },
+                        "cve_tipo_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                          "example" : 16
+                        }
+                      }
+                    },
                     "vialidad" : {
                       "type" : "object",
                       "properties" : {
@@ -3986,6 +4326,26 @@
                         }
                       }
                     },
+                    "asentamiento" : {
+                      "type" : "object",
+                      "properties" : {
+                        "cve_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : 1
+                        },
+                        "nom_asen" : {
+                          "type" : "string",
+                          "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : "AGUA CLARA"
+                        },
+                        "cve_tipo_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                          "example" : 16
+                        }
+                      }
+                    },
                     "vialidad" : {
                       "type" : "object",
                       "properties" : {
@@ -4120,6 +4480,26 @@
                           "type" : "string",
                           "description" : "Clave de la localidad",
                           "example" : "0001"
+                        }
+                      }
+                    },
+                    "asentamiento" : {
+                      "type" : "object",
+                      "properties" : {
+                        "cve_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : 1
+                        },
+                        "nom_asen" : {
+                          "type" : "string",
+                          "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : "AGUA CLARA"
+                        },
+                        "cve_tipo_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                          "example" : 16
                         }
                       }
                     },
@@ -4312,6 +4692,26 @@
                         }
                       }
                     },
+                    "asentamiento" : {
+                      "type" : "object",
+                      "properties" : {
+                        "cve_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : 1
+                        },
+                        "nom_asen" : {
+                          "type" : "string",
+                          "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                          "example" : "AGUA CLARA"
+                        },
+                        "cve_tipo_asen" : {
+                          "type" : "integer",
+                          "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                          "example" : 16
+                        }
+                      }
+                    },
                     "vialidad" : {
                       "type" : "object",
                       "properties" : {
@@ -4444,6 +4844,26 @@
                 "type" : "string",
                 "description" : "Clave de la localidad",
                 "example" : "0001"
+              }
+            }
+          },
+          "asentamiento" : {
+            "type" : "object",
+            "properties" : {
+              "cve_asen" : {
+                "type" : "integer",
+                "description" : "Clave del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                "example" : 1
+              },
+              "nom_asen" : {
+                "type" : "string",
+                "description" : "Nombre del asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográficos",
+                "example" : "AGUA CLARA"
+              },
+              "cve_tipo_asen" : {
+                "type" : "integer",
+                "description" : "Clave del tipo de asentamiento de acuerdo a la Norma Técnica sobre Domicilios Geográfico",
+                "example" : 16
               }
             }
           },

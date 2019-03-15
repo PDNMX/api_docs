@@ -7,7 +7,6 @@
   "results": [
     {
       "fecha_captura": "20180820T00:00:00Z",
-      "expediente": "ABC123",
       "ejercicio_fiscal": 2018,
       "periodo_ejercicio": {
         "fecha_inicial": "2018-01-01",
@@ -15,7 +14,6 @@
       },
       "id_ramo": 23,
       "ramo": "Provisiones salariales y económicas",
-      "sistema_origen": "RENIRESP",
       "rfc": "JPM851111C44",
       "curp": "BEML920313HMCLNS09",
       "nombres": "John Juan",

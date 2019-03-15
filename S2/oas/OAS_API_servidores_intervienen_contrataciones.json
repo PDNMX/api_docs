@@ -269,11 +269,6 @@
                   "description": "La fecha y hora en la que se agrega o modifica el registro",
                   "example": "20180820T00:00:00Z"
                 },
-                "expediente": {
-                  "type": "string",
-                  "description": "En su caso, proporcionar el número de CompraNet asociado al proceso de contratación ",
-                  "example": "ABC123"
-                },
                 "ejercicio_fiscal": {
                   "type": "integer",
                   "description": "Ejercicio fiscal",
@@ -311,11 +306,6 @@
                   "type": "string",
                   "description": "Identifica y clasifica los recursos en el presupuesto de egresos a las Dependencias y en su caso Entidades, a la Presidencia de la República, a la Procuraduría General de la República y a los Tribunales Administrativos.",
                   "example": "Provisiones salariales y económicas"
-                },
-                "sistema_origen": {
-                  "type": "string",
-                  "description": "Sistema o base de datos donde se origina el número de expediente. e.g., CompraNet",
-                  "example": "RENIRESP"
                 },
                 "rfc": {
                   "type": "string",

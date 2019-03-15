@@ -17,8 +17,8 @@
       "informacion_personal": {
         "informacion_general": {
           "nombres": "Carlos",
-          "primer_apellido": "Pérez",
-          "segundo_apellido": "López",
+          "primer_apellido": "Perez",
+          "segundo_apellido": "Lopez",
           "nacionalidades": [
             {
               "valor": "México",

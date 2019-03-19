@@ -245,7 +245,7 @@ components:
               type: string
               example: BEML920313HMCLNS09
             rfc:
-              description: 'Se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial'
+              description: 'Se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial'
               type: string
               example: GOAP780710RH7
             fecha_nacimiento:
@@ -677,7 +677,7 @@ components:
                 type: string
                 example: BEML920313HMCLNS09
               rfc:
-                description: 'Se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.'
+                description: 'Se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.'
                 type: string
                 example: GOAP780710RH7
               fecha_nacimiento:
@@ -977,7 +977,7 @@ components:
                 type: string
                 example: BEML920313HMCLNS09
               rfc_parte:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.'
                 type: string
                 example: GOAP780710RH7
               fecha_nacimiento_parte:
@@ -1031,7 +1031,7 @@ components:
                 type: string
                 example: BEML920313HMCLNS09
               rfc:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.'
                 type: string
                 example: GOAP780710RH7
               fecha_nacimiento:
@@ -1081,7 +1081,7 @@ components:
                 type: string
                 example: BEML920313HMCLNS09
               rfc:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.'
                 type: string
                 example: GOAP780710RH7
               lugar_nacimiento:
@@ -1127,7 +1127,7 @@ components:
                 description: 'Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.'
                 example: AMEX S A
               rfc:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.'
                 type: string
                 example: GOAP780710RH7
               domicilio:
@@ -1265,7 +1265,7 @@ components:
                 type: string
                 example: BEML920313HMCLNS09
               rfc:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.'
                 type: string
                 example: GOAP780710RH7
               fecha_nacimiento:
@@ -1352,7 +1352,7 @@ components:
                 description: 'Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).'
                 example: Max Power Inc
               rfc:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                 type: string
                 example: GOAP780710RH7
               curp:
@@ -1453,7 +1453,7 @@ components:
                 description: 'Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).'
                 example: Nombre
               rfc:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                 type: string
                 example: GOAP780710RH7
               curp:
@@ -1554,7 +1554,7 @@ components:
                 description: 'Se deberá indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).'
                 example: Empresa S A
               rfc:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                 type: string
                 example: GOAP780710RH7
               curp:
@@ -1640,7 +1640,7 @@ components:
                 description: 'Indicar el nombre, denominación o razón social o situación de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).'
                 example: Nombre
               rfc:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                 type: string
                 example: GOAP780710RH7
               curp:
@@ -1741,7 +1741,7 @@ components:
                 description: 'Se deberá indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).'
                 example: ABC Inc
               rfc:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                 type: string
                 example: GOAP780710RH7
               curp:
@@ -1842,7 +1842,7 @@ components:
                 description: 'Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).'
                 example: BANC
               rfc:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                 type: string
                 example: GOAP780710RH7
               curp:
@@ -1942,7 +1942,7 @@ components:
                 description: 'Indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).'
                 example: Loteria Nacional
               rfc:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                 type: string
                 example: GOAP780710RH7
               curp:
@@ -2043,7 +2043,7 @@ components:
                 description: 'Se deberá indicar el nombre, denominación o razón social de la persona física o moral de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).'
                 example: Loteria Nacional
               rfc:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                 type: string
                 example: GOAP780710RH7
               curp:
@@ -2169,7 +2169,7 @@ components:
                 description: 'Indicar el nombre, denominación, razón social de la persona física o moral o de la situación de la que se recibe el ingreso. Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).'
                 example: Centro Educativo
               rfc:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                 type: string
                 example: GOAP780710RH7
               curp:
@@ -2419,7 +2419,7 @@ components:
                 description: 'Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).'
                 example: Monster Inc
               rfc_quien_adquirio:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                 type: string
                 example: GOAP780710RH7
               curp_quien_adquirio:
@@ -2501,7 +2501,7 @@ components:
                 description: 'Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).'
                 example: Monstr Inc
               rfc_quien_adquirio:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                 type: string
                 example: GOAP780710RH7
               relacion_persona_quien_adquirio:
@@ -2630,7 +2630,7 @@ components:
                 description: 'Indicar el nombre de la institución donde se encuentren registradas las inversiones, cuentas o valores.'
                 example: Bank Inkc
               rfc_institucion:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.'
                 type: string
                 example: GOAP780710RH7
               sector_industria:
@@ -2886,7 +2886,7 @@ components:
                     description: 'Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.'
                     example: Banco Robmen1
                   rfc:
-                    description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                    description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                     type: string
                     example: GOAP780710RH7
                   curp:
@@ -2975,7 +2975,7 @@ components:
                     description: 'Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.'
                     example: Banco Robmen1
                   rfc:
-                    description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                    description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                     type: string
                     example: GOAP780710RH7
                   curp:
@@ -3064,7 +3064,7 @@ components:
                     description: 'Escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. En caso de ser persona física el socio comercial, deberá proporcionar el nombre, primer y segundo apellidos; si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial.'
                     example: Banco Robmen1
                   rfc:
-                    description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                    description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                     type: string
                     example: GOAP780710RH7
                   curp:
@@ -3345,7 +3345,7 @@ components:
                 description: 'Se deberá escribir el nombre o nombres completos del tercero propietario. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).'
                 example: Banksy Von Trier
               rfc_tercero_propietario:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                 type: string
                 example: GOAP780710RH7
               curp_tercero_propietario:
@@ -3481,7 +3481,7 @@ components:
                 description: 'Se deberá escribir el nombre o los nombres completos. Así como los apellidos completos, sin abreviaturas y preferentemente sin acentos ni signos especiales, de la misma manera que se encuentra en el documento de identificación oficial. Si se tiene un solo apellido colocarlo en el espacio del primer apellido y dejar el espacio del segundo apellido en blanco. Si se trata de persona moral, deberá proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada en escritura pública. Este dato es información confidencial (si es persona física).'
                 example: PNBKSRIBAS SA DE CV
               rfc_acreedor:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                 type: string
                 example: GOAP780710RH7
               sector_industria:
@@ -3650,7 +3650,7 @@ components:
                 pattern: '^[A-Za-z0-9ñÑ.-\s]+$'
                 example: Banksy
               rfc_acreedor:
-                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
+                description: 'En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).'
                 type: string
                 example: GOAP780710RH7
               sector_industria:
@@ -3892,7 +3892,7 @@ components:
           description: Valor del sector o industria a la que pertenece
           example: Minería
     rfc:
-      description: 'Se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria.'
+      description: 'Se deberá escribir como la emitió el Servicio de Administración Tributaria.'
       type: string
       example: GOAP780710RH7
     pais:

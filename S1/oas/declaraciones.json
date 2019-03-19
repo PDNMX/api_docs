@@ -321,7 +321,7 @@
                 "example" : "BEML920313HMCLNS09"
               },
               "rfc" : {
-                "description" : "Se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial",
+                "description" : "Se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial",
                 "type" : "string",
                 "example" : "GOAP780710RH7"
               },
@@ -814,7 +814,7 @@
                   "example" : "BEML920313HMCLNS09"
                 },
                 "rfc" : {
-                  "description" : "Se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
+                  "description" : "Se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -1185,7 +1185,7 @@
                   "example" : "BEML920313HMCLNS09"
                 },
                 "rfc_parte" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -1258,7 +1258,7 @@
                   "example" : "BEML920313HMCLNS09"
                 },
                 "rfc" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -1324,7 +1324,7 @@
                   "example" : "BEML920313HMCLNS09"
                 },
                 "rfc" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -1384,7 +1384,7 @@
                   "example" : "AMEX S A"
                 },
                 "rfc" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -1557,7 +1557,7 @@
                   "example" : "BEML920313HMCLNS09"
                 },
                 "rfc" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -1677,7 +1677,7 @@
                   "example" : "Max Power Inc"
                 },
                 "rfc" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -1814,7 +1814,7 @@
                   "example" : "Nombre"
                 },
                 "rfc" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -1951,7 +1951,7 @@
                   "example" : "Empresa S A"
                 },
                 "rfc" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -2068,7 +2068,7 @@
                   "example" : "Nombre"
                 },
                 "rfc" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -2205,7 +2205,7 @@
                   "example" : "ABC Inc"
                 },
                 "rfc" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -2342,7 +2342,7 @@
                   "example" : "BANC"
                 },
                 "rfc" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -2478,7 +2478,7 @@
                   "example" : "Loteria Nacional"
                 },
                 "rfc" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -2615,7 +2615,7 @@
                   "example" : "Loteria Nacional"
                 },
                 "rfc" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -2768,7 +2768,7 @@
                   "example" : "Centro Educativo"
                 },
                 "rfc" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -3092,7 +3092,7 @@
                   "example" : "Monster Inc"
                 },
                 "rfc_quien_adquirio" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -3203,7 +3203,7 @@
                   "example" : "Monstr Inc"
                 },
                 "rfc_quien_adquirio" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -3345,7 +3345,7 @@
                   "example" : "Bank Inkc"
                 },
                 "rfc_institucion" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial.",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -3649,7 +3649,7 @@
                       "example" : "Banco Robmen1"
                     },
                     "rfc" : {
-                      "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                      "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                       "type" : "string",
                       "example" : "GOAP780710RH7"
                     },
@@ -3768,7 +3768,7 @@
                       "example" : "Banco Robmen1"
                     },
                     "rfc" : {
-                      "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                      "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                       "type" : "string",
                       "example" : "GOAP780710RH7"
                     },
@@ -3887,7 +3887,7 @@
                       "example" : "Banco Robmen1"
                     },
                     "rfc" : {
-                      "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                      "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                       "type" : "string",
                       "example" : "GOAP780710RH7"
                     },
@@ -4266,7 +4266,7 @@
                   "example" : "Banksy Von Trier"
                 },
                 "rfc_tercero_propietario" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -4434,7 +4434,7 @@
                   "example" : "PNBKSRIBAS SA DE CV"
                 },
                 "rfc_acreedor" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -4643,7 +4643,7 @@
                   "example" : "Banksy"
                 },
                 "rfc_acreedor" : {
-                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
+                  "description" : "En cuanto al Registro Federal de Contribuyentes, se deberá escribir como la emitió el Servicio de Administración Tributaria. Este dato es información confidencial (si es persona física).",
                   "type" : "string",
                   "example" : "GOAP780710RH7"
                 },
@@ -4915,7 +4915,7 @@
         }
       },
       "rfc" : {
-        "description" : "Se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave, como la emitió el Servicio de Administración Tributaria.",
+        "description" : "Se deberá escribir como la emitió el Servicio de Administración Tributaria.",
         "type" : "string",
         "example" : "GOAP780710RH7"
       },

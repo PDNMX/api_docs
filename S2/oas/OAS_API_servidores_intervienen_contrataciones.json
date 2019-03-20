@@ -291,7 +291,7 @@
                 "genero" : {
                   "type" : "string",
                   "enum" : [ "F", "M", "O" ],
-                  "description" : "F= Femenino, M= Másculino, O=Otro",
+                  "description" : "F= Femenino, M= Masculino, O=Otro",
                   "example" : "Masculino"
                 },
                 "institucion_dependencia" : {

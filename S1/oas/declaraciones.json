@@ -5313,6 +5313,12 @@
             "enum" : [ "PREE", "PRIM", "SECU", "BACH", "LICE", "MAES", "DOCT" ],
             "description" : "Significado de Códigos:\n  * `PREE` - Preescolar\n  * `PRIM` - Primaria\n  * `SECU` - Secundaria\n  * `BACH` - Bachillerato\n  * `LICE` - Licenciatura\n  * `MAES` - Maestría\n  * `DOCT` - Doctorado\n",
             "example" : "LICE"
+          },
+          "valor" : {
+            "type" : "string",
+            "enum" : [ "Preescolar", "Primaria", "Secundaria", "Bachillerato", "Licenciatura", "Maestría", "Doctorado" ],
+            "description" : "Valor del nombre del grado academico",
+            "example" : "Licenciatura"
           }
         }
       },

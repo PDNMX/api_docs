@@ -87,12 +87,14 @@
         },
         "datos_curriculares": {
           "grado_maximo_escolaridad": {
-            "codigo": "LICE"
+            "codigo": "LICE",
+            "valor": "Licenciatura"
           },
           "grados_academicos": [
             {
               "grado_obtenido": {
-                "codigo": "LICE"
+                "codigo": "LICE",
+                "valor": "Licenciatura"
               },
               "institucion_educativa": "La Universidad Nacionalista México",
               "lugar_institucion_educativa": {

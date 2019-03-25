@@ -4438,6 +4438,18 @@ components:
               * `MAES` - Maestría
               * `DOCT` - Doctorado
           example: LICE
+        valor:
+          type: string
+          enum:
+            - Preescolar
+            - Primaria
+            - Secundaria
+            - Bachillerato
+            - Licenciatura
+            - Maestría
+            - Doctorado
+          description: Valor del nombre del grado academico
+          example: Licenciatura
     ordenamiento:
       type: string
       enum:

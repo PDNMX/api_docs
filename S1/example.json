@@ -30,8 +30,8 @@
             "codigo": "MX"
           },
           "entidad_federativa_nacimiento": {
-            "nom_ent": "México",
-            "cve_ent": "15"
+            "nom_agee": "México",
+            "cve_agee": "15"
           },
           "curp": "BEML920313HMCLNS09",
           "rfc": "GOAP780710RH7",
@@ -51,12 +51,12 @@
               "codigo": "MX"
             },
             "entidad_federativa": {
-              "nom_ent": "México",
-              "cve_ent": "15"
+              "nom_agee": "México",
+              "cve_agee": "15"
             },
             "municipio": {
-              "nom_mun": "Ecatepec de Morelos",
-              "cve_mun": "033"
+              "nom_agem": "Ecatepec de Morelos",
+              "cve_agem": "033"
             },
             "cp": "55018",
             "localidad": {
@@ -86,10 +86,14 @@
           "fecha_declaracion": "2010-07-26"
         },
         "datos_curriculares": {
-          "grado_maximo_escolaridad": "Licenciatura",
+          "grado_maximo_escolaridad": {
+            "codigo": "LICE"
+          },
           "grados_academicos": [
             {
-              "grado_obtenido": "Licenciatura",
+              "grado_obtenido": {
+                "codigo": "LICE"
+              },
               "institucion_educativa": "La Universidad Nacionalista México",
               "lugar_institucion_educativa": {
                 "pais": {
@@ -97,12 +101,12 @@
                   "codigo": "MX"
                 },
                 "entidad_federativa": {
-                  "nom_ent": "México",
-                  "cve_ent": "15"
+                  "nom_agee": "México",
+                  "cve_agee": "15"
                 },
                 "municipio": {
-                  "nom_mun": "Ecatepec de Morelos",
-                  "cve_mun": "033"
+                  "nom_agem": "Ecatepec de Morelos",
+                  "cve_agem": "033"
                 }
               },
               "carrera": "Ing. en Sistemas Computacionales",
@@ -140,8 +144,8 @@
               "codigo": "MX"
             },
             "entidad": {
-              "nom_ent": "México",
-              "cve_ent": "15"
+              "nom_agee": "México",
+              "cve_agee": "15"
             }
           },
           "direccion_encargo": {
@@ -150,12 +154,12 @@
               "codigo": "MX"
             },
             "entidad_federativa": {
-              "nom_ent": "México",
-              "cve_ent": "15"
+              "nom_agee": "México",
+              "cve_agee": "15"
             },
             "municipio": {
-              "nom_mun": "Ecatepec de Morelos",
-              "cve_mun": "033"
+              "nom_agem": "Ecatepec de Morelos",
+              "cve_agem": "033"
             },
             "cp": "55018",
             "localidad": {
@@ -211,12 +215,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -279,12 +283,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -349,12 +353,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -400,12 +404,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -515,8 +519,8 @@
                 "codigo": "MX"
               },
               "entidad": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               }
             },
             "fecha_nacimiento": "2010-07-26",
@@ -542,12 +546,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -661,12 +665,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -722,12 +726,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -783,12 +787,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -839,12 +843,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -900,12 +904,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -961,12 +965,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -1022,12 +1026,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -1087,12 +1091,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -1148,12 +1152,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -1225,12 +1229,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -1297,8 +1301,8 @@
                 "codigo": "MX"
               },
               "entidad": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               }
             },
             "titular_bien": {
@@ -1407,12 +1411,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -1519,12 +1523,12 @@
                   "codigo": "MX"
                 },
                 "entidad_federativa": {
-                  "nom_ent": "México",
-                  "cve_ent": "15"
+                  "nom_agee": "México",
+                  "cve_agee": "15"
                 },
                 "municipio": {
-                  "nom_mun": "Ecatepec de Morelos",
-                  "cve_mun": "033"
+                  "nom_agem": "Ecatepec de Morelos",
+                  "cve_agem": "033"
                 },
                 "cp": "55018",
                 "localidad": {
@@ -1555,12 +1559,12 @@
                   "codigo": "MX"
                 },
                 "entidad_federativa": {
-                  "nom_ent": "México",
-                  "cve_ent": "15"
+                  "nom_agee": "México",
+                  "cve_agee": "15"
                 },
                 "municipio": {
-                  "nom_mun": "Ecatepec de Morelos",
-                  "cve_mun": "033"
+                  "nom_agem": "Ecatepec de Morelos",
+                  "cve_agem": "033"
                 },
                 "cp": "55018",
                 "localidad": {
@@ -1591,12 +1595,12 @@
                   "codigo": "MX"
                 },
                 "entidad_federativa": {
-                  "nom_ent": "México",
-                  "cve_ent": "15"
+                  "nom_agee": "México",
+                  "cve_agee": "15"
                 },
                 "municipio": {
-                  "nom_mun": "Ecatepec de Morelos",
-                  "cve_mun": "033"
+                  "nom_agem": "Ecatepec de Morelos",
+                  "cve_agem": "033"
                 },
                 "cp": "55018",
                 "localidad": {
@@ -1674,12 +1678,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -1741,12 +1745,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -1802,12 +1806,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {
@@ -1884,12 +1888,12 @@
                 "codigo": "MX"
               },
               "entidad_federativa": {
-                "nom_ent": "México",
-                "cve_ent": "15"
+                "nom_agee": "México",
+                "cve_agee": "15"
               },
               "municipio": {
-                "nom_mun": "Ecatepec de Morelos",
-                "cve_mun": "033"
+                "nom_agem": "Ecatepec de Morelos",
+                "cve_agem": "033"
               },
               "cp": "55018",
               "localidad": {

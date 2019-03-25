@@ -289,11 +289,11 @@ components:
                 municipio:
                   type: object
                   properties:
-                    nom_mun:
+                    nom_agem:
                       type: string
                       description: Nombre del municipio
                       example: Ecatepec de Morelos
-                    cve_mun:
+                    cve_agem:
                       type: string
                       description: Clave del municipio
                       example: '033'
@@ -408,18 +408,14 @@ components:
           type: object
           properties:
             grado_maximo_escolaridad:
-              type: string
-              description: Deberá señalar el nivel máximo de estudios agregando la siguiente información en caso de aplicar
-              example: Licenciatura
+              $ref: '#/components/schemas/grado_academico'
             grados_academicos:
               type: array
               items:
                 type: object
                 properties:
                   grado_obtenido:
-                    description: 'Deberá señalar a qué nivel educativo pertenecen sus estudios (p.ej. licenciatura, maestría, doctorado, etc.)'
-                    type: string
-                    example: Licenciatura
+                    $ref: '#/components/schemas/grado_academico'
                   institucion_educativa:
                     description: Se deberá escribir el nombre de la institución donde se realizaron los estudios. En caso de que la institución esté en el extranjero se debera llenar al menos el campo país.
                     type: string
@@ -442,22 +438,22 @@ components:
                       entidad_federativa:
                         type: object
                         properties:
-                          nom_ent:
+                          nom_agee:
                             type: string
                             description: Nombre de la entidad federativa del Marco Geoestadístico Nacional
                             example: México
-                          cve_ent:
+                          cve_agee:
                             type: string
                             description: Clave de la entidad federativa del Marco Geoestadístico Nacional
                             example: '15'
                       municipio:
                         type: object
                         properties:
-                          nom_mun:
+                          nom_agem:
                             type: string
                             description: Nombre del municipio del Marco Geoestadístico Nacional
                             example: Ecatepec de Morelos
-                          cve_mun:
+                          cve_agem:
                             type: string
                             description: Clave del municipio del Marco Geoestadístico Nacional
                             example: '033'
@@ -703,11 +699,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -1141,11 +1137,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -1378,11 +1374,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -1479,11 +1475,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -1580,11 +1576,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -1666,11 +1662,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -1767,11 +1763,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -1868,11 +1864,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -1968,11 +1964,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -2094,11 +2090,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -2195,11 +2191,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -2354,11 +2350,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -2646,11 +2642,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -2904,11 +2900,11 @@ components:
                       municipio:
                         type: object
                         properties:
-                          nom_mun:
+                          nom_agem:
                             type: string
                             description: Nombre del municipio
                             example: Ecatepec de Morelos
-                          cve_mun:
+                          cve_agem:
                             type: string
                             description: Clave del municipio
                             example: '033'
@@ -2993,11 +2989,11 @@ components:
                       municipio:
                         type: object
                         properties:
-                          nom_mun:
+                          nom_agem:
                             type: string
                             description: Nombre del municipio
                             example: Ecatepec de Morelos
-                          cve_mun:
+                          cve_agem:
                             type: string
                             description: Clave del municipio
                             example: '033'
@@ -3082,11 +3078,11 @@ components:
                       municipio:
                         type: object
                         properties:
-                          nom_mun:
+                          nom_agem:
                             type: string
                             description: Nombre del municipio
                             example: Ecatepec de Morelos
-                          cve_mun:
+                          cve_agem:
                             type: string
                             description: Clave del municipio
                             example: '033'
@@ -3230,11 +3226,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -3369,11 +3365,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -3497,11 +3493,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -3666,11 +3662,11 @@ components:
                   municipio:
                     type: object
                     properties:
-                      nom_mun:
+                      nom_agem:
                         type: string
                         description: Nombre del municipio
                         example: Ecatepec de Morelos
-                      cve_mun:
+                      cve_agem:
                         type: string
                         description: Clave del municipio
                         example: '033'
@@ -3778,11 +3774,11 @@ components:
         municipio:
           type: object
           properties:
-            nom_mun:
+            nom_agem:
               type: string
               description: Nombre del municipio
               example: Ecatepec de Morelos
-            cve_mun:
+            cve_agem:
               type: string
               description: Clave del municipio
               example: '033'
@@ -3920,11 +3916,11 @@ components:
     entidad_federativa:
       type: object
       properties:
-        nom_ent:
+        nom_agee:
           type: string
           description: Nombre de la entidad federativa del Marco Geoestadístico Nacional
           example: México
-        cve_ent:
+        cve_agee:
           type: string
           description: Clave de la entidad federativa del Marco Geoestadístico Nacional
           example: '15'
@@ -4418,6 +4414,30 @@ components:
             - Transacción única
           description: Valor de la unidad temporal
           example: Meses
+    grado_academico:
+      description: 'Deberá señalar a qué nivel educativo pertenecen sus estudios (p.ej. licenciatura, maestría, doctorado, etc.)'
+      type: object
+      properties:
+        codigo:
+          type: string
+          enum:
+            - PREE
+            - PRIM
+            - SECU
+            - BACH
+            - LICE
+            - MAES
+            - DOCT
+          description: >
+            Significado de Códigos:
+              * `PREE` - Preescolar
+              * `PRIM` - Primaria
+              * `SECU` - Secundaria
+              * `BACH` - Bachillerato
+              * `LICE` - Licenciatura
+              * `MAES` - Maestría
+              * `DOCT` - Doctorado
+          example: LICE
     ordenamiento:
       type: string
       enum:
@@ -4439,9 +4459,9 @@ components:
               $ref: '#/components/schemas/ordenamiento'
             informacion_personal.datos_encargo_actual.ente_publico:
               $ref: '#/components/schemas/ordenamiento'
-            informacion_personal.datos_encargo_actual.direccion_encargo.entidad_federativa.cve_ent:
+            informacion_personal.datos_encargo_actual.direccion_encargo.entidad_federativa.cve_agee:
               $ref: '#/components/schemas/ordenamiento'
-            informacion_personal.datos_encargo_actual.direccion_encargo.municipio.cve_mun:
+            informacion_personal.datos_encargo_actual.direccion_encargo.municipio.cve_agem:
               $ref: '#/components/schemas/ordenamiento'
             informacion_personal.datos_encargo_actual.empleo_cargo_comision:
               $ref: '#/components/schemas/ordenamiento'
@@ -4495,11 +4515,11 @@ components:
               type: string
               description: Se deberá señalar el Ente Público o entidad que corresponda en la que el Servidor Público Declarante ejerza el encargo.
               example: Presidencia de la República
-            informacion_personal.datos_encargo_actual.direccion_encargo.entidad_federativa.cve_ent:
+            informacion_personal.datos_encargo_actual.direccion_encargo.entidad_federativa.cve_agee:
               type: integer
               description: Clave de la entidad federativa del Marco Geoestadístico Nacional
               example: 15
-            informacion_personal.datos_encargo_actual.direccion_encargo.municipio.cve_mun:
+            informacion_personal.datos_encargo_actual.direccion_encargo.municipio.cve_agem:
               type: string
               description: Clave del municipio
               example: '033'

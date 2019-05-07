@@ -222,6 +222,10 @@
               "type" : "object",
               "required" : [ "fecha_captura", "ejercicio_fiscal", "periodo_ejercicio", "id_ramo", "ramo", "sistema_origen", "rfc", "nombres", "primer_apellido", "institucion_dependencia", "puesto", "tipo_area", "nivel_responsabilidad", "tipo_procedimiento" ],
               "properties" : {
+                "id":{
+                  "type": "string",
+                  "description": "id del registro de la base de datos. Puede ser alfanumerico"
+                },
                 "fecha_captura" : {
                   "type" : "string",
                   "format" : "date-time",
@@ -338,7 +342,7 @@
                     "type" : "string",
                     "enum" : [ "T", "RE", "RC", "O", "C", "R" ],
                     "description" : "v=[T=Técnica, RE= Responsable de la ejecución de los trabajos, RC= Responsable de la contratación, O= Otra, C= Contratante, R= Requirente]",
-                    "example" : "T"
+                    "example" : [ "T" ]
                   }
                 },
                 "nivel_responsabilidad" : {

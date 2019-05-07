@@ -1,0 +1,72 @@
+
+type Query {
+    servidor_publico(
+        nombres: String,
+        primer_apellido: String,
+        segundo_apellido: String
+    ): ServidorPublico
+    servidor_publico_id(id: ID!): ServidorPublico
+}
+
+type Periodo {
+    fecha_inicial: String!,
+    fecha_final: String!
+}
+
+enum Genero {
+    M, F, O
+}
+
+type Dependencia {
+    siglas: String!
+    nombre: String!
+    clave: String!
+}
+
+type Puesto {
+    nombre: String,
+    nivel: String,
+}
+
+enum TipoArea {
+    T, RE, RC, O, C, R
+}
+
+enum NivelResponsabilidad {
+    A, T, R
+}
+
+type SuperiorInmediato{
+    nombres: String,
+    primer_apellido: String,
+    segundo_apellido: String,
+    curp: String,
+    rfc: String,
+    puesto: Puesto
+}
+
+type ServidorPublico {
+    id: String!,
+    fecha_captura: String!,
+    ejercicio_fiscal: Int!,
+    periodo_ejercicio: Periodo,
+    id_ramo: Int!,
+    ramo: String,
+    rfc: String,
+    curp: String,
+    nombres: String,
+    primer_apellido: String,
+    segundo_apellido: String,
+    genero: Genero,
+    dependencia: Dependencia,
+    puesto: Puesto
+    tipo_area: [TipoArea]!,
+    nivel_responsabilidad: [NivelResponsabilidad],
+    tipo_procedimiento: Int,
+    tipo_actos: String,
+    superior_inmediato: SuperiorInmediato
+}
+
+
+
+

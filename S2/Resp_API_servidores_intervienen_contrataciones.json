@@ -31,17 +31,13 @@
         "nivel": "1234567890"
       },
       "tipo_area": [
-        [
-          "T",
-          "O",
-          "R"
-        ]
+        "T",
+        "RE",
+        "O"
       ],
       "nivel_responsabilidad": [
-        [
-          "T",
-          "R"
-        ]
+        "A",
+        "T"
       ],
       "tipo_procedimiento": 1,
       "tipo_actos": "Contrataciones",

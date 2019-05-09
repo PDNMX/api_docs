@@ -342,9 +342,9 @@
                   "items" : {
                     "type" : "string",
                     "enum" : [ "T", "RE", "RC", "O", "C", "R" ],
-                    "description" : "v=[T=Técnica, RE= Responsable de la ejecución de los trabajos, RC= Responsable de la contratación, O= Otra, C= Contratante, R= Requirente]",
-                    "example" : [ "T", "O", "R" ]
-                  }
+                    "description" : "v=[T=Técnica, RE= Responsable de la ejecución de los trabajos, RC= Responsable de la contratación, O= Otra, C= Contratante, R= Requirente]"
+                  },
+                  "example" : [ "T", "RE", "O" ]
                 },
                 "nivel_responsabilidad" : {
                   "description" : "v=[A= Atención, T= Tramitación, R= Resolución]",
@@ -352,9 +352,9 @@
                   "uniqueItems" : true,
                   "items" : {
                     "type" : "string",
-                    "enum" : [ "A", "T", "R" ],
-                    "example" : [ "T", "R" ]
-                  }
+                    "enum" : [ "A", "T", "R" ]
+                  },
+                  "example" : [ "A", "T" ]
                 },
                 "tipo_procedimiento" : {
                   "type" : "integer",

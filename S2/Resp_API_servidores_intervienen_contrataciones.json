@@ -6,6 +6,7 @@
   },
   "results": [
     {
+      "id": "string",
       "fecha_captura": "20180820T00:00:00Z",
       "ejercicio_fiscal": 2018,
       "periodo_ejercicio": {
@@ -30,10 +31,17 @@
         "nivel": "1234567890"
       },
       "tipo_area": [
-        "T"
+        [
+          "T",
+          "O",
+          "R"
+        ]
       ],
       "nivel_responsabilidad": [
-        "T"
+        [
+          "T",
+          "R"
+        ]
       ],
       "tipo_procedimiento": 1,
       "tipo_actos": "Contrataciones",

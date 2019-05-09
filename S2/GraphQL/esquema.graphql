@@ -1,11 +1,28 @@
 
 type Query {
+    totalCount: Int!
     servidor_publico(
         nombres: String,
         primer_apellido: String,
         segundo_apellido: String
-    ): ServidorPublico
+        sort: SortDirection = DESC
+        sortBy: SortableField = RFC
+    ): [
+    ServidorPublico
+    ]
     servidor_publico_id(id: ID!): ServidorPublico
+}
+
+enum SortDirection{
+    ASC,
+    DESC
+}
+
+enum SortableField{
+    RFC,
+    nombres,
+    primer_apellido,
+    segundo_apellido
 }
 
 type Periodo {

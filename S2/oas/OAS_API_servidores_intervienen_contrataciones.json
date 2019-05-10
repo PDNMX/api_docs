@@ -29,7 +29,7 @@
         }, {
           "name" : "page_size",
           "in" : "query",
-          "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
+          "description" : "Número de registros a mostrar por página, el máximo permitido es doscientos y el mínimo uno, por defecto muestra diez registros.",
           "schema" : {
             "type" : "integer",
             "minimum" : 1,
@@ -199,7 +199,7 @@
               "page_size" : {
                 "type" : "number",
                 "minimum" : 1,
-                "description" : "Total de páginas",
+                "description" : "Número de registros mostrados, por defecto muestra diez.",
                 "example" : 100
               },
               "page" : {
@@ -222,10 +222,6 @@
               "type" : "object",
               "required" : [ "fecha_captura", "ejercicio_fiscal", "periodo_ejercicio", "id_ramo", "ramo", "sistema_origen", "rfc", "nombres", "primer_apellido", "institucion_dependencia", "puesto", "tipo_area", "nivel_responsabilidad", "tipo_procedimiento" ],
               "properties" : {
-                "id" : {
-                  "type" : "string",
-                  "description" : "Identificador del registro de la base de datos. Puede ser alfanumérico"
-                },
                 "fecha_captura" : {
                   "type" : "string",
                   "format" : "date-time",
@@ -338,23 +334,21 @@
                 },
                 "tipo_area" : {
                   "type" : "array",
-                  "uniqueItems" : true,
                   "items" : {
                     "type" : "string",
                     "enum" : [ "T", "RE", "RC", "O", "C", "R" ],
-                    "description" : "v=[T=Técnica, RE= Responsable de la ejecución de los trabajos, RC= Responsable de la contratación, O= Otra, C= Contratante, R= Requirente]"
-                  },
-                  "example" : [ "T", "RE", "O" ]
+                    "description" : "v=[T=Técnica, RE= Responsable de la ejecución de los trabajos, RC= Responsable de la contratación, O= Otra, C= Contratante, R= Requirente]",
+                    "example" : "T"
+                  }
                 },
                 "nivel_responsabilidad" : {
                   "description" : "v=[A= Atención, T= Tramitación, R= Resolución]",
                   "type" : "array",
-                  "uniqueItems" : true,
                   "items" : {
                     "type" : "string",
-                    "enum" : [ "A", "T", "R" ]
-                  },
-                  "example" : [ "A", "T" ]
+                    "enum" : [ "A", "T", "R" ],
+                    "example" : "T"
+                  }
                 },
                 "tipo_procedimiento" : {
                   "type" : "integer",
@@ -452,7 +446,7 @@
           },
           "page_size" : {
             "type" : "integer",
-            "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
+            "description" : "Número de registros a mostrar por página, el máximo permitido es doscientos y el mínimo uno, por defecto muestra diez registros.",
             "example" : 10
           },
           "id" : {

@@ -2,15 +2,23 @@
 type Query {
     totalCount: Int!
     servidor_publico(
-        nombres: String,
-        primer_apellido: String,
+        nombres: String
+        primer_apellido: String
         segundo_apellido: String
+        limit: Int = 10
+        skip: Int = 0
         sort: SortDirection = DESC
         sortBy: SortableField = RFC
-    ): [
-    ServidorPublico
-    ]
+        actualizacion: DateRange!
+    ): [ServidorPublico!]!
     servidor_publico_id(id: ID!): ServidorPublico
+}
+
+scalar DateTime
+
+input DateRange {
+    start: DateTime!
+    end: DateTime!
 }
 
 enum SortDirection{
@@ -26,8 +34,8 @@ enum SortableField{
 }
 
 type Periodo {
-    fecha_inicial: String!,
-    fecha_final: String!
+    fecha_inicial: DateTime!,
+    fecha_final: DateTime!
 }
 
 enum Genero {
@@ -64,7 +72,7 @@ type SuperiorInmediato{
 
 type ServidorPublico {
     id: String!,
-    fecha_captura: String!,
+    fecha_captura: DateTime!,
     ejercicio_fiscal: Int!,
     periodo_ejercicio: Periodo,
     id_ramo: Int!,

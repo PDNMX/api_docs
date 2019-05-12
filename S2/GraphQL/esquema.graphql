@@ -1,6 +1,6 @@
 
 type Query {
-    totalCount: Int!
+    #totalCount: Int!
     servidor_publico(
         nombres: String
         primer_apellido: String
@@ -10,7 +10,7 @@ type Query {
         sort: SortDirection = DESC
         sortBy: SortableField = RFC
         actualizacion: DateRange!
-    ): [ServidorPublico!]!
+    ): ServidoresPublicos
     servidor_publico_id(id: ID!): ServidorPublico
 }
 
@@ -32,6 +32,15 @@ enum SortableField{
     primer_apellido,
     segundo_apellido
 }
+
+
+# Responses
+type ServidoresPublicos{
+    total_count: Int!
+    results: [ServidorPublico]!
+    #pagination:
+}
+
 
 type Periodo {
     fecha_inicial: DateTime!,

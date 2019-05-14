@@ -2,8 +2,9 @@
 type Query {
     servidor_publico(
         filtros: Filtros
-        limit: Int = 10
-        skip: Int = 0
+        first: Int = 10 #Limit
+        start: Int = 0 #skip, offset
+        #after: cursor
         sort: SortDirection = DESC
         sortBy: SortableField = RFC
         actualizacion: DateRange!
@@ -39,12 +40,15 @@ enum SortableField {
     segundo_apellido
 }
 
+type PageInfo {
+    hasNextPage: Boolean!
+}
 
-# Responses
+# Response
 type ServidoresPublicos{
-    total_count: Int!
+    totalCount: Int!
     results: [ServidorPublico]!
-    #pagination:
+    pageInfo: PageInfo
 }
 
 

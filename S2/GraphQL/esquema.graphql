@@ -5,14 +5,18 @@ type Query {
         first: Int = 10 #Limit
         start: Int = 0 #skip, offset
         #after: cursor
-        sort: SortDirection = DESC
-        sortBy: SortableField = RFC
+        sort: Sort        
         actualizacion: DateRange!
     ): ServidoresPublicos
     servidor_publico_id(id: ID!): ServidorPublico
 }
 
 scalar DateTime
+
+input Sort {
+    Direction = DESC
+    TableField = RFC
+}
 
 input DateRange {
     start: DateTime!
@@ -28,12 +32,12 @@ input Filtros {
 }
 
 
-enum SortDirection{
+enum Direction{
     ASC,
     DESC
 }
 
-enum SortableField {
+enum TableField {
     RFC,
     nombres,
     primer_apellido,

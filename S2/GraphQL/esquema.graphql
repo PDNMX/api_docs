@@ -14,8 +14,8 @@ type Query {
 scalar DateTime
 
 input Sort {
-    Direction = DESC
-    TableField = RFC
+    direction : Direction
+    field : TableField
 }
 
 input DateRange {

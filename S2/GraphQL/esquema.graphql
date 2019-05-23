@@ -14,8 +14,8 @@ type Query {
 scalar DateTime
 
 input Sort {
-    direction : Direction
-    field : TableField
+    direction: Direction
+    field: TableField
 }
 
 input DateRange {

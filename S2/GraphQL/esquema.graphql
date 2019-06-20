@@ -42,7 +42,8 @@ enum TableField {
     nombres,
     primer_apellido,
     segundo_apellido,
-    institucion
+    institucion,
+    actualizacion
 }
 
 type PageInfo {

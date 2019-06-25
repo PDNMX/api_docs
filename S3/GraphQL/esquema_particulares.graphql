@@ -1,0 +1,87 @@
+
+
+scalar DateTime
+
+enum Genero {
+    M,F,O
+}
+
+
+type Domicilio {
+    #pais: String, #¿domicilio solo debería aplicar para MX?
+    entidad_federativa: String,
+    municipio: String,
+    codigo_postal: String,
+    localidad: String,
+    vialidad: String,
+    numExt: String,
+    numInt: String
+}
+
+type InstitucionDependencia {
+    nombre: String,
+    siglas: String,
+    clave: String
+}
+
+enum TipoSancion{
+    I,M,S,D
+}
+
+type Resolucion {
+    sentido: String,
+    fecha_notificacion: DateTime,
+    url: String
+}
+
+type Multa {
+    monto: String,
+    moneda: String
+}
+
+type Inhabilitacion {
+    fecha_inicial: DateTime,
+    fecha_final: DateTime,
+    plazo: String
+}
+
+type DirectorGeneral{
+    nombres: String,
+    primer_apellido: String,
+    segundo_apellido: String,
+    curp: String
+}
+
+type ApoderadoLegal {
+    nombres: String,
+    primer_apellido: String,
+    segundo_apellido: String,
+    curp: String
+}
+
+type Particular {
+    fecha_captura: DateTime,
+    nombre_razon_social: String,
+    objeto_social: String,
+    rfc: String,
+    domicilio: Domicilio,
+    institucion_dependencia: InstitucionDependencia,
+    expediente: String,
+    causa_motivo_hechos: String,
+    acto: String,
+    objeto_contrato: String,
+    tipo_falta: String,
+    autoridad_sancionadora: String,
+    tipo_sancion: [TipoSancion],
+    resolucion: Resolucion,
+    multa: Multa,
+    inhabilitacion: Inhabilitacion
+    observaciones: String,
+    telefono: String,
+    #sistema_origen: String, # ¿realmente nos sirve?
+    #sistema_dependencia: String # ¿realmente nos sirve?
+    expediente_dependencia: String,
+    director_general: DirectorGeneral,
+    apoderado_legal: ApoderadoLegal
+
+}

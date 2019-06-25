@@ -1,0 +1,15 @@
+scalar DateTime
+
+enum Genero {
+    M,F,O
+}
+type Particular {
+    fecha_captura: DateTime,
+    nombres: String,
+    primer_apellido: String,
+    segundo_apellido: String,
+    curp: String,
+    rfc: String,
+    genero: Genero,
+    Puesto
+}

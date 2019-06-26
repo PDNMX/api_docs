@@ -3,7 +3,12 @@ scalar DateTime
 enum Genero {
     M,F,O
 }
-type Particular {
+
+enum TipoFalta {
+    AG, ANG, AC
+}
+
+type ServidorPublicoSancionado {
     fecha_captura: DateTime,
     nombres: String,
     primer_apellido: String,
@@ -11,5 +16,16 @@ type Particular {
     curp: String,
     rfc: String,
     genero: Genero,
-    Puesto
+    puesto: String,
+    nivel: String,
+    institucion_dependencia: InstitucionDependencia,
+    autoridad_sancionadora: String,
+    expediente: String,
+    causa: String,
+    tipo_falta: [TipoFalta]
+    #tipo_sancion: [TipoSancion]
+    multa: Multa,
+    documentos: [Documento]
+
+
 }

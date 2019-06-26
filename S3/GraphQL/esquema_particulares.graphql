@@ -59,7 +59,20 @@ type ApoderadoLegal {
     curp: String
 }
 
-type Particular {
+type Responsable {
+
+}
+
+type Documento {
+    id: String!
+    tipo: String,
+    titulo: String!
+    descripcion: String!
+    url: String!
+    fecha: String
+}
+
+type ParticularSancionado {
     fecha_captura: DateTime,
     nombre_razon_social: String,
     objeto_social: String,
@@ -83,5 +96,7 @@ type Particular {
     expediente_dependencia: String,
     director_general: DirectorGeneral,
     apoderado_legal: ApoderadoLegal
-
+    #documento:
+    #direccion
+    documentos: [Documento]
 }

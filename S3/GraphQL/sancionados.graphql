@@ -9,14 +9,38 @@ type Documento {
     fecha: String
 }
 
-#Ajustar a la Norma de domicilios geográficos del INEGI
+type Pais {
+    valor: String
+    codigo: String
+}
+
+type EntidadFederativa {
+    nom_ent: String,
+    cve_ent: String
+}
+
+type Municipio {
+    nom_mun: String,
+    cve_mun: String
+}
+
+type Localidad {
+    nom_loc: String,
+    cve_loc: String
+}
+
+type Vialidad {
+    nom_vial: String,
+    tipo_vial: String
+}
+
 type Domicilio {
-    #pais: String, #¿domicilio solo debería aplicar para MX?
-    entidad_federativa: String,
-    municipio: String,
+    pais: Pais,
+    entidad_federativa: EntidadFederativa,
+    municipio: Municipio,
     codigo_postal: String,
-    localidad: String,
-    vialidad: String,
+    localidad: Localidad,
+    vialidad: Vialidad,
     numExt: String,
     numInt: String
 }

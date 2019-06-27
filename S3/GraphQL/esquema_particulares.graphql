@@ -60,7 +60,9 @@ type ApoderadoLegal {
 }
 
 type Responsable {
-
+    nombres: String,
+    primer_apellido: String,
+    segundo_apellido: String
 }
 
 type Documento {
@@ -73,29 +75,31 @@ type Documento {
 }
 
 type ParticularSancionado {
+    id: String!,
     fecha_captura: DateTime,
+    expediente: String,
+    #expediente_dependencia: String, #checar
+    #sistema_origen: String, # ¿realmente nos sirve?
+    #sistema_dependencia: String # ¿realmente nos sirve?
     nombre_razon_social: String,
     objeto_social: String,
+    objeto_contrato: String,
     rfc: String,
+    telefono: String,
     domicilio: Domicilio,
+    director_general: DirectorGeneral,
+    apoderado_legal: ApoderadoLegal
+    tipo_falta: String, #chechar si aplica
+    tipo_sancion: [TipoSancion],
     institucion_dependencia: InstitucionDependencia,
-    expediente: String,
     causa_motivo_hechos: String,
     acto: String,
-    objeto_contrato: String,
-    tipo_falta: String,
     autoridad_sancionadora: String,
-    tipo_sancion: [TipoSancion],
+    responsable: Responsable,
     resolucion: Resolucion,
     multa: Multa,
     inhabilitacion: Inhabilitacion
     observaciones: String,
-    telefono: String,
-    #sistema_origen: String, # ¿realmente nos sirve?
-    #sistema_dependencia: String # ¿realmente nos sirve?
-    expediente_dependencia: String,
-    director_general: DirectorGeneral,
-    apoderado_legal: ApoderadoLegal
     #documento:
     #direccion
     documentos: [Documento]

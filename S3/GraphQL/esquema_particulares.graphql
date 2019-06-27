@@ -12,39 +12,39 @@ type ApoderadoLegal {
     curp: String
 }
 
-type Responsable {
+type ResponsableSancion {
     nombres: String,
     primer_apellido: String,
     segundo_apellido: String
+}
+
+type Particular {
+    nombre_razon_social: String,
+    objeto_social: String,
+    rfc: String,
+    telefono: String,
+    domicilio: Domicilio,
+    director_general: DirectorGeneral,
+    apoderado_legal: ApoderadoLegal
 }
 
 type ParticularSancionado {
     id: String!,
     fecha_captura: DateTime,
     expediente: String,
-    #expediente_dependencia: String, #checar
-    #sistema_origen: String, # ¿realmente nos sirve?
-    #sistema_dependencia: String # ¿realmente nos sirve?
-    nombre_razon_social: String,
-    objeto_social: String,
+    institucion_dependencia: InstitucionDependencia,
+    sistema_origen: String, # ¿realmente nos sirve?
+    particular_sancionado: Particular
     objeto_contrato: String,
-    rfc: String,
-    telefono: String,
-    domicilio: Domicilio,
-    director_general: DirectorGeneral,
-    apoderado_legal: ApoderadoLegal
+    autoridad_sancionadora: String,
     tipo_falta: String, #chechar si aplica
     tipo_sancion: [TipoSancion],
-    institucion_dependencia: InstitucionDependencia,
     causa_motivo_hechos: String,
     acto: String,
-    autoridad_sancionadora: String,
-    responsable: Responsable,
+    responsable_sancion: ResponsableSancion,
     resolucion: Resolucion,
     multa: Multa,
     inhabilitacion: Inhabilitacion
     observaciones: String,
-    #documento:
-    #direccion
     documentos: [Documento]
 }

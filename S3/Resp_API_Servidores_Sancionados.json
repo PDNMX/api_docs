@@ -26,7 +26,9 @@
         "nivel": "ABCD1234"
       },
       "autoridad_sancionadora": "Organo Interno de Control",
-      "tipo_falta": "AG",
+      "tipo_falta": [
+        "AG"
+      ],
       "tipo_sancion": [
         "M"
       ],

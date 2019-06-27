@@ -9,6 +9,7 @@ type Documento {
     fecha: String
 }
 
+#Ajustar a la Norma de domicilios geográficos del INEGI
 type Domicilio {
     #pais: String, #¿domicilio solo debería aplicar para MX?
     entidad_federativa: String,

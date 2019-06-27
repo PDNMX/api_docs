@@ -1,6 +1,4 @@
-
-type ServidorPublicoSancionado {
-    fecha_captura: DateTime,
+type ServidorPublico {
     nombres: String,
     primer_apellido: String,
     segundo_apellido: String,
@@ -9,14 +7,20 @@ type ServidorPublicoSancionado {
     genero: Genero,
     puesto: String,
     nivel: String,
-    institucion_dependencia: InstitucionDependencia,
-    autoridad_sancionadora: String,
+}
+
+type ServidorPublicoSancionado {
+    fecha_captura: DateTime,
     expediente: String,
-    causa: String,
+    institucion_dependencia: InstitucionDependencia,
+    sistema_origen: String,
+    servidor_publico_sancionado: ServidorPublico
+    autoridad_sancionadora: String,
     tipo_falta: [TipoFalta]
-    #tipo_sancion: [TipoSancion]
+    tipo_sancion: [TipoSancion]
+    causa_motivo_hechos: String,
+    resolucion: Resolucion,
     multa: Multa,
+    inhabilitacion: Inhabilitacion,
     documentos: [Documento]
-
-
 }

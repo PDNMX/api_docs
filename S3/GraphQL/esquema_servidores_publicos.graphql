@@ -1,12 +1,3 @@
-scalar DateTime
-
-enum Genero {
-    M,F,O
-}
-
-enum TipoFalta {
-    AG, ANG, AC
-}
 
 type ServidorPublicoSancionado {
     fecha_captura: DateTime,

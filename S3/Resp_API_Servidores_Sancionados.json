@@ -6,26 +6,31 @@
   },
   "results": [
     {
+      "id": "1",
       "fecha_captura": "2017-07-21T17:32:28Z",
-      "rfc": "PAT21343213",
-      "curp": "ABCD780814MDFAXL",
-      "nombres": "Carlos",
-      "primer_apellido": "Pérez",
-      "segundo_apellido": "López",
-      "genero": "M",
+      "expediente": "ABC123",
       "institucion_dependencia": {
         "nombre": "Secretaría de Hacienda y Crédito Público",
         "siglas": "SHCP",
         "clave": "TRE345"
       },
-      "puesto": "Director de área",
-      "nivel": "ABCD1234",
-      "autoridad_sancionadora": "Organo Interno de Control",
-      "tipo_sancion": "M",
-      "tipo_falta": "AG",
-      "causa": "ABUSO DE AUTORIDAD",
-      "expediente": "0047/2016",
       "sistema_origen": "COMPRANET",
+      "servidor_publico_sancionado":{
+        "rfc": "PAT21343213",
+        "curp": "ABCD780814MDFAXL",
+        "nombres": "Carlos",
+        "primer_apellido": "Pérez",
+        "segundo_apellido": "López",
+        "genero": "M",
+        "puesto": "Director de área",
+        "nivel": "ABCD1234"
+      },
+      "autoridad_sancionadora": "Organo Interno de Control",
+      "tipo_falta": "AG",
+      "tipo_sancion": [
+        "M"
+      ],
+      "causa_motivo_hechos": "ABUSO DE AUTORIDAD",
       "resolucion": {
         "url": "https://ejemplo.mx/archivo/documento.pdf",
         "fecha_notificacion": "2018-05-21"

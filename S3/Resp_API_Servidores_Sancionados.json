@@ -15,7 +15,7 @@
         "clave": "TRE345"
       },
       "sistema_origen": "COMPRANET",
-      "servidor_publico_sancionado":{
+      "servidor_publico_sancionado": {
         "rfc": "PAT21343213",
         "curp": "ABCD780814MDFAXL",
         "nombres": "Carlos",

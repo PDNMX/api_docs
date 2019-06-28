@@ -215,44 +215,22 @@
             "type" : "array",
             "items" : {
               "type" : "object",
-              "required" : [ "fecha_captura", "rfc", "nombres", "primer_apellido", "institucion_dependencia", "puesto", "expediente", "autoridad_sancionadora", "tipo_sancion", "tipo_falta", "causa", "resolucion", "multa", "inhabilitacion", "documentos" ],
               "properties" : {
+                "id" : {
+                  "type" : "string",
+                  "description" : "",
+                  "example" : "1"
+                },
                 "fecha_captura" : {
                   "type" : "string",
                   "format" : "date-time",
                   "description" : "La fecha y hora en la que se agrega o modifica el registro",
                   "example" : "2017-07-21T17:32:28Z"
                 },
-                "rfc" : {
+                "expediente" : {
                   "type" : "string",
-                  "description" : "RFC del Servidor Público con homoclave",
-                  "example" : "PAT21343213"
-                },
-                "curp" : {
-                  "type" : "string",
-                  "description" : "CURP del Servidor Público",
-                  "example" : "ABCD780814MDFAXL"
-                },
-                "nombres" : {
-                  "type" : "string",
-                  "description" : "Nombre o nombres del Servidor Público",
-                  "example" : "Carlos"
-                },
-                "primer_apellido" : {
-                  "type" : "string",
-                  "description" : "Primer apellido de la persona",
-                  "example" : "Pérez"
-                },
-                "segundo_apellido" : {
-                  "type" : "string",
-                  "description" : "Segundo apellido de la persona",
-                  "example" : "López"
-                },
-                "genero" : {
-                  "type" : "string",
-                  "enum" : [ "M", "F", "O" ],
-                  "description" : "F= Femenino, M= Másculino, O=Otro",
-                  "example" : "M"
+                  "description" : "El expediente derivado de la investigación que las Autoridades Investigadoras realizan.",
+                  "example" : "ABC123"
                 },
                 "institucion_dependencia" : {
                   "type" : "object",
@@ -275,52 +253,84 @@
                     }
                   }
                 },
-                "puesto" : {
+                "sistema_origen" : {
                   "type" : "string",
-                  "description" : "Clave del puesto del nivel del Servidor Público",
-                  "example" : "Director de área"
+                  "description" : "Sistema en que se almacena la información del contrato, acto de autoridad",
+                  "example" : "COMPRANET"
                 },
-                "nivel" : {
-                  "type" : "string",
-                  "description" : "Puesto del Servidor Público",
-                  "example" : "ABCD1234"
+                "servidor_publico_sancionado" : {
+                  "type" : "object",
+                  "properties" : {
+                    "rfc" : {
+                      "type" : "string",
+                      "description" : "RFC del Servidor Público con homoclave",
+                      "example" : "PAT21343213"
+                    },
+                    "curp" : {
+                      "type" : "string",
+                      "description" : "CURP del Servidor Público",
+                      "example" : "ABCD780814MDFAXL"
+                    },
+                    "nombres" : {
+                      "type" : "string",
+                      "description" : "Nombre o nombres del Servidor Público",
+                      "example" : "Carlos"
+                    },
+                    "primer_apellido" : {
+                      "type" : "string",
+                      "description" : "Primer apellido de la persona",
+                      "example" : "Pérez"
+                    },
+                    "segundo_apellido" : {
+                      "type" : "string",
+                      "description" : "Segundo apellido de la persona",
+                      "example" : "López"
+                    },
+                    "genero" : {
+                      "type" : "string",
+                      "enum" : [ "M", "F", "O" ],
+                      "description" : "F= Femenino, M= Másculino, O=Otro",
+                      "example" : "M"
+                    },
+                    "puesto" : {
+                      "type" : "string",
+                      "description" : "Clave del puesto del nivel del Servidor Público",
+                      "example" : "Director de área"
+                    },
+                    "nivel" : {
+                      "type" : "string",
+                      "description" : "Puesto del Servidor Público",
+                      "example" : "ABCD1234"
+                    }
+                  }
                 },
                 "autoridad_sancionadora" : {
                   "type" : "string",
                   "description" : "Autoridad encarcada del proceso de sanción ",
                   "example" : "Organo Interno de Control"
                 },
-                "tipo_sancion" : {
-                  "type" : "string",
-                  "enum" : [ "I", "M", "MI", "S", "D" ],
-                  "description" : "I = Inhabilitado, M = Multado, MI = Multado e Inhabilitado, S= Suspensión del empleo, cargo o comisión, D= Destitución del emplo, cargo o comisión",
-                  "example" : "M"
-                },
                 "tipo_falta" : {
-                  "type" : "string",
-                  "enum" : [ "AG", "ANG", "AC" ],
+                  "type" : "array",
                   "description" : "eg., AG= Administrativa grave, ANG= Administrativa no grave, AC=Acto de corrupción",
-                  "example" : "AG"
+                  "items" : {
+                    "type" : "string",
+                    "enum" : [ "AG", "ANG", "AC" ],
+                    "example" : "AG"
+                  }
                 },
-                "causa" : {
+                "tipo_sancion" : {
+                  "type" : "array",
+                  "description" : "I = Inhabilitado, M = Multado, MI = Multado e Inhabilitado, S= Suspensión del empleo, cargo o comisión, D= Destitución del emplo, cargo o comisión",
+                  "items" : {
+                    "type" : "string",
+                    "enum" : [ "I", "M", "MI", "S", "D" ],
+                    "example" : "M"
+                  }
+                },
+                "causa_motivo_hechos" : {
                   "type" : "string",
                   "description" : "Causa o motivo de la sanción",
                   "example" : "ABUSO DE AUTORIDAD"
-                },
-                "acto" : {
-                  "type" : "string",
-                  "description" : "Acto que originó la investigación",
-                  "example" : "Contrataciones"
-                },
-                "expediente" : {
-                  "type" : "string",
-                  "description" : "El expediente derivado de la investigación que las Autoridades Investigadoras realizan.",
-                  "example" : "0047/2016"
-                },
-                "sistema_origen" : {
-                  "type" : "string",
-                  "description" : "Sistema en que se almacena la información del contrato, acto de autoridad",
-                  "example" : "COMPRANET"
                 },
                 "resolucion" : {
                   "type" : "object",

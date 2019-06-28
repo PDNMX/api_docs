@@ -208,8 +208,12 @@
             "type" : "array",
             "items" : {
               "type" : "object",
-              "required" : [ "fecha_captura", "numero_expediente", "sistema_origen", "nombre_razon_social", "rfc", "tipo_sancion", "institucion_dependencia", "tipo_falta", "causa_motivo_hechos", "objeto_social", "objeto_contrato", "autoridad_sancionadora", "responsable", "resolucion", "multa", "inhabilitacion", "documentos" ],
               "properties" : {
+                "id" : {
+                  "type" : "string",
+                  "description" : "",
+                  "example" : "1"
+                },
                 "fecha_captura" : {
                   "type" : "string",
                   "format" : "date-time",
@@ -220,146 +224,6 @@
                   "type" : "string",
                   "description" : "Número de expediente",
                   "example" : "ABC123"
-                },
-                "sistema_origen" : {
-                  "type" : "string",
-                  "description" : "Sistema o base de datos donde se origina el número de expediente.",
-                  "example" : "Directorio de Sancionados, Secretaría de la Función Pública"
-                },
-                "sistema_dependencia" : {
-                  "type" : "string",
-                  "description" : "Nombre del Sistema en que se almacena la información del contrato, acto de autoridad",
-                  "example" : "COMPRANET"
-                },
-                "expediente_dependencia" : {
-                  "type" : "string",
-                  "description" : "Número de Expediente en el Sistema que contiene el contrato o acto de autoridad",
-                  "example" : "ACD321"
-                },
-                "nombre_razon_social" : {
-                  "type" : "string",
-                  "description" : "Razón social del contratista",
-                  "example" : "PATITO TELECOM S.A. de C.V."
-                },
-                "rfc" : {
-                  "type" : "string",
-                  "description" : "RFC del contratista.",
-                  "example" : "PAT21343213"
-                },
-                "telefono" : {
-                  "type" : "string",
-                  "maxLength" : 15,
-                  "description" : "'Teléfono del contratista. Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf.",
-                  "example" : "552123244"
-                },
-                "domicilio" : {
-                  "description" : "Dirección del contratista. Este dato es información confidencial",
-                  "type" : "object",
-                  "properties" : {
-                    "pais" : {
-                      "type" : "object",
-                      "properties" : {
-                        "valor" : {
-                          "type" : "string",
-                          "description" : "Nombre  del pais especificado en estándar ISO3166",
-                          "example" : "México"
-                        },
-                        "codigo" : {
-                          "type" : "string",
-                          "maxLength" : 5,
-                          "description" : "Código alpha 2 del país especificado en estándar ISO3166",
-                          "example" : "MX"
-                        }
-                      }
-                    },
-                    "entidad_federativa" : {
-                      "type" : "object",
-                      "properties" : {
-                        "nom_ent" : {
-                          "type" : "string",
-                          "description" : "Nombre de la entidad federativa del Marco Geoestadístico Nacional",
-                          "example" : "México"
-                        },
-                        "cve_ent" : {
-                          "type" : "string",
-                          "maxLength" : 5,
-                          "description" : "Clave de la entidad federativa del Marco Geoestadístico Nacional",
-                          "example" : "15"
-                        }
-                      }
-                    },
-                    "municipio" : {
-                      "type" : "object",
-                      "properties" : {
-                        "nom_mun" : {
-                          "type" : "string",
-                          "description" : "Nombre del municipio",
-                          "example" : "Ecatepec de Morelos"
-                        },
-                        "cve_mun" : {
-                          "type" : "string",
-                          "maxLength" : 10,
-                          "description" : "Clave del municipio",
-                          "example" : "033"
-                        }
-                      }
-                    },
-                    "cp" : {
-                      "type" : "string",
-                      "description" : "Código postal del domicilio",
-                      "example" : "55018"
-                    },
-                    "localidad" : {
-                      "type" : "object",
-                      "properties" : {
-                        "nom_loc" : {
-                          "type" : "string",
-                          "description" : "Nombre de la localidad",
-                          "example" : "Ecatepec de Morelos"
-                        },
-                        "cve_loc" : {
-                          "type" : "string",
-                          "maxLength" : 10,
-                          "description" : "Clave de la localidad",
-                          "example" : "0001"
-                        }
-                      }
-                    },
-                    "vialidad" : {
-                      "type" : "object",
-                      "properties" : {
-                        "tipo_vial" : {
-                          "type" : "string",
-                          "description" : "Tipo de vialidad",
-                          "example" : "CALLE"
-                        },
-                        "nom_vial" : {
-                          "type" : "string",
-                          "description" : "Nombre de vialidad",
-                          "example" : "El Rosal"
-                        }
-                      }
-                    },
-                    "numExt" : {
-                      "type" : "string",
-                      "description" : "Número exterior del domicilio",
-                      "example" : "24"
-                    },
-                    "numInt" : {
-                      "type" : "string",
-                      "description" : "Número interior del domicilio",
-                      "example" : "48"
-                    }
-                  }
-                },
-                "tipo_sancion" : {
-                  "description" : "I = Inhabilitado, M = Multado, S = Suspensión de actividades, D = Disolución de la sociedad. e.g., ['I', 'M'] significa que el contratista fue inhabilitado y multado.",
-                  "type" : "array",
-                  "items" : {
-                    "type" : "string",
-                    "enum" : [ "I", "M", "S", "D" ],
-                    "example" : "I"
-                  }
                 },
                 "institucion_dependencia" : {
                   "type" : "object",
@@ -381,25 +245,178 @@
                     }
                   }
                 },
-                "tipo_falta" : {
+                "sistema_origen" : {
                   "type" : "string",
-                  "description" : "eg.,soborno, participación ilícita, tráfico de influencias, uso información falsa,colusión, obstrucción de facultades, contratación indebida, uso indebido de recusos públicos.",
-                  "example" : "contratación indebida"
+                  "description" : "Sistema o base de datos donde se origina el número de expediente.",
+                  "example" : "Directorio de Sancionados, Secretaría de la Función Pública"
                 },
-                "causa_motivo_hechos" : {
-                  "type" : "string",
-                  "description" : "Causa/motivo o hechos que dieron origen a la multa o inhabilitación ",
-                  "example" : "Causa o motivo de la sanción"
-                },
-                "acto" : {
-                  "type" : "string",
-                  "description" : "Acto que originó la investigación",
-                  "example" : "Contrataciones"
-                },
-                "objeto_social" : {
-                  "type" : "string",
-                  "description" : "Objeto social de la empresa",
-                  "example" : "Objeto social de la empresa"
+                "particular_sancionado" : {
+                  "type" : "object",
+                  "properties" : {
+                    "nombre_razon_social" : {
+                      "type" : "string",
+                      "description" : "Razón social del contratista",
+                      "example" : "PATITO TELECOM S.A. de C.V."
+                    },
+                    "objeto_social" : {
+                      "type" : "string",
+                      "description" : "Objeto social de la empresa",
+                      "example" : "Objeto social de la empresa"
+                    },
+                    "rfc" : {
+                      "type" : "string",
+                      "description" : "RFC del contratista.",
+                      "example" : "PAT21343213"
+                    },
+                    "telefono" : {
+                      "type" : "string",
+                      "maxLength" : 15,
+                      "description" : "'Teléfono del contratista. Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf.",
+                      "example" : "552123244"
+                    },
+                    "domicilio" : {
+                      "description" : "Dirección del contratista. Este dato es información confidencial",
+                      "type" : "object",
+                      "properties" : {
+                        "pais" : {
+                          "type" : "object",
+                          "properties" : {
+                            "valor" : {
+                              "type" : "string",
+                              "description" : "Nombre  del pais especificado en estándar ISO3166",
+                              "example" : "México"
+                            },
+                            "codigo" : {
+                              "type" : "string",
+                              "maxLength" : 5,
+                              "description" : "Código alpha 2 del país especificado en estándar ISO3166",
+                              "example" : "MX"
+                            }
+                          }
+                        },
+                        "entidad_federativa" : {
+                          "type" : "object",
+                          "properties" : {
+                            "nom_ent" : {
+                              "type" : "string",
+                              "description" : "Nombre de la entidad federativa del Marco Geoestadístico Nacional",
+                              "example" : "México"
+                            },
+                            "cve_ent" : {
+                              "type" : "string",
+                              "maxLength" : 5,
+                              "description" : "Clave de la entidad federativa del Marco Geoestadístico Nacional",
+                              "example" : "15"
+                            }
+                          }
+                        },
+                        "municipio" : {
+                          "type" : "object",
+                          "properties" : {
+                            "nom_mun" : {
+                              "type" : "string",
+                              "description" : "Nombre del municipio",
+                              "example" : "Ecatepec de Morelos"
+                            },
+                            "cve_mun" : {
+                              "type" : "string",
+                              "maxLength" : 10,
+                              "description" : "Clave del municipio",
+                              "example" : "033"
+                            }
+                          }
+                        },
+                        "cp" : {
+                          "type" : "string",
+                          "description" : "Código postal del domicilio",
+                          "example" : "55018"
+                        },
+                        "localidad" : {
+                          "type" : "object",
+                          "properties" : {
+                            "nom_loc" : {
+                              "type" : "string",
+                              "description" : "Nombre de la localidad",
+                              "example" : "Ecatepec de Morelos"
+                            },
+                            "cve_loc" : {
+                              "type" : "string",
+                              "maxLength" : 10,
+                              "description" : "Clave de la localidad",
+                              "example" : "0001"
+                            }
+                          }
+                        },
+                        "vialidad" : {
+                          "type" : "object",
+                          "properties" : {
+                            "tipo_vial" : {
+                              "type" : "string",
+                              "description" : "Tipo de vialidad",
+                              "example" : "CALLE"
+                            },
+                            "nom_vial" : {
+                              "type" : "string",
+                              "description" : "Nombre de vialidad",
+                              "example" : "El Rosal"
+                            }
+                          }
+                        },
+                        "numExt" : {
+                          "type" : "string",
+                          "description" : "Número exterior del domicilio",
+                          "example" : "24"
+                        },
+                        "numInt" : {
+                          "type" : "string",
+                          "description" : "Número interior del domicilio",
+                          "example" : "48"
+                        }
+                      }
+                    },
+                    "director_general" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nombres" : {
+                          "type" : "string",
+                          "example" : "Carlos"
+                        },
+                        "primer_apellido" : {
+                          "type" : "string",
+                          "example" : "Pérez"
+                        },
+                        "segundo_apellido" : {
+                          "type" : "string",
+                          "example" : "López"
+                        },
+                        "curp" : {
+                          "type" : "string",
+                          "example" : "BADD110313HCMLNS09"
+                        }
+                      }
+                    },
+                    "apoderado_legal" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nombres" : {
+                          "type" : "string",
+                          "example" : "Carlos"
+                        },
+                        "primer_apellido" : {
+                          "type" : "string",
+                          "example" : "Pérez"
+                        },
+                        "segundo_apellido" : {
+                          "type" : "string",
+                          "example" : "López"
+                        },
+                        "curp" : {
+                          "type" : "string",
+                          "example" : "BADD110313HCMLNS09"
+                        }
+                      }
+                    }
+                  }
                 },
                 "objeto_contrato" : {
                   "type" : "string",
@@ -411,7 +428,31 @@
                   "description" : "OIC o Unidad responsable de la sanción",
                   "example" : "OIC"
                 },
-                "responsable" : {
+                "tipo_falta" : {
+                  "type" : "string",
+                  "description" : "eg.,soborno, participación ilícita, tráfico de influencias, uso información falsa,colusión, obstrucción de facultades, contratación indebida, uso indebido de recusos públicos.",
+                  "example" : "contratación indebida"
+                },
+                "tipo_sancion" : {
+                  "description" : "I = Inhabilitado, M = Multado, S = Suspensión de actividades, D = Disolución de la sociedad. e.g., ['I', 'M'] significa que el contratista fue inhabilitado y multado.",
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string",
+                    "enum" : [ "I", "M", "S", "D" ],
+                    "example" : "I"
+                  }
+                },
+                "causa_motivo_hechos" : {
+                  "type" : "string",
+                  "description" : "Causa/motivo o hechos que dieron origen a la multa o inhabilitación ",
+                  "example" : "Causa o motivo de la sanción"
+                },
+                "acto" : {
+                  "type" : "string",
+                  "description" : "Acto que originó la investigación",
+                  "example" : "Contrataciones"
+                },
+                "responsable_sancion" : {
                   "type" : "object",
                   "required" : [ "nombres", "primer_apellido" ],
                   "properties" : {
@@ -432,48 +473,6 @@
                       "maxLength" : 50,
                       "description" : "Segundo apellido del Titular del área de responsabilidades o Contralor del Órgano Interno de Control responsable de la información registrada",
                       "example" : "López"
-                    }
-                  }
-                },
-                "director_general" : {
-                  "type" : "object",
-                  "properties" : {
-                    "nombres" : {
-                      "type" : "string",
-                      "example" : "Carlos"
-                    },
-                    "primer_apellido" : {
-                      "type" : "string",
-                      "example" : "Pérez"
-                    },
-                    "segundo_apellido" : {
-                      "type" : "string",
-                      "example" : "López"
-                    },
-                    "curp" : {
-                      "type" : "string",
-                      "example" : "BADD110313HCMLNS09"
-                    }
-                  }
-                },
-                "apoderado_legal" : {
-                  "type" : "object",
-                  "properties" : {
-                    "nombres" : {
-                      "type" : "string",
-                      "example" : "Carlos"
-                    },
-                    "primer_apellido" : {
-                      "type" : "string",
-                      "example" : "Pérez"
-                    },
-                    "segundo_apellido" : {
-                      "type" : "string",
-                      "example" : "López"
-                    },
-                    "curp" : {
-                      "type" : "string",
-                      "example" : "BADD110313HCMLNS09"
                     }
                   }
                 },

@@ -6,49 +6,57 @@
   },
   "results": [
     {
-      "id": "string",
+      "id": "1",
       "fecha_captura": "20180820T00:00:00Z",
-      "ejercicio_fiscal": 2018,
-      "periodo_ejercicio": {
-        "fecha_inicial": "2018-01-01",
-        "fecha_final": "2018-12-31"
-      },
-      "id_ramo": 23,
-      "ramo": "Provisiones salariales y económicas",
-      "rfc": "JPM851111C44",
-      "curp": "BEML920313HMCLNS09",
-      "nombres": "John Juan",
-      "primer_apellido": "Pérez",
-      "segundo_apellido": "Mendez",
-      "genero": "Masculino",
+      "expediente": "ABC123",
       "institucion_dependencia": {
         "nombre": "Secretaría de Hacienda y Crédito Público",
         "siglas": "SHCP",
         "clave": "XYZ987"
       },
-      "puesto": {
-        "nombre": "Director de área",
-        "nivel": "1234567890"
+      "sistema_origen": "COMPRANET",
+      "servidor_publico_sancionado": {
+        "rfc": "JPM851111C44",
+        "curp": "BEML920313HMCLNS09",
+        "nombres": "John Juan",
+        "primer_apellido": "Pérez",
+        "segundo_apellido": "Mendez",
+        "genero": "Masculino",
+        "puesto": "Director de área",
+        "nivel": "ABCD1234"
       },
-      "tipo_area": [
-        "T",
-        "RE",
-        "O"
+      "autoridad_sancionadora": "Organo Interno de Control",
+      "tipo_falta": [
+        "AG"
       ],
-      "nivel_responsabilidad": [
-        "A",
-        "T"
+      "tipo_sancion": [
+        "M"
       ],
-      "tipo_procedimiento": 1,
-      "tipo_actos": "Contrataciones",
-      "superior_inmediato": {
-        "nombres": "Juan",
-        "primer_apellido": "Lopez",
-        "segundo_apellido": "Perez",
-        "curp": "BADD110313HCMLNS09",
-        "rfc": "CUPU800825569",
-        "puesto": "Director General"
-      }
+      "causa_motivo_hechos": "ABUSO DE AUTORIDAD",
+      "resolucion": {
+        "url": "https://ejemplo.mx/archivo/documento.pdf",
+        "fecha_notificacion": "2018-05-21"
+      },
+      "multa": {
+        "monto": 30000,
+        "moneda": "MXN"
+      },
+      "inhabilitacion": {
+        "plazo": "3 meses",
+        "fecha_inicial": "2018-05-21",
+        "fecha_final": "2018-05-21",
+        "observaciones": "ABC"
+      },
+      "documentos": [
+        {
+          "id": "doc-1",
+          "tipo": "CONSTANCIA_SANCION",
+          "titulo": "Constancia de sanción...",
+          "descripcion": "",
+          "url": "https://ejemplo.mx/archivo/documento.pdf",
+          "fecha": "2019-11-20"
+        }
+      ]
     }
   ]
 }

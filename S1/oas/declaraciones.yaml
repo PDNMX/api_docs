@@ -93,7 +93,7 @@ paths:
     post:
       tags:
         - declaraciones
-      summary: Muestra las declaraciones de los servidores públicos permitiendo busquedas avanzadas
+      summary: Muestra las declaraciones de los servidores públicos permitiendo búsquedas avanzadas
       operationId: post_declaraciones
       requestBody:
         description: JSON para peticiones de búsqueda avanzada
@@ -114,7 +114,205 @@ paths:
         '403':
           description: No tienes permisos
         default:
-          description: unexpected error
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_post'
+      security:
+        - declaraciones_auth:
+            - 'read:declaraciones'
+  /declaraciones/estadisticas/edad:
+    post:
+      tags:
+        - declaraciones
+      summary: Muestra las declaraciones de los servidores públicos permitiendo búsquedas avanzadas por edad
+      operationId: post_declaraciones_estadisticas_edad
+      requestBody:
+        description: JSON para peticiones de búsqueda avanzada por edad
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/request_stat_edad'
+      responses:
+        '200':
+          description: Operación exitosa
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response_stat_edad'
+        '400':
+          description: Página inválida
+        '403':
+          description: No tienes permisos
+        default:
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_post'
+      security:
+        - declaraciones_auth:
+            - 'read:declaraciones'
+  /declaraciones/estadisticas/nivel_gobierno:
+    post:
+      tags:
+        - declaraciones
+      summary: Muestra las declaraciones de los servidores públicos permitiendo búsquedas avanzadas por nivel de gobierno
+      operationId: post_declaraciones_estadisticas_nivel_gobierno
+      requestBody:
+        description: JSON para peticiones de búsqueda avanzada por edad
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/request_stat_nivel_gob'
+      responses:
+        '200':
+          description: Operación exitosa
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response_stat_nivel_gob'
+        '400':
+          description: Página inválida
+        '403':
+          description: No tienes permisos
+        default:
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_post'
+      security:
+        - declaraciones_auth:
+            - 'read:declaraciones'
+  /declaraciones/estadisticas/entidad_federativa:
+    post:
+      tags:
+        - declaraciones
+      summary: Muestra las declaraciones de los servidores públicos permitiendo búsquedas avanzadas por entidad federativa
+      operationId: post_declaraciones_estadisticas_estatal
+      requestBody:
+        description: JSON para peticiones de búsqueda avanzada por entidad federativa
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/request_stat_estatal'
+      responses:
+        '200':
+          description: Operación exitosa
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response_stat_estatal'
+        '400':
+          description: Página inválida
+        '403':
+          description: No tienes permisos
+        default:
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_post'
+      security:
+        - declaraciones_auth:
+            - 'read:declaraciones'
+  /declaraciones/estadisticas/grado_obtenido:
+    post:
+      tags:
+        - declaraciones
+      summary: Muestra las declaraciones de los servidores públicos permitiendo búsquedas avanzadas por máximo grado académico obtenido
+      operationId: post_declaraciones_estadisticas_grado_obtenido
+      requestBody:
+        description: JSON para peticiones de búsqueda avanzada por máximo grado académico obtenido
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/request_stat_grado_obtenido'
+      responses:
+        '200':
+          description: Operación exitosa
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response_stat_grado_obtenido'
+        '400':
+          description: Página inválida
+        '403':
+          description: No tienes permisos
+        default:
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_post'
+      security:
+        - declaraciones_auth:
+            - 'read:declaraciones'
+  /declaraciones/estadisticas/bienes_inmuebles:
+    post:
+      tags:
+        - declaraciones
+      summary: Muestra las declaraciones de los servidores públicos permitiendo busquedas avanzadas por bienes inmuebles
+      operationId: post_declaraciones_estadisticas_bienes_inmuebles
+      requestBody:
+        description: JSON para peticiones de búsqueda avanzada por bienes inmuebles
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/request_stat_bienes_inmuebles'
+      responses:
+        '200':
+          description: Operación exitosa
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response_stat_bienes_inmuebles'
+        '400':
+          description: Página inválida
+        '403':
+          description: No tienes permisos
+        default:
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_post'
+      security:
+        - declaraciones_auth:
+            - 'read:declaraciones'
+  /declaraciones/estadisticas/ingreso_bruto_anual:
+    post:
+      tags:
+        - declaraciones
+      summary: Muestra las declaraciones de los servidores públicos permitiendo busquedas avanzadas por ingreso bruto anual
+      operationId: post_declaraciones_estadisticas_ingreso_bruto_anual
+      requestBody:
+        description: JSON para peticiones de búsqueda avanzada por ingreso bruto anual
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/request_stat_ingreso_bruto_anual'
+      responses:
+        '200':
+          description: Operación exitosa
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response_stat_ingreso_bruto_anual'
+        '400':
+          description: Página inválida
+        '403':
+          description: No tienes permisos
+        default:
+          description: Unexpected Error
           content:
             application/json:
               schema:
@@ -134,10 +332,6 @@ components:
           authorizationUrl: /oauth
           scopes:
             'read:declaraciones': Obtiene permiso para ver las declaraciones
-    api_key:
-      type: apiKey
-      name: api_key
-      in: header
   schemas:
     Declaraciones:
       type: object
@@ -234,6 +428,7 @@ components:
               example: Lopez
             nacionalidades:
               type: array
+              uniqueItems: true
               items:
                 $ref: '#/components/schemas/pais'
             pais_nacimiento:
@@ -2479,6 +2674,7 @@ components:
                 $ref: '#/components/schemas/porcentaje'
               nombres_copropietarios:
                 type: array
+                uniqueItems: true
                 items:
                   type: string
                   pattern: '^[A-Za-z0-9ñÑ.-\s]+$'
@@ -3154,6 +3350,7 @@ components:
                 $ref: '#/components/schemas/toperacion2'
               propietario_registrado:
                 type: array
+                uniqueItems: true
                 items:
                   type: string
                   description: Nombre/nombres de propietario de los derechos respecto de los bienes intangibles. Este dato es información confidencial.
@@ -4603,8 +4800,348 @@ components:
           type: string
           description: 'RFC de la persona quien hace la consulta, si se omite este parámetro, se enviaran solo los datos públicos'
           example: GOAP780710RH7
+    request_stat_edad:
+      description: 'Request para el endpoint de estadísticas por edad'
+      type: object
+      required:
+        - edad
+      properties:
+        edad:
+          type: object
+          description: 'Rango de edad para realizar la consulta, si se usa este objeto se requiere definir el valor mínimo y máximo'
+          required:
+            - minima
+          properties:
+            minima:
+              type: number
+              description: 'Edad mínima para realizar la consulta'
+              example: 20
+            maxima:
+              type: number
+              description: 'Edad máxima para realizar la consulta'
+              example: 50
+        tipo_nivel:
+          type: string
+          enum:
+            - gobierno
+            - educativo
+    response_stat_edad:
+      description: 'Respues a la consulta de estadísticas por edad'
+      type: object
+      required:
+        - edad
+      properties:
+        edad:
+          type: object
+          description: 'Muestra la edad de la consulta que se realizó'
+          properties:
+            minima:
+              type: number
+              example: 20
+            maxima:
+              type: number
+              example: 50
+        total:
+          type: number
+          example: 1000
+        nivel_gobierno:
+          type: object
+          properties:
+            Federal:
+              type: number
+              example: 1000
+            Estatal:
+              type: number
+              example: 2000
+            Municipal:
+              type: number
+              example: 3000
+        nivel_educativo:
+          type: object
+          properties:
+            Preescolar:
+              type: number
+              example: 11
+            Primaria:
+              type: number
+              example: 22
+            Secundaria:
+              type: number
+              example: 33
+            Bachillerato:
+              type: number
+              example: 44
+            Licenciatura:
+              type: number
+              example: 55
+            Maestría:
+              type: number
+              example: 66
+            Doctorado:
+              type: number
+              example: 77
+    request_stat_nivel_gob:
+      description: 'Request para el endpoint de estadísticas por nivel de gobierno'
+      type: object
+      required:
+        - nivel_gob
+      properties:
+        nivel_gobierno:
+          type: string
+          enum:
+            - Federal
+            - Estatal
+            - Municipal
+        edad:
+          type: object
+          properties:
+            minima:
+              type: number
+              example: 20
+            maxima:
+              type: number
+              example: 50
+        nivel_educativo:
+          type: string
+          enum:
+            - Preescolar
+            - Primaria
+            - Secundaria
+            - Bachillerato
+            - Licenciatura
+            - Maestría
+            - Doctorado
+    response_stat_nivel_gob:
+      description: 'Response para el endpoint de estadísticas por nivel de gobierno'
+      type: object
+      required:
+        - nivel_gobierno
+      properties:
+        nivel_gobierno:
+          type: string
+          enum:
+            - Federal
+            - Estatal
+            - Municipal
+        total:
+          type: number
+          example: 6000
+        edad:
+          type: object
+          properties:
+            minima:
+              type: number
+              example: 20
+            maxima:
+              type: number
+              example: 50
+        nivel_educativo:
+          type: object
+          properties:
+            Preescolar:
+              type: number
+              example: 11
+            Primaria:
+              type: number
+              example: 22
+            Secundaria:
+              type: number
+              example: 33
+            Bachillerato:
+              type: number
+              example: 44
+            Licenciatura:
+              type: number
+              example: 55
+            Maestría:
+              type: number
+              example: 66
+            Doctorado:
+              type: number
+              example: 77
+    request_stat_estatal:
+      description: 'Request para el endpoint de estadísticas por estado'
+      type: object
+      required:
+        - codigo_estado
+      properties:
+        codigo_estado:
+          description: 'Código de la entidad federativa de acuerdo al Marco Geoestadístico del INEGI'
+          type: number
+          minimum: 1
+          maximum: 32
+          example: 21
+    response_stat_estatal:
+      description: 'Response de la consulta por estado'
+      type: object
+      required:
+        - codigo_estado
+      properties:
+        codigo_estado:
+          description: 'Código de la entidad federativa de acuerdo al Marco Geoestadístico del INEGI'
+          type: number
+          minimum: 1
+          maximum: 32
+          example: 21
+        total:
+          description: 'Total de resultados que cumplen con el criterio de búsqueda de acuerdo a la entidad federativa'
+          type: number
+          example: 102030
+    request_stat_grado_obtenido:
+      description: 'Request para el endpoint de estadísticas por grado obtenido'
+      type: object
+      required:
+        - nivel_educativo
+      properties:
+        nivel_educativo:
+          type: string
+          enum:
+            - Preescolar
+            - Primaria
+            - Secundaria
+            - Bachillerato
+            - Licenciatura
+            - Maestría
+            - Doctorado
+          example: 'Licenciatura'
+        edad:
+          type: object
+          description: 'Rango de edad para realizar la consulta'
+          properties:
+            minima:
+              type: number
+              example: 20
+            maxima:
+              type: number
+              example: 50
+        nivel_gobierno:
+          type: string
+          enum:
+            - Federal
+            - Estatal
+            - Municipal
+    response_stat_grado_obtenido:
+      description: 'Respues a la consulta de estadísticas por grado obtenido'
+      type: object
+      required:
+        - nivel_educativo
+        - total
+      properties:
+        nivel_educativo:
+          type: string
+          enum:
+            - Preescolar
+            - Primaria
+            - Secundaria
+            - Bachillerato
+            - Licenciatura
+            - Maestría
+            - Doctorado
+        total:
+          type: number
+          example: 1000
+        edad:
+          type: object
+          description: 'Rango de edad para realizar la consulta'
+          properties:
+            minima:
+              type: number
+              example: 20
+            maxima:
+              type: number
+              example: 50
+        nivel_gobierno:
+          type: string
+          enum:
+            - Federal
+            - Estatal
+            - Municipal
+    request_stat_bienes_inmuebles:
+      description: 'Request para el endpoint de estadísticas por bienes inmuebles'
+      type: object
+      properties:
+        superficie_terreno:
+          type: object
+          description: 'Rango de superficie del terreno en metros cuadrados para realizar la consulta'
+          properties:
+            minima:
+              type: number
+              example: 20
+            maxima:
+              type: number
+              example: 50
+        superficie_construccion:
+          type: object
+          description: 'Rango de de superficie del construcción en metros cuadrados para realizar la consulta'
+          properties:
+            minima:
+              type: number
+              example: 20
+            maxima:
+              type: number
+              example: 50
+    response_stat_bienes_inmuebles:
+      description: 'Respues a la consulta de estadísticas por grado obtenido'
+      type: object
+      properties:
+        superficie_terreno:
+          type: object
+          description: 'Rango de superficie del terreno en metros cuadrados para realizar la consulta'
+          properties:
+            minima:
+              type: number
+              example: 20
+            maxima:
+              type: number
+              example: 50
+        superficie_construccion:
+          type: object
+          description: 'Rango de de superficie del construcción en metros cuadrados para realizar la consulta'
+          properties:
+            minima:
+              type: number
+              example: 20
+            maxima:
+              type: number
+              example: 50
+        total:
+          description: 'Total de resultados que cumplen con el criterio de búsqueda de acuerdo a la parametro pasado'
+          type: number
+          example: 102030
+    request_stat_ingreso_bruto_anual:
+      description: 'Request para el endpoint de estadísticas por bienes inmuebles'
+      type: object
+      properties:
+        ingreso_bruto_anual:
+          type: object
+          description: 'Rango de superficie del terreno en metros cuadrados para realizar la consulta'
+          properties:
+            minima:
+              type: number
+              example: 20
+            maxima:
+              type: number
+              example: 50
+    response_stat_ingreso_bruto_anual:
+      description: 'Respues a la consulta de estadísticas por grado obtenido'
+      type: object
+      properties:
+        ingreso_bruto_anual:
+          type: object
+          description: 'Rango de superficie del terreno en metros cuadrados para realizar la consulta'
+          properties:
+            minima:
+              type: number
+              example: 20
+            maxima:
+              type: number
+              example: 50
+        total:
+          description: 'Total de resultados que cumplen con el criterio de búsqueda de acuerdo a la parametro pasado'
+          type: number
+          example: 102030
     error_post:
-      description: ' Estos valores son definidos por el sistema del API.'
+      description: 'Estos valores son definidos por el sistema del API.'
       required:
         - code
         - message

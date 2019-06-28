@@ -29,7 +29,7 @@
         }, {
           "name" : "page_size",
           "in" : "query",
-          "description" : "Número de registros a mostrar por página, el máximo permitido es doscientos y el mínimo uno, por defecto muestra diez registros.",
+          "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
           "schema" : {
             "type" : "integer",
             "minimum" : 1,
@@ -180,11 +180,6 @@
             }
           }
         }
-      },
-      "api_key" : {
-        "type" : "apiKey",
-        "name" : "api_key",
-        "in" : "header"
       }
     },
     "schemas" : {
@@ -199,7 +194,7 @@
               "page_size" : {
                 "type" : "number",
                 "minimum" : 1,
-                "description" : "Número de registros mostrados, por defecto muestra diez.",
+                "description" : "Total de páginas",
                 "example" : 100
               },
               "page" : {
@@ -220,79 +215,22 @@
             "type" : "array",
             "items" : {
               "type" : "object",
-              "required" : [ "fecha_captura", "ejercicio_fiscal", "periodo_ejercicio", "id_ramo", "ramo", "sistema_origen", "rfc", "nombres", "primer_apellido", "institucion_dependencia", "puesto", "tipo_area", "nivel_responsabilidad", "tipo_procedimiento" ],
               "properties" : {
+                "id" : {
+                  "type" : "string",
+                  "description" : "Identificador del registro de la base de datos. Puede ser alfanumérico",
+                  "example" : "1"
+                },
                 "fecha_captura" : {
                   "type" : "string",
                   "format" : "date-time",
                   "description" : "La fecha y hora en la que se agrega o modifica el registro",
                   "example" : "20180820T00:00:00Z"
                 },
-                "ejercicio_fiscal" : {
-                  "type" : "integer",
-                  "description" : "Ejercicio fiscal",
-                  "example" : 2018
-                },
-                "periodo_ejercicio" : {
-                  "description" : "E.g., 2018",
-                  "type" : "object",
-                  "required" : [ "fecha_inicial", "fecha_final" ],
-                  "properties" : {
-                    "fecha_inicial" : {
-                      "type" : "string",
-                      "format" : "date",
-                      "description" : "Periodo o ejercicio fiscal al que corresponde la información. e.g., 2018-01-01",
-                      "example" : "2018-01-01"
-                    },
-                    "fecha_final" : {
-                      "type" : "string",
-                      "format" : "date",
-                      "description" : "Periodo o ejercicio fiscal al que corresponde la información. e.g., 2018-12-31 ",
-                      "example" : "2018-12-31"
-                    }
-                  }
-                },
-                "id_ramo" : {
-                  "type" : "integer",
-                  "minimum" : 1,
-                  "description" : "Identificador del ramo",
-                  "example" : 23
-                },
-                "ramo" : {
+                "expediente" : {
                   "type" : "string",
-                  "description" : "Identifica y clasifica los recursos en el presupuesto de egresos a las Dependencias y en su caso Entidades, a la Presidencia de la República, a la Procuraduría General de la República y a los Tribunales Administrativos.",
-                  "example" : "Provisiones salariales y económicas"
-                },
-                "rfc" : {
-                  "type" : "string",
-                  "description" : "RFC del Servidor Público con homoclave",
-                  "example" : "JPM851111C44"
-                },
-                "curp" : {
-                  "type" : "string",
-                  "description" : "CURP del Servidor Público",
-                  "example" : "BEML920313HMCLNS09"
-                },
-                "nombres" : {
-                  "type" : "string",
-                  "description" : "Nombre o nombres del Servidor Público",
-                  "example" : "John Juan"
-                },
-                "primer_apellido" : {
-                  "type" : "string",
-                  "description" : "Primer apellido del servidor público",
-                  "example" : "Pérez"
-                },
-                "segundo_apellido" : {
-                  "type" : "string",
-                  "description" : "Segundo apellido del servidor público",
-                  "example" : "Mendez"
-                },
-                "genero" : {
-                  "type" : "string",
-                  "enum" : [ "F", "M", "O" ],
-                  "description" : "F= Femenino, M= Masculino, O=Otro",
-                  "example" : "Masculino"
+                  "description" : "",
+                  "example" : "ABC123"
                 },
                 "institucion_dependencia" : {
                   "description" : "Indicar el nombre de la institución donde se encuentren registradas las inversiones, cuentas o valores",
@@ -316,83 +254,179 @@
                     }
                   }
                 },
-                "puesto" : {
+                "sistema_origen" : {
+                  "type" : "string",
+                  "description" : "RFC del Servidor Público con homoclave",
+                  "example" : "COMPRANET"
+                },
+                "servidor_publico_sancionado" : {
                   "type" : "object",
+                  "description" : "",
                   "properties" : {
-                    "nombre" : {
+                    "rfc" : {
+                      "type" : "string",
+                      "description" : "RFC del Servidor Público con homoclave",
+                      "example" : "JPM851111C44"
+                    },
+                    "curp" : {
+                      "type" : "string",
+                      "description" : "CURP del Servidor Público",
+                      "example" : "BEML920313HMCLNS09"
+                    },
+                    "nombres" : {
+                      "type" : "string",
+                      "description" : "Nombre o nombres del Servidor Público",
+                      "example" : "John Juan"
+                    },
+                    "primer_apellido" : {
+                      "type" : "string",
+                      "description" : "Primer apellido del servidor público",
+                      "example" : "Pérez"
+                    },
+                    "segundo_apellido" : {
+                      "type" : "string",
+                      "description" : "Segundo apellido del servidor público",
+                      "example" : "Mendez"
+                    },
+                    "genero" : {
+                      "type" : "string",
+                      "enum" : [ "F", "M", "O" ],
+                      "description" : "F= Femenino, M= Masculino, O=Otro",
+                      "example" : "Masculino"
+                    },
+                    "puesto" : {
                       "type" : "string",
                       "description" : "Puesto del Servidor Público",
                       "example" : "Director de área"
                     },
                     "nivel" : {
+                      "description" : "",
                       "type" : "string",
-                      "maxLength" : 12,
-                      "description" : "Clave del puesto del nivel del Servidor Público",
-                      "example" : "1234567890"
+                      "example" : "ABCD1234"
                     }
                   }
                 },
-                "tipo_area" : {
-                  "type" : "array",
-                  "items" : {
-                    "type" : "string",
-                    "enum" : [ "T", "RE", "RC", "O", "C", "R" ],
-                    "description" : "v=[T=Técnica, RE= Responsable de la ejecución de los trabajos, RC= Responsable de la contratación, O= Otra, C= Contratante, R= Requirente]",
-                    "example" : "T"
-                  }
-                },
-                "nivel_responsabilidad" : {
-                  "description" : "v=[A= Atención, T= Tramitación, R= Resolución]",
-                  "type" : "array",
-                  "items" : {
-                    "type" : "string",
-                    "enum" : [ "A", "T", "R" ],
-                    "example" : "T"
-                  }
-                },
-                "tipo_procedimiento" : {
-                  "type" : "integer",
-                  "minimum" : 1,
-                  "description" : "1.- Contrataciones Públicas 2.- Concesiones, licencias, permisos, autorizaciones y prórrogas 3.- Enajenación de bienes muebles 4.- Asignación y emisión de dictámenes de avalúos nacionales",
-                  "example" : 1
-                },
-                "tipo_actos" : {
+                "autoridad_sancionadora" : {
+                  "description" : "",
                   "type" : "string",
-                  "description" : "Tipos de actos en los que puede participar",
-                  "example" : "Contrataciones"
+                  "example" : "Organo Interno de Control"
                 },
-                "superior_inmediato" : {
+                "tipo_falta" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string"
+                  },
+                  "enum" : [ "AG" ],
+                  "example" : [ "AG" ]
+                },
+                "tipo_sancion" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string"
+                  },
+                  "enum" : [ "M" ],
+                  "example" : [ "M" ]
+                },
+                "causa_motivo_hechos" : {
+                  "type" : "string",
+                  "description" : "",
+                  "example" : "ABUSO DE AUTORIDAD"
+                },
+                "resolucion" : {
                   "type" : "object",
                   "properties" : {
-                    "nombres" : {
+                    "url" : {
                       "type" : "string",
-                      "maxLength" : 50,
-                      "example" : "Juan"
+                      "description" : "",
+                      "example" : "https://ejemplo.mx/archivo/documento.pdf"
                     },
-                    "primer_apellido" : {
+                    "fecha_notificacion" : {
                       "type" : "string",
-                      "maxLength" : 50,
-                      "example" : "Lopez"
+                      "format" : "date",
+                      "description" : "",
+                      "example" : "2018-05-21"
+                    }
+                  }
+                },
+                "multa" : {
+                  "type" : "object",
+                  "properties" : {
+                    "monto" : {
+                      "type" : "number",
+                      "description" : "",
+                      "example" : 30000
                     },
-                    "segundo_apellido" : {
+                    "moneda" : {
                       "type" : "string",
-                      "maxLength" : 50,
-                      "example" : "Perez"
+                      "description" : "",
+                      "example" : "MXN"
+                    }
+                  }
+                },
+                "inhabilitacion" : {
+                  "type" : "object",
+                  "properties" : {
+                    "plazo" : {
+                      "type" : "string",
+                      "description" : "",
+                      "example" : "3 meses"
                     },
-                    "curp" : {
+                    "fecha_inicial" : {
                       "type" : "string",
-                      "maxLength" : 18,
-                      "example" : "BADD110313HCMLNS09"
+                      "format" : "date",
+                      "description" : "",
+                      "example" : "2018-05-21"
                     },
-                    "rfc" : {
+                    "fecha_final" : {
                       "type" : "string",
-                      "maxLength" : 13,
-                      "example" : "CUPU800825569"
+                      "format" : "date",
+                      "description" : "",
+                      "example" : "2018-05-21"
                     },
-                    "puesto" : {
+                    "observaciones" : {
                       "type" : "string",
-                      "maxLength" : 250,
-                      "example" : "Director General"
+                      "description" : "",
+                      "example" : "ABC"
+                    }
+                  }
+                },
+                "documentos" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "id" : {
+                        "type" : "string",
+                        "description" : "",
+                        "example" : "doc-1"
+                      },
+                      "tipo" : {
+                        "type" : "string",
+                        "description" : "",
+                        "example" : "CONSTANCIA_SANCION"
+                      },
+                      "titulo" : {
+                        "type" : "string",
+                        "description" : "",
+                        "example" : "Constancia de sanción..."
+                      },
+                      "descripcion" : {
+                        "type" : "string",
+                        "description" : "Descripción del documento",
+                        "example" : ""
+                      },
+                      "url" : {
+                        "type" : "string",
+                        "format" : "url",
+                        "description" : "",
+                        "example" : "https://ejemplo.mx/archivo/documento.pdf"
+                      },
+                      "fecha" : {
+                        "type" : "string",
+                        "format" : "date",
+                        "description" : "",
+                        "example" : "2019-11-20"
+                      }
                     }
                   }
                 }
@@ -446,7 +480,7 @@
           },
           "page_size" : {
             "type" : "integer",
-            "description" : "Número de registros a mostrar por página, el máximo permitido es doscientos y el mínimo uno, por defecto muestra diez registros.",
+            "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
             "example" : 10
           },
           "id" : {

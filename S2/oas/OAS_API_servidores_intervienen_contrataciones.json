@@ -218,19 +218,19 @@
               "properties" : {
                 "id" : {
                   "type" : "string",
-                  "description" : "",
+                  "description" : "Dato que permita identificar de manera  unívoca al registro",
                   "example" : "string"
                 },
                 "fecha_captura" : {
                   "type" : "string",
                   "format" : "date-time",
-                  "description" : "La fecha y hora en la que se agrega o modifica el registro",
+                  "description" : "Fecha y hora en la que se agrega o modifca el registro. Fecha en formato ISO 8601",
                   "example" : "20180820T00:00:00Z"
                 },
                 "ejercicio_fiscal" : {
-                  "type" : "integer",
-                  "description" : "Ejercicio fiscal",
-                  "example" : 2018
+                  "type" : "string",
+                  "description" : "El identificador del expediente",
+                  "example" : "2018"
                 },
                 "periodo_ejercicio" : {
                   "description" : "E.g., 2018",
@@ -240,13 +240,13 @@
                     "fecha_inicial" : {
                       "type" : "string",
                       "format" : "date",
-                      "description" : "Periodo o ejercicio fiscal al que corresponde la información. e.g., 2018-01-01",
+                      "description" : "Fecha inicial del periodo del ejercicio. Fecha en formato ISO 8601",
                       "example" : "2018-01-01"
                     },
                     "fecha_final" : {
                       "type" : "string",
                       "format" : "date",
-                      "description" : "Periodo o ejercicio fiscal al que corresponde la información. e.g., 2018-12-31 ",
+                      "description" : "Fecha final del periodo del ejercicio. Fecha en formato ISO 8601",
                       "example" : "2018-12-31"
                     }
                   }
@@ -274,7 +274,7 @@
                 },
                 "nombres" : {
                   "type" : "string",
-                  "description" : "Nombre o nombres del Servidor Público",
+                  "description" : "Nombre(s) del Servidor Público",
                   "example" : "John Juan"
                 },
                 "primer_apellido" : {
@@ -290,8 +290,8 @@
                 "genero" : {
                   "type" : "string",
                   "enum" : [ "F", "M", "O" ],
-                  "description" : "F= Femenino, M= Masculino, O=Otro",
-                  "example" : "Masculino"
+                  "description" : "Genero del Servidor Público. Valores permitidos [ \"F\", \"M\", \"O\" ]. F= Femenino, M= Masculino, O=Otro",
+                  "example" : "M"
                 },
                 "institucion_dependencia" : {
                   "description" : "Indicar el nombre de la institución donde se encuentren registradas las inversiones, cuentas o valores",
@@ -300,17 +300,17 @@
                   "properties" : {
                     "nombre" : {
                       "type" : "string",
-                      "description" : "Institución o dependencia a la que pertenece el Servidor Público ",
+                      "description" : "Nombre de la institución o dependencia donde labora el Servidor Público",
                       "example" : "Secretaría de Hacienda y Crédito Público"
                     },
                     "siglas" : {
                       "type" : "string",
-                      "description" : "Siglas de la institución o dependencia a la que pertenece el servidor público",
+                      "description" : "Siglas de la institución o dependencia donde labora el Servidor Público",
                       "example" : "SHCP"
                     },
                     "clave" : {
                       "type" : "string",
-                      "description" : "Clave del puesto del nivel del Servidor Público",
+                      "description" : "Clave de la institución o dependencia donde labora el Servidor Público",
                       "example" : "XYZ987"
                     }
                   }
@@ -320,13 +320,13 @@
                   "properties" : {
                     "nombre" : {
                       "type" : "string",
-                      "description" : "Puesto del Servidor Público",
+                      "description" : "Nombre del puesto del Servidor Público",
                       "example" : "Director de área"
                     },
                     "nivel" : {
                       "type" : "string",
                       "maxLength" : 12,
-                      "description" : "Clave del puesto del nivel del Servidor Público",
+                      "description" : "Nivel del puesto del Servidor Público",
                       "example" : "1234567890"
                     }
                   }
@@ -336,12 +336,12 @@
                   "items" : {
                     "type" : "string",
                     "enum" : [ "T", "RE", "RC", "O", "C", "R" ],
-                    "description" : "v=[T=Técnica, RE= Responsable de la ejecución de los trabajos, RC= Responsable de la contratación, O= Otra, C= Contratante, R= Requirente]"
+                    "description" : "Tipo de área. Valores permitidos [ \"T\", \"RE\", \"RC\", \"O\", \"C\", \"R\" ]. [T=Técnica, RE= Responsable de la ejecución de los trabajos, RC= Responsable de la contratación, O= Otra, C= Contratante, R= Requirente]"
                   },
                   "example" : [ "T", "RE", "O" ]
                 },
                 "nivel_responsabilidad" : {
-                  "description" : "v=[A= Atención, T= Tramitación, R= Resolución]",
+                  "description" : "Nivel de responsabilidad. Valores permitidos [ \"A\", \"T\", \"R\" ]. [A= Atención, T= Tramitación, R= Resolución]",
                   "type" : "array",
                   "items" : {
                     "type" : "string",
@@ -350,48 +350,56 @@
                   "example" : [ "A", "T" ]
                 },
                 "tipo_procedimiento" : {
-                  "type" : "integer",
-                  "minimum" : 1,
-                  "description" : "1.- Contrataciones Públicas 2.- Concesiones, licencias, permisos, autorizaciones y prórrogas 3.- Enajenación de bienes muebles 4.- Asignación y emisión de dictámenes de avalúos nacionales",
-                  "example" : 1
-                },
-                "tipo_actos" : {
-                  "type" : "string",
-                  "description" : "Tipos de actos en los que puede participar",
-                  "example" : "Contrataciones"
+                  "type" : "array",
+                  "items" : {
+                    "type" : "integer",
+                    "minimum" : 1,
+                    "description" : "Tipos de procedimiento en los que puede participar el Servidor Público. Valores permitidos [1,2,3,4].  1.- Contrataciones Públicas 2.- Concesiones, licencias, permisos, autorizaciones y prórrogas 3.- Enajenación de bienes muebles 4.- Asignación y emisión de dictámenes de avalúos nacionales"
+                  },
+                  "example" : [ 1, 2 ]
                 },
                 "superior_inmediato" : {
                   "type" : "object",
                   "properties" : {
                     "nombres" : {
                       "type" : "string",
-                      "maxLength" : 50,
+                      "description" : "Nombre(s) del superior inmediato del Servidor Público",
                       "example" : "Juan"
                     },
                     "primer_apellido" : {
                       "type" : "string",
-                      "maxLength" : 50,
+                      "description" : "Primer apellido del superior inmediato del Servidor Público",
                       "example" : "Lopez"
                     },
                     "segundo_apellido" : {
                       "type" : "string",
-                      "maxLength" : 50,
+                      "description" : "Segundo apellido del superior inmediato del Servidor Público",
                       "example" : "Perez"
                     },
                     "curp" : {
                       "type" : "string",
-                      "maxLength" : 18,
+                      "description" : "CURP del superior inmediato del Servidor Público",
                       "example" : "BADD110313HCMLNS09"
                     },
                     "rfc" : {
                       "type" : "string",
-                      "maxLength" : 13,
+                      "description" : "RFC con homoclave del superior inmediato del Servidor Público",
                       "example" : "CUPU800825569"
                     },
                     "puesto" : {
-                      "type" : "string",
-                      "maxLength" : 250,
-                      "example" : "Director General"
+                      "type" : "object",
+                      "properties" : {
+                        "nombre" : {
+                          "type" : "string",
+                          "description" : "Nombre del puesto del superior inmediato del Servidor Público",
+                          "example" : "Director de área"
+                        },
+                        "nivel" : {
+                          "type" : "string",
+                          "description" : "Nivel del puesto del superior inmediato del Servidor Público",
+                          "example" : "1234567890"
+                        }
+                      }
                     }
                   }
                 }

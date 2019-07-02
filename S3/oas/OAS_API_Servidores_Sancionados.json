@@ -218,13 +218,13 @@
               "properties" : {
                 "id" : {
                   "type" : "string",
-                  "description" : "",
+                  "description" : "Dato que permita identificar de manera  unívoca al registro",
                   "example" : "1"
                 },
                 "fecha_captura" : {
                   "type" : "string",
                   "format" : "date-time",
-                  "description" : "La fecha y hora en la que se agrega o modifica el registro",
+                  "description" : "La fecha y hora en la que se agrega o modifica el registro. Fecha en formato ISO 8601",
                   "example" : "2017-07-21T17:32:28Z"
                 },
                 "expediente" : {
@@ -234,21 +234,20 @@
                 },
                 "institucion_dependencia" : {
                   "type" : "object",
-                  "required" : [ "nombre", "siglas" ],
                   "properties" : {
                     "nombre" : {
                       "type" : "string",
-                      "description" : "Institución o dependencia a la que pertenece el Servidor Público",
+                      "description" : "Nombre de la Institución o Dependencia a la que pertenece el Servidor Público Sancionado",
                       "example" : "Secretaría de Hacienda y Crédito Público"
                     },
                     "siglas" : {
                       "type" : "string",
-                      "description" : "Siglas de la institución o dependencia a la que pertenece el servidor público",
+                      "description" : "Siglas de la Institución o Dependencia a la que pertenece el Servidor Público Sancionado",
                       "example" : "SHCP"
                     },
                     "clave" : {
                       "type" : "string",
-                      "description" : "Clave de dependencia",
+                      "description" : "Clave de la Institución o Dependencia a la que pertenece el Servidor Público Sancionado",
                       "example" : "TRE345"
                     }
                   }
@@ -273,33 +272,33 @@
                     },
                     "nombres" : {
                       "type" : "string",
-                      "description" : "Nombre o nombres del Servidor Público",
+                      "description" : "Nombre(s) del Servidor Público Sancionado",
                       "example" : "Carlos"
                     },
                     "primer_apellido" : {
                       "type" : "string",
-                      "description" : "Primer apellido de la persona",
+                      "description" : "Primer apellido del Servidor Público Sancionado",
                       "example" : "Pérez"
                     },
                     "segundo_apellido" : {
                       "type" : "string",
-                      "description" : "Segundo apellido de la persona",
+                      "description" : "Segundo apellido del Servidor Público Sancionado",
                       "example" : "López"
                     },
                     "genero" : {
                       "type" : "string",
                       "enum" : [ "M", "F", "O" ],
-                      "description" : "F= Femenino, M= Másculino, O=Otro",
+                      "description" : "Genero del Servidor Público. Valores permitidos  [ \"M\", \"F\", \"O\" ] . F= Femenino, M= Másculino, O=Otro",
                       "example" : "M"
                     },
                     "puesto" : {
                       "type" : "string",
-                      "description" : "Clave del puesto del nivel del Servidor Público",
+                      "description" : "Puesto del Servidor Público Sancionado",
                       "example" : "Director de área"
                     },
                     "nivel" : {
                       "type" : "string",
-                      "description" : "Puesto del Servidor Público",
+                      "description" : "Clave del nivel del puesto del Servidor Público Sancionado",
                       "example" : "ABCD1234"
                     }
                   }
@@ -311,7 +310,7 @@
                 },
                 "tipo_falta" : {
                   "type" : "array",
-                  "description" : "eg., AG= Administrativa grave, ANG= Administrativa no grave, AC=Acto de corrupción",
+                  "description" : "Tipo de falta cometida. Valores permitidos [ \"AG\", \"ANG\", \"AC\" ]. AG= Administrativa grave, ANG= Administrativa no grave, AC=Acto de corrupción",
                   "items" : {
                     "type" : "string",
                     "enum" : [ "AG", "ANG", "AC" ],
@@ -320,7 +319,7 @@
                 },
                 "tipo_sancion" : {
                   "type" : "array",
-                  "description" : "I = Inhabilitado, M = Multado, MI = Multado e Inhabilitado, S= Suspensión del empleo, cargo o comisión, D= Destitución del emplo, cargo o comisión",
+                  "description" : "Tipo de sanción aplicada. Valores permitidos [ \"I\", \"M\", \"MI\", \"S\", \"D\" ]. I = Inhabilitado, M = Multado, MI = Multado e Inhabilitado, S= Suspensión del empleo, cargo o comisión, D= Destitución del emplo, cargo o comisión",
                   "items" : {
                     "type" : "string",
                     "enum" : [ "I", "M", "MI", "S", "D" ],
@@ -329,8 +328,8 @@
                 },
                 "causa_motivo_hechos" : {
                   "type" : "string",
-                  "description" : "Causa o motivo de la sanción",
-                  "example" : "ABUSO DE AUTORIDAD"
+                  "description" : "Causa o motivo de la sanción, ejemplo: Abuso de autoridad",
+                  "example" : "Abuso de autoridad"
                 },
                 "resolucion" : {
                   "type" : "object",
@@ -344,47 +343,44 @@
                     "fecha_notificacion" : {
                       "type" : "string",
                       "format" : "date",
-                      "description" : "e.g., 2018-11-01",
+                      "description" : "Fecha de notificación de la resolución. Fecha en formato ISO 8601",
                       "example" : "2018-05-21"
                     }
                   }
                 },
                 "multa" : {
                   "type" : "object",
-                  "required" : [ "monto", "moneda" ],
                   "properties" : {
                     "monto" : {
                       "type" : "integer",
-                      "minimum" : 1,
                       "description" : "Monto de la multa expresado en la moneda origen",
                       "example" : 3000000
                     },
                     "moneda" : {
                       "type" : "string",
-                      "description" : "e.g., MXN para pesos mexicanos o cualquier otro código de unidad",
+                      "description" : "Moneda de la multa impuesta al Servidor Público Sancionado, apegado al formato ISO 4217",
                       "example" : "MXN"
                     }
                   }
                 },
                 "inhabilitacion" : {
                   "type" : "object",
-                  "required" : [ "fecha_inicial", "fecha_final" ],
                   "properties" : {
                     "plazo" : {
                       "type" : "string",
-                      "description" : "e.g., 2 años",
+                      "description" : "Plazo de la inhabilitación. Ej. 2 años",
                       "example" : "3 meses"
                     },
                     "fecha_inicial" : {
                       "type" : "string",
                       "format" : "date",
-                      "description" : "e.g., 2019-01-01",
+                      "description" : "Fecha inicial de la inhabilitación. Fecha en formato ISO 8601",
                       "example" : "2018-08-17"
                     },
                     "fecha_final" : {
                       "type" : "string",
                       "format" : "date",
-                      "description" : "e.g., 2020-12-31",
+                      "description" : "Fecha final de la inhabilitación. Fecha en formato ISO 8601",
                       "example" : "2018-11-17"
                     },
                     "observaciones" : {
@@ -408,7 +404,8 @@
                       },
                       "tipo" : {
                         "type" : "string",
-                        "description" : "Tipo de documento, Opciones: RESOLUCION, CONSTANCIA_SANCION, CONSTANCIA_INHABILITACION, CONSTANCIA_ABSTENCION",
+                        "description" : "Tipo de documento, Valores permitidos [\"RESOLUCION\", \"CONSTANCIA_SANCION\", \"CONSTANCIA_INHABILITACION\", \"CONSTANCIA_ABSTENCION\"]",
+                        "enum" : [ "RESOLUCION", "CONSTANCIA_SANCION", "CONSTANCIA_INHABILITACION", "CONSTANCIA_ABSTENCION" ],
                         "example" : "CONSTANCIA_SANCION"
                       },
                       "titulo" : {
@@ -423,13 +420,13 @@
                       },
                       "url" : {
                         "type" : "string",
-                        "description" : "URL al documento en formato digital",
+                        "description" : "Hipervínculo al documento",
                         "example" : "https://ejemplo.mx/archivo/documento.pdf"
                       },
                       "fecha" : {
                         "type" : "string",
                         "format" : "date",
-                        "description" : "Fecha del documento, eg., 2019-01-01",
+                        "description" : "Fecha del documento. Fecha en formato ISO 8601",
                         "example" : "2019-11-20"
                       }
                     }

@@ -211,36 +211,36 @@
               "properties" : {
                 "id" : {
                   "type" : "string",
-                  "description" : "",
+                  "description" : "Dato que permita identificar de manera  unívoca al registro",
                   "example" : "1"
                 },
                 "fecha_captura" : {
                   "type" : "string",
                   "format" : "date-time",
-                  "description" : "La fecha y hora en la que se agrega o modifica el registro",
+                  "description" : "Fecha y hora en la que se agrega o modifica el registro. Fecha en formato ISO 8601",
                   "example" : "2017-07-21T17:32:28Z"
                 },
                 "expediente" : {
                   "type" : "string",
-                  "description" : "Número de expediente",
+                  "description" : "El expediente derivado de la investigación que las Autoridades Investigadoras realizan.",
                   "example" : "ABC123"
                 },
                 "institucion_dependencia" : {
                   "type" : "object",
-                  "required" : [ "nombre", "siglas" ],
                   "properties" : {
                     "nombre" : {
                       "type" : "string",
-                      "description" : "Institución o dependencia donde el contratista cometió la irregularidad",
+                      "description" : "Nombre de la Institución o Dependencia donde el contratista cometió la irregularidad",
                       "example" : "Secretaría de Hacienda y Crédito Público"
                     },
                     "siglas" : {
                       "type" : "string",
-                      "description" : "Siglas de la institución o dependencia donde el contratista cometió la irregularidad",
+                      "description" : "Siglas de la Institución o Dependencia donde el contratista cometió la irregularidad",
                       "example" : "SHCP"
                     },
                     "clave" : {
                       "type" : "string",
+                      "description" : "Clave de la Institución o Dependencia donde el contratista cometió la irregularidad",
                       "example" : "XYZ987"
                     }
                   }
@@ -255,7 +255,7 @@
                   "properties" : {
                     "nombre_razon_social" : {
                       "type" : "string",
-                      "description" : "Razón social del contratista",
+                      "description" : "Razón social de la empresa",
                       "example" : "PATITO TELECOM S.A. de C.V."
                     },
                     "objeto_social" : {
@@ -271,7 +271,7 @@
                     "telefono" : {
                       "type" : "string",
                       "maxLength" : 15,
-                      "description" : "'Teléfono del contratista. Número teléfonico estandarizado http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf.",
+                      "description" : "Teléfono del contratista. Número teléfonico estandarizado. http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf.",
                       "example" : "552123244"
                     },
                     "domicilio" : {
@@ -283,12 +283,11 @@
                           "properties" : {
                             "valor" : {
                               "type" : "string",
-                              "description" : "Nombre  del pais especificado en estándar ISO3166",
+                              "description" : "Nombre del pais especificado en estándar ISO3166",
                               "example" : "México"
                             },
                             "codigo" : {
                               "type" : "string",
-                              "maxLength" : 5,
                               "description" : "Código alpha 2 del país especificado en estándar ISO3166",
                               "example" : "MX"
                             }
@@ -304,7 +303,6 @@
                             },
                             "cve_ent" : {
                               "type" : "string",
-                              "maxLength" : 5,
                               "description" : "Clave de la entidad federativa del Marco Geoestadístico Nacional",
                               "example" : "15"
                             }
@@ -315,13 +313,12 @@
                           "properties" : {
                             "nom_mun" : {
                               "type" : "string",
-                              "description" : "Nombre del municipio",
+                              "description" : "Nombre del municipio  del Marco Geoestadístico Nacional",
                               "example" : "Ecatepec de Morelos"
                             },
                             "cve_mun" : {
                               "type" : "string",
-                              "maxLength" : 10,
-                              "description" : "Clave del municipio",
+                              "description" : "Clave del municipio del Marco Geoestadístico Nacional",
                               "example" : "033"
                             }
                           }
@@ -341,7 +338,6 @@
                             },
                             "cve_loc" : {
                               "type" : "string",
-                              "maxLength" : 10,
                               "description" : "Clave de la localidad",
                               "example" : "0001"
                             }
@@ -379,18 +375,22 @@
                       "properties" : {
                         "nombres" : {
                           "type" : "string",
+                          "description" : "Nombre(s) del director general de la empresa al momento de la falta",
                           "example" : "Carlos"
                         },
                         "primer_apellido" : {
                           "type" : "string",
+                          "description" : "Primer apellido del director general de la empresa al momento de la falta",
                           "example" : "Pérez"
                         },
                         "segundo_apellido" : {
                           "type" : "string",
+                          "description" : "Segundo apellido del director general de la empresa al momento de la falta",
                           "example" : "López"
                         },
                         "curp" : {
                           "type" : "string",
+                          "description" : "CURP del director general de la empresa al momento de la falta",
                           "example" : "BADD110313HCMLNS09"
                         }
                       }
@@ -400,18 +400,22 @@
                       "properties" : {
                         "nombres" : {
                           "type" : "string",
+                          "description" : "Nombre(s) del apoderado legal de la empresa al momento de la falta",
                           "example" : "Carlos"
                         },
                         "primer_apellido" : {
                           "type" : "string",
+                          "description" : "Primer apellido del apoderado legal de la empresa al momento de la falta",
                           "example" : "Pérez"
                         },
                         "segundo_apellido" : {
                           "type" : "string",
+                          "description" : "Segundo apellido del apoderado legal de la empresa al momento de la falta",
                           "example" : "López"
                         },
                         "curp" : {
                           "type" : "string",
+                          "description" : "CURP del apoderado legal de la empresa al momento de la falta",
                           "example" : "BADD110313HCMLNS09"
                         }
                       }
@@ -430,26 +434,26 @@
                 },
                 "tipo_falta" : {
                   "type" : "string",
-                  "description" : "eg.,soborno, participación ilícita, tráfico de influencias, uso información falsa,colusión, obstrucción de facultades, contratación indebida, uso indebido de recusos públicos.",
+                  "description" : "Tipo de falta. eg.,soborno, participación ilícita, tráfico de influencias, uso información falsa,colusión, obstrucción de facultades, contratación indebida, uso indebido de recusos públicos.",
                   "example" : "contratación indebida"
                 },
                 "tipo_sancion" : {
-                  "description" : "I = Inhabilitado, M = Multado, S = Suspensión de actividades, D = Disolución de la sociedad. e.g., ['I', 'M'] significa que el contratista fue inhabilitado y multado.",
+                  "description" : "Tipo de sanción. Valores permitidos I = Inhabilitado, M = Multado, S = Suspensión de actividades, D = Disolución de la sociedad. e.g., [\"I\", \"M\"] significa que el contratista fue inhabilitado y multado.",
                   "type" : "array",
                   "items" : {
                     "type" : "string",
-                    "enum" : [ "I", "M", "S", "D" ],
-                    "example" : "I"
-                  }
+                    "enum" : [ "I", "M", "S", "D" ]
+                  },
+                  "example" : [ "I", "M" ]
                 },
                 "causa_motivo_hechos" : {
                   "type" : "string",
-                  "description" : "Causa/motivo o hechos que dieron origen a la multa o inhabilitación ",
+                  "description" : "Causa/motivo de la sanción",
                   "example" : "Causa o motivo de la sanción"
                 },
                 "acto" : {
                   "type" : "string",
-                  "description" : "Acto que originó la investigación",
+                  "description" : "Acto que originó la investigación. Ejm. Contrataciones",
                   "example" : "Contrataciones"
                 },
                 "responsable_sancion" : {
@@ -458,19 +462,16 @@
                   "properties" : {
                     "nombres" : {
                       "type" : "string",
-                      "maxLength" : 50,
                       "description" : "Nombre o nombres del Titular del área de responsabilidades o Contralor del Órgano Interno de Control responsable de la información registrada",
                       "example" : "Carlos"
                     },
                     "primer_apellido" : {
                       "type" : "string",
-                      "maxLength" : 50,
                       "description" : "Primer apellido del Titular del área de responsabilidades o Contralor del Órgano Interno de Control responsable de la información registrada",
                       "example" : "Pérez"
                     },
                     "segundo_apellido" : {
                       "type" : "string",
-                      "maxLength" : 50,
                       "description" : "Segundo apellido del Titular del área de responsabilidades o Contralor del Órgano Interno de Control responsable de la información registrada",
                       "example" : "López"
                     }
@@ -478,7 +479,6 @@
                 },
                 "resolucion" : {
                   "type" : "object",
-                  "required" : [ "url", "fecha_notificacion" ],
                   "properties" : {
                     "sentido" : {
                       "type" : "string",
@@ -494,47 +494,45 @@
                     "fecha_notificacion" : {
                       "type" : "string",
                       "format" : "date",
-                      "description" : "e.g., 2018-11-01",
+                      "description" : "Fecha de notificación de la resolución. Fecha en formato ISO 8601",
                       "example" : "2019-11-20"
                     }
                   }
                 },
                 "multa" : {
                   "type" : "object",
-                  "required" : [ "monto", "moneda" ],
                   "properties" : {
                     "monto" : {
                       "type" : "integer",
                       "minimum" : 1,
-                      "description" : "Monto de la multa impuesta al contratista",
+                      "description" : "Monto de la multa impuesta a la empresa",
                       "example" : 5000000
                     },
                     "moneda" : {
                       "type" : "string",
-                      "description" : "e.g., MXN para pesos mexicanos o cualquier otro código de unidad. Código de la moneda de acuerdo al estandar ISO 4217",
+                      "description" : "Moneda de la multa impuesta a la empresa, apegado al formato ISO 4217",
                       "example" : "MXN"
                     }
                   }
                 },
                 "inhabilitacion" : {
                   "type" : "object",
-                  "required" : [ "fecha_inicial", "fecha_final" ],
                   "properties" : {
                     "plazo" : {
                       "type" : "string",
-                      "description" : "e.g., 2 años ",
+                      "description" : "Plazo de la inhabilitación. Ej. 2 años",
                       "example" : "2 años"
                     },
                     "fecha_inicial" : {
                       "type" : "string",
                       "format" : "date",
-                      "description" : "e.g., 2019-01-01",
+                      "description" : "Fecha inicial de la inhabilitación. Fecha en formato ISO 8601",
                       "example" : "2019-01-01"
                     },
                     "fecha_final" : {
                       "type" : "string",
                       "format" : "date",
-                      "description" : "e.g., 2020-12-31",
+                      "description" : "Fecha final de la inhabilitación. Fecha en formato ISO 8601",
                       "example" : "2020-12-31"
                     }
                   }
@@ -549,7 +547,6 @@
                   "type" : "array",
                   "items" : {
                     "type" : "object",
-                    "required" : [ "id", "titulo", "descripcion", "url", "fecha" ],
                     "properties" : {
                       "id" : {
                         "type" : "string",
@@ -558,7 +555,8 @@
                       },
                       "tipo" : {
                         "type" : "string",
-                        "description" : "Tipo de documento, Opciones: RESOLUCION, CONSTANCIA_SANCION, CONSTANCIA_INHABILITACION, CONSTANCIA_ABSTENCION",
+                        "description" : "Tipo de documento, Valores permitidos [\"RESOLUCION\", \"CONSTANCIA_SANCION\", \"CONSTANCIA_INHABILITACION\", \"CONSTANCIA_ABSTENCION\"]",
+                        "enum" : [ "RESOLUCION", "CONSTANCIA_SANCION", "CONSTANCIA_INHABILITACION", "CONSTANCIA_ABSTENCION" ],
                         "example" : "CONSTANCIA_INHABILITACION"
                       },
                       "titulo" : {
@@ -573,13 +571,13 @@
                       },
                       "url" : {
                         "type" : "string",
-                        "description" : "URL al documento en formato digital",
+                        "description" : "Hipervínculo al documento",
                         "example" : "https://ejemplo.mx/archivo/documento.pdf"
                       },
                       "fecha" : {
                         "type" : "string",
                         "format" : "date",
-                        "description" : "Fecha del documento, eg., 2019-01-01",
+                        "description" : "Fecha del documento. Fecha en formato ISO 8601",
                         "example" : "2019-11-20"
                       }
                     }

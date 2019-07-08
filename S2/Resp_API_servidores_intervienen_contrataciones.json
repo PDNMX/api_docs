@@ -8,7 +8,7 @@
     {
       "id": "string",
       "fecha_captura": "20180820T00:00:00Z",
-      "ejercicio_fiscal": 2018,
+      "ejercicio_fiscal": "2018",
       "periodo_ejercicio": {
         "fecha_inicial": "2018-01-01",
         "fecha_final": "2018-12-31"
@@ -20,7 +20,7 @@
       "nombres": "John Juan",
       "primer_apellido": "Pérez",
       "segundo_apellido": "Mendez",
-      "genero": "Masculino",
+      "genero": "M",
       "institucion_dependencia": {
         "nombre": "Secretaría de Hacienda y Crédito Público",
         "siglas": "SHCP",
@@ -39,15 +39,20 @@
         "A",
         "T"
       ],
-      "tipo_procedimiento": 1,
-      "tipo_actos": "Contrataciones",
+      "tipo_procedimiento": [
+        1,
+        2
+      ],
       "superior_inmediato": {
         "nombres": "Juan",
         "primer_apellido": "Lopez",
         "segundo_apellido": "Perez",
         "curp": "BADD110313HCMLNS09",
         "rfc": "CUPU800825569",
-        "puesto": "Director General"
+        "puesto": {
+          "nombre": "Director de área",
+          "nivel": "1234567890"
+        }
       }
     }
   ]

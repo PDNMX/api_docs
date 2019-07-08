@@ -225,7 +225,7 @@
                   "type" : "string",
                   "format" : "date-time",
                   "description" : "Fecha y hora en la que se agrega o modifca el registro. Fecha en formato ISO 8601",
-                  "example" : "20180820T00:00:00Z"
+                  "example" : "2019-01-21T17:32:28Z"
                 },
                 "ejercicio_fiscal" : {
                   "type" : "string",

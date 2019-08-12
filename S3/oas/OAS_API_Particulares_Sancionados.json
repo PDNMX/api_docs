@@ -85,6 +85,27 @@
           "schema" : {
             "type" : "string"
           }
+        }, {
+          "name" : "institucion_dependencia",
+          "in" : "query",
+          "description" : "Devuelve resultados de los particulares a partir del nombre de la Institución o Dependencia donde el contratista cometió la irregularidad",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "nombre_razon_social",
+          "in" : "query",
+          "description" : "Devuelve resultados de los particulares a partir del nombre o razón social",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "expediente",
+          "in" : "query",
+          "description" : "Devuelve resultados de los particulares a partir del expediente derivado de la investigación que las Autoridades Investigadoras realizan",
+          "schema" : {
+            "type" : "string"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -105,7 +126,7 @@
           }
         },
         "security" : [ {
-          "psancionados_auth" : [ "read:psancionados" ]
+          "psancionados_auth" : [ ]
         } ]
       },
       "post" : {
@@ -152,7 +173,35 @@
           }
         },
         "security" : [ {
-          "psancionados_auth" : [ "read:psancionados" ]
+          "psancionados_auth" : [ ]
+        } ]
+      }
+    },
+    "/pdependencias" : {
+      "get" : {
+        "tags" : [ "dependencias" ],
+        "summary" : "Dependencias donde se cometió la sanción",
+        "operationId" : "get_dependencias",
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/dependencias"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Página inválida"
+          },
+          "403" : {
+            "description" : "No tienes permisos"
+          }
+        },
+        "security" : [ {
+          "psancionados_auth" : [ ]
         } ]
       }
     }
@@ -168,9 +217,7 @@
         "flows" : {
           "implicit" : {
             "authorizationUrl" : "/oauth",
-            "scopes" : {
-              "read:psancionados" : "Obtiene la lista de particulares sancionados"
-            }
+            "scopes" : { }
           }
         }
       }
@@ -222,7 +269,7 @@
                 },
                 "expediente" : {
                   "type" : "string",
-                  "description" : "El expediente derivado de la investigación que las Autoridades Investigadoras realizan.",
+                  "description" : "El expediente derivado de la investigación que las Autoridades Investigadoras realizan",
                   "example" : "ABC123"
                 },
                 "institucion_dependencia" : {
@@ -630,6 +677,7 @@
             "example" : "123abc"
           },
           "query" : {
+            "description" : "En este objeto se pasan los parametros para las busquedas por medio de los campos correspondientes",
             "properties" : {
               "nombre_razon_social" : {
                 "type" : "string",
@@ -645,6 +693,11 @@
                 "type" : "string",
                 "description" : "Nombre de la institución o dependencia.",
                 "example" : "Secretaría de Hacienda y Crédito Público"
+              },
+              "expediente" : {
+                "type" : "string",
+                "description" : "El expediente derivado de la investigación que las Autoridades Investigadoras realizan",
+                "example" : "ABC123"
               }
             }
           },
@@ -668,6 +721,30 @@
             "type" : "string",
             "description" : "Texto descriptivo para el usuario final del error en la consulta",
             "example" : "Error al formar la consulta, revise el formato de los campos."
+          }
+        }
+      },
+      "dependencias" : {
+        "description" : "Instituciones o dependencias donde se cometió la sanción",
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "nombre" : {
+              "type" : "string",
+              "description" : "Nombre de la Institución o Dependencia donde el contratista cometió la irregularidad",
+              "example" : "Secretaría de Hacienda y Crédito Público"
+            },
+            "siglas" : {
+              "type" : "string",
+              "description" : "Siglas de la Institución o Dependencia donde el contratista cometió la irregularidad",
+              "example" : "SHCP"
+            },
+            "clave" : {
+              "type" : "string",
+              "description" : "Clave de la Institución o Dependencia donde el contratista cometió la irregularidad",
+              "example" : "XYZ987"
+            }
           }
         }
       }

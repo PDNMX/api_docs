@@ -71,6 +71,13 @@
             "type" : "string"
           }
         }, {
+          "name" : "institucion_dependencia",
+          "in" : "query",
+          "description" : "Devuelve resultados de los particulares a partir del nombre de la Institución o Dependencia donde el contratista cometió la irregularidad",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "id",
           "in" : "query",
           "description" : "Devuelve resultados al buscar un servidor público sancionado por su ID",
@@ -112,7 +119,7 @@
           }
         },
         "security" : [ {
-          "ssancionados_auth" : [ "read:ssancionados" ]
+          "ssancionados_auth" : [ ]
         } ]
       },
       "post" : {
@@ -159,7 +166,35 @@
           }
         },
         "security" : [ {
-          "ssancionados_auth" : [ "read:ssancionados" ]
+          "ssancionados_auth" : [ ]
+        } ]
+      }
+    },
+    "/sdependencias" : {
+      "get" : {
+        "tags" : [ "dependencias" ],
+        "summary" : "Dependencias donde se cometió la sanción",
+        "operationId" : "get_dependencias",
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/dependencias"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Página inválida"
+          },
+          "403" : {
+            "description" : "No tienes permisos"
+          }
+        },
+        "security" : [ {
+          "ssancionados_auth" : [ ]
         } ]
       }
     }
@@ -175,9 +210,7 @@
         "flows" : {
           "implicit" : {
             "authorizationUrl" : "/oauth",
-            "scopes" : {
-              "read:ssancionados" : "Obtiene lista de servidores sancionados"
-            }
+            "scopes" : { }
           }
         }
       }
@@ -501,7 +534,17 @@
                 "description" : "Segundo apellido del servidor público sancionado.",
                 "example" : "Calderon"
               },
-              "institucion_dependencia.nombre" : {
+              "rfc" : {
+                "type" : "string",
+                "description" : "RFC del Servidor Público con homoclave",
+                "example" : "PAT21343213"
+              },
+              "curp" : {
+                "type" : "string",
+                "description" : "CURP del Servidor Público",
+                "example" : "ABCD780814MDFAXL"
+              },
+              "institucion_dependencia" : {
                 "type" : "string",
                 "description" : "Nombre de la institución dependencia a la que pertenece el servidor público sancionado.",
                 "example" : "Secretaría de Hacienda y Crédito Público"
@@ -528,6 +571,30 @@
             "type" : "string",
             "description" : "Texto descriptivo para el usuario final del error en la consulta",
             "example" : "Error al formar la consulta, revise el formato de los campos."
+          }
+        }
+      },
+      "dependencias" : {
+        "description" : "Instituciones o dependencias donde se cometió la sanción",
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "nombre" : {
+              "type" : "string",
+              "description" : "Nombre de la Institución o Dependencia donde el contratista cometió la irregularidad",
+              "example" : "Secretaría de Hacienda y Crédito Público"
+            },
+            "siglas" : {
+              "type" : "string",
+              "description" : "Siglas de la Institución o Dependencia donde el contratista cometió la irregularidad",
+              "example" : "SHCP"
+            },
+            "clave" : {
+              "type" : "string",
+              "description" : "Clave de la Institución o Dependencia donde el contratista cometió la irregularidad",
+              "example" : "XYZ987"
+            }
           }
         }
       }

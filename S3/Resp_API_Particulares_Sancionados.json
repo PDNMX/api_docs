@@ -62,7 +62,8 @@
       "autoridad_sancionadora": "OIC",
       "tipo_falta": "contratación indebida",
       "tipo_sancion": [
-        "I"
+        "I",
+        "M"
       ],
       "causa_motivo_hechos": "Causa o motivo de la sanción",
       "acto": "Contrataciones",

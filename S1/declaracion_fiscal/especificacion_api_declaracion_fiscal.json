@@ -104,13 +104,7 @@
             "description": "No tienes permisos"
           }
         },
-        "security": [
-          {
-            "declaracion_fiscal_auth": [
-              "read:declaracion"
-            ]
-          }
-        ]
+        "security": []
       }
     },
   },
@@ -125,16 +119,9 @@
         "flows": {
           "implicit": {
             "authorizationUrl": "/oauth",
-            "scopes": {
-              "read:declaracion": "Obtiene la lista de las declaraciones fiscales"
-            }
+            "scopes": {}
           }
         }
-      },
-      "api_key": {
-        "type": "apiKey",
-        "name": "api_key",
-        "in": "header"
       }
     },
     "schemas": {

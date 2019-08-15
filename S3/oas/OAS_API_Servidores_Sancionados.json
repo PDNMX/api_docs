@@ -71,7 +71,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "institucion_dependencia",
+          "name" : "institucion",
           "in" : "query",
           "description" : "Devuelve resultados de los particulares a partir del nombre de la Institución o Dependencia donde el contratista cometió la irregularidad",
           "schema" : {
@@ -170,7 +170,7 @@
         } ]
       }
     },
-    "/sdependencias" : {
+    "/ssancionados/dependencias" : {
       "get" : {
         "tags" : [ "dependencias" ],
         "summary" : "Dependencias donde se cometió la sanción",

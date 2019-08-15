@@ -78,6 +78,13 @@
             "type" : "string"
           }
         }, {
+          "name" : "institucion",
+          "in" : "query",
+          "description" : "Devuelve resultados de los particulares a partir del nombre de la Institución o Dependencia",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "actualizacion",
           "in" : "query",
           "description" : "Devuelve resultados de los servidores a partir de la fecha proporcionada",
@@ -112,7 +119,7 @@
           }
         },
         "security" : [ {
-          "spic_auth" : [ "read:spic" ]
+          "spic_auth" : [ ]
         } ]
       },
       "post" : {
@@ -156,6 +163,34 @@
                 }
               }
             }
+          }
+        },
+        "security" : [ {
+          "spic_auth" : [ ]
+        } ]
+      }
+    },
+    "/spic/dependencias" : {
+      "get" : {
+        "tags" : [ "spic" ],
+        "summary" : "Servidores públicos que intervienen en contrataciones",
+        "operationId" : "get_dependencias",
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/dependencias"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Página invalida"
+          },
+          "403" : {
+            "description" : "No tienes permisos"
           }
         },
         "security" : [ {
@@ -492,6 +527,30 @@
             "type" : "string",
             "description" : "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
             "example" : "GOAP780710RH7"
+          }
+        }
+      },
+      "dependencias" : {
+        "description" : "Instituciones o dependencias de los Servidores públicos de la Administración Pública Federal que intervienen en procedimientos de contrataciones públicas",
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "nombre" : {
+              "type" : "string",
+              "description" : "Nombre de la Institución o Dependencia",
+              "example" : "Secretaría de Hacienda y Crédito Público"
+            },
+            "siglas" : {
+              "type" : "string",
+              "description" : "Siglas de la Institución o Dependencia",
+              "example" : "SHCP"
+            },
+            "clave" : {
+              "type" : "string",
+              "description" : "Clave de la Institución o Dependencia",
+              "example" : "XYZ987"
+            }
           }
         }
       },

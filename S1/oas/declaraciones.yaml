@@ -225,10 +225,10 @@ paths:
     post:
       tags:
         - declaraciones
-      summary: Muestra las declaraciones de los servidores públicos permitiendo búsquedas avanzadas por máximo grado académico obtenido
+      summary: Muestra las declaraciones de los servidores públicos permitiendo búsquedas avanzadas por máximo grado académico obtenido 
       operationId: post_declaraciones_estadisticas_grado_obtenido
       requestBody:
-        description: JSON para peticiones de búsqueda avanzada por máximo grado académico obtenido
+        description: JSON para peticiones de búsqueda avanzada por máximo grado académico obtenido 
         required: true
         content:
           application/json:
@@ -318,8 +318,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error_post'
       security:
-        - declaraciones_auth:
-            - 'read:declaraciones'
+        - declaraciones_auth: []
 externalDocs:
   description: Más información
   url: 'https://github.com/PDNMX/api_docs'
@@ -330,8 +329,7 @@ components:
       flows:
         implicit:
           authorizationUrl: /oauth
-          scopes:
-            'read:declaraciones': Obtiene permiso para ver las declaraciones
+          scopes: {}
   schemas:
     Declaraciones:
       type: object
@@ -4386,7 +4384,7 @@ components:
           type: string
           description: Valor del tipo de relación con la persona
           example: Cónyuge
-
+          
     relacion_con_persona2:
       type: object
       properties:
@@ -4820,7 +4818,7 @@ components:
               type: number
               description: 'Edad máxima para realizar la consulta'
               example: 50
-        tipo_nivel:
+        tipo_nivel: 
           type: string
           enum:
             - gobierno
@@ -4841,7 +4839,7 @@ components:
             maxima:
               type: number
               example: 50
-        total:
+        total: 
           type: number
           example: 1000
         nivel_gobierno:
@@ -4895,13 +4893,13 @@ components:
         edad:
           type: object
           properties:
-            minima:
+            minima: 
               type: number
               example: 20
             maxima:
               type: number
               example: 50
-        nivel_educativo:
+        nivel_educativo: 
           type: string
           enum:
             - Preescolar
@@ -4929,7 +4927,7 @@ components:
         edad:
           type: object
           properties:
-            minima:
+            minima: 
               type: number
               example: 20
             maxima:
@@ -5037,7 +5035,7 @@ components:
             - Licenciatura
             - Maestría
             - Doctorado
-        total:
+        total: 
           type: number
           example: 1000
         edad:

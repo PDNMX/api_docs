@@ -454,7 +454,7 @@
           }
         },
         "security" : [ {
-          "declaraciones_auth" : [ "read:declaraciones" ]
+          "declaraciones_auth" : [ ]
         } ]
       }
     }
@@ -470,9 +470,7 @@
         "flows" : {
           "implicit" : {
             "authorizationUrl" : "/oauth",
-            "scopes" : {
-              "read:declaraciones" : "Obtiene permiso para ver las declaraciones"
-            }
+            "scopes" : { }
           }
         }
       }

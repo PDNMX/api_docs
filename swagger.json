@@ -1,0 +1,575 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "API del Registro de Servidores públicos de la Administración Pública Federal que intervienen en procedimientos de contrataciones públicas."
+  },
+  "paths" : {
+    "/spic" : {
+      "get" : {
+        "tags" : [ "spic" ],
+        "summary" : "Servidores públicos que intervienen en contrataciones",
+        "operationId" : "get_spic",
+        "parameters" : [ {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Ordena por fecha de actualización de forma ascendete y descendente, los valores permitidos son 'asc' y 'desc', por defecto el orden es ascendente.",
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "asc", "desc" ]
+          }
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Número de página a mostrar",
+          "schema" : {
+            "type" : "integer",
+            "minimum" : 1
+          }
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "Número de registros a mostrar por página, el máximo permitido es doscientos y el mínimo uno, por defecto muestra diez registros.",
+          "schema" : {
+            "type" : "integer",
+            "minimum" : 1,
+            "maximum" : 200
+          }
+        }, {
+          "name" : "nombres",
+          "in" : "query",
+          "description" : "Devuelve resultados al buscar a un servidor por su nombre o nombres",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "apellido1",
+          "in" : "query",
+          "description" : "Devuelve resultados al buscar a un servidor por su primer apellido",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "apellido2",
+          "in" : "query",
+          "description" : "Devuelve resultados al buscar a un servidor por su segundo apellido",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "curp",
+          "in" : "query",
+          "description" : "Devuelve resultados al buscar a un servidor por CURP",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "rfc",
+          "in" : "query",
+          "description" : "Devuelve resultados al buscar a un servidor por RFC",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "description" : "Devuelve resultados al buscar un servidor por su ID",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "institucion",
+          "in" : "query",
+          "description" : "Devuelve resultados de los particulares a partir del nombre de la Institución o Dependencia",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "actualizacion",
+          "in" : "query",
+          "description" : "Devuelve resultados de los servidores a partir de la fecha proporcionada",
+          "schema" : {
+            "type" : "string",
+            "format" : "date"
+          }
+        }, {
+          "name" : "rfc_solicitante",
+          "in" : "query",
+          "description" : "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/spic"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Página invalida"
+          },
+          "403" : {
+            "description" : "No tienes permisos"
+          }
+        },
+        "security" : [ {
+          "spic_auth" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "spic" ],
+        "summary" : "Servidores públicos que intervienen en contrataciones",
+        "operationId" : "post_spic",
+        "requestBody" : {
+          "description" : "JSON para peticiones de busqueda avanzada",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/post_query"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/spic"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Página inválida"
+          },
+          "403" : {
+            "description" : "No tienes permisos"
+          },
+          "default" : {
+            "description" : "unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/error_post"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "spic_auth" : [ ]
+        } ]
+      }
+    },
+    "/spic/dependencias" : {
+      "get" : {
+        "tags" : [ "spic" ],
+        "summary" : "Servidores públicos que intervienen en contrataciones",
+        "operationId" : "get_dependencias",
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/dependencias"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Página invalida"
+          },
+          "403" : {
+            "description" : "No tienes permisos"
+          }
+        },
+        "security" : [ {
+          "spic_auth" : [ ]
+        } ]
+      }
+    }
+  },
+  "externalDocs" : {
+    "description" : "Más información",
+    "url" : "https://github.com/PDNMX/api_docs"
+  },
+  "components" : {
+    "securitySchemes" : {
+      "spic_auth" : {
+        "type" : "oauth2",
+        "flows" : {
+          "implicit" : {
+            "authorizationUrl" : "/oauth",
+            "scopes" : { }
+          }
+        }
+      }
+    },
+    "schemas" : {
+      "spic" : {
+        "type" : "object",
+        "required" : [ "pagination", "results" ],
+        "properties" : {
+          "pagination" : {
+            "type" : "object",
+            "required" : [ "page_size", "page", "total" ],
+            "properties" : {
+              "page_size" : {
+                "type" : "number",
+                "minimum" : 1,
+                "description" : "Número de registros mostrados, por defecto muestra diez.",
+                "example" : 100
+              },
+              "page" : {
+                "type" : "number",
+                "minimum" : 1,
+                "description" : "Número de página actual",
+                "example" : 20
+              },
+              "total" : {
+                "type" : "number",
+                "minimum" : 1,
+                "description" : "Total de registros",
+                "example" : 30
+              }
+            }
+          },
+          "results" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "type" : "string",
+                  "description" : "Dato que permita identificar de manera  unívoca al registro",
+                  "example" : "string"
+                },
+                "fecha_captura" : {
+                  "type" : "string",
+                  "format" : "date-time",
+                  "description" : "Fecha y hora en la que se agrega o modifca el registro. Fecha en formato ISO 8601",
+                  "example" : "2019-01-21T17:32:28Z"
+                },
+                "ejercicio_fiscal" : {
+                  "type" : "string",
+                  "description" : "El identificador del expediente",
+                  "example" : "2018"
+                },
+                "periodo_ejercicio" : {
+                  "description" : "E.g., 2018",
+                  "type" : "object",
+                  "required" : [ "fecha_inicial", "fecha_final" ],
+                  "properties" : {
+                    "fecha_inicial" : {
+                      "type" : "string",
+                      "format" : "date",
+                      "description" : "Fecha inicial del periodo del ejercicio. Fecha en formato ISO 8601",
+                      "example" : "2018-01-01"
+                    },
+                    "fecha_final" : {
+                      "type" : "string",
+                      "format" : "date",
+                      "description" : "Fecha final del periodo del ejercicio. Fecha en formato ISO 8601",
+                      "example" : "2018-12-31"
+                    }
+                  }
+                },
+                "id_ramo" : {
+                  "type" : "integer",
+                  "minimum" : 1,
+                  "description" : "Identificador del ramo",
+                  "example" : 23
+                },
+                "ramo" : {
+                  "type" : "string",
+                  "description" : "Identifica y clasifica los recursos en el presupuesto de egresos a las Dependencias y en su caso Entidades, a la Presidencia de la República, a la Procuraduría General de la República y a los Tribunales Administrativos.",
+                  "example" : "Provisiones salariales y económicas"
+                },
+                "rfc" : {
+                  "type" : "string",
+                  "description" : "RFC del Servidor Público con homoclave",
+                  "example" : "JPM851111C44"
+                },
+                "curp" : {
+                  "type" : "string",
+                  "description" : "CURP del Servidor Público",
+                  "example" : "BEML920313HMCLNS09"
+                },
+                "nombres" : {
+                  "type" : "string",
+                  "description" : "Nombre(s) del Servidor Público",
+                  "example" : "John Juan"
+                },
+                "primer_apellido" : {
+                  "type" : "string",
+                  "description" : "Primer apellido del servidor público",
+                  "example" : "Pérez"
+                },
+                "segundo_apellido" : {
+                  "type" : "string",
+                  "description" : "Segundo apellido del servidor público",
+                  "example" : "Mendez"
+                },
+                "genero" : {
+                  "type" : "string",
+                  "enum" : [ "F", "M", "O" ],
+                  "description" : "Genero del Servidor Público. Valores permitidos [ \"F\", \"M\", \"O\" ]. F= Femenino, M= Masculino, O=Otro",
+                  "example" : "M"
+                },
+                "institucion_dependencia" : {
+                  "description" : "Indicar el nombre de la institución donde se encuentren registradas las inversiones, cuentas o valores",
+                  "type" : "object",
+                  "required" : [ "nombre", "siglas" ],
+                  "properties" : {
+                    "nombre" : {
+                      "type" : "string",
+                      "description" : "Nombre de la institución o dependencia donde labora el Servidor Público",
+                      "example" : "Secretaría de Hacienda y Crédito Público"
+                    },
+                    "siglas" : {
+                      "type" : "string",
+                      "description" : "Siglas de la institución o dependencia donde labora el Servidor Público",
+                      "example" : "SHCP"
+                    },
+                    "clave" : {
+                      "type" : "string",
+                      "description" : "Clave de la institución o dependencia donde labora el Servidor Público",
+                      "example" : "XYZ987"
+                    }
+                  }
+                },
+                "puesto" : {
+                  "type" : "object",
+                  "properties" : {
+                    "nombre" : {
+                      "type" : "string",
+                      "description" : "Nombre del puesto del Servidor Público",
+                      "example" : "Director de área"
+                    },
+                    "nivel" : {
+                      "type" : "string",
+                      "maxLength" : 12,
+                      "description" : "Nivel del puesto del Servidor Público",
+                      "example" : "1234567890"
+                    }
+                  }
+                },
+                "tipo_area" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string",
+                    "enum" : [ "T", "RE", "RC", "O", "C", "R" ],
+                    "description" : "Tipo de área. Valores permitidos [ \"T\", \"RE\", \"RC\", \"O\", \"C\", \"R\" ]. [T=Técnica, RE= Responsable de la ejecución de los trabajos, RC= Responsable de la contratación, O= Otra, C= Contratante, R= Requirente]"
+                  },
+                  "example" : [ "T", "RE", "O" ]
+                },
+                "nivel_responsabilidad" : {
+                  "description" : "Nivel de responsabilidad. Valores permitidos [ \"A\", \"T\", \"R\" ]. [A= Atención, T= Tramitación, R= Resolución]",
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string",
+                    "enum" : [ "A", "T", "R" ]
+                  },
+                  "example" : [ "A", "T" ]
+                },
+                "tipo_procedimiento" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "integer",
+                    "minimum" : 1,
+                    "description" : "Tipos de procedimiento en los que puede participar el Servidor Público. Valores permitidos [1,2,3,4].  1.- Contrataciones Públicas 2.- Concesiones, licencias, permisos, autorizaciones y prórrogas 3.- Enajenación de bienes muebles 4.- Asignación y emisión de dictámenes de avalúos nacionales"
+                  },
+                  "example" : [ 1, 2 ]
+                },
+                "superior_inmediato" : {
+                  "type" : "object",
+                  "properties" : {
+                    "nombres" : {
+                      "type" : "string",
+                      "description" : "Nombre(s) del superior inmediato del Servidor Público",
+                      "example" : "Juan"
+                    },
+                    "primer_apellido" : {
+                      "type" : "string",
+                      "description" : "Primer apellido del superior inmediato del Servidor Público",
+                      "example" : "Lopez"
+                    },
+                    "segundo_apellido" : {
+                      "type" : "string",
+                      "description" : "Segundo apellido del superior inmediato del Servidor Público",
+                      "example" : "Perez"
+                    },
+                    "curp" : {
+                      "type" : "string",
+                      "description" : "CURP del superior inmediato del Servidor Público",
+                      "example" : "BADD110313HCMLNS09"
+                    },
+                    "rfc" : {
+                      "type" : "string",
+                      "description" : "RFC con homoclave del superior inmediato del Servidor Público",
+                      "example" : "CUPU800825569"
+                    },
+                    "puesto" : {
+                      "type" : "object",
+                      "properties" : {
+                        "nombre" : {
+                          "type" : "string",
+                          "description" : "Nombre del puesto del superior inmediato del Servidor Público",
+                          "example" : "Director de área"
+                        },
+                        "nivel" : {
+                          "type" : "string",
+                          "description" : "Nivel del puesto del superior inmediato del Servidor Público",
+                          "example" : "1234567890"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post_query" : {
+        "type" : "object",
+        "properties" : {
+          "sort" : {
+            "type" : "object",
+            "properties" : {
+              "nombre" : {
+                "type" : "string",
+                "enum" : [ "asc", "desc" ],
+                "description" : "Campo a ordenar de forma ascendente o descente",
+                "example" : "asc"
+              },
+              "primer_apellido" : {
+                "type" : "string",
+                "enum" : [ "asc", "desc" ],
+                "description" : "Campo a ordenar de forma ascendente o descente",
+                "example" : "asc"
+              },
+              "segundo_apellido" : {
+                "type" : "string",
+                "enum" : [ "asc", "desc" ],
+                "description" : "Campo a ordenar de forma ascendente o descente",
+                "example" : "asc"
+              },
+              "institucion_dependencia.nombre" : {
+                "type" : "string",
+                "enum" : [ "asc", "desc" ],
+                "description" : "Campo a ordenar de forma ascendente o descente",
+                "example" : "asc"
+              },
+              "puesto" : {
+                "type" : "string",
+                "enum" : [ "asc", "desc" ],
+                "description" : "Campo a ordenar de forma ascendente o descente",
+                "example" : "asc"
+              }
+            }
+          },
+          "page" : {
+            "type" : "integer",
+            "description" : "Número de página a mostrar",
+            "example" : 10
+          },
+          "page_size" : {
+            "type" : "integer",
+            "description" : "Número de registros a mostrar por página, el máximo permitido es doscientos y el mínimo uno, por defecto muestra diez registros.",
+            "example" : 10
+          },
+          "id" : {
+            "type" : "string",
+            "description" : "Devuelve resultados al buscar un servidor público por su ID. Si se especifica este valor, el objeto query es omitido.",
+            "example" : "123abc"
+          },
+          "query" : {
+            "properties" : {
+              "nombres" : {
+                "type" : "string",
+                "description" : "Nombres o nombre de la persona.",
+                "example" : "Juan Pedro"
+              },
+              "primer_apellido" : {
+                "type" : "string",
+                "description" : "Primer apellido de la persona.",
+                "example" : "Tenorio"
+              },
+              "segundo_apellido" : {
+                "type" : "string",
+                "description" : "Segundo apellido de la persona.",
+                "example" : "Calderón"
+              },
+              "curp" : {
+                "type" : "string",
+                "description" : "CURP de la persona.",
+                "example" : "PUXB571021HNELXR00"
+              },
+              "institucion_dependencia" : {
+                "type" : "string",
+                "description" : "Se deberá señalar el Ente Público o entidad que corresponda al Servidor Público.",
+                "example" : "Presidencia de la República"
+              }
+            }
+          },
+          "rfc_solicitante" : {
+            "type" : "string",
+            "description" : "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
+            "example" : "GOAP780710RH7"
+          }
+        }
+      },
+      "dependencias" : {
+        "description" : "Instituciones o dependencias de los Servidores públicos de la Administración Pública Federal que intervienen en procedimientos de contrataciones públicas",
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "nombre" : {
+              "type" : "string",
+              "description" : "Nombre de la Institución o Dependencia",
+              "example" : "Secretaría de Hacienda y Crédito Público"
+            },
+            "siglas" : {
+              "type" : "string",
+              "description" : "Siglas de la Institución o Dependencia",
+              "example" : "SHCP"
+            },
+            "clave" : {
+              "type" : "string",
+              "description" : "Clave de la Institución o Dependencia",
+              "example" : "XYZ987"
+            }
+          }
+        }
+      },
+      "error_post" : {
+        "description" : "Estos valores son definidos por el sistema del API.",
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "string",
+            "description" : "Código alfa númerico del error de la consulta.",
+            "example" : "abc123"
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Texto descriptivo para el usuario final del error en la consulta",
+            "example" : "Error al formar la consulta, revise el formato de los campos."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,3 +1,7 @@
+enum Tipo_Persona{
+    F,M
+}
+
 type DirectorGeneral{
     nombres: String,
     primer_apellido: String,
@@ -22,6 +26,7 @@ type Particular {
     nombre_razon_social: String,
     objeto_social: String,
     rfc: String,
+    tipo_persona: Tipo_Persona,
     telefono: String,
     domicilio: Domicilio,
     director_general: DirectorGeneral,
@@ -34,7 +39,7 @@ type ParticularSancionado {
     expediente: String,
     institucion_dependencia: InstitucionDependencia,
     sistema_origen: String, # ¿realmente nos sirve?
-    particular_sancionado: Particular
+    particular_sancionado: Particular,
     objeto_contrato: String,
     autoridad_sancionadora: String,
     tipo_falta: String, #chechar si aplica
@@ -47,4 +52,52 @@ type ParticularSancionado {
     inhabilitacion: Inhabilitacion
     observaciones: String,
     documentos: [Documento]
+}
+
+input Parameters{
+    sort: Sort,
+    page: Int,
+    page_size: Int,
+    id: String,
+    query: Filtros_Particulares_Sancionados,
+    rfc_solicitante: String
+}
+
+input Sort{
+    nombre_razon_social: Orden,
+    rfc : Orden,
+    institucion_dependencia: Orden
+}
+
+type PSancionados{
+    pagination: Pagination,
+    results: [ParticularSancionado]
+}
+
+type Error{
+    code: String,
+    message: String
+}
+
+type Response{
+    psancionados:PSancionados,
+    error_post: Error,
+}
+
+type ResponseDependencias{
+    error_post: Error,
+    dependencias: [InstitucionDependencia]
+}
+
+input Filtros_Particulares_Sancionados {
+    nombre_razon_social: String
+    rfc: String
+    institucion_dependencia: String
+    expediente: String
+}
+
+
+type Query{
+    psancionados(sort: Sort, page: Int, page_size: Int, id: String, query : Parameters, rfc_solicitante: String) : Response
+    dependencias : ResponseDependencias
 }

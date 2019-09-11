@@ -51,10 +51,6 @@ type InstitucionDependencia {
     clave: String
 }
 
-enum Genero {
-    M,F,O
-}
-
 enum TipoSancion{
     I,M,S,D
 }
@@ -82,4 +78,15 @@ type Inhabilitacion {
     fecha_inicial: DateTime,
     fecha_final: DateTime,
     plazo: String
+}
+
+type Pagination{
+    page_size: Int,
+    page: Int,
+    total_rows: Int,
+    has_next_page: Boolean
+}
+
+enum Orden {
+    asc,desc
 }

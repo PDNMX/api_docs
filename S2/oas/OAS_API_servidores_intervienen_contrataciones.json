@@ -2,13 +2,13 @@
   "openapi" : "3.0.0",
   "info" : {
     "version" : "1.0.0",
-    "title" : "API del Registro de Servidores públicos de la Administración Pública Federal que intervienen en procedimientos de contrataciones públicas"
+    "title" : "API del Registro de Servidores públicos de la Administración Pública Federal que intervienen en procedimientos de contrataciones públicas."
   },
   "paths" : {
     "/spic" : {
       "get" : {
         "tags" : [ "spic" ],
-        "summary" : "Servidores públicos que intervienen en contrataciones",
+        "summary" : "Servidores públicos que intervienen en contrataciones.",
         "operationId" : "get_spic",
         "parameters" : [ {
           "name" : "sort",
@@ -38,7 +38,7 @@
         }, {
           "name" : "nombres",
           "in" : "query",
-          "description" : "Devuelve resultados al buscar a un servidor por su nombre o nombres",
+          "description" : "Devuelve resultados al buscar a un servidor por su nombre o nombres.",
           "schema" : {
             "type" : "string"
           }

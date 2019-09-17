@@ -1,92 +1,117 @@
 scalar DateTime
 
 type Documento {
-    id: String!
-    tipo: String,
-    titulo: String!
-    descripcion: String!
-    url: String!
-    fecha: String
-}
+  """
+  Puede ser el folio del documento o al menos un consecutivo para identificar a los documentos en el registro.
+  """
+  id: String!
 
-type Pais {
-    valor: String
-    codigo: String
-}
+  """
+  Tipo de documento, Valores permitidos ["RESOLUCION", "CONSTANCIA_SANCION",
+  "CONSTANCIA_INHABILITACION", "CONSTANCIA_ABSTENCION"]
+  """
+  tipo: String
 
-type EntidadFederativa {
-    nom_ent: String,
-    cve_ent: String
-}
+  """
+  Título del documento
+  """
+  titulo: String!
 
-type Municipio {
-    nom_mun: String,
-    cve_mun: String
-}
+  """
+  Descripción del documento
+  """
+  descripcion: String!
 
-type Localidad {
-    nom_loc: String,
-    cve_loc: String
-}
+  """
+  Hipervínculo al documento
+  """
+  url: String!
 
-type Vialidad {
-    nom_vial: String,
-    tipo_vial: String
-}
-
-type Domicilio {
-    pais: Pais,
-    entidad_federativa: EntidadFederativa,
-    municipio: Municipio,
-    codigo_postal: String,
-    localidad: Localidad,
-    vialidad: Vialidad,
-    numExt: String,
-    numInt: String
+  """
+  Fecha del documento. Fecha en formato ISO 8601
+  """
+  fecha: String!
 }
 
 type InstitucionDependencia {
-    nombre: String,
-    siglas: String,
-    clave: String
+  """
+  Nombre de la Institución o Dependencia donde el contratista cometió la irregularidad
+  """
+  nombre: String
+
+  """
+  Siglas de la Institución o Dependencia donde el contratista cometió la irregularidad
+  """
+  siglas: String
+
+  """
+  Clave de la Institución o Dependencia donde el contratista cometió la irregularidad
+  """
+  clave: String
 }
 
-enum TipoSancion{
-    I,M,S,D
+
+"""
+Tipo de sanción aplicada. Valores permitidos [ "I", "M", "S", "D" ]. I = Inhabilitado, M = Multado, S= Suspensión del empleo, cargo o comisión, D= Destitución del emplo, cargo o comisión
+"""
+enum TipoSancion {
+I
+M
+S
+D
 }
 
-enum Genero {
-    M,F,O
-}
-
-enum TipoFalta {
-    AG, ANG, AC
-}
-
+revisar
 type Resolucion {
-    sentido: String,
-    fecha_notificacion: DateTime,
-    url: String
+  sentido: String
+  fecha_notificacion: DateTime
+  url: String
 }
+
 
 type Multa {
-    monto: String,
-    moneda: String
+  """
+  Monto de la multa expresado en la moneda origen
+  """
+  monto: Int
+
+  """
+  Moneda de la multa impuesta, apegado al formato ISO 4217
+  """
+  moneda: String
 }
 
-type Inhabilitacion {
-    fecha_inicial: DateTime,
-    fecha_final: DateTime,
-    plazo: String
-}
-
-type Pagination{
-    page_size: Int,
-    page: Int,
-    total_rows: Int,
-    has_next_page: Boolean
+type Pagination {
+  """
+  Numero de registros que contiene la pagina
+  """
+  page_size: Int!
+  """
+  Número de página actual
+  """
+  page: Int!
+  """
+  Total de registros
+  """
+  total: Int!
+  """
+  Existe una siguiente pagina
+  """
+  has_next_page: Boolean
 }
 
 enum Orden {
-    asc,desc
+  asc
+  desc
+}
+
+type Error {
+  """
+  Código alfa númerico del error de la consulta.
+  """
+  code: String
+  """
+  Texto descriptivo para el usuario final del error en la consulta.
+  """
+  message: String
 }

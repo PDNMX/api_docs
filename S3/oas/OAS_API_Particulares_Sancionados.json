@@ -379,7 +379,7 @@
                     "type" : "string",
                     "enum" : [ "I", "M", "S", "D" ]
                   },
-                  "example" : [ "I", "M" ]
+                  "example" : "I"
                 },
                 "causa_motivo_hechos" : {
                   "type" : "string",

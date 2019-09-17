@@ -374,7 +374,7 @@
                 },
                 "tipo_sancion" : {
                   "description" : "Tipo de sanción. Valores permitidos I = Inhabilitado, M = Multado, S = Suspensión de actividades, D = Disolución de la sociedad. e.g., [\"I\", \"M\"] significa que el contratista fue inhabilitado y multado.",
-                  "type" : "array",
+                  "type" : "string",
                   "items" : {
                     "type" : "string",
                     "enum" : [ "I", "M", "S", "D" ]

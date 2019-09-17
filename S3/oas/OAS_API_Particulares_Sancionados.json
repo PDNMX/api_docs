@@ -373,13 +373,13 @@
                   "example" : "contratación indebida"
                 },
                 "tipo_sancion" : {
-                  "description" : "Tipo de sanción. Valores permitidos I = Inhabilitado, M = Multado, S = Suspensión de actividades, D = Disolución de la sociedad. e.g., [\"I\", \"M\"] significa que el contratista fue inhabilitado y multado.",
+                  "description" : "Tipo de sanción. Valores permitidos I = Inhabilitado, M = Multado, S = Suspensión de actividades, D = Disolución de la sociedad. e.g., \"I\" significa que el contratista fue inhabilitado.",
                   "type" : "string",
                   "items" : {
                     "type" : "string",
                     "enum" : [ "I", "M", "S", "D" ]
                   },
-                  "example" : [ "I", "M" ]
+                  "example" : "I"
                 },
                 "causa_motivo_hechos" : {
                   "type" : "string",

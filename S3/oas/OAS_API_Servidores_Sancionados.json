@@ -268,11 +268,13 @@
                 },
                 "multa" : {
                   "type" : "object",
+                  "required" : [ "monto", "moneda" ],
                   "properties" : {
                     "monto" : {
-                      "type" : "integer",
+                      "type" : "number",
+                      "format" : "float",
                       "description" : "Monto de la multa expresado en la moneda origen",
-                      "example" : 3000000
+                      "example" : 30000.19
                     },
                     "moneda" : {
                       "type" : "string",

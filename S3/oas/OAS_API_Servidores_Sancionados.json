@@ -239,13 +239,10 @@
                   }
                 },
                 "tipo_sancion" : {
-                  "type" : "array",
+                  "type" : "string",
+                  "enum" : [ "I", "M", "MI", "S", "D" ],
                   "description" : "Tipo de sanción aplicada. Valores permitidos [ \"I\", \"M\", \"MI\", \"S\", \"D\" ]. I = Inhabilitado, M = Multado, MI = Multado e Inhabilitado, S= Suspensión del empleo, cargo o comisión, D= Destitución del emplo, cargo o comisión",
-                  "items" : {
-                    "type" : "string",
-                    "enum" : [ "I", "M", "MI", "S", "D" ],
-                    "example" : "M"
-                  }
+                  "example" : "M"
                 },
                 "causa_motivo_hechos" : {
                   "type" : "string",

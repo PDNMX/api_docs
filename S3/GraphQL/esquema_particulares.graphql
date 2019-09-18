@@ -43,7 +43,7 @@ type ParticularSancionado {
     objeto_contrato: String,
     autoridad_sancionadora: String,
     tipo_falta: String, #chechar si aplica
-    tipo_sancion: [TipoSancion],
+    tipo_sancion: String,
     causa_motivo_hechos: String,
     acto: String,
     responsable_sancion: ResponsableSancion,

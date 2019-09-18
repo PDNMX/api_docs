@@ -1,36 +1,40 @@
-enum Tipo_Persona{
-    F,M
+enum Tipo_Persona {
+    """
+    F: Física, M: Moral
+    """
+  F
+  M
 }
 
-type DirectorGeneral{
-    nombres: String,
-    primer_apellido: String,
-    segundo_apellido: String,
-    curp: String
+type DirectorGeneral {
+  nombres: String
+  primer_apellido: String
+  segundo_apellido: String
+  curp: String
 }
 
 type ApoderadoLegal {
-    nombres: String,
-    primer_apellido: String,
-    segundo_apellido: String,
-    curp: String
+  nombres: String
+  primer_apellido: String
+  segundo_apellido: String
+  curp: String
 }
 
 type ResponsableSancion {
-    nombres: String,
-    primer_apellido: String,
-    segundo_apellido: String
+  nombres: String
+  primer_apellido: String
+  segundo_apellido: String
 }
 
 type Particular {
-    nombre_razon_social: String,
-    objeto_social: String,
-    rfc: String,
-    tipo_persona: Tipo_Persona,
-    telefono: String,
-    domicilio: Domicilio,
-    director_general: DirectorGeneral,
-    apoderado_legal: ApoderadoLegal
+  nombre_razon_social: String
+  objeto_social: String
+  rfc: String
+  tipo_persona: Tipo_Persona
+  telefono: String
+  domicilio: Domicilio
+  director_general: DirectorGeneral
+  apoderado_legal: ApoderadoLegal
 }
 
 type ParticularSancionado {
@@ -54,7 +58,7 @@ type ParticularSancionado {
     documentos: [Documento]
 }
 
-input Parameters{
+input ParametersPS{
     sort: Sort,
     page: Int,
     page_size: Int,
@@ -63,41 +67,82 @@ input Parameters{
     rfc_solicitante: String
 }
 
-input Sort{
-    nombre_razon_social: Orden,
-    rfc : Orden,
-    institucion_dependencia: Orden
+
+input SortPS{
+  nombre_razon_social: Orden
+  rfc: Orden
+  institucion_dependencia: Orden
 }
 
-type PSancionados{
-    pagination: Pagination,
-    results: [ParticularSancionado]
+type PSancionados {
+  pagination: Pagination
+  results: [ParticularSancionado]
 }
 
-type Error{
-    code: String,
-    message: String
+
+
+type ResponsePS {
+  psancionados: PSancionados
+  error_post: Error
 }
 
-type Response{
-    psancionados:PSancionados,
-    error_post: Error,
-}
-
-type ResponseDependencias{
-    error_post: Error,
-    dependencias: [InstitucionDependencia]
+type ResponseDependencias {
+  error_post: Error
+  dependencias: [InstitucionDependencia]
 }
 
 input Filtros_Particulares_Sancionados {
-    nombre_razon_social: String
-    rfc: String
-    institucion_dependencia: String
-    expediente: String
+  nombre_razon_social: String
+  rfc: String
+  institucion_dependencia: String
+  expediente: String
 }
 
-
-type Query{
-    psancionados(sort: Sort, page: Int, page_size: Int, id: String, query : Parameters, rfc_solicitante: String) : Response
-    dependencias : ResponseDependencias
+type QueryPS {
+  psancionados(
+    sort: SortPS
+    page: Int
+    page_size: Int
+    id: String
+    query: ParametersPS
+    rfc_solicitante: String
+  ): ResponsePS
+  dependencias: ResponseDependencias
 }
+
+type Pais {
+  valor: String
+  codigo: String
+}
+
+type EntidadFederativa {
+  nom_ent: String
+  cve_ent: String
+}
+
+type Municipio {
+  nom_mun: String
+  cve_mun: String
+}
+
+type Localidad {
+  nom_loc: String
+  cve_loc: String
+}
+
+type Vialidad {
+  nom_vial: String
+  tipo_vial: String
+}
+
+type Domicilio {
+  pais: Pais
+  entidad_federativa: EntidadFederativa
+  municipio: Municipio
+  codigo_postal: String
+  localidad: Localidad
+  vialidad: Vialidad
+  numExt: String
+  numInt: String
+}
+

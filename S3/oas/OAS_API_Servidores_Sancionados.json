@@ -6,122 +6,6 @@
   },
   "paths" : {
     "/ssancionados" : {
-      "get" : {
-        "tags" : [ "ssancionados" ],
-        "summary" : "Servidores sancionados",
-        "operationId" : "get_ssancionados",
-        "parameters" : [ {
-          "name" : "sort",
-          "in" : "query",
-          "description" : "Ordena por fecha de actualización de forma ascendete y descendente, los valores permitidos son 'asc' y 'desc', por defecto el orden es ascendente.",
-          "schema" : {
-            "type" : "string",
-            "enum" : [ "asc", "desc" ]
-          }
-        }, {
-          "name" : "page",
-          "in" : "query",
-          "description" : "Número de página a mostrar",
-          "schema" : {
-            "type" : "integer",
-            "minimum" : 1
-          }
-        }, {
-          "name" : "page_size",
-          "in" : "query",
-          "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
-          "schema" : {
-            "type" : "integer",
-            "minimum" : 1,
-            "maximum" : 200
-          }
-        }, {
-          "name" : "nombres",
-          "in" : "query",
-          "description" : "Devuelve resultados al buscar a un servidor público sancionado por su nombre o nombres",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "apellido1",
-          "in" : "query",
-          "description" : "Devuelve resultados al buscar a un servidor público sancionado por su primer apellido",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "apellido2",
-          "in" : "query",
-          "description" : "Devuelve resultados al buscar a un servidor público sancionado por su segundo apellido",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "rfc",
-          "in" : "query",
-          "description" : "Devuelve resultados al buscar a un servidor público sancionado por RFC",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "curp",
-          "in" : "query",
-          "description" : "Devuelve resultados al buscar a un servidor público sancionado por CURP",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "institucion",
-          "in" : "query",
-          "description" : "Devuelve resultados de los particulares a partir del nombre de la Institución o Dependencia donde el contratista cometió la irregularidad",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "id",
-          "in" : "query",
-          "description" : "Devuelve resultados al buscar un servidor público sancionado por su ID",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "actualizacion",
-          "in" : "query",
-          "description" : "Devuelve resultados de los servidores público sancionado a partir de la fecha proporcionada",
-          "schema" : {
-            "type" : "string",
-            "format" : "date"
-          }
-        }, {
-          "name" : "rfc_solicitante",
-          "in" : "query",
-          "description" : "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Operación exitosa",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ssancionados"
-                }
-              }
-            }
-          },
-          "400" : {
-            "description" : "Página inválida"
-          },
-          "403" : {
-            "description" : "No tienes permisos"
-          }
-        },
-        "security" : [ {
-          "ssancionados_auth" : [ ]
-        } ]
-      },
       "post" : {
         "tags" : [ "ssancionados" ],
         "summary" : "Muestra información de los servidores públicos sancionados permitiendo busquedas avanzadas",
@@ -222,25 +106,29 @@
         "properties" : {
           "pagination" : {
             "type" : "object",
-            "required" : [ "page_size", "page", "total" ],
+            "required" : [ "page_size", "page", "total", "has_next_page" ],
             "properties" : {
               "page_size" : {
-                "type" : "number",
-                "minimum" : 1,
-                "description" : "Total de páginas",
-                "example" : 100
+                "type" : "integer",
+                "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
+                "example" : 10
               },
               "page" : {
-                "type" : "number",
-                "minimum" : 1,
-                "description" : "Número de página actual",
-                "example" : 20
+                "type" : "integer",
+                "description" : "Número de página a mostrar",
+                "example" : 10
               },
               "total" : {
                 "type" : "number",
                 "minimum" : 1,
                 "description" : "Total de registros",
-                "example" : 30
+                "example" : 100
+              },
+              "has_next_page" : {
+                "type" : "boolean",
+                "minimum" : 1,
+                "description" : "indica si existe una siguiente pagina",
+                "example" : true
               }
             }
           },
@@ -351,13 +239,10 @@
                   }
                 },
                 "tipo_sancion" : {
-                  "type" : "array",
+                  "type" : "string",
+                  "enum" : [ "I", "M", "MI", "S", "D" ],
                   "description" : "Tipo de sanción aplicada. Valores permitidos [ \"I\", \"M\", \"MI\", \"S\", \"D\" ]. I = Inhabilitado, M = Multado, MI = Multado e Inhabilitado, S= Suspensión del empleo, cargo o comisión, D= Destitución del emplo, cargo o comisión",
-                  "items" : {
-                    "type" : "string",
-                    "enum" : [ "I", "M", "MI", "S", "D" ],
-                    "example" : "M"
-                  }
+                  "example" : "M"
                 },
                 "causa_motivo_hechos" : {
                   "type" : "string",
@@ -383,11 +268,13 @@
                 },
                 "multa" : {
                   "type" : "object",
+                  "required" : [ "monto", "moneda" ],
                   "properties" : {
                     "monto" : {
-                      "type" : "integer",
+                      "type" : "number",
+                      "format" : "float",
                       "description" : "Monto de la multa expresado en la moneda origen",
-                      "example" : 3000000
+                      "example" : 30000.19
                     },
                     "moneda" : {
                       "type" : "string",
@@ -473,9 +360,31 @@
       "post_query" : {
         "type" : "object",
         "properties" : {
+          "page_size" : {
+            "type" : "integer",
+            "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
+            "example" : 10
+          },
+          "page" : {
+            "type" : "integer",
+            "description" : "Número de página a mostrar",
+            "example" : 10
+          },
           "sort" : {
             "type" : "object",
             "properties" : {
+              "rfc" : {
+                "type" : "string",
+                "enum" : [ "asc", "desc" ],
+                "description" : "Campo a ordenar de forma ascendente o descente",
+                "example" : "asc"
+              },
+              "curp" : {
+                "type" : "string",
+                "enum" : [ "asc", "desc" ],
+                "description" : "Campo a ordenar de forma ascendente o descente",
+                "example" : "asc"
+              },
               "nombres" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
@@ -494,7 +403,7 @@
                 "description" : "Campo a ordenar de forma ascendente o descente",
                 "example" : "asc"
               },
-              "institucion_dependencia.nombre" : {
+              "institucion_dependencia" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
                 "description" : "Campo a ordenar de forma ascendente o descente",
@@ -502,23 +411,13 @@
               }
             }
           },
-          "page" : {
-            "type" : "integer",
-            "description" : "Número de página a mostrar",
-            "example" : 10
-          },
-          "page_size" : {
-            "type" : "integer",
-            "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
-            "example" : 10
-          },
-          "id" : {
-            "type" : "string",
-            "description" : "Devuelve resultados al buscar una declaración por su ID. Si se especifica este valor, el objeto query es omitido.",
-            "example" : "123abc"
-          },
           "query" : {
             "properties" : {
+              "id" : {
+                "type" : "string",
+                "description" : "Devuelve resultados al buscar una declaración por su ID. Si se especifica este valor, los demas filtros son omitidos.",
+                "example" : "123abc"
+              },
               "nombres" : {
                 "type" : "string",
                 "description" : "Nombres o nombre del servidor público sancionado.",
@@ -548,13 +447,13 @@
                 "type" : "string",
                 "description" : "Nombre de la institución dependencia a la que pertenece el servidor público sancionado.",
                 "example" : "Secretaría de Hacienda y Crédito Público"
+              },
+              "rfc_solicitante" : {
+                "type" : "string",
+                "description" : "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
+                "example" : "GOAP780710RH7"
               }
             }
-          },
-          "rfc_solicitante" : {
-            "type" : "string",
-            "description" : "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
-            "example" : "GOAP780710RH7"
           }
         }
       },

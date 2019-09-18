@@ -212,7 +212,7 @@
                 "genero" : {
                   "type" : "string",
                   "enum" : [ "F", "M", "O" ],
-                  "description" : "Genero del Servidor Público. Valores permitidos [ \"F\", \"M\", \"O\" ]. F= Femenino, M= Masculino, O=Otro",
+                  "description" : "Genero del Servidor Público. Valores permitidos \"F\", \"M\", \"O\". F= Femenino, M= Masculino, O=Otro",
                   "example" : "M"
                 },
                 "institucion_dependencia" : {

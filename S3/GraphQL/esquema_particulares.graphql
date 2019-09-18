@@ -98,17 +98,7 @@ input Filtros_Particulares_Sancionados {
   expediente: String
 }
 
-type QueryPS {
-  psancionados(
-    sort: SortPS
-    page: Int
-    page_size: Int
-    id: String
-    query: ParametersPS
-    rfc_solicitante: String
-  ): ResponsePS
-  dependencias: ResponseDependencias
-}
+
 
 type Pais {
   valor: String

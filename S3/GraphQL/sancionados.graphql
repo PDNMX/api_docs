@@ -64,8 +64,15 @@ D
 
 type Resolucion {
   sentido: String
-  fecha_notificacion: DateTime
-  url: String
+  """
+  URL que apunta al documento en formato digital de la resolución emitida por el correspondiente Organo Interno de Control
+  """
+  url: String!
+
+  """
+  Fecha de notificación de la resolución. Fecha en formato ISO 8601
+  """
+  fecha_notificacion: String!
 }
 
 
@@ -134,4 +141,30 @@ type Inhabilitacion {
   """
   fecha_final: String
 
+}
+
+type Query {
+  psancionados(
+    sort: SortPS
+    page: Int
+    page_size: Int
+    id: String
+    query: ParametersPS
+    rfc_solicitante: String
+  ): ResponsePS
+
+  dependencias: ResponseDependencias
+
+  ssancionados(
+    """
+    Numero de registros que contiene la pagina
+    """
+    page_size: Int
+    """
+    Número de página actual
+    """
+    page: Int
+    sort: Sort
+    query: ParametersSS
+  ): ResponseSS
 }

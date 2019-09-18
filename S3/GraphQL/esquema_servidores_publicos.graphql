@@ -1,18 +1,4 @@
-type Query {
-  dependecias: [InstitucionDependencia]!
-  ssancionados(
-    """
-    Numero de registros que contiene la pagina
-    """
-    page_size: Int
-    """
-    Número de página actual
-    """
-    page: Int
-    sort: Sort
-    query: ParametersSS
-  ): ResponseSS
-}
+
 
 input Sort {
   """
@@ -194,17 +180,6 @@ type ServidorPublico {
   observaciones: String
 }
 
-type Resolucion {
-  """
-  URL que apunta al documento en formato digital de la resolución emitida por el correspondiente Organo Interno de Control
-  """
-  url: String!
-
-  """
-  Fecha de notificación de la resolución. Fecha en formato ISO 8601
-  """
-  fecha_notificacion: String!
-}
 
 """
 Genero del Servidor Público. Valores permitidos  [ "M", "F", "O" ] . F= Femenino, M= Másculino, O=Otro

@@ -106,25 +106,30 @@
         "properties" : {
           "pagination" : {
             "type" : "object",
-            "required" : [ "page_size", "page", "total" ],
+            "required" : [ "page_size", "page", "total_rows", "has_next_page" ],
             "properties" : {
               "page_size" : {
-                "type" : "number",
+                "type" : "integer",
                 "minimum" : 1,
                 "description" : "Número de registros mostrados, por defecto muestra diez.",
                 "example" : 100
               },
               "page" : {
-                "type" : "number",
+                "type" : "integer",
                 "minimum" : 1,
                 "description" : "Número de página actual",
                 "example" : 20
               },
-              "total" : {
-                "type" : "number",
+              "total_rows" : {
+                "type" : "integer",
                 "minimum" : 1,
                 "description" : "Total de registros",
                 "example" : 30
+              },
+              "has_next_page" : {
+                "type" : "boolean",
+                "description" : "Indica si existe otra página",
+                "example" : true
               }
             }
           },

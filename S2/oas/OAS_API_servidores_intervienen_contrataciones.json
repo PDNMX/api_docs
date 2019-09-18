@@ -35,7 +35,7 @@
           "400" : {
             "description" : "Página inválida"
           },
-          "403" : {
+          "401" : {
             "description" : "No tienes permisos"
           },
           "default" : {

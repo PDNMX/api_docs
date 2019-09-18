@@ -1,218 +1,218 @@
 type Query {
-    dependecias: [InstitucionDependencia]!
-    ssancionados(
-        """
-        Numero de registros que contiene la pagina
-        """
-        page_size: Int
-        """
-        Número de página actual
-        """
-        page: Int
-        sort: Sort
-        query: Parameters
-    ): Response
+  dependecias: [InstitucionDependencia]!
+  ssancionados(
+    """
+    Numero de registros que contiene la pagina
+    """
+    page_size: Int
+    """
+    Número de página actual
+    """
+    page: Int
+    sort: Sort
+    query: ParametersSS
+  ): ResponseSS
 }
 
 input Sort {
-    """
-    Campo a ordenar de forma ascendente o descente
-    """
-    rfc: Orden
-    """
-    Campo a ordenar de forma ascendente o descente
-    """
-    curp: Orden
+  """
+  Campo a ordenar de forma ascendente o descente
+  """
+  rfc: Orden
+  """
+  Campo a ordenar de forma ascendente o descente
+  """
+  curp: Orden
 
-    """
-    Campo a ordenar de forma ascendente o descente
-    """
-    nombres: Orden
+  """
+  Campo a ordenar de forma ascendente o descente
+  """
+  nombres: Orden
 
-    """
-    Campo a ordenar de forma ascendente o descente
-    """
-    primer_apellido: Orden
+  """
+  Campo a ordenar de forma ascendente o descente
+  """
+  primer_apellido: Orden
 
-    """
-    Campo a ordenar de forma ascendente o descente
-    """
-    segundo_apellido: Orden
+  """
+  Campo a ordenar de forma ascendente o descente
+  """
+  segundo_apellido: Orden
 
-    """
-    Campo a ordenar de forma ascendente o descente
-    """
-    institucion_dependencia: Orden
+  """
+  Campo a ordenar de forma ascendente o descente
+  """
+  institucion_dependencia: Orden
 }
 
-input Parameters {
-    """
-    Devuelve resultados al buscar una declaración por su ID. Si se especifica este valor, los demas filtros son omitidos.
-    """
-    id: String
-    """
-    Nombres o nombre del servidor público sancionado.
-    """
-    nombres: String
+input ParametersSS {
+  """
+  Devuelve resultados al buscar una declaración por su ID. Si se especifica este valor, los demas filtros son omitidos.
+  """
+  id: String
+  """
+  Nombres o nombre del servidor público sancionado.
+  """
+  nombres: String
 
-    """
-    Primer apellido del servidor público sancionado.
-    """
-    primer_apellido: String
+  """
+  Primer apellido del servidor público sancionado.
+  """
+  primer_apellido: String
 
-    """
-    Segundo apellido del servidor público sancionado.
-    """
-    segundo_apellido: String
+  """
+  Segundo apellido del servidor público sancionado.
+  """
+  segundo_apellido: String
 
-    """
-    RFC del Servidor Público con homoclave
-    """
-    rfc: String
+  """
+  RFC del Servidor Público con homoclave
+  """
+  rfc: String
 
-    """
-    CURP del Servidor Público
-    """
-    curp: String
+  """
+  CURP del Servidor Público
+  """
+  curp: String
 
-    """
-    Nombre de la institución dependencia a la que pertenece el servidor público sancionado.
-    """
-    institucion_dependencia: String
-    """
-    RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos
-    """
-    rfc_solicitante: String
+  """
+  Nombre de la institución dependencia a la que pertenece el servidor público sancionado.
+  """
+  institucion_dependencia: String
+  """
+  RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos
+  """
+  rfc_solicitante: String
 }
 
-type Response {
-    ssancionados: SSancionados
-    error_post: Error
+type ResponseSS {
+  ssancionados: SSancionados
+  error_post: Error
 }
 
 type SSancionados {
-    pagination: Pagination
-    results: [ServidorPublicoSancionado]
+  pagination: Pagination
+  results: [ServidorPublicoSancionado]
 }
 
 type ServidorPublicoSancionado {
-    """
-    Dato que permita identificar de manera  unívoca al registro
-    """
-    id: String
+  """
+  Dato que permita identificar de manera  unívoca al registro
+  """
+  id: String
 
-    """
-    La fecha y hora en la que se agrega o modifica el registro. Fecha en formato ISO 8601
-    """
-    fecha_captura: DateTime
+  """
+  La fecha y hora en la que se agrega o modifica el registro. Fecha en formato ISO 8601
+  """
+  fecha_captura: DateTime
 
-    """
-    El expediente derivado de la investigación que las Autoridades Investigadoras realizan.
-    """
-    expediente: String
-    institucion_dependencia: InstitucionDependencia
+  """
+  El expediente derivado de la investigación que las Autoridades Investigadoras realizan.
+  """
+  expediente: String
+  institucion_dependencia: InstitucionDependencia
 
-    """
-    Sistema en que se almacena la información del contrato, acto de autoridad
-    """
-    sistema_origen: String
-    servidor_publico_sancionado: ServidorPublico
+  """
+  Sistema en que se almacena la información del contrato, acto de autoridad
+  """
+  sistema_origen: String
+  servidor_publico_sancionado: ServidorPublico
 
-    """
-    Autoridad encarcada del proceso de sanción
-    """
-    autoridad_sancionadora: String
+  """
+  Autoridad encarcada del proceso de sanción
+  """
+  autoridad_sancionadora: String
 
-    """
-    Tipo de falta cometida. Valores permitidos [ "AG", "ANG", "AC"]. AG= Administrativa grave, ANG= Administrativa no grave, AC=Acto de corrupción.
-    """
-    tipo_falta: TipoFalta
+  """
+  Tipo de falta cometida. Valores permitidos [ "AG", "ANG", "AC"]. AG= Administrativa grave, ANG= Administrativa no grave, AC=Acto de corrupción.
+  """
+  tipo_falta: TipoFalta
 
-    """
-    Tipo de sanción aplicada. Valores permitidos [ "I", "M", "MI", "S", "D" ]. I =Inhabilitado, M = Multado, MI = Multado e Inhabilitado, S= Suspensión del empleo, cargo o comisión, D= Destitución del emplo, cargo o comisión
-    """
-    tipo_sancion: TipoSancion
+  """
+  Tipo de sanción aplicada. Valores permitidos [ "I", "M", "MI", "S", "D" ]. I =Inhabilitado, M = Multado, MI = Multado e Inhabilitado, S= Suspensión del empleo, cargo o comisión, D= Destitución del emplo, cargo o comisión
+  """
+  tipo_sancion: TipoSancion
 
-    """
-    Causa o motivo de la sanción, ejemplo: Abuso de autoridad
-    """
-    causa_motivo_hechos: String
-    resolucion: Resolucion
-    multa: Multa
-    inhabilitacion: Inhabilitacion
+  """
+  Causa o motivo de la sanción, ejemplo: Abuso de autoridad
+  """
+  causa_motivo_hechos: String
+  resolucion: Resolucion
+  multa: Multa
+  inhabilitacion: Inhabilitacion
 
-    """
-    Es una sección que permite adjuntar referencias a cualquier documento que se
-    considere de valor para transparentar el proceso de sanción.
-    """
-    documentos: [Documento!]
+  """
+  Es una sección que permite adjuntar referencias a cualquier documento que se
+  considere de valor para transparentar el proceso de sanción.
+  """
+  documentos: [Documento!]
 }
 
 type ServidorPublico {
-    """
-    RFC del Servidor Público con homoclave
-    """
-    rfc: String
+  """
+  RFC del Servidor Público con homoclave
+  """
+  rfc: String
 
-    """
-    CURP del Servidor Público
-    """
-    curp: String
+  """
+  CURP del Servidor Público
+  """
+  curp: String
 
-    """
-    Nombre(s) del Servidor Público Sancionado
-    """
-    nombres: String
+  """
+  Nombre(s) del Servidor Público Sancionado
+  """
+  nombres: String
 
-    """
-    Primer apellido del Servidor Público Sancionado
-    """
-    primer_apellido: String
+  """
+  Primer apellido del Servidor Público Sancionado
+  """
+  primer_apellido: String
 
-    """
-    Segundo apellido del Servidor Público Sancionado
-    """
-    segundo_apellido: String
-    """
-    Genero del Servidor Público.
-    """
-    genero: Genero
+  """
+  Segundo apellido del Servidor Público Sancionado
+  """
+  segundo_apellido: String
+  """
+  Genero del Servidor Público.
+  """
+  genero: Genero
 
-    """
-    Puesto del Servidor Público Sancionado
-    """
-    puesto: String
+  """
+  Puesto del Servidor Público Sancionado
+  """
+  puesto: String
 
-    """
-    Clave del nivel del puesto del Servidor Público Sancionado
-    """
-    nivel: String
+  """
+  Clave del nivel del puesto del Servidor Público Sancionado
+  """
+  nivel: String
 
-    """
-    Cualquier observación pertinente
-    """
-    observaciones: String
+  """
+  Cualquier observación pertinente
+  """
+  observaciones: String
 }
 
 type Resolucion {
-    """
-    URL que apunta al documento en formato digital de la resolución emitida por el correspondiente Organo Interno de Control
-    """
-    url: String!
+  """
+  URL que apunta al documento en formato digital de la resolución emitida por el correspondiente Organo Interno de Control
+  """
+  url: String!
 
-    """
-    Fecha de notificación de la resolución. Fecha en formato ISO 8601
-    """
-    fecha_notificacion: String!
+  """
+  Fecha de notificación de la resolución. Fecha en formato ISO 8601
+  """
+  fecha_notificacion: String!
 }
 
 """
 Genero del Servidor Público. Valores permitidos  [ "M", "F", "O" ] . F= Femenino, M= Másculino, O=Otro
 """
 enum Genero {
-    M
-    F
-    O
+  M
+  F
+  O
 }
 
 """
@@ -220,7 +220,7 @@ Tipo de falta cometida. Valores permitidos [ "AG", "ANG", "AC" ]. AG=
 Administrativa grave, ANG= Administrativa no grave, AC=Acto de corrupción
 """
 enum TipoFalta {
-    AG
-    ANG
-    AC
+  AG
+  ANG
+  AC
 }

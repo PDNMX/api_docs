@@ -250,6 +250,7 @@
                 },
                 "tipo_area" : {
                   "type" : "array",
+                  "uniqueItems" : true,
                   "items" : {
                     "type" : "string",
                     "enum" : [ "T", "RE", "RC", "O", "C", "R" ],
@@ -260,6 +261,7 @@
                 "nivel_responsabilidad" : {
                   "description" : "Nivel de responsabilidad. Valores permitidos [ \"A\", \"T\", \"R\" ]. [A= Atención, T= Tramitación, R= Resolución]",
                   "type" : "array",
+                  "uniqueItems" : true,
                   "items" : {
                     "type" : "string",
                     "enum" : [ "A", "T", "R" ]
@@ -268,6 +270,7 @@
                 },
                 "tipo_procedimiento" : {
                   "type" : "array",
+                  "uniqueItems" : true,
                   "items" : {
                     "type" : "integer",
                     "minimum" : 1,
@@ -404,6 +407,16 @@
                 "type" : "string",
                 "description" : "Se deberá señalar el Ente Público o entidad que corresponda al Servidor Público.",
                 "example" : "Presidencia de la República"
+              },
+              "tipo_procedimiento" : {
+                "type" : "array",
+                "uniqueItems" : true,
+                "items" : {
+                  "type" : "integer",
+                  "minimum" : 1,
+                  "description" : "Tipos de procedimiento en los que puede participar el Servidor Público. Valores permitidos [1,2,3,4].  1.- Contrataciones Públicas 2.- Concesiones, licencias, permisos, autorizaciones y prórrogas 3.- Enajenación de bienes muebles 4.- Asignación y emisión de dictámenes de avalúos nacionales"
+                },
+                "example" : [ 1, 2 ]
               }
             }
           },

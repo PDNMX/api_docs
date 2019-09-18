@@ -419,6 +419,7 @@
                 "items" : {
                   "type" : "integer",
                   "minimum" : 1,
+                  "maximum" : 4,
                   "description" : "Tipos de procedimiento en los que puede participar el Servidor Público. Valores permitidos [1,2,3,4].  1.- Contrataciones Públicas 2.- Concesiones, licencias, permisos, autorizaciones y prórrogas 3.- Enajenación de bienes muebles 4.- Asignación y emisión de dictámenes de avalúos nacionales"
                 },
                 "example" : [ 1, 2 ]

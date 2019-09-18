@@ -21,7 +21,7 @@
         }, {
           "name" : "page",
           "in" : "query",
-          "description" : "Número de página a mostrar",
+          "description" : "Número de página a mostrar.",
           "schema" : {
             "type" : "integer",
             "minimum" : 1

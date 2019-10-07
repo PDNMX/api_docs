@@ -43,7 +43,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/error_post"
+                  "$ref" : "#/components/schemas/resError"
                 }
               }
             }
@@ -71,10 +71,34 @@
             }
           },
           "400" : {
-            "description" : "Página invalida"
+            "description" : "Página invalida",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/resError"
+                }
+              }
+            }
           },
-          "403" : {
-            "description" : "No tienes permisos"
+          "401" : {
+            "description" : "No tienes permisos",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/resError"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/resError"
+                }
+              }
+            }
           }
         },
         "security" : [ {
@@ -106,9 +130,9 @@
         "properties" : {
           "pagination" : {
             "type" : "object",
-            "required" : [ "page_size", "page", "total_rows", "has_next_page" ],
+            "required" : [ "pageSize", "page", "totalRows", "hasNextPage" ],
             "properties" : {
-              "page_size" : {
+              "pageSize" : {
                 "type" : "integer",
                 "minimum" : 1,
                 "description" : "Número de registros mostrados, por defecto muestra diez.",
@@ -120,13 +144,13 @@
                 "description" : "Número de página actual",
                 "example" : 20
               },
-              "total_rows" : {
+              "totalRows" : {
                 "type" : "integer",
                 "minimum" : 1,
                 "description" : "Total de registros",
                 "example" : 30
               },
-              "has_next_page" : {
+              "hasNextPage" : {
                 "type" : "boolean",
                 "description" : "Indica si existe otra página",
                 "example" : true
@@ -141,31 +165,31 @@
                 "id" : {
                   "type" : "string",
                   "description" : "Dato que permita identificar de manera  unívoca al registro",
-                  "example" : "string"
+                  "example" : "RFT129"
                 },
-                "fecha_captura" : {
+                "fechaCaptura" : {
                   "type" : "string",
                   "format" : "date-time",
                   "description" : "Fecha y hora en la que se agrega o modifca el registro. Fecha en formato ISO 8601",
                   "example" : "2019-01-21T17:32:28Z"
                 },
-                "ejercicio_fiscal" : {
+                "ejercicioFiscal" : {
                   "type" : "string",
-                  "description" : "El identificador del expediente",
+                  "description" : "Ejercicio fiscal",
                   "example" : "2018"
                 },
-                "periodo_ejercicio" : {
+                "periodoEjercicio" : {
                   "description" : "E.g., 2018",
                   "type" : "object",
-                  "required" : [ "fecha_inicial", "fecha_final" ],
+                  "required" : [ "fechaInicial", "fechaFinal" ],
                   "properties" : {
-                    "fecha_inicial" : {
+                    "fechaInicial" : {
                       "type" : "string",
                       "format" : "date",
                       "description" : "Fecha inicial del periodo del ejercicio. Fecha en formato ISO 8601",
                       "example" : "2018-01-01"
                     },
-                    "fecha_final" : {
+                    "fechaFinal" : {
                       "type" : "string",
                       "format" : "date",
                       "description" : "Fecha final del periodo del ejercicio. Fecha en formato ISO 8601",
@@ -173,16 +197,21 @@
                     }
                   }
                 },
-                "id_ramo" : {
-                  "type" : "integer",
-                  "minimum" : 1,
-                  "description" : "Identificador del ramo",
-                  "example" : 23
-                },
                 "ramo" : {
-                  "type" : "string",
-                  "description" : "Identifica y clasifica los recursos en el presupuesto de egresos a las Dependencias y en su caso Entidades, a la Presidencia de la República, a la Procuraduría General de la República y a los Tribunales Administrativos.",
-                  "example" : "Provisiones salariales y económicas"
+                  "type" : "object",
+                  "properties" : {
+                    "clave" : {
+                      "type" : "integer",
+                      "minimum" : 1,
+                      "description" : "Identificador del ramo",
+                      "example" : 23
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "description" : "Identifica y clasifica los recursos en el presupuesto de egresos a las Dependencias y en su caso Entidades, a la Presidencia de la República, a la Procuraduría General de la República y a los Tribunales Administrativos.",
+                      "example" : "Provisiones salariales y económicas"
+                    }
+                  }
                 },
                 "rfc" : {
                   "type" : "string",
@@ -199,23 +228,20 @@
                   "description" : "Nombre(s) del Servidor Público",
                   "example" : "John Juan"
                 },
-                "primer_apellido" : {
+                "primerApellido" : {
                   "type" : "string",
                   "description" : "Primer apellido del servidor público",
                   "example" : "Pérez"
                 },
-                "segundo_apellido" : {
+                "segundoApellido" : {
                   "type" : "string",
                   "description" : "Segundo apellido del servidor público",
                   "example" : "Mendez"
                 },
                 "genero" : {
-                  "type" : "string",
-                  "enum" : [ "F", "M", "O" ],
-                  "description" : "Genero del Servidor Público. Valores permitidos \"F\", \"M\", \"O\". F= Femenino, M= Masculino, O=Otro",
-                  "example" : "M"
+                  "$ref" : "#/components/schemas/genero"
                 },
-                "institucion_dependencia" : {
+                "institucionDependencia" : {
                   "description" : "Indicar el nombre de la institución donde se encuentren registradas las inversiones, cuentas o valores",
                   "type" : "object",
                   "required" : [ "nombre", "siglas" ],
@@ -253,17 +279,10 @@
                     }
                   }
                 },
-                "tipo_area" : {
-                  "type" : "array",
-                  "uniqueItems" : true,
-                  "items" : {
-                    "type" : "string",
-                    "enum" : [ "T", "RE", "RC", "O", "C", "R" ],
-                    "description" : "Tipo de área. Valores permitidos [ \"T\", \"RE\", \"RC\", \"O\", \"C\", \"R\" ]. [T=Técnica, RE= Responsable de la ejecución de los trabajos, RC= Responsable de la contratación, O= Otra, C= Contratante, R= Requirente]"
-                  },
-                  "example" : [ "T", "RE", "O" ]
+                "tipoArea" : {
+                  "$ref" : "#/components/schemas/tipoArea"
                 },
-                "nivel_responsabilidad" : {
+                "nivelResponsabilidad" : {
                   "description" : "Nivel de responsabilidad. Valores permitidos [ \"A\", \"T\", \"R\" ]. [A= Atención, T= Tramitación, R= Resolución]",
                   "type" : "array",
                   "uniqueItems" : true,
@@ -273,7 +292,7 @@
                   },
                   "example" : [ "A", "T" ]
                 },
-                "tipo_procedimiento" : {
+                "tipoProcedimiento" : {
                   "type" : "array",
                   "uniqueItems" : true,
                   "items" : {
@@ -283,7 +302,7 @@
                   },
                   "example" : [ 1, 2 ]
                 },
-                "superior_inmediato" : {
+                "superiorInmediato" : {
                   "type" : "object",
                   "properties" : {
                     "nombres" : {
@@ -291,12 +310,12 @@
                       "description" : "Nombre(s) del superior inmediato del Servidor Público",
                       "example" : "Juan"
                     },
-                    "primer_apellido" : {
+                    "primerApellido" : {
                       "type" : "string",
                       "description" : "Primer apellido del superior inmediato del Servidor Público",
                       "example" : "Lopez"
                     },
-                    "segundo_apellido" : {
+                    "segundoApellido" : {
                       "type" : "string",
                       "description" : "Segundo apellido del superior inmediato del Servidor Público",
                       "example" : "Perez"
@@ -345,19 +364,19 @@
                 "description" : "Campo a ordenar de forma ascendente o descente",
                 "example" : "asc"
               },
-              "primer_apellido" : {
+              "primerApellido" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
                 "description" : "Campo a ordenar de forma ascendente o descente",
                 "example" : "asc"
               },
-              "segundo_apellido" : {
+              "segundoApellido" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
                 "description" : "Campo a ordenar de forma ascendente o descente",
                 "example" : "asc"
               },
-              "institucion_dependencia.nombre" : {
+              "institucionDependencia.nombre" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
                 "description" : "Campo a ordenar de forma ascendente o descente",
@@ -376,7 +395,7 @@
             "description" : "Número de página a mostrar",
             "example" : 10
           },
-          "page_size" : {
+          "pageSize" : {
             "type" : "integer",
             "description" : "Número de registros a mostrar por página, el máximo permitido es doscientos y el mínimo uno, por defecto muestra diez registros.",
             "example" : 10
@@ -393,12 +412,12 @@
                 "description" : "Nombres o nombre de la persona.",
                 "example" : "Juan Pedro"
               },
-              "primer_apellido" : {
+              "primerApellido" : {
                 "type" : "string",
                 "description" : "Primer apellido de la persona.",
                 "example" : "Tenorio"
               },
-              "segundo_apellido" : {
+              "segundoApellido" : {
                 "type" : "string",
                 "description" : "Segundo apellido de la persona.",
                 "example" : "Calderón"
@@ -408,12 +427,17 @@
                 "description" : "CURP de la persona.",
                 "example" : "PUXB571021HNELXR00"
               },
-              "institucion_dependencia" : {
+              "rfc" : {
+                "type" : "string",
+                "description" : "RFC de la persona",
+                "example" : "PUXB5710219K8"
+              },
+              "institucionDependencia" : {
                 "type" : "string",
                 "description" : "Se deberá señalar el Ente Público o entidad que corresponda al Servidor Público.",
                 "example" : "Presidencia de la República"
               },
-              "tipo_procedimiento" : {
+              "tipoProcedimiento" : {
                 "type" : "array",
                 "uniqueItems" : true,
                 "items" : {
@@ -426,7 +450,7 @@
               }
             }
           },
-          "rfc_solicitante" : {
+          "rfcSolicitante" : {
             "type" : "string",
             "description" : "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
             "example" : "GOAP780710RH7"
@@ -457,19 +481,55 @@
           }
         }
       },
-      "error_post" : {
+      "resError" : {
         "description" : "Estos valores son definidos por el sistema del API.",
         "required" : [ "code", "message" ],
         "properties" : {
           "code" : {
             "type" : "string",
-            "description" : "Código alfa númerico del error de la consulta.",
+            "description" : "Código alfa numérico del error de la consulta.",
             "example" : "abc123"
           },
           "message" : {
             "type" : "string",
             "description" : "Texto descriptivo para el usuario final del error en la consulta",
             "example" : "Error al formar la consulta, revise el formato de los campos."
+          }
+        }
+      },
+      "genero" : {
+        "type" : "object",
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "enum" : [ "F", "M", "O" ],
+            "description" : "Genero del Servidor Público. Valores permitidos \"F\", \"M\", \"O\". F= Femenino, M= Masculino, O=Otro",
+            "example" : "M"
+          },
+          "valor" : {
+            "type" : "string",
+            "description" : "Valor del genero",
+            "example" : "Masculino"
+          }
+        }
+      },
+      "tipoArea" : {
+        "type" : "array",
+        "uniqueItems" : true,
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "clave" : {
+              "type" : "string",
+              "enum" : [ "T", "RE", "RC", "O", "C", "R" ],
+              "description" : "Tipo de área. Valores permitidos [ \"T\", \"RE\", \"RC\", \"O\", \"C\", \"R\" ]. [T=Técnica, RE= Responsable de la ejecución de los trabajos, RC= Responsable de la contratación, O= Otra, C= Contratante, R= Requirente]",
+              "example" : [ "T" ]
+            },
+            "valor" : {
+              "type" : "string",
+              "description" : "Valor del tipo de área",
+              "example" : "TÉCNICA"
+            }
           }
         }
       }

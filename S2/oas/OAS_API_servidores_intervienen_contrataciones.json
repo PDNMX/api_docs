@@ -534,7 +534,10 @@
         },
         "example" : [ {
           "clave" : "T",
-          "valor:'Técnica'" : null
+          "valor" : "TÉCNICA"
+        }, {
+          "clave" : "RE",
+          "valor" : "RESPONSABLE DE LA EJECUCIÓN"
         } ]
       }
     }

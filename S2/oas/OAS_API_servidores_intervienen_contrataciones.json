@@ -16,7 +16,7 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/post_query"
+                "$ref" : "#/components/schemas/reqSpic"
               }
             }
           }
@@ -352,7 +352,7 @@
           }
         }
       },
-      "post_query" : {
+      "reqSpic" : {
         "type" : "object",
         "properties" : {
           "sort" : {

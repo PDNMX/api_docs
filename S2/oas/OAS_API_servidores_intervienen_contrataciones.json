@@ -531,7 +531,11 @@
               "example" : "TÉCNICA"
             }
           }
-        }
+        },
+        "example" : [ {
+          "clave" : "T",
+          "valor:'Técnica'" : null
+        } ]
       }
     }
   }

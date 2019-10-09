@@ -27,16 +27,30 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/spic"
+                  "$ref" : "#/components/schemas/resSpic"
                 }
               }
             }
           },
           "400" : {
-            "description" : "Página inválida"
+            "description" : "Página inválida",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/resError"
+                }
+              }
+            }
           },
           "401" : {
-            "description" : "No tienes permisos"
+            "description" : "No tienes permisos",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/resError"
+                }
+              }
+            }
           },
           "default" : {
             "description" : "unexpected error",
@@ -124,7 +138,7 @@
       }
     },
     "schemas" : {
-      "spic" : {
+      "resSpic" : {
         "type" : "object",
         "required" : [ "pagination", "results" ],
         "properties" : {

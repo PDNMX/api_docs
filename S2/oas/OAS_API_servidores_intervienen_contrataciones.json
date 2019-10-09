@@ -411,6 +411,8 @@
           },
           "pageSize" : {
             "type" : "integer",
+            "maximum" : 200,
+            "minimum" : 1,
             "description" : "Número de registros a mostrar por página, el máximo permitido es doscientos y el mínimo uno, por defecto muestra diez registros.",
             "example" : 10
           },

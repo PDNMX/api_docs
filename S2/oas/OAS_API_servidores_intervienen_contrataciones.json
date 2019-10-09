@@ -250,7 +250,7 @@
                 "segundoApellido" : {
                   "type" : "string",
                   "description" : "Segundo apellido del servidor público",
-                  "example" : "Mendez"
+                  "example" : "Méndez"
                 },
                 "genero" : {
                   "$ref" : "#/components/schemas/genero"
@@ -327,12 +327,12 @@
                     "primerApellido" : {
                       "type" : "string",
                       "description" : "Primer apellido del superior inmediato del Servidor Público",
-                      "example" : "Lopez"
+                      "example" : "López"
                     },
                     "segundoApellido" : {
                       "type" : "string",
                       "description" : "Segundo apellido del superior inmediato del Servidor Público",
-                      "example" : "Perez"
+                      "example" : "Pérez"
                     },
                     "curp" : {
                       "type" : "string",

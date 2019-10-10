@@ -250,7 +250,7 @@
                 "segundoApellido" : {
                   "type" : "string",
                   "description" : "Segundo apellido del servidor público",
-                  "example" : "Méndez"
+                  "example" : "Mendez"
                 },
                 "genero" : {
                   "$ref" : "#/components/schemas/genero"
@@ -327,12 +327,12 @@
                     "primerApellido" : {
                       "type" : "string",
                       "description" : "Primer apellido del superior inmediato del Servidor Público",
-                      "example" : "López"
+                      "example" : "Lopez"
                     },
                     "segundoApellido" : {
                       "type" : "string",
                       "description" : "Segundo apellido del superior inmediato del Servidor Público",
-                      "example" : "Pérez"
+                      "example" : "Perez"
                     },
                     "curp" : {
                       "type" : "string",
@@ -411,8 +411,6 @@
           },
           "pageSize" : {
             "type" : "integer",
-            "maximum" : 200,
-            "minimum" : 1,
             "description" : "Número de registros a mostrar por página, el máximo permitido es doscientos y el mínimo uno, por defecto muestra diez registros.",
             "example" : 10
           },

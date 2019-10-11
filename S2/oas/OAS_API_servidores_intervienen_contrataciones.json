@@ -322,14 +322,14 @@
                   } ]
                 },
                 "nivelResponsabilidad" : {
-                  "description" : "Nivel de responsabilidad. Valores permitidos [ \"A\", \"T\", \"R\" ]. [A= Atención, T= Tramitación, R= Resolución]",
                   "type" : "array",
                   "uniqueItems" : true,
                   "items" : {
                     "type" : "string",
                     "enum" : [ "A", "T", "R" ]
                   },
-                  "example" : [ "A", "T" ]
+                  "example" : [ "A", "T" ],
+                  "description" : "Nivel de responsabilidad.\nSignificado de Claves:\n  * `A` - Atención\n  * `T` - Tramitación\n  * `R` - Resolución\n"
                 },
                 "tipoProcedimiento" : {
                   "type" : "array",

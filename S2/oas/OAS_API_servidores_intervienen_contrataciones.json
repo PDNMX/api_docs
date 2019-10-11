@@ -5,7 +5,7 @@
     "title" : "API del Registro de Servidores públicos de la Administración Pública Federal que intervienen en procedimientos de contrataciones públicas."
   },
   "paths" : {
-    "/spic" : {
+    "/v1/spic" : {
       "post" : {
         "tags" : [ "spic" ],
         "summary" : "Servidores públicos que intervienen en contrataciones",

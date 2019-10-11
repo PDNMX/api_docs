@@ -363,7 +363,20 @@
               "example" : "Mendez"
             },
             "genero" : {
-              "$ref" : "#/components/schemas/genero"
+              "type" : "object",
+              "properties" : {
+                "clave" : {
+                  "type" : "string",
+                  "enum" : [ "F", "M", "O" ],
+                  "description" : "Genero del Servidor Público.\n  * `F` - FEMENINO \n  * `M` - MASCULINO\n  * `O` - OTRO\n",
+                  "example" : "M"
+                },
+                "valor" : {
+                  "type" : "string",
+                  "description" : "Valor del genero",
+                  "example" : "MASCULINO"
+                }
+              }
             },
             "institucionDependencia" : {
               "description" : "Indicar el nombre de la institución donde se encuentren registradas las inversiones, cuentas o valores",
@@ -447,7 +460,7 @@
               "items" : {
                 "type" : "integer",
                 "minimum" : 1,
-                "description" : "Tipos de procedimiento en los que puede participar el Servidor Público. Valores permitidos [1,2,3,4].  1.- Contrataciones Públicas 2.- Concesiones, licencias, permisos, autorizaciones y prórrogas 3.- Enajenación de bienes muebles 4.- Asignación y emisión de dictámenes de avalúos nacionales"
+                "description" : "Tipos de procedimiento en los que puede participar el Servidor Público.\n* `1` - Contrataciones Públicas \n* `2` - Concesiones, licencias, permisos, autorizaciones y prórrogas \n* `3` - Enajenación de bienes muebles \n* `4` - Asignación y emisión de dictámenes de avalúos nacionales\n"
               },
               "example" : [ 1, 2 ]
             },
@@ -536,22 +549,6 @@
             "type" : "string",
             "description" : "Texto descriptivo para el usuario final del error en la consulta",
             "example" : "Error al formar la consulta, revise el formato de los campos."
-          }
-        }
-      },
-      "genero" : {
-        "type" : "object",
-        "properties" : {
-          "clave" : {
-            "type" : "string",
-            "enum" : [ "F", "M", "O" ],
-            "description" : "Genero del Servidor Público. Valores permitidos \"F\", \"M\", \"O\". F= Femenino, M= Masculino, O=Otro",
-            "example" : "M"
-          },
-          "valor" : {
-            "type" : "string",
-            "description" : "Valor del genero",
-            "example" : "Masculino"
           }
         }
       }

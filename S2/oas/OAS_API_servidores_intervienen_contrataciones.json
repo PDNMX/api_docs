@@ -172,222 +172,7 @@
             }
           },
           "results" : {
-            "type" : "array",
-            "items" : {
-              "type" : "object",
-              "properties" : {
-                "id" : {
-                  "type" : "string",
-                  "description" : "Dato que permita identificar de manera  unívoca al registro",
-                  "example" : "RFT129"
-                },
-                "fechaCaptura" : {
-                  "type" : "string",
-                  "format" : "date-time",
-                  "description" : "Fecha y hora en la que se agrega o modifca el registro. Fecha en formato ISO 8601",
-                  "example" : "2019-01-21T17:32:28Z"
-                },
-                "ejercicioFiscal" : {
-                  "type" : "string",
-                  "description" : "Ejercicio fiscal",
-                  "example" : "2018"
-                },
-                "periodoEjercicio" : {
-                  "description" : "E.g., 2018",
-                  "type" : "object",
-                  "required" : [ "fechaInicial", "fechaFinal" ],
-                  "properties" : {
-                    "fechaInicial" : {
-                      "type" : "string",
-                      "format" : "date",
-                      "description" : "Fecha inicial del periodo del ejercicio. Fecha en formato ISO 8601",
-                      "example" : "2018-01-01"
-                    },
-                    "fechaFinal" : {
-                      "type" : "string",
-                      "format" : "date",
-                      "description" : "Fecha final del periodo del ejercicio. Fecha en formato ISO 8601",
-                      "example" : "2018-12-31"
-                    }
-                  }
-                },
-                "ramo" : {
-                  "type" : "object",
-                  "properties" : {
-                    "clave" : {
-                      "type" : "integer",
-                      "minimum" : 1,
-                      "description" : "Identificador del ramo",
-                      "example" : 23
-                    },
-                    "valor" : {
-                      "type" : "string",
-                      "description" : "Identifica y clasifica los recursos en el presupuesto de egresos a las Dependencias y en su caso Entidades, a la Presidencia de la República, a la Procuraduría General de la República y a los Tribunales Administrativos.",
-                      "example" : "Provisiones salariales y económicas"
-                    }
-                  }
-                },
-                "rfc" : {
-                  "type" : "string",
-                  "description" : "RFC del Servidor Público con homoclave",
-                  "example" : "JPM851111C44"
-                },
-                "curp" : {
-                  "type" : "string",
-                  "description" : "CURP del Servidor Público",
-                  "example" : "BEML920313HMCLNS09"
-                },
-                "nombres" : {
-                  "type" : "string",
-                  "description" : "Nombre(s) del Servidor Público",
-                  "example" : "John Juan"
-                },
-                "primerApellido" : {
-                  "type" : "string",
-                  "description" : "Primer apellido del servidor público",
-                  "example" : "Pérez"
-                },
-                "segundoApellido" : {
-                  "type" : "string",
-                  "description" : "Segundo apellido del servidor público",
-                  "example" : "Mendez"
-                },
-                "genero" : {
-                  "$ref" : "#/components/schemas/genero"
-                },
-                "institucionDependencia" : {
-                  "description" : "Indicar el nombre de la institución donde se encuentren registradas las inversiones, cuentas o valores",
-                  "type" : "object",
-                  "required" : [ "nombre", "siglas" ],
-                  "properties" : {
-                    "nombre" : {
-                      "type" : "string",
-                      "description" : "Nombre de la institución o dependencia donde labora el Servidor Público",
-                      "example" : "Secretaría de Hacienda y Crédito Público"
-                    },
-                    "siglas" : {
-                      "type" : "string",
-                      "description" : "Siglas de la institución o dependencia donde labora el Servidor Público",
-                      "example" : "SHCP"
-                    },
-                    "clave" : {
-                      "type" : "string",
-                      "description" : "Clave de la institución o dependencia donde labora el Servidor Público",
-                      "example" : "XYZ987"
-                    }
-                  }
-                },
-                "puesto" : {
-                  "type" : "object",
-                  "properties" : {
-                    "nombre" : {
-                      "type" : "string",
-                      "description" : "Nombre del puesto del Servidor Público",
-                      "example" : "Director de área"
-                    },
-                    "nivel" : {
-                      "type" : "string",
-                      "maxLength" : 12,
-                      "description" : "Nivel del puesto del Servidor Público",
-                      "example" : "1234567890"
-                    }
-                  }
-                },
-                "tipoArea" : {
-                  "type" : "array",
-                  "description" : "Tipo de área.",
-                  "uniqueItems" : true,
-                  "items" : {
-                    "type" : "object",
-                    "properties" : {
-                      "clave" : {
-                        "type" : "string",
-                        "enum" : [ "T", "RE", "RC", "O", "C", "R" ],
-                        "description" : "Significado de Claves:\n  * `T` - TÉCNICA\n  * `RE` - RESPONSABLE DE LA EJECUCIÓN DE LOS TRABAJOS\n  * `RC` - RESPONSABLE DE LA CONTRATACIÓN\n  * `O` - OTRA\n  * `C` - CONTRATANTE\n  * `R` - REQUIRENTE\n",
-                        "example" : "T"
-                      },
-                      "valor" : {
-                        "type" : "string",
-                        "description" : "Valor del tipo de área",
-                        "example" : "TÉCNICA"
-                      }
-                    }
-                  },
-                  "example" : [ {
-                    "clave" : "T",
-                    "valor" : "TÉCNICA"
-                  }, {
-                    "clave" : "RE",
-                    "valor" : "RESPONSABLE DE LA EJECUCIÓN"
-                  } ]
-                },
-                "nivelResponsabilidad" : {
-                  "type" : "array",
-                  "uniqueItems" : true,
-                  "items" : {
-                    "type" : "string",
-                    "enum" : [ "A", "T", "R" ]
-                  },
-                  "example" : [ "A", "T" ],
-                  "description" : "Nivel de responsabilidad.\nSignificado de Claves:\n  * `A` - Atención\n  * `T` - Tramitación\n  * `R` - Resolución\n"
-                },
-                "tipoProcedimiento" : {
-                  "type" : "array",
-                  "uniqueItems" : true,
-                  "items" : {
-                    "type" : "integer",
-                    "minimum" : 1,
-                    "description" : "Tipos de procedimiento en los que puede participar el Servidor Público. Valores permitidos [1,2,3,4].  1.- Contrataciones Públicas 2.- Concesiones, licencias, permisos, autorizaciones y prórrogas 3.- Enajenación de bienes muebles 4.- Asignación y emisión de dictámenes de avalúos nacionales"
-                  },
-                  "example" : [ 1, 2 ]
-                },
-                "superiorInmediato" : {
-                  "type" : "object",
-                  "properties" : {
-                    "nombres" : {
-                      "type" : "string",
-                      "description" : "Nombre(s) del superior inmediato del Servidor Público",
-                      "example" : "Juan"
-                    },
-                    "primerApellido" : {
-                      "type" : "string",
-                      "description" : "Primer apellido del superior inmediato del Servidor Público",
-                      "example" : "Lopez"
-                    },
-                    "segundoApellido" : {
-                      "type" : "string",
-                      "description" : "Segundo apellido del superior inmediato del Servidor Público",
-                      "example" : "Perez"
-                    },
-                    "curp" : {
-                      "type" : "string",
-                      "description" : "CURP del superior inmediato del Servidor Público",
-                      "example" : "BADD110313HCMLNS09"
-                    },
-                    "rfc" : {
-                      "type" : "string",
-                      "description" : "RFC con homoclave del superior inmediato del Servidor Público",
-                      "example" : "CUPU800825569"
-                    },
-                    "puesto" : {
-                      "type" : "object",
-                      "properties" : {
-                        "nombre" : {
-                          "type" : "string",
-                          "description" : "Nombre del puesto del superior inmediato del Servidor Público",
-                          "example" : "Director de área"
-                        },
-                        "nivel" : {
-                          "type" : "string",
-                          "description" : "Nivel del puesto del superior inmediato del Servidor Público",
-                          "example" : "1234567890"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
+            "$ref" : "#/components/schemas/respSpic"
           }
         }
       },
@@ -493,6 +278,224 @@
             "type" : "string",
             "description" : "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
             "example" : "GOAP780710RH7"
+          }
+        }
+      },
+      "respSpic" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "type" : "string",
+              "description" : "Dato que permita identificar de manera  unívoca al registro",
+              "example" : "RFT129"
+            },
+            "fechaCaptura" : {
+              "type" : "string",
+              "format" : "date-time",
+              "description" : "Fecha y hora en la que se agrega o modifca el registro. Fecha en formato ISO 8601",
+              "example" : "2019-01-21T17:32:28Z"
+            },
+            "ejercicioFiscal" : {
+              "type" : "string",
+              "description" : "Ejercicio fiscal",
+              "example" : "2018"
+            },
+            "periodoEjercicio" : {
+              "description" : "E.g., 2018",
+              "type" : "object",
+              "required" : [ "fechaInicial", "fechaFinal" ],
+              "properties" : {
+                "fechaInicial" : {
+                  "type" : "string",
+                  "format" : "date",
+                  "description" : "Fecha inicial del periodo del ejercicio. Fecha en formato ISO 8601",
+                  "example" : "2018-01-01"
+                },
+                "fechaFinal" : {
+                  "type" : "string",
+                  "format" : "date",
+                  "description" : "Fecha final del periodo del ejercicio. Fecha en formato ISO 8601",
+                  "example" : "2018-12-31"
+                }
+              }
+            },
+            "ramo" : {
+              "type" : "object",
+              "properties" : {
+                "clave" : {
+                  "type" : "integer",
+                  "minimum" : 1,
+                  "description" : "Identificador del ramo",
+                  "example" : 23
+                },
+                "valor" : {
+                  "type" : "string",
+                  "description" : "Identifica y clasifica los recursos en el presupuesto de egresos a las Dependencias y en su caso Entidades, a la Presidencia de la República, a la Procuraduría General de la República y a los Tribunales Administrativos.",
+                  "example" : "Provisiones salariales y económicas"
+                }
+              }
+            },
+            "rfc" : {
+              "type" : "string",
+              "description" : "RFC del Servidor Público con homoclave",
+              "example" : "JPM851111C44"
+            },
+            "curp" : {
+              "type" : "string",
+              "description" : "CURP del Servidor Público",
+              "example" : "BEML920313HMCLNS09"
+            },
+            "nombres" : {
+              "type" : "string",
+              "description" : "Nombre(s) del Servidor Público",
+              "example" : "John Juan"
+            },
+            "primerApellido" : {
+              "type" : "string",
+              "description" : "Primer apellido del servidor público",
+              "example" : "Pérez"
+            },
+            "segundoApellido" : {
+              "type" : "string",
+              "description" : "Segundo apellido del servidor público",
+              "example" : "Mendez"
+            },
+            "genero" : {
+              "$ref" : "#/components/schemas/genero"
+            },
+            "institucionDependencia" : {
+              "description" : "Indicar el nombre de la institución donde se encuentren registradas las inversiones, cuentas o valores",
+              "type" : "object",
+              "required" : [ "nombre", "siglas" ],
+              "properties" : {
+                "nombre" : {
+                  "type" : "string",
+                  "description" : "Nombre de la institución o dependencia donde labora el Servidor Público",
+                  "example" : "Secretaría de Hacienda y Crédito Público"
+                },
+                "siglas" : {
+                  "type" : "string",
+                  "description" : "Siglas de la institución o dependencia donde labora el Servidor Público",
+                  "example" : "SHCP"
+                },
+                "clave" : {
+                  "type" : "string",
+                  "description" : "Clave de la institución o dependencia donde labora el Servidor Público",
+                  "example" : "XYZ987"
+                }
+              }
+            },
+            "puesto" : {
+              "type" : "object",
+              "properties" : {
+                "nombre" : {
+                  "type" : "string",
+                  "description" : "Nombre del puesto del Servidor Público",
+                  "example" : "Director de área"
+                },
+                "nivel" : {
+                  "type" : "string",
+                  "maxLength" : 12,
+                  "description" : "Nivel del puesto del Servidor Público",
+                  "example" : "1234567890"
+                }
+              }
+            },
+            "tipoArea" : {
+              "type" : "array",
+              "description" : "Tipo de área.",
+              "uniqueItems" : true,
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "clave" : {
+                    "type" : "string",
+                    "enum" : [ "T", "RE", "RC", "O", "C", "R" ],
+                    "description" : "Significado de Claves:\n  * `T` - TÉCNICA\n  * `RE` - RESPONSABLE DE LA EJECUCIÓN DE LOS TRABAJOS\n  * `RC` - RESPONSABLE DE LA CONTRATACIÓN\n  * `O` - OTRA\n  * `C` - CONTRATANTE\n  * `R` - REQUIRENTE\n",
+                    "example" : "T"
+                  },
+                  "valor" : {
+                    "type" : "string",
+                    "description" : "Valor del tipo de área",
+                    "example" : "TÉCNICA"
+                  }
+                }
+              },
+              "example" : [ {
+                "clave" : "T",
+                "valor" : "TÉCNICA"
+              }, {
+                "clave" : "RE",
+                "valor" : "RESPONSABLE DE LA EJECUCIÓN"
+              } ]
+            },
+            "nivelResponsabilidad" : {
+              "type" : "array",
+              "uniqueItems" : true,
+              "items" : {
+                "type" : "string",
+                "enum" : [ "A", "T", "R" ]
+              },
+              "example" : [ "A", "T" ],
+              "description" : "Nivel de responsabilidad.\nSignificado de Claves:\n  * `A` - Atención\n  * `T` - Tramitación\n  * `R` - Resolución\n"
+            },
+            "tipoProcedimiento" : {
+              "type" : "array",
+              "uniqueItems" : true,
+              "items" : {
+                "type" : "integer",
+                "minimum" : 1,
+                "description" : "Tipos de procedimiento en los que puede participar el Servidor Público. Valores permitidos [1,2,3,4].  1.- Contrataciones Públicas 2.- Concesiones, licencias, permisos, autorizaciones y prórrogas 3.- Enajenación de bienes muebles 4.- Asignación y emisión de dictámenes de avalúos nacionales"
+              },
+              "example" : [ 1, 2 ]
+            },
+            "superiorInmediato" : {
+              "type" : "object",
+              "properties" : {
+                "nombres" : {
+                  "type" : "string",
+                  "description" : "Nombre(s) del superior inmediato del Servidor Público",
+                  "example" : "Juan"
+                },
+                "primerApellido" : {
+                  "type" : "string",
+                  "description" : "Primer apellido del superior inmediato del Servidor Público",
+                  "example" : "Lopez"
+                },
+                "segundoApellido" : {
+                  "type" : "string",
+                  "description" : "Segundo apellido del superior inmediato del Servidor Público",
+                  "example" : "Perez"
+                },
+                "curp" : {
+                  "type" : "string",
+                  "description" : "CURP del superior inmediato del Servidor Público",
+                  "example" : "BADD110313HCMLNS09"
+                },
+                "rfc" : {
+                  "type" : "string",
+                  "description" : "RFC con homoclave del superior inmediato del Servidor Público",
+                  "example" : "CUPU800825569"
+                },
+                "puesto" : {
+                  "type" : "object",
+                  "properties" : {
+                    "nombre" : {
+                      "type" : "string",
+                      "description" : "Nombre del puesto del superior inmediato del Servidor Público",
+                      "example" : "Director de área"
+                    },
+                    "nivel" : {
+                      "type" : "string",
+                      "description" : "Nivel del puesto del superior inmediato del Servidor Público",
+                      "example" : "1234567890"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       },

@@ -68,7 +68,7 @@
         } ]
       }
     },
-    "/spic/dependencias" : {
+    "/v1/spic/dependencias" : {
       "get" : {
         "tags" : [ "spic" ],
         "summary" : "Servidores públicos que intervienen en contrataciones",

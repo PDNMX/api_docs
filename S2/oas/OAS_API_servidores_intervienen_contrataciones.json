@@ -529,6 +529,7 @@
       },
       "tipoArea" : {
         "type" : "array",
+        "description" : "Tipo de área.",
         "uniqueItems" : true,
         "items" : {
           "type" : "object",
@@ -536,8 +537,8 @@
             "clave" : {
               "type" : "string",
               "enum" : [ "T", "RE", "RC", "O", "C", "R" ],
-              "description" : "Tipo de área. Valores permitidos [ \"T\", \"RE\", \"RC\", \"O\", \"C\", \"R\" ]. [T=Técnica, RE= Responsable de la ejecución de los trabajos, RC= Responsable de la contratación, O= Otra, C= Contratante, R= Requirente]",
-              "example" : [ "T" ]
+              "description" : "Significado de Claves:\n  * `T` - TÉCNICA\n  * `RE` - RESPONSABLE DE LA EJECUCIÓN DE LOS TRABAJOS\n  * `RC` - RESPONSABLE DE LA CONTRATACIÓN\n  * `O` - OTRA\n  * `C` - CONTRATANTE\n  * `R` - REQUIRENTE\n",
+              "example" : "T"
             },
             "valor" : {
               "type" : "string",

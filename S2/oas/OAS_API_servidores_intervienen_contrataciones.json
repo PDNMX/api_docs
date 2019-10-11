@@ -452,7 +452,7 @@
                 "enum" : [ "A", "T", "R" ]
               },
               "example" : [ "A", "T" ],
-              "description" : "Nivel de responsabilidad.\nSignificado de Claves:\n  * `A` - Atención\n  * `T` - Tramitación\n  * `R` - Resolución\n"
+              "description" : "Nivel de responsabilidad.\nSignificado de Claves:\n  * `A` - ATENCIÓN\n  * `T` - TRAMITACIÓN\n  * `R` - RESOLUCIÓN\n"
             },
             "tipoProcedimiento" : {
               "type" : "array",
@@ -460,7 +460,7 @@
               "items" : {
                 "type" : "integer",
                 "minimum" : 1,
-                "description" : "Tipos de procedimiento en los que puede participar el Servidor Público.\n* `1` - Contrataciones Públicas \n* `2` - Concesiones, licencias, permisos, autorizaciones y prórrogas \n* `3` - Enajenación de bienes muebles \n* `4` - Asignación y emisión de dictámenes de avalúos nacionales\n"
+                "description" : "Tipos de procedimiento en los que puede participar el Servidor Público.\n* `1` - CONTRATACIONES PÚBLICAS \n* `2` - CONCESIONES, LICENCIAS, PERMISOS, AUTORIZACIONES Y PRÓRROGAS \n* `3` - ENAJENACIÓN DE BIENES MUEBLES \n* `4` - ASIGNACIÓN Y EMISIÓN DE DICTÁMENES DE AVALÚOS NACIONALES\n"
               },
               "example" : [ 1, 2 ]
             },

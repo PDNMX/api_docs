@@ -294,7 +294,32 @@
                   }
                 },
                 "tipoArea" : {
-                  "$ref" : "#/components/schemas/tipoArea"
+                  "type" : "array",
+                  "description" : "Tipo de área.",
+                  "uniqueItems" : true,
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "clave" : {
+                        "type" : "string",
+                        "enum" : [ "T", "RE", "RC", "O", "C", "R" ],
+                        "description" : "Significado de Claves:\n  * `T` - TÉCNICA\n  * `RE` - RESPONSABLE DE LA EJECUCIÓN DE LOS TRABAJOS\n  * `RC` - RESPONSABLE DE LA CONTRATACIÓN\n  * `O` - OTRA\n  * `C` - CONTRATANTE\n  * `R` - REQUIRENTE\n",
+                        "example" : "T"
+                      },
+                      "valor" : {
+                        "type" : "string",
+                        "description" : "Valor del tipo de área",
+                        "example" : "TÉCNICA"
+                      }
+                    }
+                  },
+                  "example" : [ {
+                    "clave" : "T",
+                    "valor" : "TÉCNICA"
+                  }, {
+                    "clave" : "RE",
+                    "valor" : "RESPONSABLE DE LA EJECUCIÓN"
+                  } ]
                 },
                 "nivelResponsabilidad" : {
                   "description" : "Nivel de responsabilidad. Valores permitidos [ \"A\", \"T\", \"R\" ]. [A= Atención, T= Tramitación, R= Resolución]",
@@ -526,34 +551,6 @@
             "example" : "Masculino"
           }
         }
-      },
-      "tipoArea" : {
-        "type" : "array",
-        "description" : "Tipo de área.",
-        "uniqueItems" : true,
-        "items" : {
-          "type" : "object",
-          "properties" : {
-            "clave" : {
-              "type" : "string",
-              "enum" : [ "T", "RE", "RC", "O", "C", "R" ],
-              "description" : "Significado de Claves:\n  * `T` - TÉCNICA\n  * `RE` - RESPONSABLE DE LA EJECUCIÓN DE LOS TRABAJOS\n  * `RC` - RESPONSABLE DE LA CONTRATACIÓN\n  * `O` - OTRA\n  * `C` - CONTRATANTE\n  * `R` - REQUIRENTE\n",
-              "example" : "T"
-            },
-            "valor" : {
-              "type" : "string",
-              "description" : "Valor del tipo de área",
-              "example" : "TÉCNICA"
-            }
-          }
-        },
-        "example" : [ {
-          "clave" : "T",
-          "valor" : "TÉCNICA"
-        }, {
-          "clave" : "RE",
-          "valor" : "RESPONSABLE DE LA EJECUCIÓN"
-        } ]
       }
     }
   }

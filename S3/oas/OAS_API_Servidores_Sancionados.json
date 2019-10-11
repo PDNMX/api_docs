@@ -5,13 +5,13 @@
     "title" : "API de servidores sancionados"
   },
   "paths" : {
-    "/ssancionados" : {
+    "/v1/ssancionados" : {
       "post" : {
         "tags" : [ "ssancionados" ],
-        "summary" : "Muestra información de los servidores públicos sancionados permitiendo busquedas avanzadas",
+        "summary" : "Muestra información de los servidores públicos sancionados permitiendo busquedas avanzadas.",
         "operationId" : "post_ssancionados",
         "requestBody" : {
-          "description" : "JSON para peticiones de busqueda avanzada",
+          "description" : "JSON para peticiones de búsqueda avanzada",
           "required" : true,
           "content" : {
             "application/json" : {
@@ -33,17 +33,31 @@
             }
           },
           "400" : {
-            "description" : "Página inválida"
+            "description" : "Página inválida",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/resError"
+                }
+              }
+            }
           },
-          "403" : {
-            "description" : "No tienes permisos"
+          "401" : {
+            "description" : "No tienes permisos",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/resError"
+                }
+              }
+            }
           },
           "default" : {
             "description" : "unexpected error",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/error_post"
+                  "$ref" : "#/components/schemas/resError"
                 }
               }
             }
@@ -54,7 +68,7 @@
         } ]
       }
     },
-    "/ssancionados/dependencias" : {
+    "/v1/ssancionados/dependencias" : {
       "get" : {
         "tags" : [ "dependencias" ],
         "summary" : "Dependencias donde se cometió la sanción",
@@ -106,9 +120,9 @@
         "properties" : {
           "pagination" : {
             "type" : "object",
-            "required" : [ "page_size", "page", "total", "has_next_page" ],
+            "required" : [ "pageSize", "page", "total", "hasNextPage" ],
             "properties" : {
-              "page_size" : {
+              "pageSize" : {
                 "type" : "integer",
                 "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
                 "example" : 10
@@ -124,7 +138,7 @@
                 "description" : "Total de registros",
                 "example" : 100
               },
-              "has_next_page" : {
+              "hasNextPage" : {
                 "type" : "boolean",
                 "minimum" : 1,
                 "description" : "indica si existe una siguiente pagina",
@@ -142,7 +156,7 @@
                   "description" : "Dato que permita identificar de manera  unívoca al registro",
                   "example" : "1"
                 },
-                "fecha_captura" : {
+                "fechaCaptura" : {
                   "type" : "string",
                   "format" : "date-time",
                   "description" : "La fecha y hora en la que se agrega o modifica el registro. Fecha en formato ISO 8601",
@@ -150,10 +164,10 @@
                 },
                 "expediente" : {
                   "type" : "string",
-                  "description" : "El expediente derivado de la investigación que las Autoridades Investigadoras realizan.",
+                  "description" : "Número de Expediente del Procedimiento Administrativo de Responsabilidades",
                   "example" : "ABC123"
                 },
-                "institucion_dependencia" : {
+                "institucionDependencia" : {
                   "type" : "object",
                   "properties" : {
                     "nombre" : {
@@ -173,12 +187,7 @@
                     }
                   }
                 },
-                "sistema_origen" : {
-                  "type" : "string",
-                  "description" : "Sistema en que se almacena la información del contrato, acto de autoridad",
-                  "example" : "COMPRANET"
-                },
-                "servidor_publico_sancionado" : {
+                "servidorPublicoSancionado" : {
                   "type" : "object",
                   "properties" : {
                     "rfc" : {
@@ -196,21 +205,31 @@
                       "description" : "Nombre(s) del Servidor Público Sancionado",
                       "example" : "Carlos"
                     },
-                    "primer_apellido" : {
+                    "primerApellido" : {
                       "type" : "string",
                       "description" : "Primer apellido del Servidor Público Sancionado",
                       "example" : "Pérez"
                     },
-                    "segundo_apellido" : {
+                    "segundoApellido" : {
                       "type" : "string",
                       "description" : "Segundo apellido del Servidor Público Sancionado",
                       "example" : "López"
                     },
                     "genero" : {
-                      "type" : "string",
-                      "enum" : [ "M", "F", "O" ],
-                      "description" : "Genero del Servidor Público. Valores permitidos  [ \"M\", \"F\", \"O\" ] . F= Femenino, M= Másculino, O=Otro",
-                      "example" : "M"
+                      "type" : "object",
+                      "properties" : {
+                        "clave" : {
+                          "type" : "string",
+                          "enum" : [ "F", "M", "O" ],
+                          "description" : "Genero del Servidor Público.\n  * `F` - FEMENINO \n  * `M` - MASCULINO\n  * `O` - OTRO\n",
+                          "example" : "M"
+                        },
+                        "valor" : {
+                          "type" : "string",
+                          "description" : "Valor del genero",
+                          "example" : "MASCULINO"
+                        }
+                      }
                     },
                     "puesto" : {
                       "type" : "string",
@@ -224,44 +243,49 @@
                     }
                   }
                 },
-                "autoridad_sancionadora" : {
+                "autoridadSancionadora" : {
                   "type" : "string",
                   "description" : "Autoridad encarcada del proceso de sanción ",
                   "example" : "Organo Interno de Control"
                 },
-                "tipo_falta" : {
-                  "type" : "array",
-                  "description" : "Tipo de falta cometida. Valores permitidos [ \"AG\", \"ANG\", \"AC\" ]. AG= Administrativa grave, ANG= Administrativa no grave, AC=Acto de corrupción",
-                  "items" : {
-                    "type" : "string",
-                    "enum" : [ "AG", "ANG", "AC" ],
-                    "example" : "AG"
+                "tipoFalta" : {
+                  "description" : "Falta cometida por el servidor público",
+                  "type" : "object",
+                  "properties" : {
+                    "clave" : {
+                      "type" : "string",
+                      "enum" : [ "NAD", "VPC", "VLNP", "AUT", "CEX", "IDSP", "DCSP", "EIFM", "VDH", "AG", "ANG", "AC", "OTRO" ],
+                      "description" : "Clave del tipo de falta cometida. Valores permitidos\n  * `NAD` - NEGLIGENCIA ADMINISTRATIVA\n  * `VPC` - VIOLACION PROCEDIMIENTOS DE CONTRATACION\n  * `VLNP` - VIOLACION LEYES Y NORMATIVIDAD PRESUPUESTAL\n  * `AUT` - ABUSO DE AUTORIDAD\n  * `CEX` - COHECHO O EXTORSION\n  * `IDSP` - INCUMPLIMIENTO EN DECLARACION DE SITUACION PATRIMONIAL\n  * `DCSP` - DELITO COMETIDO POR SERVIDORES PUBLICOS\n  * `EIFM` - EJERCICIO INDEBIDO DE SUS FUNCIONES EN MATERIA MIGRATORIA\n  * `VDH` - VIOLACIÓN A LOS DERECHOS HUMANOS\n  * `AG` - ADMINISTRATIVA GRAVE\n  * `ANG` - ADMINISTRATIVA NO GRAVE\n  * `AC` - ACTO DE CORRUPCIÓN\n  * `OTRO` - OTRO  \n",
+                      "example" : "AG"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "description" : "Valor del tipo de falta",
+                      "example" : "ADMINISTRATIVA GRAVE"
+                    }
                   }
                 },
-                "tipo_sancion" : {
-                  "type" : "string",
-                  "enum" : [ "I", "M", "MI", "S", "D" ],
-                  "description" : "Tipo de sanción aplicada. Valores permitidos [ \"I\", \"M\", \"MI\", \"S\", \"D\" ]. I = Inhabilitado, M = Multado, MI = Multado e Inhabilitado, S= Suspensión del empleo, cargo o comisión, D= Destitución del emplo, cargo o comisión",
-                  "example" : "M"
+                "tipoSancion" : {
+                  "$ref" : "#/components/schemas/tipoSancion"
                 },
-                "causa_motivo_hechos" : {
+                "causaMotivoHechos" : {
                   "type" : "string",
                   "description" : "Causa o motivo de la sanción, ejemplo: Abuso de autoridad",
                   "example" : "Abuso de autoridad"
                 },
                 "resolucion" : {
                   "type" : "object",
-                  "required" : [ "url", "fecha_notificacion" ],
+                  "required" : [ "url", "fechaResolucion" ],
                   "properties" : {
                     "url" : {
                       "type" : "string",
                       "description" : "URL que apunta al documento en formato digital de la resolución emitida por el correspondiente Organo Interno de Control",
                       "example" : "https://ejemplo.mx/archivo/documento.pdf"
                     },
-                    "fecha_notificacion" : {
+                    "fechaResolucion" : {
                       "type" : "string",
                       "format" : "date",
-                      "description" : "Fecha de notificación de la resolución. Fecha en formato ISO 8601",
+                      "description" : "Fecha en la que se emite la resolución sancionatoria. Fecha en formato ISO 8601",
                       "example" : "2018-05-21"
                     }
                   }
@@ -277,9 +301,19 @@
                       "example" : 30000.19
                     },
                     "moneda" : {
-                      "type" : "string",
-                      "description" : "Moneda de la multa impuesta al Servidor Público Sancionado, apegado al formato ISO 4217",
-                      "example" : "MXN"
+                      "description" : "Tipo de moneda. Señalar tipo de moneda.",
+                      "type" : "object",
+                      "properties" : {
+                        "clave" : {
+                          "type" : "string",
+                          "description" : "ISO 4217",
+                          "example" : "MXN"
+                        },
+                        "valor" : {
+                          "type" : "string",
+                          "example" : "Peso Mexicano"
+                        }
+                      }
                     }
                   }
                 },
@@ -291,24 +325,24 @@
                       "description" : "Plazo de la inhabilitación. Ej. 2 años",
                       "example" : "3 meses"
                     },
-                    "fecha_inicial" : {
+                    "fechaInicial" : {
                       "type" : "string",
                       "format" : "date",
                       "description" : "Fecha inicial de la inhabilitación. Fecha en formato ISO 8601",
                       "example" : "2018-08-17"
                     },
-                    "fecha_final" : {
+                    "fechaFinal" : {
                       "type" : "string",
                       "format" : "date",
                       "description" : "Fecha final de la inhabilitación. Fecha en formato ISO 8601",
                       "example" : "2018-11-17"
-                    },
-                    "observaciones" : {
-                      "type" : "string",
-                      "description" : "Cualquier observación pertinente ",
-                      "example" : "ABC"
                     }
                   }
+                },
+                "observaciones" : {
+                  "type" : "string",
+                  "description" : "Cualquier observación pertinente ",
+                  "example" : "ABC"
                 },
                 "documentos" : {
                   "description" : "Es una sección que permite adjuntar referencias a cualquier documento que se considere de valor para transparentar el proceso de sanción.",
@@ -360,7 +394,7 @@
       "post_query" : {
         "type" : "object",
         "properties" : {
-          "page_size" : {
+          "pageSize" : {
             "type" : "integer",
             "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
             "example" : 10
@@ -391,19 +425,19 @@
                 "description" : "Campo a ordenar de forma ascendente o descente",
                 "example" : "asc"
               },
-              "primer_apellido" : {
+              "primerApellido" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
                 "description" : "Campo a ordenar de forma ascendente o descente",
                 "example" : "asc"
               },
-              "segundo_apellido" : {
+              "segundoApellido" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
                 "description" : "Campo a ordenar de forma ascendente o descente",
                 "example" : "asc"
               },
-              "institucion_dependencia" : {
+              "institucionDependencia" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
                 "description" : "Campo a ordenar de forma ascendente o descente",
@@ -423,12 +457,12 @@
                 "description" : "Nombres o nombre del servidor público sancionado.",
                 "example" : "Juan Pedro"
               },
-              "primer_apellido" : {
+              "primerApellido" : {
                 "type" : "string",
                 "description" : "Primer apellido del servidor público sancionado.",
                 "example" : "Tenorio"
               },
-              "segundo_apellido" : {
+              "segundoApellido" : {
                 "type" : "string",
                 "description" : "Segundo apellido del servidor público sancionado.",
                 "example" : "Calderon"
@@ -443,33 +477,20 @@
                 "description" : "CURP del Servidor Público",
                 "example" : "ABCD780814MDFAXL"
               },
-              "institucion_dependencia" : {
+              "institucionDependencia" : {
                 "type" : "string",
                 "description" : "Nombre de la institución dependencia a la que pertenece el servidor público sancionado.",
                 "example" : "Secretaría de Hacienda y Crédito Público"
               },
-              "rfc_solicitante" : {
+              "tipoSancion" : {
+                "$ref" : "#/components/schemas/tipoSancion"
+              },
+              "rfcSolicitante" : {
                 "type" : "string",
                 "description" : "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
                 "example" : "GOAP780710RH7"
               }
             }
-          }
-        }
-      },
-      "error_post" : {
-        "description" : "Estos valores son definidos por el sistema del API.",
-        "required" : [ "code", "message" ],
-        "properties" : {
-          "code" : {
-            "type" : "string",
-            "description" : "Código alfa númerico del error de la consulta.",
-            "example" : "abc123"
-          },
-          "message" : {
-            "type" : "string",
-            "description" : "Texto descriptivo para el usuario final del error en la consulta",
-            "example" : "Error al formar la consulta, revise el formato de los campos."
           }
         }
       },
@@ -493,6 +514,42 @@
               "type" : "string",
               "description" : "Clave de la Institución o Dependencia donde el contratista cometió la irregularidad",
               "example" : "XYZ987"
+            }
+          }
+        }
+      },
+      "resError" : {
+        "description" : "Estos valores son definidos por el sistema del API.",
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "string",
+            "description" : "Código alfa numérico del error de la consulta.",
+            "example" : "abc123"
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Texto descriptivo para el usuario final del error en la consulta",
+            "example" : "Error al formar la consulta, revise el formato de los campos."
+          }
+        }
+      },
+      "tipoSancion" : {
+        "type" : "array",
+        "description" : "La sanción impuesta al servidor público, puede ser más de una. Ej. Inhabilitado y Multado",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "clave" : {
+              "type" : "string",
+              "enum" : [ "I", "M", "S", "D" ],
+              "description" : "Tipo de sanción aplicada. \n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓ\n  * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN\n",
+              "example" : "M"
+            },
+            "valor" : {
+              "type" : "string",
+              "description" : "Valor del tipo de sanción",
+              "example" : "MULTADO"
             }
           }
         }

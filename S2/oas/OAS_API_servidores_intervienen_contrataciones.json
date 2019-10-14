@@ -445,9 +445,13 @@
               } ]
             },
             "nivelResponsabilidad" : {
-              "type" : "string",
-              "enum" : [ "A", "T", "R" ],
-              "example" : "T",
+              "type" : "array",
+              "uniqueItems" : true,
+              "items" : {
+                "type" : "string",
+                "enum" : [ "A", "T", "R" ]
+              },
+              "example" : [ "A", "T" ],
               "description" : "Nivel de responsabilidad.\nSignificado de Claves:\n  * `A` - ATENCIÓN\n  * `T` - TRAMITACIÓN\n  * `R` - RESOLUCIÓN\n"
             },
             "tipoProcedimiento" : {

@@ -132,7 +132,7 @@
                 "description" : "Número de página a mostrar",
                 "example" : 10
               },
-              "total" : {
+              "totalRows" : {
                 "type" : "number",
                 "minimum" : 1,
                 "description" : "Total de registros",

@@ -446,10 +446,7 @@
             },
             "nivelResponsabilidad" : {
               "type" : "string",
-              "items" : {
-                "type" : "string",
-                "enum" : [ "A", "T", "R" ]
-              },
+              "enum" : [ "A", "T", "R" ],
               "example" : "T",
               "description" : "Nivel de responsabilidad.\nSignificado de Claves:\n  * `A` - ATENCIÓN\n  * `T` - TRAMITACIÓN\n  * `R` - RESOLUCIÓN\n"
             },

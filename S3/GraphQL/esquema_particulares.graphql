@@ -370,7 +370,7 @@ type DomicilioExtranjero {
   numeroInterior: String
   ciudadLocalidad: String
   estadoProvincia: String
-  pais: pais
+  pais: Pais
   codigoPostal: String
 }
 

@@ -261,31 +261,118 @@ input FiltrosParticularesSancionados {
   tipoPersona: TipoPersona
 }
 
+"""
+Dirección del contratista en caso de que se encuentre en México. Este dato es información confidencial
+"""
+type DomicilioMexico {
+  pais: Pais
+  entidadFederativa: EntidadFederativa
+  municipio: Municipio
+
+  """
+  Código postal del domicilio
+  """
+  codigoPostal: String
+
+  """
+  Utilizar el Marco Geoestadístico Nacional
+  """
+  localidad: Localidad
+
+  """
+  Utilizar el Marco Geoestadístico Nacional
+  """
+  vialidad: Vialidad
+
+  """
+  Número exterior del domicilio
+  """
+  numeroExterior: String
+
+  """
+  Número interior del domicilio
+  """
+  numeroInterior: String
+}
+
 type Pais {
+  """
+  Nombre del pais especificado en estándar ISO3166
+  """
   valor: String
+
+  """
+  Código alpha 2 del país especificado en estándar ISO3166
+  """
   clave: String
 }
 
 type EntidadFederativa {
+  """
+  Nombre de la entidad federativa del Marco Geoestadístico Nacional
+  """
   valor: String
+
+  """
+  Clave de la entidad federativa del Marco Geoestadístico Nacional
+  """
   clave: String
 }
 
 type Municipio {
+  """
+  Nombre del municipio  del Marco Geoestadístico Nacional
+  """
   valor: String
+
+  """
+  Clave del municipio del Marco Geoestadístico Nacional
+  """
   clave: String
 }
 
+"""
+Utilizar el Marco Geoestadístico Nacional
+"""
 type Localidad {
+  """
+  Nombre de la localidad
+  """
   valor: String
+
+  """
+  Clave de la localidad
+  """
   clave: String
 }
 
+"""
+Utilizar el Marco Geoestadístico Nacional
+"""
 type Vialidad {
-  valor: String
+  """
+  Tipo de vialidad
+  """
   clave: String
+
+  """
+  Nombre de vialidad
+  """
+  valor: String
 }
 
+"""
+Llenar en caso de que el domicilio del particular se encuentre en el extranjero
+"""
+type DomicilioExtranjero {
+  calle: String
+  numeroExterior: String
+  numeroInterior: String
+  ciudadLocalidad: String
+  estadoProvincia: String
+  pais: pais
+  codigoPostal: String
+}
 
 type ResolucionPS {
   """

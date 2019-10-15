@@ -200,10 +200,10 @@
                 "description" : "Campo a ordenar de forma ascendente o descente",
                 "example" : "asc"
               },
-              "institucionDependencia.nombre" : {
+              "institucionDependencia" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descente, se debe ordenar por el valor",
                 "example" : "asc"
               },
               "puesto" : {

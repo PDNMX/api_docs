@@ -253,7 +253,7 @@ input FiltrosParticularesSancionados {
   """
   Sanción impuesta
   """
-  tipoSancion: [TipoSancion]
+  tipoSancion: [TipoSancionInput]
 
   """
   Los valores pueden ser:  F = Física, M = Moral

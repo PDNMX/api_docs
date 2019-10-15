@@ -67,7 +67,7 @@ input ParametersSS {
   """
   La sanción impuesta al servidor público, puede ser más de una. Ej. Inhabilitado y Multado
   """
-  tipoSancion: [TipoSancion]
+  tipoSancion: [TipoSancionInput]
 
   """
   RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos

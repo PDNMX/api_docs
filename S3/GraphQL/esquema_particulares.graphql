@@ -1,77 +1,214 @@
-enum Tipo_Persona {
-    """
-    F: Física, M: Moral
-    """
+enum TipoPersona {
+  """
+  F: Física, M: Moral
+  """
   F
   M
 }
 
 type DirectorGeneral {
+  """
+  Nombre(s) del director general de la empresa al momento de la falta
+  """
   nombres: String
-  primer_apellido: String
-  segundo_apellido: String
+
+  """
+  Primer apellido del director general de la empresa al momento de la falta
+  """
+  primerApellido: String
+
+  """
+  Segundo apellido del director general de la empresa al momento de la falta
+  """
+  segundoApellido: String
+
+  """
+  CURP del director general de la empresa al momento de la falta
+  """
   curp: String
 }
 
 type ApoderadoLegal {
+  """
+  Nombre(s) del apoderado legal de la empresa al momento de la falta
+  """
   nombres: String
-  primer_apellido: String
-  segundo_apellido: String
+
+  """
+  Primer apellido del apoderado legal de la empresa al momento de la falta
+  """
+  primerApellido: String
+
+  """
+  Segundo apellido del apoderado legal de la empresa al momento de la falta
+  """
+  segundoApellido: String
+
+  """
+  CURP del apoderado legal de la empresa al momento de la falta
+  """
   curp: String
 }
 
 type ResponsableSancion {
+  """
+  Nombre o nombres del Titular del área de responsabilidades o Contralor del
+  Órgano Interno de Control responsable de la información registrada
+  """
   nombres: String
-  primer_apellido: String
-  segundo_apellido: String
+
+  """
+  Primer apellido del Titular del área de responsabilidades o Contralor del
+  Órgano Interno de Control responsable de la información registrada
+  """
+  primerApellido: String
+
+  """
+  Segundo apellido del Titular del área de responsabilidades o Contralor del
+  Órgano Interno de Control responsable de la información registrada
+  """
+  segundoApellido: String
 }
 
 type Particular {
-  nombre_razon_social: String
-  objeto_social: String
+  """
+  Razón social de la empresa
+  """
+  nombreRazonSocial: String
+  """
+  Objeto social de la empresa
+  """
+  objetoSocial: String
+  """
+  RFC del contratista.
+  """
   rfc: String
-  tipo_persona: Tipo_Persona
+  """
+  Tipo de persona. Valores permitidos F = Física, M = Moral
+  """
+  tipoPersona: TipoPersona
+  """
+  Teléfono del contratista. Número teléfonico estandarizado.
+  http://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-E.164D-2009-PDF-S.pdf.
+  """
   telefono: String
-  domicilio: Domicilio
-  director_general: DirectorGeneral
-  apoderado_legal: ApoderadoLegal
+  """
+  Dirección del contratista en caso de que se encuentre en México. Este dato es información confidencial
+  """
+  domicilioMexico: DomicilioMexico
+
+  """
+  Llenar en caso de que el domicilio del particular se encuentre en el extranjero
+  """
+  domicilioExtranjero: DomicilioExtranjero
+
+  directorGeneral: DirectorGeneral
+  apoderadoLegal: ApoderadoLegal
 }
 
 type ParticularSancionado {
-    id: String!,
-    fecha_captura: DateTime,
-    expediente: String,
-    institucion_dependencia: InstitucionDependencia,
-    sistema_origen: String, # ¿realmente nos sirve?
-    particular_sancionado: Particular,
-    objeto_contrato: String,
-    autoridad_sancionadora: String,
-    tipo_falta: String, #chechar si aplica
-    tipo_sancion: String,
-    causa_motivo_hechos: String,
-    acto: String,
-    responsable_sancion: ResponsableSancion,
-    resolucion: Resolucion,
-    multa: Multa,
-    inhabilitacion: Inhabilitacion
-    observaciones: String,
-    documentos: [Documento]
+  """
+  Dato que permita identificar de manera  unívoca al registro
+  """
+  id: String!
+  """
+  Fecha y hora - en la que se agrega o modifica el registro. Fecha en formato ISO 8601
+  """
+  fechaCaptura: DateTime
+  """
+  El expediente derivado de la investigación que las Autoridades Investigadoras realizan
+  """
+  expediente: String
+  institucionDependencia: InstitucionDependencia
+  particularSancionado: Particular
+  """
+  Objeto del contrato
+  """
+  objetoContrato: String
+  """
+  OIC o Unidad responsable de la sanción
+  """
+  autoridadSancionadora: String
+  """
+  Tipo de falta. eg.,soborno, participación ilícita, tráfico de influencias, uso
+  información falsa,colusión, obstrucción de facultades, contratación indebida,
+  uso indebido de recusos públicos.
+  """
+  tipoFalta: String
+  """
+  Sanción impuesta
+  """
+  tipoSancion: [TipoSancion]
+  """
+  Causa/motivo de la sanción
+  """
+  causaMotivoHechos: String
+  """
+  Acto que originó la investigación. Ejm. Contrataciones
+  """
+  acto: String
+  responsableSancion: ResponsableSancion
+  resolucion: ResolucionPS
+  """
+  Se llena en caso de que el particular haya tenido multa económica
+  """
+  multa: Multa
+  """
+  Se llena en caso de que el particular haya sido inhabilitado
+  """
+  inhabilitacion: Inhabilitacion
+  """
+  Cualquier observación pertinente
+  """
+  observaciones: String
+  """
+  Es una sección que permite adjuntar referencias a cualquier documento que se
+  considere de valor para transparentar el proceso de sanción.
+  """
+  documentos: [Documento]
 }
 
-input ParametersPS{
-    sort: Sort,
-    page: Int,
-    page_size: Int,
-    id: String,
-    query: Filtros_Particulares_Sancionados,
-    rfc_solicitante: String
+input ParametersPS {
+  sort: SortPS
+  """
+  Número de página a mostrar
+  """
+  page: Int
+  """
+  Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1
+  """
+  pageSize: Int
+
+  """
+  Devuelve resultados al buscar por su ID. Si se especifica este valor, el objeto query es omitido.
+  """
+  id: String
+
+  """
+  En este objeto se pasan los parametros para las busquedas por medio de los campos correspondientes
+  """
+  query: FiltrosParticularesSancionados
+  """
+  RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos
+  """
+  rfcSolicitante: String
 }
 
+input SortPS {
+  """
+  Campo a ordenar de forma ascendente o descente
+  """
+  nombreRazonSocial: Orden
 
-input SortPS{
-  nombre_razon_social: Orden
+  """
+  Campo a ordenar de forma ascendente o descente
+  """
   rfc: Orden
-  institucion_dependencia: Orden
+
+  """
+  Campo a ordenar de forma ascendente o descente
+  """
+  institucionDependencia: Orden
 }
 
 type PSancionados {
@@ -79,60 +216,89 @@ type PSancionados {
   results: [ParticularSancionado]
 }
 
-
-
 type ResponsePS {
   psancionados: PSancionados
-  error_post: Error
+  errorPost: Error
 }
 
 type ResponseDependencias {
-  error_post: Error
+  errorPost: Error
   dependencias: [InstitucionDependencia]
 }
 
-input Filtros_Particulares_Sancionados {
-  nombre_razon_social: String
+"""
+En este objeto se pasan los parametros para las busquedas por medio de los campos correspondientes
+"""
+input FiltrosParticularesSancionados {
+  """
+  Nombre o razón social
+  """
+  nombreRazonSocial: String
+
+  """
+  Se deberá escribir los 10 caracteres básicos y los 3 caracteres de la homoclave
+  """
   rfc: String
-  institucion_dependencia: String
+
+  """
+  Nombre de la institución o dependencia dónde se cometió la falta
+  """
+  institucionDependencia: String
+
+  """
+  El expediente derivado de la investigación que las Autoridades Investigadoras realizan
+  """
   expediente: String
+
+  """
+  Sanción impuesta
+  """
+  tipoSancion: [TipoSancion]
+
+  """
+  Los valores pueden ser:  F = Física, M = Moral
+  """
+  tipoPersona: TipoPersona
 }
-
-
 
 type Pais {
   valor: String
-  codigo: String
+  clave: String
 }
 
 type EntidadFederativa {
-  nom_ent: String
-  cve_ent: String
+  valor: String
+  clave: String
 }
 
 type Municipio {
-  nom_mun: String
-  cve_mun: String
+  valor: String
+  clave: String
 }
 
 type Localidad {
-  nom_loc: String
-  cve_loc: String
+  valor: String
+  clave: String
 }
 
 type Vialidad {
-  nom_vial: String
-  tipo_vial: String
+  valor: String
+  clave: String
 }
 
-type Domicilio {
-  pais: Pais
-  entidad_federativa: EntidadFederativa
-  municipio: Municipio
-  codigo_postal: String
-  localidad: Localidad
-  vialidad: Vialidad
-  numExt: String
-  numInt: String
-}
 
+type ResolucionPS {
+  """
+  Sentido de la resolución. Por ejemplo, Sancionatoria con multa.
+  """
+  sentido: String
+  """
+  URL que apunta al documento en formato digital de la resolución emitida por el correspondiente Organo Interno de Control
+  """
+  url: String
+
+  """
+  Fecha de notificación de la resolución. Fecha en formato ISO 8601
+  """
+  fechaNotificacion: String
+}

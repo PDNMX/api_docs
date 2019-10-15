@@ -1,5 +1,3 @@
-
-
 input Sort {
   """
   Campo a ordenar de forma ascendente o descente
@@ -18,17 +16,17 @@ input Sort {
   """
   Campo a ordenar de forma ascendente o descente
   """
-  primer_apellido: Orden
+  primerApellido: Orden
 
   """
   Campo a ordenar de forma ascendente o descente
   """
-  segundo_apellido: Orden
+  segundoApellido: Orden
 
   """
   Campo a ordenar de forma ascendente o descente
   """
-  institucion_dependencia: Orden
+  institucionDependencia: Orden
 }
 
 input ParametersSS {
@@ -44,12 +42,12 @@ input ParametersSS {
   """
   Primer apellido del servidor público sancionado.
   """
-  primer_apellido: String
+  primerApellido: String
 
   """
   Segundo apellido del servidor público sancionado.
   """
-  segundo_apellido: String
+  segundoApellido: String
 
   """
   RFC del Servidor Público con homoclave
@@ -64,7 +62,13 @@ input ParametersSS {
   """
   Nombre de la institución dependencia a la que pertenece el servidor público sancionado.
   """
-  institucion_dependencia: String
+  institucionDependencia: String
+
+  """
+  La sanción impuesta al servidor público, puede ser más de una. Ej. Inhabilitado y Multado
+  """
+  tipoSancion: [TipoSancion]
+
   """
   RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos
   """
@@ -90,42 +94,43 @@ type ServidorPublicoSancionado {
   """
   La fecha y hora en la que se agrega o modifica el registro. Fecha en formato ISO 8601
   """
-  fecha_captura: DateTime
+  fechaCaptura: DateTime
 
   """
-  El expediente derivado de la investigación que las Autoridades Investigadoras realizan.
+  Número de Expediente del Procedimiento Administrativo de Responsabilidades
   """
   expediente: String
-  institucion_dependencia: InstitucionDependencia
+  institucionDependencia: InstitucionDependencia
 
-  """
-  Sistema en que se almacena la información del contrato, acto de autoridad
-  """
-  sistema_origen: String
-  servidor_publico_sancionado: ServidorPublico
+  servidorPublicoSancionado: ServidorPublico
 
   """
   Autoridad encarcada del proceso de sanción
   """
-  autoridad_sancionadora: String
+  autoridadSancionadora: String
 
   """
-  Tipo de falta cometida. Valores permitidos [ "AG", "ANG", "AC"]. AG= Administrativa grave, ANG= Administrativa no grave, AC=Acto de corrupción.
+  Falta cometida por el servidor público
   """
-  tipo_falta: TipoFalta
+  tipoFalta: TipoFalta
 
   """
-  Tipo de sanción aplicada. Valores permitidos [ "I", "M", "MI", "S", "D" ]. I =Inhabilitado, M = Multado, MI = Multado e Inhabilitado, S= Suspensión del empleo, cargo o comisión, D= Destitución del emplo, cargo o comisión
+  La sanción impuesta al servidor público, puede ser más de una. Ej. Inhabilitado y Multado
   """
-  tipo_sancion: TipoSancion
+  tipoSancion: [TipoSancion]
 
   """
   Causa o motivo de la sanción, ejemplo: Abuso de autoridad
   """
-  causa_motivo_hechos: String
-  resolucion: Resolucion
+  causaMotivoHechos: String
+  resolucion: ResolucionSS
   multa: Multa
   inhabilitacion: Inhabilitacion
+
+  """
+  Cualquier observación pertinente
+  """
+  observaciones: String
 
   """
   Es una sección que permite adjuntar referencias a cualquier documento que se
@@ -153,12 +158,12 @@ type ServidorPublico {
   """
   Primer apellido del Servidor Público Sancionado
   """
-  primer_apellido: String
+  primerApellido: String
 
   """
   Segundo apellido del Servidor Público Sancionado
   """
-  segundo_apellido: String
+  segundoApellido: String
   """
   Genero del Servidor Público.
   """
@@ -173,16 +178,13 @@ type ServidorPublico {
   Clave del nivel del puesto del Servidor Público Sancionado
   """
   nivel: String
-
-  """
-  Cualquier observación pertinente
-  """
-  observaciones: String
 }
 
-
 """
-Genero del Servidor Público. Valores permitidos  [ "M", "F", "O" ] . F= Femenino, M= Másculino, O=Otro
+Genero del Servidor Público.
+  * `F` - FEMENINO
+  * `M` - MASCULINO
+  * `O` - OTRO
 """
 enum Genero {
   M
@@ -191,11 +193,41 @@ enum Genero {
 }
 
 """
-Tipo de falta cometida. Valores permitidos [ "AG", "ANG", "AC" ]. AG=
-Administrativa grave, ANG= Administrativa no grave, AC=Acto de corrupción
+Falta cometida por el servidor público
 """
-enum TipoFalta {
-  AG
-  ANG
-  AC
+type TipoFalta {
+  """
+  Clave del tipo de falta cometida. Valores permitidos
+    * `NAD` - NEGLIGENCIA ADMINISTRATIVA
+    * `VPC` - VIOLACION PROCEDIMIENTOS DE CONTRATACION
+    * `VLNP` - VIOLACION LEYES Y NORMATIVIDAD PRESUPUESTAL
+    * `AUT` - ABUSO DE AUTORIDAD
+    * `CEX` - COHECHO O EXTORSION
+    * `IDSP` - INCUMPLIMIENTO EN DECLARACION DE SITUACION PATRIMONIAL
+    * `DCSP` - DELITO COMETIDO POR SERVIDORES PUBLICOS
+    * `EIFM` - EJERCICIO INDEBIDO DE SUS FUNCIONES EN MATERIA MIGRATORIA
+    * `VDH` - VIOLACIÓN A LOS DERECHOS HUMANOS
+    * `AG` - ADMINISTRATIVA GRAVE
+    * `ANG` - ADMINISTRATIVA NO GRAVE
+    * `AC` - ACTO DE CORRUPCIÓN
+    * `OTRO` - OTRO
+  """
+  clave: String
+
+  """
+  Valor del tipo de falta
+  """
+  valor: String
+}
+
+type ResolucionSS {
+  """
+  URL que apunta al documento en formato digital de la resolución emitida por el correspondiente Organo Interno de Control
+  """
+  url: String!
+
+  """
+  Fecha en la que se emite la resolución sancionatoria. Fecha en formato ISO 8601
+  """
+  fechaResolucion: String!
 }

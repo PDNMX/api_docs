@@ -1,122 +1,325 @@
-
-type Query {
-    servidor_publico(
-        filtros: Filtros
-        first: Int = 10 #Limit
-        start: Int = 0 #skip, offset
-        #after: cursor
-        sort: Sort        
-        actualizacion: DateRange
-    ): ServidoresPublicos
-    servidor_publico_id(id: ID!): ServidorPublico
-}
-
 scalar DateTime
 
+type Query {
+  servidorPublico(
+    """
+    Devuelve resultados al buscar un servidor público por su ID. Si se especifica este valor, el objeto query es omitido.
+    """
+    id: String
+
+    sort: Sort
+    """
+    Número de página a mostrar
+    """
+    page: Int
+
+    """
+    Número de registros a mostrar por página, el máximo permitido es doscientos y
+    el mínimo uno, por defecto muestra diez registros.
+    """
+    pageSize: Int
+
+    filtros: Filtros
+
+    actualizacion: DateRange
+  ): ServidoresPublicos
+  servidorPublicoID(id: ID!): ServidorPublico
+}
+
 input Sort {
-    direction: Direction
-    field: TableField
+  """
+  Campo a ordenar de forma ascendente o descente
+  """
+  nombre: Direction
+
+  """
+  Campo a ordenar de forma ascendente o descente
+  """
+  primerApellido: Direction
+
+  """
+  Campo a ordenar de forma ascendente o descente
+  """
+  segundoApellido: Direction
+
+  """
+  Campo a ordenar de forma ascendente o descente
+  """
+  institucionDependencia: Direction
+
+  """
+  Campo a ordenar de forma ascendente o descente
+  """
+  puesto: Direction
 }
 
 input DateRange {
-    start: DateTime!
-    end: DateTime!
+  start: DateTime!
+  end: DateTime!
 }
-
 
 input Filtros {
-    nombres: String
-    primer_apellido: String
-    segundo_apellido: String
-    institucion: String
+  """
+  Nombres o nombre de la persona.
+  """
+  nombres: String
+
+  """
+  Primer apellido de la persona.
+  """
+  primerApellido: String
+
+  """
+  Segundo apellido de la persona.
+  """
+  segundoApellido: String
+
+  """
+  CURP de la persona.
+  """
+  curp: String
+
+  """
+  RFC de la persona
+  """
+  rfc: String
+
+  """
+  Se deberá señalar el Ente Público o entidad que corresponda al Servidor Público. Se enviara clave
+  """
+  institucionDependencia: String
+  tipoProcedimiento: [Int]
+  """
+  RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos
+  """
+  rfcSolicitante: String
 }
 
-
-enum Direction{
-    ASC,
-    DESC
+enum Direction {
+  ASC
+  DESC
 }
 
-enum TableField {
-    RFC,
-    nombres,
-    primer_apellido,
-    segundo_apellido,
-    institucion,
-    actualizacion
-}
+type Pagination {
+  """
+  Número de registros mostrados, por defecto muestra diez.
+  """
+  pageSize: Int!
 
-type PageInfo {
-    hasNextPage: Boolean!
+  """
+  Número de página actual
+  """
+  page: Int!
+
+  """
+  Total de registros
+  """
+  totalRows: Int!
+
+  """
+  Indica si existe otra página
+  """
+  hasNextPage: Boolean!
 }
 
 # Response
-type ServidoresPublicos{
-    totalCount: Int!
-    results: [ServidorPublico]!
-    pageInfo: PageInfo
+type ServidoresPublicos {
+  pagination: Pagination
+  results: [ServidorPublico]
 }
 
+type Genero {
+  """
+  Genero del Servidor Público.
+    * `F` - FEMENINO
+    * `M` - MASCULINO
+    * `O` - OTRO
+  """
+  clave: String
 
-type Periodo {
-    fecha_inicial: DateTime!,
-    fecha_final: DateTime!
+  """
+  Valor del genero
+  """
+  valor: String
 }
 
-enum Genero {
-    M, F, O
-}
-
+"""
+Indicar el nombre de la institución donde se encuentren registradas las inversiones, cuentas o valores
+"""
 type Dependencia {
-    siglas: String!
-    nombre: String!
-    clave: String!
+  """
+  Nombre de la institución o dependencia donde labora el Servidor Público
+  """
+  nombre: String!
+
+  """
+  Siglas de la institución o dependencia donde labora el Servidor Público
+  """
+  siglas: String!
+
+  """
+  Clave de la institución o dependencia donde labora el Servidor Público
+  """
+  clave: String
 }
 
 type Puesto {
-    nombre: String,
-    nivel: String,
+  """
+  Nombre del puesto del Servidor Público
+  """
+  nombre: String
+
+  """
+  Nivel del puesto del Servidor Público
+  """
+  nivel: String
 }
 
-enum TipoArea {
-    T, RE, RC, O, C, R
-}
+type TipoArea {
+  """
+  Significado de Claves:
+    * `T` - TÉCNICA
+    * `RE` - RESPONSABLE DE LA EJECUCIÓN DE LOS TRABAJOS
+    * `RC` - RESPONSABLE DE LA CONTRATACIÓN
+    * `O` - OTRA
+    * `C` - CONTRATANTE
+    * `R` - REQUIRENTE
+  """
+  clave: String
 
+  """
+  Valor del tipo de área
+  """
+  valor: String
+}
+"""
+Significado de Claves:
+    * `A` - ATENCIÓN
+    * `T` - TRAMITACIÓN
+    * `R` - RESOLUCIÓN
+"""
 enum NivelResponsabilidad {
-    A, T, R
+  A
+  T
+  R
 }
 
-type SuperiorInmediato{
-    nombres: String,
-    primer_apellido: String,
-    segundo_apellido: String,
-    curp: String,
-    rfc: String,
-    puesto: Puesto
+type SuperiorInmediato {
+  """
+  Nombre(s) del superior inmediato del Servidor Público
+  """
+  nombres: String
+
+  """
+  Primer apellido del superior inmediato del Servidor Público
+  """
+  primerApellido: String
+
+  """
+  Segundo apellido del superior inmediato del Servidor Público
+  """
+  segundoApellido: String
+
+  """
+  CURP del superior inmediato del Servidor Público
+  """
+  curp: String
+
+  """
+  RFC con homoclave del superior inmediato del Servidor Público
+  """
+  rfc: String
+  puesto: Puesto
 }
 
 type ServidorPublico {
-    id: String!,
-    fecha_captura: DateTime!,
-    ejercicio_fiscal: Int!,
-    periodo_ejercicio: Periodo,
-    id_ramo: Int!,
-    ramo: String,
-    rfc: String,
-    curp: String,
-    nombres: String,
-    primer_apellido: String,
-    segundo_apellido: String,
-    genero: Genero,
-    dependencia: Dependencia,
-    puesto: Puesto
-    tipo_area: [TipoArea]!,
-    nivel_responsabilidad: [NivelResponsabilidad],
-    tipo_procedimiento: Int,
-    tipo_actos: String,
-    superior_inmediato: SuperiorInmediato
+  """
+  Dato que permita identificar de manera  unívoca al registro
+  """
+  id: String
+
+  """
+  Fecha y hora en la que se agrega o modifca el registro. Fecha en formato ISO 8601
+  """
+  fechaCaptura: DataTime
+  """
+  Ejercicio fiscal
+  """
+  ejercicioFiscal: Int
+
+  periodoEjercicio: PeriodoEjercicio
+  ramo: Ramo
+
+  """
+  RFC del Servidor Público con homoclave
+  """
+  rfc: String
+
+  """
+  CURP del Servidor Público
+  """
+  curp: String
+
+  """
+  Nombre(s) del Servidor Público
+  """
+  nombres: String
+
+  """
+  Primer apellido del servidor público
+  """
+  primerApellido: String
+
+  """
+  Segundo apellido del servidor público
+  """
+  segundoApellido: String
+
+  genero: Genero
+
+  """
+  Indicar el nombre de la institución donde se encuentren registradas las inversiones, cuentas o valores
+  """
+  institucionDependencia: Dependencia
+
+  puesto: Puesto
+
+  """
+  Tipo de área.
+  """
+  tipoArea: [TipoArea]!
+
+  """
+  Nivel de responsabilidad.
+  """
+  nivelResponsabilidad: [NivelResponsabilidad]
+  tipoProcedimiento: [Int]
+
+  superiorInmediato: SuperiorInmediato
 }
 
+type PeriodoEjercicio {
+  """
+  Fecha inicial del periodo del ejercicio. Fecha en formato ISO 8601
+  """
+  fechaInicial: String!
 
+  """
+  Fecha final del periodo del ejercicio. Fecha en formato ISO 8601
+  """
+  fechaFinal: String!
+}
 
+type Ramo {
+  """
+  Identificador del ramo
+  """
+  clave: Int
 
+  """
+  Identifica y clasifica los recursos en el presupuesto de egresos a las
+  Dependencias y en su caso Entidades, a la Presidencia de la República, a la
+  Procuraduría General de la República y a los Tribunales Administrativos.
+  """
+  valor: String
+}

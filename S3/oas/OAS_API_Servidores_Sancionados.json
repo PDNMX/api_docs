@@ -132,7 +132,7 @@
                 "description" : "Número de página a mostrar",
                 "example" : 10
               },
-              "total" : {
+              "totalRows" : {
                 "type" : "number",
                 "minimum" : 1,
                 "description" : "Total de registros",
@@ -543,7 +543,7 @@
             "clave" : {
               "type" : "string",
               "enum" : [ "I", "M", "S", "D" ],
-              "description" : "Tipo de sanción aplicada. \n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓ\n  * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN\n",
+              "description" : "Tipo de sanción aplicada. \n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓN\n  * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN\n",
               "example" : "M"
             },
             "valor" : {

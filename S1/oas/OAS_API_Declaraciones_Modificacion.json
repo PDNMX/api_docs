@@ -156,7 +156,7 @@
                     "tipo" : {
                       "type" : "string",
                       "description" : "indica el tipo de declaración",
-                      "enum" : [ "INICIAL", "MODIFICACIÓN", "CONCLUCIÓN" ],
+                      "enum" : [ "INICIAL", "MODIFICACIÓN", "CONCLUSIÓN" ],
                       "example" : "MODIFICACIÓN"
                     }
                   }

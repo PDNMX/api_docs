@@ -387,49 +387,33 @@
                 "properties" : {
                   "superficieConstruccion" : {
                     "description" : "Se deberá señalar en metros cuadrados con valor numérico la\nsuperficie correspondiente a construcción respecto del bien\ninmueble que se declare.",
-                    "anyOf" : [ {
-                      "type" : "object",
-                      "properties" : {
-                        "min" : {
-                          "type" : "integer",
-                          "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
-                          "example" : 2000
-                        },
-                        "max" : {
-                          "type" : "integer",
-                          "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
-                          "example" : 4000
-                        }
+                    "properties" : {
+                      "min" : {
+                        "type" : "integer",
+                        "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
+                        "example" : 2000
                       },
-                      "required" : [ "min", "max" ]
-                    }, {
-                      "type" : "integer",
-                      "description" : "si solo se envia un valor numerico se realizará la busqueda del valor exacto",
-                      "example" : 2000
-                    } ]
+                      "max" : {
+                        "type" : "integer",
+                        "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
+                        "example" : 4000
+                      }
+                    }
                   },
                   "superficieTerreno" : {
                     "description" : "Se deberá señalar en metros cuadrados la superficie total\ncorrespondiente al terreno respecto del bien inmueble que se\ndeclare.",
-                    "anyOf" : [ {
-                      "type" : "object",
-                      "properties" : {
-                        "min" : {
-                          "type" : "integer",
-                          "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
-                          "example" : 2000
-                        },
-                        "max" : {
-                          "type" : "integer",
-                          "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
-                          "example" : 4000
-                        }
+                    "properties" : {
+                      "min" : {
+                        "type" : "integer",
+                        "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
+                        "example" : 2000
                       },
-                      "required" : [ "min", "max" ]
-                    }, {
-                      "type" : "integer",
-                      "description" : "si solo se envia un valor numerico se realizará la busqueda del valor exacto",
-                      "example" : 2000
-                    } ]
+                      "max" : {
+                        "type" : "integer",
+                        "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
+                        "example" : 4000
+                      }
+                    }
                   },
                   "formaAdquisicion" : {
                     "type" : "string",
@@ -438,74 +422,50 @@
                   },
                   "valorAdquisicion" : {
                     "description" : "Valor númerico del precio de adquisición",
-                    "anyOf" : [ {
-                      "type" : "object",
-                      "properties" : {
-                        "min" : {
-                          "type" : "integer",
-                          "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
-                          "example" : 2000
-                        },
-                        "max" : {
-                          "type" : "integer",
-                          "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
-                          "example" : 4000
-                        }
+                    "properties" : {
+                      "min" : {
+                        "type" : "integer",
+                        "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
+                        "example" : 2000
                       },
-                      "required" : [ "min", "max" ]
-                    }, {
-                      "type" : "integer",
-                      "description" : "si solo se envia un valor numerico se realizará la busqueda del valor exacto",
-                      "example" : 2000
-                    } ]
+                      "max" : {
+                        "type" : "integer",
+                        "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
+                        "example" : 4000
+                      }
+                    }
                   }
                 }
               },
               "totalIngresosMensualesNetos" : {
                 "description" : "Valor numérico del ingreso mensual neto a buscar",
-                "anyOf" : [ {
-                  "type" : "object",
-                  "properties" : {
-                    "min" : {
-                      "type" : "integer",
-                      "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
-                      "example" : 2000
-                    },
-                    "max" : {
-                      "type" : "integer",
-                      "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
-                      "example" : 4000
-                    }
+                "properties" : {
+                  "min" : {
+                    "type" : "integer",
+                    "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
+                    "example" : 2000
                   },
-                  "required" : [ "min", "max" ]
-                }, {
-                  "type" : "integer",
-                  "description" : "si solo se envia un valor numerico se realizará la busqueda del valor exacto",
-                  "example" : 2000
-                } ]
+                  "max" : {
+                    "type" : "integer",
+                    "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
+                    "example" : 4000
+                  }
+                }
               },
               "edad" : {
                 "description" : "busqueda por edad del declarante",
-                "anyOf" : [ {
-                  "type" : "object",
-                  "properties" : {
-                    "min" : {
-                      "type" : "integer",
-                      "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
-                      "example" : 18
-                    },
-                    "max" : {
-                      "type" : "integer",
-                      "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
-                      "example" : 28
-                    }
+                "properties" : {
+                  "min" : {
+                    "type" : "integer",
+                    "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
+                    "example" : 18
                   },
-                  "required" : [ "min", "max" ]
-                }, {
-                  "type" : "integer",
-                  "description" : "si solo se envia un valor numerico se realizará la busqueda del valor exacto",
-                  "example" : 18
-                } ]
+                  "max" : {
+                    "type" : "integer",
+                    "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
+                    "example" : 28
+                  }
+                }
               },
               "rfcSolicitante" : {
                 "type" : "string",

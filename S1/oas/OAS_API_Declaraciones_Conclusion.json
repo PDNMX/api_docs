@@ -356,7 +356,7 @@
                     "example" : "Instituto Federal de Telecomunicaciones"
                   },
                   "entidadFederativa" : {
-                    "type" : "integer",
+                    "type" : "string",
                     "description" : "Clave de la entidad federativa del Marco Geoestadístico Nacional",
                     "example" : "01"
                   },

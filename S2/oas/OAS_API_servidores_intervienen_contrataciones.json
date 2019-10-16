@@ -200,10 +200,10 @@
                 "description" : "Campo a ordenar de forma ascendente o descente",
                 "example" : "asc"
               },
-              "institucionDependencia.nombre" : {
+              "institucionDependencia" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
-                "description" : "Campo a ordenar de forma ascendente o descente",
+                "description" : "Campo a ordenar de forma ascendente o descente, se debe ordenar por el valor",
                 "example" : "asc"
               },
               "puesto" : {
@@ -224,13 +224,13 @@
             "description" : "Número de registros a mostrar por página, el máximo permitido es doscientos y el mínimo uno, por defecto muestra diez registros.",
             "example" : 10
           },
-          "id" : {
-            "type" : "string",
-            "description" : "Devuelve resultados al buscar un servidor público por su ID. Si se especifica este valor, el objeto query es omitido.",
-            "example" : "123abc"
-          },
           "query" : {
             "properties" : {
+              "id" : {
+                "type" : "string",
+                "description" : "Devuelve resultados al buscar un servidor público por su ID. Si se especifica este valor, el objeto query es omitido.",
+                "example" : "123abc"
+              },
               "nombres" : {
                 "type" : "string",
                 "description" : "Nombres o nombre de la persona.",
@@ -271,13 +271,13 @@
                   "description" : "Tipos de procedimiento en los que puede participar el Servidor Público. Valores permitidos [1,2,3,4].  1.- Contrataciones Públicas 2.- Concesiones, licencias, permisos, autorizaciones y prórrogas 3.- Enajenación de bienes muebles 4.- Asignación y emisión de dictámenes de avalúos nacionales"
                 },
                 "example" : [ 1, 2 ]
+              },
+              "rfcSolicitante" : {
+                "type" : "string",
+                "description" : "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
+                "example" : "GOAP780710RH7"
               }
             }
-          },
-          "rfcSolicitante" : {
-            "type" : "string",
-            "description" : "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
-            "example" : "GOAP780710RH7"
           }
         }
       },

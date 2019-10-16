@@ -1,0 +1,3013 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "version" : "2.0",
+    "title" : "API de las declaraciones de los servidores públicos"
+  },
+  "paths" : {
+    "/v2/declaraciones" : {
+      "post" : {
+        "tags" : [ "declaraciones" ],
+        "summary" : "Muestra las declaraciones de los servidores públicos permitiendo búsquedas avanzadas",
+        "operationId" : "post_declaraciones",
+        "requestBody" : {
+          "description" : "JSON para peticiones de búsqueda avanzada",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/reqDeclaraciones"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/resDeclaraciones"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Página inválida",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/resError"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "No tienes permisos",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/resError"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/resError"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "declaraciones_auth" : [ "read:declaraciones" ]
+        } ]
+      }
+    }
+  },
+  "externalDocs" : {
+    "description" : "Más información",
+    "url" : "https://github.com/PDNMX/api_docs"
+  },
+  "components" : {
+    "securitySchemes" : {
+      "declaraciones_auth" : {
+        "type" : "oauth2",
+        "flows" : {
+          "implicit" : {
+            "authorizationUrl" : "/oauth",
+            "scopes" : { }
+          }
+        }
+      }
+    },
+    "schemas" : {
+      "resDeclaraciones" : {
+        "type" : "object",
+        "required" : [ "pagination", "results" ],
+        "properties" : {
+          "pagination" : {
+            "type" : "object",
+            "required" : [ "pageSize", "page", "totalRows", "hasNextPage" ],
+            "properties" : {
+              "pageSize" : {
+                "type" : "integer",
+                "minimum" : 1,
+                "description" : "Tamaño de registros mostrados por página. Por defecto son diez.",
+                "example" : 100
+              },
+              "page" : {
+                "type" : "integer",
+                "minimum" : 1,
+                "description" : "Número de página actual",
+                "example" : 20
+              },
+              "totalRows" : {
+                "type" : "integer",
+                "description" : "Total de registros",
+                "example" : 30
+              },
+              "hasNextPage" : {
+                "type" : "boolean",
+                "description" : "Indica si existe otra página",
+                "example" : true
+              }
+            }
+          },
+          "results" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "id" : {
+                  "type" : "string",
+                  "description" : "Identificador del declarante con valor alfanumérico",
+                  "example" : "a1b2c3d4"
+                },
+                "metadata" : {
+                  "type" : "object",
+                  "properties" : {
+                    "actualizacion" : {
+                      "type" : "string",
+                      "format" : "date-time",
+                      "description" : "Fecha y hora en la que se presentó la declaración",
+                      "example" : "2017-07-21T17:32:28Z"
+                    },
+                    "institucion" : {
+                      "type" : "string",
+                      "description" : "Institucion resposanble del sistema de captura",
+                      "example" : "Secretaría de Educación Pública"
+                    },
+                    "contacto" : {
+                      "type" : "string",
+                      "format" : "email",
+                      "description" : "Correo de contacto de la persona resposanble del sistema de captura",
+                      "example" : "usuario@dominio.org"
+                    },
+                    "personaContacto" : {
+                      "type" : "string",
+                      "description" : "Nombre de la persona resposanble del sistema de captura",
+                      "example" : "José John"
+                    },
+                    "tipo" : {
+                      "type" : "string",
+                      "description" : "indica el tipo de declaración",
+                      "enum" : [ "INICIAL", "MODIFICACIÓN", "CONCLUCIÓN" ],
+                      "example" : "CONCLUCIÓN"
+                    }
+                  }
+                },
+                "declaracion" : {
+                  "type" : "object",
+                  "properties" : {
+                    "situacionPatrimonial" : {
+                      "type" : "object",
+                      "properties" : {
+                        "datosGenerales" : {
+                          "$ref" : "#/components/schemas/datosGenerales"
+                        },
+                        "domicilioDeclarante" : {
+                          "$ref" : "#/components/schemas/domicilioDeclarante"
+                        },
+                        "datosCurricularesDeclarante" : {
+                          "$ref" : "#/components/schemas/datosCurricularesDeclarante"
+                        },
+                        "datosEmpleoCargoComision" : {
+                          "$ref" : "#/components/schemas/datosEmpleoCargoComision"
+                        },
+                        "experienciaLaboral" : {
+                          "$ref" : "#/components/schemas/experienciaLaboral"
+                        },
+                        "datosPareja" : {
+                          "$ref" : "#/components/schemas/datosPareja"
+                        },
+                        "datosDependienteEconomico" : {
+                          "$ref" : "#/components/schemas/datosDependientesEconomicos"
+                        },
+                        "ingresos" : {
+                          "$ref" : "#/components/schemas/ingresos"
+                        },
+                        "actividadAnualAnterior" : {
+                          "$ref" : "#/components/schemas/actividadAnualAnterior"
+                        },
+                        "bienesInmuebles" : {
+                          "$ref" : "#/components/schemas/bienesInmuebles"
+                        },
+                        "vehiculos" : {
+                          "$ref" : "#/components/schemas/vehiculos"
+                        },
+                        "bienesMuebles" : {
+                          "$ref" : "#/components/schemas/bienesMuebles"
+                        },
+                        "inversiones" : {
+                          "$ref" : "#/components/schemas/inversionesCuentasValores"
+                        },
+                        "adeudos" : {
+                          "$ref" : "#/components/schemas/adeudosPasivos"
+                        },
+                        "prestamoOComodato" : {
+                          "$ref" : "#/components/schemas/prestamoComodato"
+                        }
+                      }
+                    },
+                    "interes" : {
+                      "type" : "object",
+                      "properties" : {
+                        "participacion" : {
+                          "$ref" : "#/components/schemas/participacion"
+                        },
+                        "participacionTomaDecisiones" : {
+                          "$ref" : "#/components/schemas/participacionTomaDecisiones"
+                        },
+                        "apoyos" : {
+                          "$ref" : "#/components/schemas/apoyos"
+                        },
+                        "representacion" : {
+                          "$ref" : "#/components/schemas/representaciones"
+                        },
+                        "clientesPrincipales" : {
+                          "$ref" : "#/components/schemas/clientesPrincipales"
+                        },
+                        "beneficiosPrivados" : {
+                          "$ref" : "#/components/schemas/beneficiosPrivados"
+                        },
+                        "fideicomisos" : {
+                          "$ref" : "#/components/schemas/fideicomisos"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "reqDeclaraciones" : {
+        "type" : "object",
+        "properties" : {
+          "page" : {
+            "type" : "integer",
+            "description" : "Número de página a mostrar",
+            "example" : 1
+          },
+          "pageSize" : {
+            "type" : "integer",
+            "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
+            "example" : 10
+          },
+          "sort" : {
+            "type" : "object",
+            "properties" : {
+              "nombres" : {
+                "$ref" : "#/components/schemas/ordenamiento"
+              },
+              "primerApellido" : {
+                "$ref" : "#/components/schemas/ordenamiento"
+              },
+              "segundoApellido" : {
+                "$ref" : "#/components/schemas/ordenamiento"
+              },
+              "escolaridadNivel" : {
+                "$ref" : "#/components/schemas/ordenamiento"
+              },
+              "datosEmpleoCargoComision" : {
+                "type" : "object",
+                "properties" : {
+                  "nombreEntePublico" : {
+                    "$ref" : "#/components/schemas/ordenamiento"
+                  },
+                  "entidadFederativa" : {
+                    "$ref" : "#/components/schemas/ordenamiento"
+                  },
+                  "municipioAlcaldia" : {
+                    "$ref" : "#/components/schemas/ordenamiento"
+                  },
+                  "empleoCargoComision" : {
+                    "$ref" : "#/components/schemas/ordenamiento"
+                  },
+                  "nivelEmpleoCargoComision" : {
+                    "$ref" : "#/components/schemas/ordenamiento"
+                  },
+                  "nivelOrdenGobierno" : {
+                    "$ref" : "#/components/schemas/ordenamiento"
+                  },
+                  "totalIngresosMensualesNetos" : {
+                    "$ref" : "#/components/schemas/ordenamiento"
+                  }
+                }
+              },
+              "bienesInmuebles" : {
+                "type" : "object",
+                "properties" : {
+                  "superficieConstruccion" : {
+                    "$ref" : "#/components/schemas/ordenamiento"
+                  },
+                  "superficieTerreno" : {
+                    "$ref" : "#/components/schemas/ordenamiento"
+                  },
+                  "formaAdquisicion" : {
+                    "$ref" : "#/components/schemas/ordenamiento"
+                  },
+                  "valorAdquisicion" : {
+                    "$ref" : "#/components/schemas/ordenamiento"
+                  }
+                }
+              }
+            }
+          },
+          "query" : {
+            "properties" : {
+              "id" : {
+                "type" : "string",
+                "description" : "Devuelve resultados al buscar una declaración por su ID. Si se especifica este valor, el objeto query es omitido.",
+                "example" : "123abc"
+              },
+              "nombres" : {
+                "type" : "string",
+                "description" : "Nombres o nombre de la persona.",
+                "example" : "Juan Pedro"
+              },
+              "primerApellido" : {
+                "type" : "string",
+                "description" : "Primer apellido de la persona.",
+                "example" : "Tenorio"
+              },
+              "segundoApellido" : {
+                "type" : "string",
+                "description" : "Segundo apellido de la persona.",
+                "example" : "Calderón"
+              },
+              "escolaridadNivel" : {
+                "type" : "string",
+                "description" : "codigo del nivel de estudios a buscar",
+                "example" : "DOC"
+              },
+              "datosEmpleoCargoComision" : {
+                "type" : "object",
+                "properties" : {
+                  "nombreEntePublico" : {
+                    "type" : "string",
+                    "description" : "Se deberá señalar el Ente Público o entidad que corresponda en la que el Servidor Público Declarante ejerza el encargo.",
+                    "example" : "Instituto Federal de Telecomunicaciones"
+                  },
+                  "entidadFederativa" : {
+                    "type" : "integer",
+                    "description" : "Clave de la entidad federativa del Marco Geoestadístico Nacional",
+                    "example" : "01"
+                  },
+                  "municipioAlcaldia" : {
+                    "type" : "string",
+                    "description" : "Clave de municipio del Marco Geoestadístico Nacional",
+                    "example" : "001"
+                  },
+                  "empleoCargoComision" : {
+                    "type" : "string",
+                    "description" : "Empleo, cargo o comisión. Señalar el nombre del empleo, cargo o comisión, nombramiento, contrato u oficio de comisión.",
+                    "example" : "Director del Sistema Nacional de Infraestructura"
+                  },
+                  "nivelOrdenGobierno" : {
+                    "type" : "string",
+                    "description" : "Codigo del nivel/orden de gobierno a buscar",
+                    "example" : "EST"
+                  },
+                  "nivelEmpleoCargoComision" : {
+                    "type" : "string",
+                    "description" : "Nivel del empleo, cargo o comisión.",
+                    "example" : "CA0001"
+                  }
+                }
+              },
+              "bienesInmuebles" : {
+                "type" : "object",
+                "properties" : {
+                  "superficieConstruccion" : {
+                    "description" : "Se deberá señalar en metros cuadrados con valor numérico la\nsuperficie correspondiente a construcción respecto del bien\ninmueble que se declare.",
+                    "anyOf" : [ {
+                      "type" : "object",
+                      "properties" : {
+                        "min" : {
+                          "type" : "integer",
+                          "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
+                          "example" : 2000
+                        },
+                        "max" : {
+                          "type" : "integer",
+                          "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
+                          "example" : 4000
+                        }
+                      },
+                      "required" : [ "min", "max" ]
+                    }, {
+                      "type" : "integer",
+                      "description" : "si solo se envia un valor numerico se realizará la busqueda del valor exacto",
+                      "example" : 2000
+                    } ]
+                  },
+                  "superficieTerreno" : {
+                    "description" : "Se deberá señalar en metros cuadrados la superficie total\ncorrespondiente al terreno respecto del bien inmueble que se\ndeclare.",
+                    "anyOf" : [ {
+                      "type" : "object",
+                      "properties" : {
+                        "min" : {
+                          "type" : "integer",
+                          "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
+                          "example" : 2000
+                        },
+                        "max" : {
+                          "type" : "integer",
+                          "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
+                          "example" : 4000
+                        }
+                      },
+                      "required" : [ "min", "max" ]
+                    }, {
+                      "type" : "integer",
+                      "description" : "si solo se envia un valor numerico se realizará la busqueda del valor exacto",
+                      "example" : 2000
+                    } ]
+                  },
+                  "formaAdquisicion" : {
+                    "type" : "string",
+                    "description" : "Código de la forma de adquisicion",
+                    "example" : "CES"
+                  },
+                  "valorAdquisicion" : {
+                    "description" : "Valor númerico del precio de adquisición",
+                    "anyOf" : [ {
+                      "type" : "object",
+                      "properties" : {
+                        "min" : {
+                          "type" : "integer",
+                          "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
+                          "example" : 2000
+                        },
+                        "max" : {
+                          "type" : "integer",
+                          "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
+                          "example" : 4000
+                        }
+                      },
+                      "required" : [ "min", "max" ]
+                    }, {
+                      "type" : "integer",
+                      "description" : "si solo se envia un valor numerico se realizará la busqueda del valor exacto",
+                      "example" : 2000
+                    } ]
+                  }
+                }
+              },
+              "totalIngresosMensualesNetos" : {
+                "description" : "Valor numérico del ingreso mensual neto a buscar",
+                "anyOf" : [ {
+                  "type" : "object",
+                  "properties" : {
+                    "min" : {
+                      "type" : "integer",
+                      "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
+                      "example" : 2000
+                    },
+                    "max" : {
+                      "type" : "integer",
+                      "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
+                      "example" : 4000
+                    }
+                  },
+                  "required" : [ "min", "max" ]
+                }, {
+                  "type" : "integer",
+                  "description" : "si solo se envia un valor numerico se realizará la busqueda del valor exacto",
+                  "example" : 2000
+                } ]
+              },
+              "edad" : {
+                "description" : "busqueda por edad del declarante",
+                "anyOf" : [ {
+                  "type" : "object",
+                  "properties" : {
+                    "min" : {
+                      "type" : "integer",
+                      "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
+                      "example" : 18
+                    },
+                    "max" : {
+                      "type" : "integer",
+                      "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
+                      "example" : 28
+                    }
+                  },
+                  "required" : [ "min", "max" ]
+                }, {
+                  "type" : "integer",
+                  "description" : "si solo se envia un valor numerico se realizará la busqueda del valor exacto",
+                  "example" : 18
+                } ]
+              },
+              "rfcSolicitante" : {
+                "type" : "string",
+                "description" : "RFC de la persona quien hace la consulta, si se omite este parámetro, se enviaran solo los datos públicos",
+                "example" : "GOAP780710RH7"
+              }
+            }
+          }
+        }
+      },
+      "resError" : {
+        "description" : "Estos valores son definidos por el sistema del API.",
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "string",
+            "description" : "Código alfa numérico del error de la consulta.",
+            "example" : "abc123"
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Texto descriptivo para el usuario final del error en la consulta",
+            "example" : "Error al formar la consulta, revise el formato de los campos."
+          }
+        }
+      },
+      "ordenamiento" : {
+        "type" : "string",
+        "enum" : [ "asc", "desc" ],
+        "description" : "Campo a ordenar de forma ascendente (asc) o descendente (desc).",
+        "example" : "asc"
+      },
+      "datosGenerales" : {
+        "type" : "object",
+        "properties" : {
+          "nombre" : {
+            "type" : "string",
+            "description" : "Nombre(s) del declarante",
+            "example" : "Pedro"
+          },
+          "primerApellido" : {
+            "type" : "string",
+            "description" : "Primer apellido",
+            "example" : "Perez"
+          },
+          "segundoApellido" : {
+            "type" : "string",
+            "description" : "Segundo apellido",
+            "example" : "García"
+          },
+          "curp" : {
+            "type" : "string",
+            "maxLength" : 18,
+            "description" : "Escribir los dieciocho caracteres como la emitió la Secretaría de Gobernación. En caso de no contar con ella, podrá consultarla en la página de la Secretaría de Gobernación, en el apartado de Trámites.",
+            "example" : "BADD110313HCMLNS09"
+          },
+          "rfc" : {
+            "type" : "object",
+            "properties" : {
+              "rfc" : {
+                "type" : "string",
+                "maxLength" : 10,
+                "description" : "Registro Federal de Contribuyentes",
+                "example" : "PEGP871229"
+              },
+              "homoClave" : {
+                "type" : "string",
+                "maxLength" : 3,
+                "description" : "Homoclave",
+                "example" : "B55"
+              }
+            }
+          },
+          "correoElectronico" : {
+            "type" : "object",
+            "properties" : {
+              "institucional" : {
+                "type" : "string",
+                "description" : "Escribir la dirección de correo electrónico que le haya sido asignada por el Ente Público en el que labora.",
+                "example" : "pedro.perez@dependencia.gob.mx"
+              },
+              "personal" : {
+                "type" : "string",
+                "description" : "Escribir la dirección de correo electrónico que el Declarante haya generado para uso personal. En caso de no contar con él, deberá generar una cuenta.",
+                "example" : "pedro.perez@xmail.mx"
+              }
+            }
+          },
+          "telefono" : {
+            "type" : "object",
+            "properties" : {
+              "casa" : {
+                "type" : "string",
+                "description" : "Escribir el número telefónico de su domicilio, incluir lada.",
+                "example" : "5556655555"
+              },
+              "celularPersonal" : {
+                "type" : "string",
+                "description" : "Escribir los diez dígitos de su número celular.",
+                "example" : "5555778833"
+              }
+            }
+          },
+          "situacionPersonalEstadoCivil" : {
+            "type" : "object",
+            "properties" : {
+              "clave" : {
+                "type" : "string",
+                "enum" : [ "SOL", "CAS", "DIV", "VIU", "CON", "SCO" ],
+                "description" : "Significado de Claves:\n  * `SOL` - SOLTERO (A)\n  * `CAS` - CASADO (A)\n  * `DIV` - DIVORCIADO (A)\n  * `VIU` - VIUDO (A)\n  * `CON` - CONCUBINA/CONCUBINARIO/UNIÓN LIBRE\n  * `SCO` - SOCIEDAD DE CONVIVENCIA\n",
+                "example" : "CAS"
+              },
+              "valor" : {
+                "type" : "string",
+                "enum" : [ "SOLTERO (A)", "CASADO (A)", "DIVORCIADO (A)", "VIUDO (A)", "CONCUBINA/CONCUBINARIO/UNIÓN LIBRE", "SOCIEDAD DE CONVIVENCIA" ],
+                "description" : "Es la condición del Declarante en función de si tiene o no Pareja, según sus circunstancias o situación legal respecto a ello.",
+                "example" : "CASADO (A)"
+              }
+            }
+          },
+          "regimenMatrimonial" : {
+            "type" : "object",
+            "properties" : {
+              "clave" : {
+                "type" : "string",
+                "enum" : [ "SOC", "SBI", "OTR" ],
+                "description" : "Significado de las Claves:\n* `SOC` - SOCIEDAD CONYUGAL\n* `SBI` - SEPARACIÓN DE BIENES\n* `OTR` - OTRO\n",
+                "example" : "SBI"
+              },
+              "valor" : {
+                "type" : "string",
+                "description" : "En su caso, especificar, sociedad conyugal, separación de bienes u otro/especifique.",
+                "example" : "Separación de Bienes"
+              }
+            }
+          },
+          "paisNacimiento" : {
+            "$ref" : "#/components/schemas/pais"
+          },
+          "nacionalidad" : {
+            "$ref" : "#/components/schemas/pais"
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "Observaciones"
+          }
+        }
+      },
+      "domicilioDeclarante" : {
+        "type" : "object",
+        "properties" : {
+          "domicilioMexico" : {
+            "$ref" : "#/components/schemas/domicilioMexico"
+          },
+          "domicilioExtranjero" : {
+            "$ref" : "#/components/schemas/domicilioExtranjero"
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "Observaciones"
+          }
+        }
+      },
+      "datosCurricularesDeclarante" : {
+        "type" : "object",
+        "properties" : {
+          "escolaridad" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "tipoOperacion" : {
+                  "$ref" : "#/components/schemas/tipoOperacion"
+                },
+                "nivel" : {
+                  "type" : "object",
+                  "description" : "El Declarante deberá elegir alguna de las siguientes opciones: primaria, secundaria, bachillerato, carrera técnica o comercial, licenciatura, especialidad, maestría odoctoradoo.",
+                  "properties" : {
+                    "clave" : {
+                      "type" : "string",
+                      "example" : "PRI",
+                      "enum" : [ "PRI", "SEC", "CTC", "LIC", "ESP", "MAE", "DOC" ],
+                      "description" : "Significado de Claves:\n* `PRI` - PRIMARIA\n* `SEC` - SECUNDARIA\n* `BCH` - BACHILLERATO\n* `CTC` - CARRERA TÉCNICA O COMERCIAL\n* `LIC` - LICENCIATURA\n* `ESP` - ESPECIALIDAD\n* `MAE` - MAESTRÍA\n* `DOC` - DOCTORADO\n"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "enum" : [ "PRIMARIA", "SECUNDARIA", "BACHILLERATO", "CARRERA TÉCNICA O COMERCIAL", "LICENCIATURA", "ESPECIALIDAD", "MAESTRÍA", "DOCTORADO" ],
+                      "example" : "DOCTORADO"
+                    }
+                  }
+                },
+                "institucionEducativa" : {
+                  "type" : "object",
+                  "properties" : {
+                    "nombre" : {
+                      "type" : "string",
+                      "description" : "Institución educativa. Escribir el nombre de la institución o escuela donde se realizaron los estudios.",
+                      "example" : "Institúto Politécnico Nacional"
+                    },
+                    "ubicacion" : {
+                      "type" : "string",
+                      "enum" : [ "MX", "EX" ],
+                      "description" : "Señalar si se ubica en México o en el extranjero.",
+                      "example" : "MX"
+                    }
+                  }
+                },
+                "carreraAreaConocimiento" : {
+                  "type" : "string",
+                  "description" : "Escribir el nombre de la carrera o de los estudios realizados.",
+                  "example" : "Ciencias de la Computación"
+                },
+                "estatus" : {
+                  "type" : "string",
+                  "description" : "Seleccionar si se encuentra cursando los estudios, finalizado o trunco.",
+                  "enum" : [ "CURSANDO", "FINALIZADO", "TRUNCO" ],
+                  "example" : "TRUNCO"
+                },
+                "documentoObtenido" : {
+                  "type" : "string",
+                  "enum" : [ "BOLETA", "CERTIFICADO", "CONSTANCIA", "TÍTULO" ]
+                },
+                "fechaObtencion" : {
+                  "type" : "string",
+                  "format" : "date",
+                  "description" : "Señalar la fecha que indica el documento obtenido.",
+                  "example" : "2017-11-29"
+                }
+              }
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "Observaciones"
+          }
+        }
+      },
+      "datosEmpleoCargoComision" : {
+        "type" : "object",
+        "properties" : {
+          "tipoOperacion" : {
+            "$ref" : "#/components/schemas/tipoOperacion"
+          },
+          "nivelOrdenGobierno" : {
+            "$ref" : "#/components/schemas/nivelOrdenGobierno"
+          },
+          "ambitoPublico" : {
+            "$ref" : "#/components/schemas/ambitoPublico"
+          },
+          "nombreEntePublico" : {
+            "type" : "string",
+            "description" : "Señalar el Ente Público al cual se encuentra adscrita la plaza.",
+            "example" : "Instituto Federal de Telecomunicaciones"
+          },
+          "areaAdscripcion" : {
+            "type" : "string",
+            "description" : "Especificar el nombre de la Unidad Administrativa u homóloga superior inmediata de su adscripción. (Superior jerárquico).",
+            "example" : "Unidad del Espectro Radioelectrico"
+          },
+          "empleoCargoComision" : {
+            "type" : "string",
+            "description" : "Señalar el nombre del empleo, cargo o comisión que aparece en su recibo de nómina, nombramiento, contrato u oficio de comisión.",
+            "example" : "Director del Sistema Nacional de Infraestructura"
+          },
+          "contratadoPorHonorarios" : {
+            "type" : "boolean",
+            "description" : "Indicar sí o no (true o false)",
+            "example" : false
+          },
+          "nivelEmpleoCargoComision" : {
+            "type" : "string",
+            "description" : "Elegir conforme a lo que señala su recibo de pago, en caso de no encontrarse en la lista desplegable, señalar otro y especificar.",
+            "example" : "L31"
+          },
+          "funcionPrincipal" : {
+            "type" : "string",
+            "description" : "Señalar cuál es la función o actividad principal que desempeña en su empleo, cargo o comisión.",
+            "example" : "Coordinar, Dirigir, etc."
+          },
+          "fechaTomaPosesion" : {
+            "type" : "string",
+            "description" : "Señalar la fecha en que inició/concluyó el encargo.",
+            "example" : "2010-11-29"
+          },
+          "telefonoOficina" : {
+            "type" : "object",
+            "properties" : {
+              "telefono" : {
+                "type" : "string",
+                "description" : "Proporcionar el teléfono laboral y extensión según corresponda.",
+                "example" : "5522221212"
+              },
+              "extension" : {
+                "type" : "string",
+                "description" : "Proporcionar el teléfono laboral y extensión según corresponda.",
+                "example" : "1010"
+              }
+            }
+          },
+          "domicilioMexico" : {
+            "$ref" : "#/components/schemas/domicilioMexico"
+          },
+          "domicilioExtranjero" : {
+            "$ref" : "#/components/schemas/domicilioExtranjero"
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "Observaciones"
+          }
+        }
+      },
+      "experienciaLaboral" : {
+        "type" : "object",
+        "properties" : {
+          "ninguno" : {
+            "$ref" : "#/components/schemas/ninguno"
+          },
+          "experiencia" : {
+            "type" : "array",
+            "items" : {
+              "anyOf" : [ {
+                "type" : "object",
+                "properties" : {
+                  "tipoOperacion" : {
+                    "$ref" : "#/components/schemas/tipoOperacion"
+                  },
+                  "ambitoSector" : {
+                    "$ref" : "#/components/schemas/ambitoSector"
+                  },
+                  "nivelOrdenGobierno" : {
+                    "$ref" : "#/components/schemas/nivelOrdenGobierno"
+                  },
+                  "ambitoPublico" : {
+                    "$ref" : "#/components/schemas/ambitoPublico"
+                  },
+                  "nombreEntePublico" : {
+                    "type" : "string",
+                    "description" : "Señalar el Ente Público al cual se encuentra adscrita la plaza.",
+                    "example" : "Comisión Federal de Electricidad"
+                  },
+                  "areaAdscripcion" : {
+                    "type" : "string",
+                    "description" : "Especificar el nombre de la Unidad Administrativa u homóloga superior inmediata de su adscripción. (Superior jerárquico).",
+                    "example" : "Unidad de Concesiones y Servicios"
+                  },
+                  "empleoCargoComision" : {
+                    "type" : "string",
+                    "description" : "Señalar el nombre del empleo, cargo o comisión que aparece en su recibo de nómina, nombramiento, contrato u oficio de comisión.",
+                    "example" : "Titular de Unidad"
+                  },
+                  "funcionPrincipal" : {
+                    "type" : "string",
+                    "description" : "Señalar cual es la función o actividad principal que desempeñó.",
+                    "example" : "Dirigir, coordinar"
+                  },
+                  "fechaIngreso" : {
+                    "type" : "string",
+                    "description" : "Señalar la fecha en que inició empleo, cargo o comisión.",
+                    "example" : "2007-01-01"
+                  },
+                  "fechaEgreso" : {
+                    "type" : "string",
+                    "description" : "Señalar la fecha en que concluyó empleo, cargo o comisión.",
+                    "example" : "2010-01-01"
+                  },
+                  "ubicacion" : {
+                    "type" : "string",
+                    "enum" : [ "MX", "EX" ],
+                    "description" : "Señalar en México o en el extranjero.",
+                    "example" : "MX"
+                  }
+                }
+              }, {
+                "type" : "object",
+                "properties" : {
+                  "tipoOperacion" : {
+                    "$ref" : "#/components/schemas/tipoOperacion"
+                  },
+                  "ambitoSector" : {
+                    "$ref" : "#/components/schemas/ambitoSector"
+                  },
+                  "nombreEmpresaSociedadAsociacion" : {
+                    "type" : "string",
+                    "description" : "Proporcionar el nombre de la empresa, sociedad o asociación en la que laboró.",
+                    "example" : "Patito SA de CV"
+                  },
+                  "rfc" : {
+                    "type" : "string",
+                    "description" : "Proporcionar los 12 dígitos de la empresa en que laboró.",
+                    "example" : "IFZ110924CX1"
+                  },
+                  "area" : {
+                    "type" : "string",
+                    "description" : "Proporcionar el nombre del área en la cual estaba adscrito(A).",
+                    "example" : "Recursos Humanos"
+                  },
+                  "puesto" : {
+                    "type" : "string",
+                    "description" : "Proporcionar el nombre del puesto que desempeñó.",
+                    "example" : "Reclutador"
+                  },
+                  "sector" : {
+                    "$ref" : "#/components/schemas/sector"
+                  },
+                  "fechaIngreso" : {
+                    "type" : "string",
+                    "description" : "Señalar la fecha en que inició empleo, cargo o comisión.",
+                    "example" : "2005-07-07"
+                  },
+                  "fechaEgreso" : {
+                    "type" : "string",
+                    "description" : "Señalar la fecha en que concluyó empleo, cargo o comisión.",
+                    "example" : "2012-12-31"
+                  },
+                  "ubicacion" : {
+                    "type" : "string",
+                    "enum" : [ "MX", "EX" ],
+                    "example" : "MX",
+                    "description" : "Señalar si se ubica en México o en el extranjero"
+                  }
+                }
+              } ]
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "Observaciones"
+          }
+        }
+      },
+      "datosPareja" : {
+        "type" : "object",
+        "properties" : {
+          "ninguno" : {
+            "$ref" : "#/components/schemas/ninguno"
+          },
+          "tipoOperacion" : {
+            "$ref" : "#/components/schemas/tipoOperacion"
+          },
+          "nombre" : {
+            "type" : "string",
+            "description" : "Nombre(s)",
+            "example" : "Ariana"
+          },
+          "primerApellido" : {
+            "type" : "string",
+            "description" : "Primer Apellido",
+            "example" : "Moreno"
+          },
+          "segundoApellido" : {
+            "type" : "string",
+            "description" : "Segundo Apellido",
+            "example" : "Gomez"
+          },
+          "fechaNacimiento" : {
+            "type" : "string",
+            "description" : "Señalar la fecha de nacimiento de la Pareja",
+            "example" : "1990-12-01"
+          },
+          "rfc" : {
+            "type" : "string",
+            "description" : "Escribir los diez caracteres básicos con los tres caracteres de la homoclave.",
+            "example" : "MOGO901201B21"
+          },
+          "relacionConDeclarante" : {
+            "type" : "string",
+            "description" : "Seleccionar el tipo de relación entre las siguientes opciones: cónyuge, concubina/concubinario/unión libre o sociedad de convivencia.",
+            "enum" : [ "CÓNYUGE", "CONCUBINA/CONCUBINARIO/UNIÓN LIBRE", "SOCIEDAD DE CONVIVENCIA" ],
+            "example" : "Cónyuge"
+          },
+          "ciudadanoExtranjero" : {
+            "type" : "boolean",
+            "description" : "Deberá indicar sí o no (true/false), según el caso.",
+            "example" : false
+          },
+          "curp" : {
+            "type" : "string",
+            "description" : "Escribir los dieciocho caracteres como la emitió la Secretaría de Gobernación.",
+            "example" : "MOGO901201HVZRVR03"
+          },
+          "esDependienteEconomico" : {
+            "type" : "boolean",
+            "description" : "Si la manutención depende principalmente de los ingresos de la persona servidora pública Declarante, señalará sí, en caso contrario señalará no.",
+            "example" : true
+          },
+          "habitaDomicilioDeclarante" : {
+            "type" : "boolean",
+            "description" : "Indicar sí o no, la Pareja vive en el domicilio del Declarante.",
+            "example" : true
+          },
+          "lugarDondeReside" : {
+            "$ref" : "#/components/schemas/lugarDondeReside"
+          },
+          "domicilioMexico" : {
+            "$ref" : "#/components/schemas/domicilioMexico"
+          },
+          "domicilioExtranjero" : {
+            "$ref" : "#/components/schemas/domicilioExtranjero"
+          },
+          "actividadLaboral" : {
+            "type" : "object",
+            "description" : "Indicar si el cónyuge, concubina/concubinario o sociedad de convivencia, se encuentra trabajando actualmente, seleccionando alguno de los siguientes campos: privado, público, otro (especificar) o ninguno",
+            "properties" : {
+              "clave" : {
+                "type" : "string",
+                "description" : "Significado de las Claves:\n* `PRI` - PRIVADO\n* `PUB` - PUBLICO\n* `NIN` - NINGUNO\n* `OTR` - OTRO (ESPECIFIQUE)\n",
+                "example" : "PRI",
+                "enum" : [ "PRI", "PUB", "NIN", "OTR" ]
+              },
+              "valor" : {
+                "type" : "string",
+                "enum" : [ "PRIVADO", "PUBLICO", "NINGUNO", "OTRO (ESPECIFIQUE)" ],
+                "example" : "PRIVADO"
+              }
+            }
+          },
+          "actividadLaboralSectorPublico" : {
+            "type" : "object",
+            "properties" : {
+              "nivelOrdenGobierno" : {
+                "$ref" : "#/components/schemas/nivelOrdenGobierno"
+              },
+              "ambitoPublico" : {
+                "$ref" : "#/components/schemas/ambitoPublico"
+              },
+              "nombreEntePublico" : {
+                "type" : "string",
+                "description" : "Señalar el Ente Público al cual se encuentra adscrita la plaza.",
+                "example" : "Secretaría de Comunicaciones y Transportes"
+              },
+              "areaAdscripcion" : {
+                "type" : "string",
+                "description" : "Especificar el nombre de la Unidad Administrativa u homóloga superior inmediata en la que está adscrito. (Superior jerárquico).",
+                "example" : "Unidad de Asuntos Jurídicos"
+              },
+              "empleoCargoComision" : {
+                "type" : "string",
+                "description" : "Señalar el nombre del empleo, cargo o comisión que se establece en su recibo de nómina, nombramiento, contrato u oficio de comisión.",
+                "example" : "Titular de unidad"
+              },
+              "funcionPrincipal" : {
+                "type" : "string",
+                "description" : "Señalar cual es la función o actividad principal que desempeña su Pareja.",
+                "example" : "Dirigir, coordinar, etc."
+              },
+              "salarioMensualNeto" : {
+                "$ref" : "#/components/schemas/monto"
+              },
+              "fechaIngreso" : {
+                "type" : "string",
+                "description" : "Señalar la fecha en que inició empleo, cargo o comisión.",
+                "example" : "2010-01-01"
+              }
+            }
+          },
+          "actividadLaboralSectorPrivadoOtro" : {
+            "type" : "object",
+            "properties" : {
+              "nombreEmpresaSociedadAsociacion" : {
+                "type" : "string",
+                "description" : "Proporcionar el nombre de la empresa, sociedad o asociación en la que labora.",
+                "example" : "Patito SA de CV"
+              },
+              "empleoCargoComision" : {
+                "type" : "string",
+                "description" : "Proporcionar el nombre del puesto que desempeña.",
+                "example" : "Reclutador"
+              },
+              "rfc" : {
+                "type" : "string",
+                "description" : "Proporcionar los 12 dígitos de la empresa en que labora su cónyuge, concubina/concubinario o sociedad de convivencia.",
+                "example" : "IFD130924CX1"
+              },
+              "fechaIngreso" : {
+                "type" : "string",
+                "description" : "Señalar la fecha en que inició empleo, cargo o comisión.",
+                "example" : "2011-01-01"
+              },
+              "sector" : {
+                "$ref" : "#/components/schemas/sector"
+              },
+              "salarioMensualNeto" : {
+                "$ref" : "#/components/schemas/monto"
+              },
+              "proveedorContratistaGobierto" : {
+                "type" : "boolean",
+                "description" : "Señalar sí o no, la Pareja vende o presta algún servicio al gobierno.",
+                "example" : true
+              }
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "Observaciones"
+          }
+        }
+      },
+      "datosDependientesEconomicos" : {
+        "description" : "Proporcionar los datos de los dependientes económicos, que son aquellas personas, familiares o no, cuya manutención depende principalmente de los ingresos del Declarante.",
+        "type" : "object",
+        "properties" : {
+          "ninguno" : {
+            "$ref" : "#/components/schemas/ninguno"
+          },
+          "dependienteEconomico" : {
+            "description" : "Llenar toda la información por cada una de las personas que dependan económicamente del Declarante.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "tipoOperacion" : {
+                  "$ref" : "#/components/schemas/tipoOperacion"
+                },
+                "nombre" : {
+                  "type" : "string",
+                  "description" : "Nombre del dependiente económico",
+                  "example" : "Ana"
+                },
+                "primerApellido" : {
+                  "type" : "string",
+                  "description" : "Primer apellido del dependiente económico",
+                  "example" : "Ana"
+                },
+                "segundoApellido" : {
+                  "type" : "string",
+                  "description" : "Segundo apellido del dependiente económico",
+                  "example" : "Ana"
+                },
+                "fechaNacimiento" : {
+                  "type" : "string",
+                  "format" : "date",
+                  "description" : "Formato de fechas ISO 8601 con notación yyyy-mm-dd.",
+                  "example" : "2010-07-26"
+                },
+                "rfc" : {
+                  "type" : "string",
+                  "description" : "Escribir los diez caracteres básicos con los tres caracteres de la homoclave",
+                  "example" : "CYUW1234IK90"
+                },
+                "parentescoRelacion" : {
+                  "$ref" : "#/components/schemas/parentescoRelacion"
+                },
+                "extranjero" : {
+                  "type" : "boolean",
+                  "description" : "Indica si es extranjero o no",
+                  "example" : false
+                },
+                "curp" : {
+                  "description" : "Se deberá escribir los 18 caracteres de la Clave Única de\nRegistro de Población, como la emitió la Secretaría de\nGobernación. Este dato es información confidencial.",
+                  "type" : "string",
+                  "example" : "BEML920313HMCLNS09"
+                },
+                "habitaDomicilioDeclarante" : {
+                  "type" : "boolean",
+                  "description" : "Indicar sí o no, el dependiente económico vive en el domicilio del Declarante. ",
+                  "example" : false
+                },
+                "lugarDondeReside" : {
+                  "type" : "string",
+                  "description" : "En caso de que el dependiente económico, no viva en el domicilio del Declarante, indicar si vive en México, en el extranjero o si se desconoce.",
+                  "enum" : [ "MÉXICO", "EXTRANJERO", "SE DESCONOCE" ],
+                  "example" : "MÉXICO"
+                },
+                "domicilioMexico" : {
+                  "$ref" : "#/components/schemas/domicilioMexico"
+                },
+                "domicilioExtranjero" : {
+                  "$ref" : "#/components/schemas/domicilioExtranjero"
+                },
+                "actividadLaboral" : {
+                  "$ref" : "#/components/schemas/actividadLaboral"
+                },
+                "actividadLaboralSectorPublico" : {
+                  "type" : "object",
+                  "description" : "Si el dependiente económico se encuentra trabajando actualmente en el sector público",
+                  "properties" : {
+                    "nivelOrdenGobierno" : {
+                      "type" : "string",
+                      "description" : "Orden de gobierno en el que se encuentra",
+                      "enum" : [ "FEDERAL", "ESTATAL", "MUNICIPAL/ALCALDÍA" ],
+                      "example" : "FEDERAL"
+                    },
+                    "ambitoPublico" : {
+                      "type" : "string",
+                      "description" : "Naturaleza jurídica al que pertenece",
+                      "enum" : [ "EJECUTIVO", "LEGISLATIVO", "JUDICIAL", "ÓRGANO AUTÓNOMO" ],
+                      "example" : "ÓRGANO AUTÓNOMO"
+                    },
+                    "nombreEntePublico" : {
+                      "type" : "string",
+                      "description" : "Ente Púbico al cual se encuentra adscrita la plaza",
+                      "example" : "INSTITUTO NACIONAL ELECTORAL"
+                    },
+                    "areaAdscripcion" : {
+                      "type" : "string",
+                      "description" : "El nombre de la Unidad Administrativa u homóloga superior inmediata en la que está adscrito. (Superior jerárquico).",
+                      "example" : "Dirección de recursos financieros"
+                    },
+                    "empleoCargoComision" : {
+                      "type" : "string",
+                      "description" : "Nombre del empleo, cargo o comisión que se establece en su recibo de nómina, nombramiento, contrato u oficio de comisión",
+                      "example" : "Jefe de departamento de indicadores"
+                    },
+                    "funcionPrincipal" : {
+                      "type" : "string",
+                      "example" : "Generar indicadores de desempeño"
+                    },
+                    "salarioMensualNeto" : {
+                      "$ref" : "#/components/schemas/monto"
+                    },
+                    "fechaIngresoEmpleo" : {
+                      "type" : "string",
+                      "format" : "date",
+                      "description" : "Formato de fechas ISO 8601 con notación yyyy-mm-dd.",
+                      "example" : "2010-07-26"
+                    }
+                  }
+                },
+                "actividadLaboralSectorPrivadoOtro" : {
+                  "type" : "object",
+                  "properties" : {
+                    "nombreEmpresaSociedadAsociacion" : {
+                      "type" : "string",
+                      "description" : "Nombre de la empresa, sociedad o asociación en la que labora.",
+                      "example" : "La empresa S.A"
+                    },
+                    "rfc" : {
+                      "type" : "string",
+                      "description" : "Los 12 dígitos de la empresa en la que labora el dependiente económico",
+                      "example" : "CYUW1234IK90"
+                    },
+                    "empleoCargo" : {
+                      "type" : "string",
+                      "description" : "Nombre del puesto que desempeña",
+                      "example" : "Administrador de recursos"
+                    },
+                    "fechaIngresoEmpleo" : {
+                      "type" : "string",
+                      "format" : "date",
+                      "description" : "Formato de fechas ISO 8601 con notación yyyy-mm-dd.",
+                      "example" : "2010-07-26"
+                    },
+                    "salarioMensualNeto" : {
+                      "$ref" : "#/components/schemas/monto"
+                    }
+                  }
+                },
+                "proveedorContratistaGobierno" : {
+                  "type" : "boolean",
+                  "description" : "Señala sí o no, el dependiente económico vende o presta algún servicio al gobierno",
+                  "example" : false
+                },
+                "sector" : {
+                  "$ref" : "#/components/schemas/sector"
+                }
+              }
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "Aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "Esta es una aclaración"
+          }
+        }
+      },
+      "ingresos" : {
+        "type" : "object",
+        "description" : "Para la declaración de inicio los ingresos a reportar son mensuales.",
+        "properties" : {
+          "remuneracionConclusionCargoPublico" : {
+            "$ref" : "#/components/schemas/monto"
+          },
+          "otrosIngresosTotal" : {
+            "$ref" : "#/components/schemas/monto"
+          },
+          "actividadIndustialComercialEmpresarial" : {
+            "type" : "object",
+            "properties" : {
+              "remuneracion" : {
+                "$ref" : "#/components/schemas/monto"
+              },
+              "nombreRazonSocial" : {
+                "type" : "string",
+                "description" : "Nombre, razón social o denominación del negocio, en el cual se lleva a cabo la actividad o alguna de las actividades antes mencionadas por la cual se genera el ingreso.",
+                "example" : "La empresa"
+              },
+              "tipoNegocio" : {
+                "type" : "string",
+                "description" : "Tipo de negocio por el cual obtuvo el ingreso.",
+                "example" : "Venta de productos"
+              }
+            }
+          },
+          "actividadFinanciera" : {
+            "type" : "object",
+            "properties" : {
+              "remuneracion" : {
+                "$ref" : "#/components/schemas/monto"
+              },
+              "tipoInstrumento" : {
+                "$ref" : "#/components/schemas/tipoInstrumento"
+              }
+            }
+          },
+          "serviciosProfesionales" : {
+            "type" : "object",
+            "properties" : {
+              "remuneracion" : {
+                "$ref" : "#/components/schemas/monto"
+              },
+              "tipoServicio" : {
+                "type" : "string",
+                "description" : "Tipo de servicio que otorga, el tipo de participación en los consejos o consultorías, así como el tipo de asesorías que llevo a cabo.",
+                "example" : "Instructor de cursos"
+              }
+            }
+          },
+          "enajenacionBienes" : {
+            "type" : "object",
+            "properties" : {
+              "remuneracion" : {
+                "$ref" : "#/components/schemas/monto"
+              },
+              "tipoBienEnajenado" : {
+                "type" : "string",
+                "enum" : [ "MUEBLE", "INMUEBLE", "VEHICULO" ],
+                "description" : "Significado de Claves:\n  * `MUE` - MUEBLE\n  * `INM` - INMUEBLE\n  * `VEH` - VEHICULO\n",
+                "example" : "MUEBLE"
+              }
+            }
+          },
+          "otrosIngresos" : {
+            "type" : "object",
+            "properties" : {
+              "remuneracion" : {
+                "$ref" : "#/components/schemas/monto"
+              },
+              "tipoIngreso" : {
+                "type" : "string",
+                "description" : "Indicar si el ingreso derivó de arrendamiento, regalía, sorteos, concursos, donaciones, seguro de vida o algún otro concepto distinto no considerado en los rubros anteriores.",
+                "example" : "Sorteo"
+              }
+            }
+          },
+          "ingresoConclusionNetoDeclarante" : {
+            "$ref" : "#/components/schemas/monto"
+          },
+          "ingresoConclusionNetoParejaDependiente" : {
+            "$ref" : "#/components/schemas/monto"
+          },
+          "totalIngresosConclusionNetos" : {
+            "$ref" : "#/components/schemas/monto"
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "Aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "Esta es una aclaración"
+          }
+        }
+      },
+      "actividadAnualAnterior" : {
+        "type" : "object",
+        "properties" : {
+          "servidorPublicoAnioAnterior" : {
+            "type" : "boolean",
+            "description" : "Indica si se desempeño como servidor público en el año inmediato anterior",
+            "example" : true
+          },
+          "fechaIngreso" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Formato de fechas ISO 8601 con notación yyyy-mm-dd.",
+            "example" : "2010-07-26"
+          },
+          "fechaConclusion" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Formato de fechas ISO 8601 con notación yyyy-mm-dd.",
+            "example" : "2010-07-26"
+          },
+          "remuneracionNetaCargoPublico" : {
+            "$ref" : "#/components/schemas/monto"
+          },
+          "otrosIngresosTotal" : {
+            "$ref" : "#/components/schemas/monto"
+          },
+          "actividadIndustialComercialEmpresarial" : {
+            "type" : "object",
+            "properties" : {
+              "remuneracion" : {
+                "$ref" : "#/components/schemas/monto"
+              },
+              "nombreRazonSocial" : {
+                "type" : "string",
+                "example" : "La empresa S.A"
+              },
+              "tipoNegocio" : {
+                "type" : "string",
+                "description" : "Tipo de negocio por el cual obtuvo el ingreso",
+                "example" : "Distribuidora"
+              }
+            }
+          },
+          "actividadFinanciera" : {
+            "type" : "object",
+            "properties" : {
+              "remuneracion" : {
+                "$ref" : "#/components/schemas/monto"
+              },
+              "tipoInstrumento" : {
+                "$ref" : "#/components/schemas/tipoInstrumento"
+              }
+            }
+          },
+          "serviciosProfesionales" : {
+            "type" : "object",
+            "properties" : {
+              "remuneracion" : {
+                "$ref" : "#/components/schemas/monto"
+              },
+              "tipoServicio" : {
+                "type" : "string",
+                "description" : "Tipo de servicio que prestó, el tipo de participación en los consejos o consultorías, así como el tipo de asesorías que llevo a cabo.",
+                "example" : "Servicio"
+              }
+            }
+          },
+          "enajenacionBienes" : {
+            "type" : "object",
+            "properties" : {
+              "remuneracion" : {
+                "$ref" : "#/components/schemas/monto"
+              },
+              "tipoBien" : {
+                "type" : "string",
+                "enum" : [ "MUEBLE", "INMUEBLE", "VEHICULO" ],
+                "description" : "Significado de Claves:\n  * `MUE` - MUEBLE\n  * `INM` - INMUEBLE\n  * `VEH` - VEHICULO\n",
+                "example" : "MUEBLE"
+              }
+            }
+          },
+          "otrosIngresos" : {
+            "type" : "object",
+            "properties" : {
+              "remuneracion" : {
+                "$ref" : "#/components/schemas/monto"
+              },
+              "tipoIngreso" : {
+                "type" : "string",
+                "description" : "Indicar si el ingreso derivó de arrendamiento, regalía, sorteo, concurso, donación, seguro de vida o alguno distinto no considerado en los rubros anteriores.",
+                "example" : "Sorteo"
+              }
+            }
+          },
+          "ingresoNetoAnualDeclarante" : {
+            "$ref" : "#/components/schemas/monto"
+          },
+          "ingresoNetoAnualParejaDependiente" : {
+            "$ref" : "#/components/schemas/monto"
+          },
+          "totalIngresosNetosAnuales" : {
+            "$ref" : "#/components/schemas/monto"
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "Aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "Esta es una aclaración"
+          }
+        }
+      },
+      "bienesInmuebles" : {
+        "description" : "Reportar aquellos bienes que conforme a la normatividad aplicable se consideran inmuebles.",
+        "type" : "object",
+        "properties" : {
+          "ninguno" : {
+            "$ref" : "#/components/schemas/ninguno"
+          },
+          "bienInmueble" : {
+            "description" : "Llenar toda la información de cada uno de los bienes que conforme a la normatividad aplicable se consideran inmuebles.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "tipoOperacion" : {
+                  "$ref" : "#/components/schemas/tipoOperacion"
+                },
+                "tipoInmueble" : {
+                  "$ref" : "#/components/schemas/tipoInmueble"
+                },
+                "titular" : {
+                  "$ref" : "#/components/schemas/titularBien"
+                },
+                "porcentajePropiedad" : {
+                  "type" : "integer",
+                  "minimum" : 1,
+                  "maximum" : 100,
+                  "example" : 50
+                },
+                "superficieTerreno" : {
+                  "$ref" : "#/components/schemas/superficie"
+                },
+                "superficieConstruccion" : {
+                  "$ref" : "#/components/schemas/superficie"
+                },
+                "tercero" : {
+                  "$ref" : "#/components/schemas/tercero"
+                },
+                "transmisor" : {
+                  "$ref" : "#/components/schemas/transmisor"
+                },
+                "formaAdquisicion" : {
+                  "$ref" : "#/components/schemas/formaAdquisicion"
+                },
+                "formaPago" : {
+                  "$ref" : "#/components/schemas/formaPago"
+                },
+                "valorAdquisicion" : {
+                  "$ref" : "#/components/schemas/monto"
+                },
+                "fechaAdquiscion" : {
+                  "type" : "string",
+                  "format" : "date",
+                  "description" : "Formato de fechas ISO 8601 con notación yyyy-mm-dd.",
+                  "example" : "2010-07-26"
+                },
+                "datoIdentificacion" : {
+                  "type" : "string",
+                  "description" : "Número de escritura pública, folio real o cualquier dato que lo identifique",
+                  "example" : "F2019345"
+                },
+                "valorConformeA" : {
+                  "type" : "string",
+                  "enum" : [ "ESCRITURA PÚBLICA", "SENTENCIA", "CONTRATO" ],
+                  "example" : "ESCRITURA PÚBLICA",
+                  "description" : "Indicar si es conforme a escritura pública, sentencia o contrato"
+                },
+                "domicilioMexico" : {
+                  "$ref" : "#/components/schemas/domicilioMexico"
+                },
+                "domicilioExtranjero" : {
+                  "$ref" : "#/components/schemas/domicilioExtranjero"
+                },
+                "motivoBaja" : {
+                  "$ref" : "#/components/schemas/motivoBaja"
+                }
+              }
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "Aclaraciones u observaciones que se consideren pertinentes",
+            "example" : "Esta es una aclaración"
+          }
+        }
+      },
+      "vehiculos" : {
+        "description" : "Situación de los vehículos a la fecha de ingreso al empleo, cargo o comisión.",
+        "type" : "object",
+        "properties" : {
+          "ninguno" : {
+            "$ref" : "#/components/schemas/ninguno"
+          },
+          "vehiculo" : {
+            "description" : "Datos del vehículo declarado",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "tipoOperacion" : {
+                  "$ref" : "#/components/schemas/tipoOperacion"
+                },
+                "tipoVehiculo" : {
+                  "$ref" : "#/components/schemas/tipoVehiculo"
+                },
+                "titular" : {
+                  "$ref" : "#/components/schemas/titularBien"
+                },
+                "transmisor" : {
+                  "$ref" : "#/components/schemas/transmisor"
+                },
+                "marca" : {
+                  "type" : "string",
+                  "description" : "Marca",
+                  "example" : "Volkswagen"
+                },
+                "modelo" : {
+                  "type" : "string",
+                  "description" : "Modelo del vehículo de acuerdo a la marca",
+                  "example" : "Jetta"
+                },
+                "anio" : {
+                  "type" : "integer",
+                  "description" : "Año del vehículo",
+                  "example" : 2013
+                },
+                "numeroSerieRegistro" : {
+                  "type" : "string",
+                  "description" : "Número de serie o registro que aparece en la factura o tarjeta de circulación",
+                  "example" : "AA24309TMN8"
+                },
+                "tercero" : {
+                  "$ref" : "#/components/schemas/tercero"
+                },
+                "lugarRegistro" : {
+                  "type" : "object",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidadFederativa" : {
+                      "$ref" : "#/components/schemas/entidadFederativa"
+                    }
+                  }
+                },
+                "formaAdquisicion" : {
+                  "$ref" : "#/components/schemas/formaAdquisicion"
+                },
+                "formaPago" : {
+                  "$ref" : "#/components/schemas/formaPago"
+                },
+                "valorAdquisicion" : {
+                  "$ref" : "#/components/schemas/monto"
+                },
+                "fechaAdquisicion" : {
+                  "type" : "string",
+                  "format" : "date",
+                  "description" : "Formato de fechas ISO 8601 con notación yyyy-mm-dd.",
+                  "example" : "2010-07-26"
+                },
+                "motivoBaja" : {
+                  "$ref" : "#/components/schemas/motivoBaja"
+                }
+              }
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "Aclaraciones u observaciones pertinentes respecto de algunos de los incisos de este apartado",
+            "example" : "Esta es una observación    "
+          }
+        }
+      },
+      "bienesMuebles" : {
+        "type" : "object",
+        "properties" : {
+          "ninguno" : {
+            "$ref" : "#/components/schemas/ninguno"
+          },
+          "bienMueble" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "tipoOperacion" : {
+                  "$ref" : "#/components/schemas/tipoOperacion"
+                },
+                "titular" : {
+                  "$ref" : "#/components/schemas/titularBien"
+                },
+                "tipoBien" : {
+                  "type" : "object",
+                  "description" : "Seleccionar de la lista desplegable: menaje de casa (muebles y accesorios de casa), aparatos electrónicos y electrodomésticos, joyas, colecciones, obras de arte y otros, especifique.",
+                  "properties" : {
+                    "clave" : {
+                      "type" : "string",
+                      "enum" : [ "MECA", "APAE", "JOYA", "COLEC", "OBRA", "OTRO" ],
+                      "description" : "Significado de Claves:\n  * `MECA` - MENAJE DE CASA (MUEBLES Y ACCESORIOS DE CASA)\n  * `APAE` - APARATOS ELECTRÓNICOS Y ELECTRODOMÉSTICOS\n  * `JOYA` - JOYAS\n  * `COLEC` - COLECCIONES\n  * `OBRA` - OBRAS DE ARTE\n  * `OTRO` - OTROS (ESPECIFIQUE)\n",
+                      "example" : "MECA"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "example" : "MENAJE DE CASA (MUEBLES Y ACCESORIOS DE CASA)"
+                    }
+                  }
+                },
+                "transmisor" : {
+                  "$ref" : "#/components/schemas/transmisor"
+                },
+                "tercero" : {
+                  "$ref" : "#/components/schemas/tercero"
+                },
+                "descripcionGeneralBien" : {
+                  "type" : "string",
+                  "description" : "Referir brevemente el bien reportado.",
+                  "example" : "Está es una descripción del bien"
+                },
+                "formaAdquisicion" : {
+                  "$ref" : "#/components/schemas/formaAdquisicion"
+                },
+                "formaPago" : {
+                  "$ref" : "#/components/schemas/formaPago"
+                },
+                "valorAdquisicion" : {
+                  "$ref" : "#/components/schemas/monto"
+                },
+                "fechaAdquisicion" : {
+                  "type" : "string",
+                  "format" : "date",
+                  "description" : "Señalar la fecha de adquisición del mueble.",
+                  "example" : "2010-12-01"
+                },
+                "motivoBaja" : {
+                  "$ref" : "#/components/schemas/motivoBaja"
+                }
+              }
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "Soy una observación o aclaración"
+          }
+        }
+      },
+      "inversionesCuentasValores" : {
+        "type" : "object",
+        "properties" : {
+          "ninguno" : {
+            "$ref" : "#/components/schemas/ninguno"
+          },
+          "inversion" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "tipoOperacion" : {
+                  "$ref" : "#/components/schemas/tipoOperacion"
+                },
+                "tipoInversion" : {
+                  "type" : "object",
+                  "properties" : {
+                    "clave" : {
+                      "type" : "string",
+                      "enum" : [ "BANC", "FINV", "ORPM", "POMM", "SEGR", "VBUR", "AFOT" ],
+                      "description" : "Significado de Claves:\n  * `BANC` - BANCARIA\n  * `FINV` - FONDOS DE INVERSIÓN\n  * `ORPM` - ORGANIZACIONES PRIVADAS Y/O MERCANTILES\n  * `POMM` - POSESIÓN DE MONEDAS Y/O METALES\n  * `SEGR` - SEGUROS\n  * `VBUR` - VALORES BURSÁTILES\n  * `AFOT` - AFORES Y OTROS\n",
+                      "example" : "BANC"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "enum" : [ "BANCARIA", "FONDOS DE INVERSIÓN", "ORGANIZACIONES PRIVADAS Y/O MERCANTILES", "POSESIÓN DE MONEDAS Y/O METALES", "SEGUROS", "VALORES BURSÁTILES", "AFORES Y OTROS" ],
+                      "example" : "BANCARIA"
+                    }
+                  }
+                },
+                "subTipoInversion" : {
+                  "type" : "object",
+                  "properties" : {
+                    "clave" : {
+                      "type" : "string",
+                      "enum" : [ "CNOM", "CAHO", "CCHE", "CMAS", "CEJE", "DPLA", "SOIN", "IFEX", "ACCI", "CSAH", "CENT", "DIVS", "MONN", "ONZT", "CRIP", "SSIN", "SEGI", "SEGV", "ADER", "ABAN", "BGUB", "PCOM", "AFOR", "FIDE", "CTES", "PFTE" ],
+                      "description" : "Significado de Claves:\n  * tipoInversion - clave - valor\n  * BANC - `CNOM` - CUENTA DE NÓMINA\n  * BANC - `CAHO` - CUENTA DE AHORRO\n  * BANC - `CCHE` - CUENTA DE CHEQUES\n  * BANC - `CMAS` - CUENTA MAESTRA\n  * BANC - `CEJE` - CUENTA EJE\n  * BANC - `DPLA` - DEPÓSITO A PLAZOS\n  \n  * FINV - `SOIN` - SOCIEDADES DE INVERSIÓN\n  * FINV - `IFEX` - INVERSIONES FINANCIERAS EN EL EXTRANJERO\n  \n  * ORPM - `ACCI` - ACCIONES\n  * ORPM - `CSAH` - CAJAS DE AHORRO\n  \n  * POMM - `CENT` - CENTENARIOS\n  * POMM - `DIVS` - DIVISAS\n  * POMM - `MONN` - MONEDA NACIONAL\n  * POMM - `ONZT` - ONZAS TROY\n  * POMM - `CRIP` - CRIPTOMONEDAS\n  \n  * SEGR - `SSIN` - SEGURO DE SEPARACIÓN INDIVIDUALIZADO\n  * SEGR - `SEGI` - SEGURO DE INVERSIÓN\n  * SEGR - `SEGV` - SEGURO DE VIDA\n  \n  * VBUR - `ADER` - ACCIONES Y DERIVADOS\n  * VBUR - `ABAN` - ACEPTACIONES BANCARIAS\n  * VBUR - `BGUB` - BONOS GUBERNAMENTALES\n  * VBUR - `PCOM` - PAPEL COMERCIAL\n  \n  * AFOT - `AFOR` - AFORES\n  * AFOT - `FIDE` - FIDEICOMISOS\n  * AFOT - `CTES` - CERTIFICADOS DE LA TESORERÍA\n  * AFOT - `PFTE` - PRÉSTAMOS A FAVOR DE UN TERCERO\n",
+                      "example" : "CNOM"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "enum" : [ "CUENTA DE NÓMINA", "CUENTA DE AHORRO", "CUENTA DE CHEQUES", "CUENTA MAESTRA", "CUENTA EJE", "DEPÓSITO A PLAZOS", "SOCIEDADES DE INVERSIÓN", "INVERSIONES FINANCIERAS EN EL EXTRANJERO", "ACCIONES", "CAJAS DE AHORRO", "CENTENARIOS", "DIVISAS", "MONEDA NACIONAL", "ONZAS TROY", "CRIPTOMONEDAS", "SEGURO DE SEPARACIÓN INDIVIDUALIZADO", "SEGURO DE INVERSIÓN", "SEGURO DE VIDA", "ACCIONES Y DERIVADOS", "ACEPTACIONES BANCARIAS", "BONOS GUBERNAMENTALES", "PAPEL COMERCIAL", "AFORES", "FIDEICOMISOS", "CERTIFICADOS DE LA TESORERÍA", "PRÉSTAMOS A FAVOR DE UN TERCERO" ],
+                      "example" : "CUENTA DE NÓMINA"
+                    }
+                  }
+                },
+                "titular" : {
+                  "$ref" : "#/components/schemas/titularBien"
+                },
+                "tercero" : {
+                  "$ref" : "#/components/schemas/tercero"
+                },
+                "numeroCuentaContrato" : {
+                  "type" : "string",
+                  "description" : "Señalar el número de cuenta, contrato, póliza o cualquier dato que permita su identificación.",
+                  "example" : "abcd1234"
+                },
+                "localizacionInversion" : {
+                  "type" : "object",
+                  "description" : "Indicar si se encuentra en México o en el extranjero, debiendo señalar el país donde se localiza.",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "institucionRazonSocial" : {
+                      "type" : "string",
+                      "description" : "Señalar el nombre de la institución donde se encuentran registradas las inversiones cuentas o valores.",
+                      "example" : "Secretaría de la Función Pública"
+                    },
+                    "rfc" : {
+                      "type" : "string",
+                      "description" : "Señalar los doce dígitos correspondientes. (Si aplica).",
+                      "example" : "ABC680524P76"
+                    }
+                  }
+                },
+                "saldoDiciembreAnterior" : {
+                  "$ref" : "#/components/schemas/monto"
+                }
+              }
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "Soy una observación"
+          }
+        }
+      },
+      "adeudosPasivos" : {
+        "type" : "object",
+        "properties" : {
+          "ninguno" : {
+            "$ref" : "#/components/schemas/ninguno"
+          },
+          "adeudo" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "tipoOperacion" : {
+                  "$ref" : "#/components/schemas/tipoOperacion"
+                },
+                "titular" : {
+                  "$ref" : "#/components/schemas/titularBien"
+                },
+                "tipoAdeudo" : {
+                  "type" : "object",
+                  "properties" : {
+                    "clave" : {
+                      "type" : "string",
+                      "enum" : [ "CHIP", "CAUT", "CPER", "TCRN", "TCRD", "PRPE", "OTRO" ],
+                      "example" : "CAUT",
+                      "description" : "Significado de Claves:\n  * `CHIP` - CRÉDITO HIPOTECARIO \n  * `CAUT` - CRÉDITO AUTOMOTRIZ\n  * `CPER` - CRÉDITO PERSONAL\n  * `TCRN` - TARJETA DE CRÉDITO BANCARIA\n  * `TCRD` - TARJETA DE CRÉDITO DEPARTAMENTAL\n  * `PRPE` - PRÉSTAMO PERSONAL\n  * `OTRO` - OTROS (ESPECIFIQUE)\n"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "example" : "CRÉDITO AUTOMOTRIZ"
+                    }
+                  }
+                },
+                "numeroCuentaContrato" : {
+                  "type" : "string",
+                  "description" : "Señalar el número de contrato, cuenta o cualquier dato que permita su identificación, en caso de préstamo personal se indicará no aplica.",
+                  "example" : "abcd1234"
+                },
+                "fechaAdquision" : {
+                  "type" : "string",
+                  "description" : "Indicar la fecha en que adquirió el adeudo.",
+                  "example" : "2010-12-01"
+                },
+                "montoOriginal" : {
+                  "$ref" : "#/components/schemas/monto"
+                },
+                "saldoInsolutoFechaConclusion" : {
+                  "$ref" : "#/components/schemas/monto"
+                },
+                "tercero" : {
+                  "$ref" : "#/components/schemas/tercero"
+                },
+                "otorganteCredito" : {
+                  "type" : "object",
+                  "properties" : {
+                    "tipoPersona" : {
+                      "$ref" : "#/components/schemas/tipoPersona"
+                    },
+                    "nombreInstitucion" : {
+                      "type" : "string",
+                      "description" : "Señalar el nombre de la institución donde contrajo la deuda.",
+                      "example" : "Secretaría de la Función Pública"
+                    },
+                    "rfc" : {
+                      "type" : "string",
+                      "description" : "En caso de personas físicas proporcionar los trece dígitos. En caso de personas morales establecer los doce dígitos.",
+                      "example" : "ABC680524P76"
+                    }
+                  }
+                },
+                "localizacionAdeudo" : {
+                  "type" : "object",
+                  "description" : "Indicar si se encuentra en México o en el extranjero, debiendo señalar el país donde se localiza.",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "Soy una observación"
+          }
+        }
+      },
+      "prestamoComodato" : {
+        "type" : "object",
+        "properties" : {
+          "ninguno" : {
+            "$ref" : "#/components/schemas/ninguno"
+          },
+          "prestamo" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "tipoOperacion" : {
+                  "$ref" : "#/components/schemas/tipoOperacion"
+                },
+                "tipoBien" : {
+                  "type" : "object",
+                  "properties" : {
+                    "inmueble" : {
+                      "type" : "object",
+                      "description" : "Elegir alguna de las siguientes opciones: casa, departamento, edificio, local comercial, bodega, palco, rancho, terreno, otro (especifique).",
+                      "properties" : {
+                        "tipoInmueble" : {
+                          "$ref" : "#/components/schemas/tipoInmueble"
+                        },
+                        "domicilioMexico" : {
+                          "$ref" : "#/components/schemas/domicilioMexico"
+                        },
+                        "domicilioExtranjero" : {
+                          "$ref" : "#/components/schemas/domicilioExtranjero"
+                        }
+                      }
+                    },
+                    "vehiculo" : {
+                      "type" : "object",
+                      "properties" : {
+                        "tipo" : {
+                          "type" : "object",
+                          "properties" : {
+                            "clave" : {
+                              "type" : "string",
+                              "enum" : [ "AUMOT", "AERN", "BARYA", "OTRO" ],
+                              "description" : "Significado de Claves:\n  * `AUMOT` - AUTOMÓVIL/MOTOCICLETA\n  * `AERN` - AERONAVE\n  * `BARYA` - BARCO/YATE\n  * `OTRO` - OTROS (ESPECIFIQUE)\n",
+                              "example" : "AUMOT"
+                            },
+                            "valor" : {
+                              "type" : "string",
+                              "example" : "AUTOMÓVIL/MOTOCICLETA"
+                            }
+                          }
+                        },
+                        "marca" : {
+                          "type" : "string",
+                          "description" : "Elegir la marca del catálogo desplegable.",
+                          "example" : "Seat"
+                        },
+                        "modelo" : {
+                          "type" : "string",
+                          "description" : "Señalar el modelo del vehículo, de acuerdo a la marca. (Ejemplo marca Volkswagen, modelo Jetta).",
+                          "example" : "Ibiza"
+                        },
+                        "anio" : {
+                          "type" : "integer",
+                          "description" : "Indicar el año del vehículo.",
+                          "example" : 2010
+                        },
+                        "numeroSerieRegistro" : {
+                          "type" : "string",
+                          "description" : "Número de serie o registro que aparece en la factura o tarjeta de circulación",
+                          "example" : "AA24309TMN8"
+                        },
+                        "lugarRegistro" : {
+                          "type" : "object",
+                          "properties" : {
+                            "pais" : {
+                              "$ref" : "#/components/schemas/pais"
+                            },
+                            "entidadFederativa" : {
+                              "$ref" : "#/components/schemas/entidadFederativa"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "duenoTitular" : {
+                  "type" : "object",
+                  "properties" : {
+                    "tipoDuenoTitular" : {
+                      "$ref" : "#/components/schemas/tipoPersona"
+                    },
+                    "nombreTitular" : {
+                      "type" : "string",
+                      "description" : "Deberá proporcionar el nombre completo y/o razón social del propietario del bien prestado y usado por el Declarante.",
+                      "example" : "Max Power"
+                    },
+                    "rfc" : {
+                      "type" : "string",
+                      "description" : "En caso de personas físicas proporcionar los trece dígitos. En caso de personas morales establecer los doce dígitos.",
+                      "example" : "ABC680524P76"
+                    },
+                    "relacionConTitular" : {
+                      "type" : "string",
+                      "description" : "Indicar que tipo de relación existe en entre el dueño del bien prestado y el Declarante.",
+                      "example" : "Amigo"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "Soy una aclaración u observación"
+          }
+        }
+      },
+      "participacion" : {
+        "type" : "object",
+        "properties" : {
+          "ninguno" : {
+            "$ref" : "#/components/schemas/ninguno"
+          },
+          "participacion" : {
+            "type" : "array",
+            "description" : "Señalar quien tiene participación en la empresa sociedad o asociación.",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "tipoOperacion" : {
+                  "$ref" : "#/components/schemas/tipoOperacion"
+                },
+                "tipoRelacion" : {
+                  "$ref" : "#/components/schemas/tipoRelacion"
+                },
+                "nombreEmpresaSociedadAsociacion" : {
+                  "type" : "string",
+                  "description" : "Señalar el nombre o razón social completo de la empresa, sociedad o asociación, tal y como aparece en el documento legal en el que participe.",
+                  "example" : "CEMEX"
+                },
+                "rfc" : {
+                  "type" : "string",
+                  "description" : "Proporcionar los 12 dígitos del registro de la empresa, sociedad o asociación en la cual participa",
+                  "example" : "PEVB123654"
+                },
+                "porcentajeParticipacion" : {
+                  "type" : "integer",
+                  "minimum" : 1,
+                  "maximum" : 100,
+                  "description" : "Indicar el porcentaje de participación en la empresa, sociedad o asociación.",
+                  "example" : 50
+                },
+                "tipoParticipacion" : {
+                  "$ref" : "#/components/schemas/tipoParticipacion"
+                },
+                "recibeRemuneracion" : {
+                  "type" : "boolean",
+                  "example" : true
+                },
+                "montoMensual" : {
+                  "$ref" : "#/components/schemas/monto"
+                },
+                "ubicacion" : {
+                  "type" : "object",
+                  "description" : "Indicar si se encuentra en México, debiendo señalar entidad federativa o en el extranjero, debiendo señalar el país donde se localiza.",
+                  "properties" : {
+                    "pais" : {
+                      "$ref" : "#/components/schemas/pais"
+                    },
+                    "entidadFederativa" : {
+                      "$ref" : "#/components/schemas/entidadFederativa"
+                    }
+                  }
+                },
+                "sector" : {
+                  "$ref" : "#/components/schemas/sector"
+                }
+              }
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "Soy una observación o aclaración"
+          }
+        }
+      },
+      "participacionTomaDecisiones" : {
+        "description" : "El Declarante deberá señalar si tiene o no participación en empresas, sociedades o asociaciones, tales como socio, accionista, comisario, representante, apoderado, colaborador, beneficiario u otro, especifique. Deberá reportar hasta los últimos dos años.",
+        "type" : "object",
+        "properties" : {
+          "ninguno" : {
+            "$ref" : "#/components/schemas/ninguno"
+          },
+          "participacion" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "tipoOperacion" : {
+                  "$ref" : "#/components/schemas/tipoOperacion"
+                },
+                "tipoRelacion" : {
+                  "$ref" : "#/components/schemas/tipoRelacion"
+                },
+                "tipoInstitucion" : {
+                  "description" : "Tipo de institución. Señalar del catálogo, alguna de las siguientes: organizaciones de la sociedad civil, organizaciones benéficas, partidos políticos, gremios/sindicatos, otro, especifique.",
+                  "type" : "object",
+                  "properties" : {
+                    "clave" : {
+                      "type" : "string",
+                      "enum" : [ "OSC", "OB", "PP", "GS", "OTRO" ],
+                      "description" : "Significado de Claves:\n  * `OSC` - ORGANIZACIONES DE LA SOCIEDAD CIVIL\n  * `OB` - ORGANIZACIONES BENÉFICAS\n  * `PP` - PARTIDOS POLITICOS\n  * `GS` - GREMIOS/SINDICATOS\n  * `OTRO` - OTRO (ESPECIFIQUE)\n",
+                      "example" : "OSC"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "example" : "ORGANIZACIONES DE LA SOCIEDAD CIVIL"
+                    }
+                  }
+                },
+                "nombreInstitucion" : {
+                  "description" : "Nombre de la institución. Proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada formalmente.",
+                  "type" : "string",
+                  "example" : "Institucion"
+                },
+                "rfc" : {
+                  "description" : "RFC. Proporcionar los 12 dígitos del registro de la institución.",
+                  "type" : "string",
+                  "minLength" : 12,
+                  "maxLength" : 13,
+                  "example" : "PEVB123654"
+                },
+                "puestoRol" : {
+                  "description" : "Puesto/rol. Indicar el cargo o función que ejerce el Declarante.",
+                  "type" : "string",
+                  "example" : "rol"
+                },
+                "fechaInicioParticipacion" : {
+                  "description" : "Fecha de inicio de participación dentro de la institución. Señalar la fecha en que inicio funciones en la institución u organización.",
+                  "type" : "string",
+                  "format" : "date",
+                  "example" : "2019-12-01"
+                },
+                "recibeRemuneracion" : {
+                  "description" : "Recibe remuneración por su participación. Indicar sí o no.",
+                  "type" : "boolean",
+                  "example" : true
+                },
+                "montoMensual" : {
+                  "$ref" : "#/components/schemas/monto"
+                },
+                "ubicacion" : {
+                  "$ref" : "#/components/schemas/ubicacion"
+                }
+              }
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "esto es una aclaración"
+          }
+        }
+      },
+      "apoyos" : {
+        "description" : "Es la contribución monetaria o en especie que otorga un Ente Público al Declarante, cónyuge o Pareja y/o dependiente económico. El apoyo en especie refiere a cualquier contribución, utilizando bienes, servicios o beneficios de naturaleza diferente al dinero. Deberá reportar hasta los últimos dos años.",
+        "type" : "object",
+        "properties" : {
+          "ninguno" : {
+            "$ref" : "#/components/schemas/ninguno"
+          },
+          "apoyo" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "tipoOperacion" : {
+                  "$ref" : "#/components/schemas/tipoOperacion"
+                },
+                "beneficiarioPrograma" : {
+                  "$ref" : "#/components/schemas/beneficiariosPrograma"
+                },
+                "nombrePrograma" : {
+                  "description" : "Nombre del programa. Proporcionar el nombre del programa por el cual recibe el apoyo o beneficio público.",
+                  "type" : "string",
+                  "example" : "Nombre del programa"
+                },
+                "institucionOtorgante" : {
+                  "description" : "Institución que otorga el apoyo. Señalar el nombre de la institución que le esté dando el apoyo.",
+                  "type" : "string",
+                  "example" : "Institucion que otorga el apoyo"
+                },
+                "nivelOrdenGobierno" : {
+                  "$ref" : "#/components/schemas/nivelOrdenGobierno"
+                },
+                "tipoApoyo" : {
+                  "description" : "Tipo de apoyo. Seleccionar del listado desplegable: subsidio (Ayuda económica que una persona recibe de un organismo oficial para satisfacer una necesidad determinada), servicio (Actividad o asistencia de un Ente Público, en favor del Declarante), Obra (materiales o servicios a favor del Declarante para construcción), otro, especifique.",
+                  "type" : "object",
+                  "properties" : {
+                    "clave" : {
+                      "type" : "string",
+                      "enum" : [ "SUB", "SER", "OBRA", "OTRO" ],
+                      "description" : "Significado de Claves:\n* `SUB` - SUBSIDIO\n* `SER` - SERVICIO\n* `OBRA` - OBRA\n* `OTRO` - OTRO (ESPECIFIQUE)\n",
+                      "example" : "SUB"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "example" : "SUBSIDIO"
+                    }
+                  }
+                },
+                "formaRecepcion" : {
+                  "$ref" : "#/components/schemas/formaRecepcion"
+                },
+                "montoApoyoMensual" : {
+                  "$ref" : "#/components/schemas/monto"
+                },
+                "especifiqueApoyo" : {
+                  "description" : "Especifique el apoyo. En caso de haber seleccionado en especie deberá describir en qué consiste el apoyo o beneficio.",
+                  "type" : "string",
+                  "example" : "informacion del apoyo"
+                }
+              }
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "esto es una aclaración"
+          }
+        }
+      },
+      "representaciones" : {
+        "description" : "Es cuando el Declarante actúa a nombre de otra persona física o moral (representante) o cuando una persona actúa a nombre del Declarante (representado). Deberá reportar hasta los últimos dos años.",
+        "type" : "object",
+        "properties" : {
+          "ninguno" : {
+            "$ref" : "#/components/schemas/ninguno"
+          },
+          "representacion" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "tipoOperacion" : {
+                  "$ref" : "#/components/schemas/tipoOperacion"
+                },
+                "tipoRelacion" : {
+                  "$ref" : "#/components/schemas/tipoRelacion"
+                },
+                "tipoRepresentacion" : {
+                  "description" : "Tipo de representación. Indicar si es representante o representado.",
+                  "type" : "string",
+                  "enum" : [ "REPRESENTANTE", "REPRESENTADO" ],
+                  "example" : "REPRESENTANTE"
+                },
+                "fechaInicioRepresentacion" : {
+                  "description" : "Fecha de inicio de la representación. Indicar la fecha en que comenzó la representación.",
+                  "type" : "string",
+                  "format" : "date",
+                  "example" : "2019-12-01"
+                },
+                "tipoPersona" : {
+                  "$ref" : "#/components/schemas/tipoPersona"
+                },
+                "nombreRazonSocial" : {
+                  "description" : "Nombre o razón social del representante/representado. Indicar el nombre o razón social completos de su representante o representado.",
+                  "type" : "string",
+                  "example" : "Anastacio"
+                },
+                "rfc" : {
+                  "description" : "RFC. En caso de personas físicas proporcionar los trece dígitos. En caso de personas morales establecer los doce dígitos del representante/representado.",
+                  "type" : "string",
+                  "example" : "ASDF14587896"
+                },
+                "recibeRemuneracion" : {
+                  "description" : "Recibe remuneración por su representación. Indicar sí o no le pagan por representar a alguien.",
+                  "type" : "boolean",
+                  "example" : true
+                },
+                "montoMensual" : {
+                  "$ref" : "#/components/schemas/monto"
+                },
+                "ubicacion" : {
+                  "$ref" : "#/components/schemas/ubicacion"
+                },
+                "sector" : {
+                  "$ref" : "#/components/schemas/sector"
+                }
+              }
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "esto es una aclaración"
+          }
+        }
+      },
+      "clientesPrincipales" : {
+        "description" : "En caso de tener alguna empresa, negocio o actividad lucrativa deberá señalar a sus clientes principales, siempre y cuando el beneficio o ganancia directa al Declarante supere mensualmente 250 Unidades de Medida y Actualización (UMA), refiriéndose al valor diario de ésta. Deberá reportar hasta los últimos dos años.",
+        "type" : "object",
+        "properties" : {
+          "ninguno" : {
+            "$ref" : "#/components/schemas/ninguno"
+          },
+          "cliente" : {
+            "type" : "array",
+            "items" : {
+              "properties" : {
+                "tipoOperacion" : {
+                  "$ref" : "#/components/schemas/tipoOperacion"
+                },
+                "realizaActividadLucrativa" : {
+                  "description" : "Realiza alguna actividad lucrativa independiente al empleo cargo o comisión. Seleccionar sí o no.",
+                  "type" : "boolean",
+                  "example" : true
+                },
+                "tipoRelacion" : {
+                  "$ref" : "#/components/schemas/tipoRelacion"
+                },
+                "empresa" : {
+                  "type" : "object",
+                  "properties" : {
+                    "nombreEmpresaServicio" : {
+                      "description" : "Nombre de la empresa o servicio que proporciona. Señalar nombre o razón social completos de la empresa o en su caso el servicio que proporciona.",
+                      "type" : "string",
+                      "example" : "Nombre de la empresa"
+                    },
+                    "rfc" : {
+                      "description" : "RFC. Establecer los doce dígitos de la empresa. Proporcionar los dígitos completos del registro federal de contribuyentes.",
+                      "type" : "string",
+                      "example" : "WFTC123456"
+                    }
+                  }
+                },
+                "clientePrincipal" : {
+                  "type" : "object",
+                  "properties" : {
+                    "tipoPersona" : {
+                      "$ref" : "#/components/schemas/tipoPersona"
+                    },
+                    "nombreRazonSocial" : {
+                      "description" : "Señale el nombre o razón social del cliente principal. Indicar el nombre o razón social completos del cliente principal.",
+                      "type" : "string",
+                      "example" : "Nombre del cliente principal"
+                    },
+                    "rfc" : {
+                      "description" : "RFC. En caso de personas físicas proporcionar los trece dígitos. En caso de personas morales establecer los doce dígitos del cliente principal.",
+                      "type" : "string",
+                      "example" : "WFTC123456"
+                    }
+                  }
+                },
+                "sector" : {
+                  "$ref" : "#/components/schemas/sector"
+                },
+                "montoAproximadoGanancia" : {
+                  "$ref" : "#/components/schemas/monto"
+                },
+                "ubicacion" : {
+                  "$ref" : "#/components/schemas/ubicacion"
+                }
+              }
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "esto es una aclaración"
+          }
+        }
+      },
+      "beneficiosPrivados" : {
+        "description" : "Es la contribución monetaria o en especie que otorga una persona física o moral con recursos privados al Declarante o alguna de las personas señaladas en el catálogo. El apoyo en especie refiere a cualquier contribución, utilizando bienes o beneficios de naturaleza diferente al dinero. Deberá reportar hasta los últimos dos años.",
+        "type" : "object",
+        "properties" : {
+          "ninguno" : {
+            "$ref" : "#/components/schemas/ninguno"
+          },
+          "beneficio" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "tipoOperacion" : {
+                  "$ref" : "#/components/schemas/tipoOperacion"
+                },
+                "tipoBeneficio" : {
+                  "description" : "Tipo de Beneficio. Seleccionar del listado el tipo de beneficio sorteo, concurso, donación u otro (especifique).",
+                  "type" : "object",
+                  "properties" : {
+                    "clave" : {
+                      "type" : "string",
+                      "enum" : [ "S", "C", "D", "O" ],
+                      "example" : "S",
+                      "description" : "Significado de Claves:\n  * `S` - SORTEO\n  * `C` - CONCURSO\n  * `D` - DONACIÓN\n  * `O` - OTRO (ESPECIFICO)\n"
+                    },
+                    "valor" : {
+                      "type" : "string",
+                      "example" : "Sorteo"
+                    }
+                  }
+                },
+                "beneficiario" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/beneficiariosPrograma"
+                  }
+                },
+                "otorgante" : {
+                  "type" : "object",
+                  "properties" : {
+                    "tipoPersona" : {
+                      "$ref" : "#/components/schemas/tipoPersona"
+                    },
+                    "nombreRazonSocial" : {
+                      "description" : "Nombre o razón social del otorgante. Proporcionar el nombre o razón social completos de quien otorga el beneficio.",
+                      "type" : "string",
+                      "example" : "Colorantes marioposa SA de CV"
+                    },
+                    "rfc" : {
+                      "description" : "RFC. En caso de personas físicas proporcionar los trece dígitos. En caso de personas morales establecer los doce dígitos del otorgante del beneficio.",
+                      "type" : "string",
+                      "example" : "WFRG15789635"
+                    }
+                  }
+                },
+                "formaRecepcion" : {
+                  "$ref" : "#/components/schemas/formaRecepcion"
+                },
+                "especifiqueBeneficio" : {
+                  "type" : "string",
+                  "description" : "Especifique el beneficio. En caso de haber seleccionado en especie deberá describir en que consiste el beneficio.",
+                  "example" : "especifique el beneficio"
+                },
+                "montoMensualAproximado" : {
+                  "$ref" : "#/components/schemas/monto"
+                },
+                "sector" : {
+                  "$ref" : "#/components/schemas/sector"
+                }
+              }
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "esto es una aclaración"
+          }
+        }
+      },
+      "fideicomisos" : {
+        "description" : "Este apartado solo lo llenaran las personas servidoras públicas que tengan participación en un fideicomiso, ya sea en el carácter de fideicomitente, fiduciario, fideicomisario o dentro del consejo técnico. Deberá reportar hasta los últimos dos años.",
+        "type" : "object",
+        "properties" : {
+          "ninguno" : {
+            "$ref" : "#/components/schemas/ninguno"
+          },
+          "fideicomiso" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "tipoOperacion" : {
+                  "$ref" : "#/components/schemas/tipoOperacion"
+                },
+                "tipoRelacion" : {
+                  "$ref" : "#/components/schemas/tipoRelacion"
+                },
+                "tipoFideicomiso" : {
+                  "type" : "string",
+                  "enum" : [ "PÚBLICO", "PRIVADO", "MIXTO" ],
+                  "description" : "Tipo de fideicomiso. Seleccionar si es público, privado o mixto.",
+                  "example" : "PRIVADO"
+                },
+                "tipoParticipacion" : {
+                  "type" : "string",
+                  "enum" : [ "FIDEICOMITENTE", "FIDUCIARIO", "FIDEICOMISARIO", "COMITÉ TÉCNICO" ],
+                  "description" : "Tipo de participación. Seleccionar su participación como fideicomitente, fiduciario, fideicomisario o dentro del Comité Técnico.",
+                  "example" : "FIDEICOMITENTE"
+                },
+                "rfcFideicomiso" : {
+                  "type" : "string",
+                  "description" : "RFC del fideicomiso. En caso de personas físicas proporcionar los trece dígitos. En caso de personas morales establecer los doce dígitos del fideicomiso.",
+                  "example" : "RFVS15865846"
+                },
+                "fideicomitente" : {
+                  "type" : "object",
+                  "properties" : {
+                    "tipoPersona" : {
+                      "$ref" : "#/components/schemas/tipoPersona"
+                    },
+                    "nombreRazonSocial" : {
+                      "type" : "string",
+                      "description" : "Nombre o razón social del fideicomitente. Proporcionar nombre completo.",
+                      "example" : "nombre del fideicomitente"
+                    },
+                    "rfc" : {
+                      "type" : "string",
+                      "description" : "RFC. En caso de personas físicas proporcionar los trece dígitos. En caso de personas morales establecer los doce dígitos del fideicomitente.",
+                      "example" : "EOPD145866"
+                    }
+                  }
+                },
+                "fiduciario" : {
+                  "type" : "object",
+                  "properties" : {
+                    "nombreRazonSocial" : {
+                      "type" : "string",
+                      "description" : "Nombre o razón social del fiduciario. Proporcionar nombre completo.",
+                      "example" : "nombre del fiduciario"
+                    },
+                    "rfc" : {
+                      "type" : "string",
+                      "description" : "RFC. En caso de personas físicas proporcionar los trece dígitos. En caso de personas morales establecer los doce dígitos del fiduciario.",
+                      "example" : "EMIS1578438"
+                    }
+                  }
+                },
+                "fideicomisario" : {
+                  "type" : "object",
+                  "properties" : {
+                    "tipoPersona" : {
+                      "$ref" : "#/components/schemas/tipoPersona"
+                    },
+                    "nombreRazonSocial" : {
+                      "type" : "string",
+                      "description" : "Nombre o razón social del fideicomisario. Proporcionar nombre completo.",
+                      "example" : "nombre del fideicomisario"
+                    },
+                    "rfc" : {
+                      "type" : "string",
+                      "description" : "RFC. En caso de personas físicas proporcionar los trece dígitos. En caso de personas morales establecer los doce dígitos del fideicomisario.",
+                      "example" : "ERHG1548798"
+                    }
+                  }
+                },
+                "sector" : {
+                  "$ref" : "#/components/schemas/sector"
+                },
+                "extanjero" : {
+                  "type" : "string",
+                  "enum" : [ "MX", "EX" ],
+                  "description" : "¿Dónde se localiza el fideicomiso? Seleccionar en México o en el extranjero.",
+                  "example" : "MX"
+                }
+              }
+            }
+          },
+          "aclaracionesObservaciones" : {
+            "type" : "string",
+            "description" : "Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+            "example" : "esto es una aclaración"
+          }
+        }
+      },
+      "domicilioMexico" : {
+        "type" : "object",
+        "properties" : {
+          "calle" : {
+            "type" : "string",
+            "example" : "Av. Siempre Viva"
+          },
+          "numeroExterior" : {
+            "type" : "string",
+            "example" : "123"
+          },
+          "numeroInterior" : {
+            "type" : "string",
+            "example" : "1"
+          },
+          "coloniaLocalidad" : {
+            "type" : "string",
+            "example" : "Del Valle"
+          },
+          "municipioAlcaldia" : {
+            "type" : "object",
+            "properties" : {
+              "clave" : {
+                "type" : "string",
+                "description" : "cve_agem del Marco Geoestadistico de INEGI",
+                "example" : "0001"
+              },
+              "valor" : {
+                "type" : "string",
+                "description" : "nom_agem del Marco Geoestadistico de INEGI",
+                "example" : "Benito Juarez"
+              }
+            }
+          },
+          "entidadFederativa" : {
+            "$ref" : "#/components/schemas/entidadFederativa"
+          },
+          "codigoPostal" : {
+            "type" : "string",
+            "example" : "03100"
+          }
+        }
+      },
+      "domicilioExtranjero" : {
+        "type" : "object",
+        "properties" : {
+          "calle" : {
+            "type" : "string",
+            "example" : "Evergreen Terrace"
+          },
+          "numeroExterior" : {
+            "type" : "string",
+            "example" : "742"
+          },
+          "numeroInterior" : {
+            "type" : "string",
+            "example" : ""
+          },
+          "ciudadLocalidad" : {
+            "type" : "string",
+            "example" : "Springfield"
+          },
+          "estadoProvincia" : {
+            "type" : "string",
+            "example" : "North Takoma"
+          },
+          "pais" : {
+            "$ref" : "#/components/schemas/pais"
+          },
+          "codigoPostal" : {
+            "type" : "string",
+            "example" : "01234"
+          }
+        }
+      },
+      "tipoPersona" : {
+        "type" : "string",
+        "description" : "Indica si es persona física o persona moral",
+        "enum" : [ "FÍSICA", "MORAL" ],
+        "example" : "FÍSICA"
+      },
+      "tipoMoneda" : {
+        "description" : "Tipo de moneda. Señalar tipo de moneda.",
+        "type" : "object",
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "description" : "ISO 4217",
+            "example" : "MXN"
+          },
+          "valor" : {
+            "type" : "string",
+            "example" : "Peso Mexicano"
+          }
+        }
+      },
+      "formaRecepcion" : {
+        "type" : "string",
+        "description" : "Forma de recepción. Señalar si es monetario o en especie.",
+        "enum" : [ "MONETARIO", "ESPECIE" ],
+        "example" : "MONETARIO"
+      },
+      "tipoRelacion" : {
+        "type" : "string",
+        "enum" : [ "DECLARANTE", "PAREJA", "DEPENDIENTE ECONOMICO" ],
+        "description" : "Elegir quien es el Declarante, Pareja o dependiente económico.",
+        "example" : "DECLARANTE"
+      },
+      "entidadFederativa" : {
+        "type" : "object",
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "example" : "001",
+            "description" : "cve_agee del Marco Geoestadistico de INEGI"
+          },
+          "valor" : {
+            "type" : "string",
+            "example" : "Aguascalientes",
+            "description" : "nom_agee del Marco Geoestadistico de INEGI"
+          }
+        }
+      },
+      "pais" : {
+        "type" : "object",
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "maxLength" : 2,
+            "description" : "Código alpha 2 del país especificado en estándar ISO3166",
+            "example" : "MX"
+          },
+          "valor" : {
+            "type" : "string",
+            "description" : "Nombre  del país especificado en estándar ISO3166",
+            "example" : "México"
+          }
+        }
+      },
+      "beneficiariosPrograma" : {
+        "type" : "object",
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "enum" : [ "DC", "CY", "CON", "CONV", "HIJ", "HER", "CU", "MA", "PA", "TIO", "PRI", "SOB", "AHI", "NUE", "YER", "ABU", "NIE", "OTRO" ],
+            "description" : "Significado de Claves:\n  * `DC` - DECLARANTE\n  * `CY` - CÓNYUGE\n  * `CON` - CONCUBINA O CONCUBINARIO\n  * `CONV` - CONVIVIENTE\n  * `HIJ` - HIJO(A)\n  * `HER` - HERMANO(A)\n  * `CU` - CUÑADO(A)\n  * `MA` - MADRE\n  * `PA` - PADRE\n  * `TIO` - TÍO(A)\n  * `PRI` - PRIMO(A)\n  * `SOB` - SOBRINO(A)\n  * `AHI` - AHIJADO(A)\n  * `NUE` - NUERA\n  * `YER` - YERNO\n  * `ABU` - ABUELO(A)\n  * `NIE` - NIETO(A)\n    * `OTRO` - OTRO(A)\n"
+          },
+          "valor" : {
+            "type" : "string"
+          }
+        }
+      },
+      "sector" : {
+        "type" : "object",
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "enum" : [ "AGRI", "MIN", "EELECT", "CONS", "INDMANU", "CMAYOR", "CMENOR", "TRANS", "MEDIOM", "SERVFIN", "SERVINM", "SERVPROF", "SERVCORP", "SERVS", "SERVESPAR", "SERVALOJ", "OTRO" ],
+            "description" : "Significado de Claves:\n  * `AGRI` - AGRICULTURA\n  * `MIN` - MINERÍA\n  * `EELECT` - ENERGÍA ELÉCTRICA\n  * `CONS` - CONSTRUCCIÓN\n  * `INDMANU` - INDUSTRIA MANUFACTURERA\n  * `CMAYOR` - COMERCIO AL POR MAYOR\n  * `CMENOR` - COMERCIO AL POR MENOR\n  * `TRANS` - TRANSPORTE\n  * `MEDIOM` - MEDIOS MASIVOS\n  * `SERVFIN` - SERVICIOS FINANCIEROS\n  * `SERVINM` - SERVICIOS INMOBILIARIOS\n  * `SERVPROF` - SERVICIOS PROFESIONALES\n  * `SERVCORP` - SERVICIOS CORPORATIVOS\n  * `SERVS` - SERVICIOS DE SALUD\n  * `SERVESPAR` - SERVICIOS DE ESPARCIMIENTO\n  * `SERVALOJ` - SERVICIOS DE ALOJAMIENTO\n  * `OTRO` - OTRO (ESPECIFIQUE)\n"
+          },
+          "valor" : {
+            "type" : "string"
+          }
+        }
+      },
+      "monto" : {
+        "type" : "object",
+        "properties" : {
+          "valor" : {
+            "type" : "number",
+            "example" : 20000,
+            "description" : "Valor sin centavos"
+          },
+          "moneda" : {
+            "$ref" : "#/components/schemas/tipoMoneda"
+          }
+        }
+      },
+      "superficie" : {
+        "type" : "object",
+        "properties" : {
+          "valor" : {
+            "type" : "integer",
+            "example" : 120
+          },
+          "unidad" : {
+            "$ref" : "#/components/schemas/unidadMedida"
+          }
+        }
+      },
+      "unidadMedida" : {
+        "type" : "string"
+      },
+      "tipoInstrumento" : {
+        "type" : "object",
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "enum" : [ "CAP", "FIN", "OPR", "SSI", "VBU", "BON", "OTRO" ],
+            "description" : "Significado de Claves:\n  * `CAP` - CAPITAL\n  * `FIN` - FONDOS DE INVERSIÓN\n  * `OPR` - ORGANIZACIONES PRIVADA\n  * `SSI` - SEGURO DE SEPARACIÓN INDIVIDUALIZADO\n  * `VBU` - VALORES BUSÁTILES\n  * `BON` - BONOS\n  * `OTRO` - OTRO(ESPECIFIQUE)\n",
+            "example" : "SSI"
+          },
+          "valor" : {
+            "type" : "string",
+            "description" : "Valor del tipo de inversión",
+            "example" : "SEGURO DE SEPARACIÓN INDIVIDUALIZADO"
+          }
+        }
+      },
+      "tipoInmueble" : {
+        "type" : "object",
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "enum" : [ "CASA", "DPTO", "EDIF", "LOCC", "BODG", "PALC", "RACH", "TERR", "OTRO" ],
+            "description" : "Significado de Claves:\n  * `CASA` - CASA\n  * `DPTO` - DEPARTAMENTO\n  * `EDIF` - EDIFICIO\n  * `LOCC` - LOCAL COMERCIAL\n  * `BODG` - BODEGA\n  * `PALC` - PALCO\n  * `RACH` - RANCHO\n  * `TERR` - TERRENO\n  * `OTRO` - OTROS (ESPECIFIQUE)\n",
+            "example" : "CASA"
+          },
+          "valor" : {
+            "type" : "string",
+            "example" : "CASA"
+          }
+        }
+      },
+      "parentescoRelacion" : {
+        "type" : "object",
+        "description" : "Tipo de relación con el Declarante",
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "enum" : [ "ABU", "NIE", "TIOA", "AHI", "NUE", "YER", "CUN", "PAD", "HER", "PRI", "HIJ", "SOB", "MAD", "SUE", "NIN", "OTRO" ],
+            "description" : "Significado de Claves:\n  * `ABU` - ABUELO(A)\n  * `NIE` - NIETO(A)\n  * `TIOA` - TIO(A)\n  * `AHI` - AHIJADO(A)\n  * `NUE` - NUERA\n  * `YER` - YERNO\n  * `CUN` - CUÑADO(A)\n  * `PAD` - PADRE\n  * `HER` - HERMANO(A)\n  * `PRI` - PRIMO(A)\n  * `HIJ` - HIJO(A)\n  * `SOB` - SOBRINO(A)\n  * `MAD` - MADRE\n  * `SUE` - SUEGRO(A)\n  * `NIN` - NINGUNO\n  * `OTRO` - OTRO(ESPECIFIQUE)\n",
+            "example" : "HER"
+          },
+          "valor" : {
+            "type" : "string",
+            "description" : "Valor del parentesco",
+            "example" : "HERMANO"
+          }
+        }
+      },
+      "actividadLaboral" : {
+        "type" : "object",
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "enum" : [ "PUB", "PRI", "OTRO", "NING" ],
+            "description" : "Significado de Claves:\n  * `PUB` - PÚBLICO\n  * `PRI` - PRIVADO\n  * `OTRO` - OTRO(ESPECIFIQUE)\n  * `NING` - NINGUNO\n",
+            "example" : "PUB"
+          },
+          "valor" : {
+            "type" : "string",
+            "example" : "PÚBLICO"
+          }
+        }
+      },
+      "formaAdquisicion" : {
+        "type" : "object",
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "enum" : [ "CPV", "CSN", "DNC", "HRN", "PRM", "RST", "STC" ],
+            "example" : "CPV",
+            "description" : "Significado de Claves:\n  * `CPV` - COMPRAVENTA\n  * `CSN` - CESIÓN\n  * `DNC` - DONACIÓN\n  * `HRN` - HERENCIA\n  * `PRM` - PERMUTA\n  * `RST` - RIFA O SORTEO\n  * `STC` - SENTENCIA\n"
+          },
+          "valor" : {
+            "type" : "string",
+            "description" : "Valor de la forma de adquisición",
+            "example" : "COMPRAVENTA"
+          }
+        }
+      },
+      "motivoBaja" : {
+        "type" : "object",
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "enum" : [ "VNT", "DNC", "SNT", "OTRO" ],
+            "example" : "VNT",
+            "description" : "Significado de Claves:\n  * `VNT` - VENTA\n  * `DNC` - DONACIÓN\n  * `SNT` - SINIESTRO\n  * `OTRO` - OTRO(ESPECIFIQUE)\n"
+          },
+          "valor" : {
+            "type" : "string",
+            "description" : "Valor del motivo de baja",
+            "example" : "VENTA"
+          }
+        }
+      },
+      "tipoVehiculo" : {
+        "type" : "object",
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "enum" : [ "AUTMOT", "AERN", "BRCYTE", "OTRO" ],
+            "description" : "Significado de Claves:\n  * `AUTMOT` - AUTOMÓVIL/MOTOCICLETA\n  * `AERN` - AERONAVE\n  * `BRCYTE` - BARCO/YATE\n  * `OTRO` - OTRO(ESPECIFIQUE)\n",
+            "example" : "AUTMOT"
+          },
+          "valor" : {
+            "type" : "string",
+            "description" : "Valor de la clave de tipo de vehículo",
+            "example" : "AUTOMÓVIL/MOTOCICLETA"
+          }
+        }
+      },
+      "titularBien" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "clave" : {
+              "type" : "string",
+              "enum" : [ "DEC", "CYG", "CBN", "CVV", "DEN", "CTER" ],
+              "description" : "Significado de Claves:\n  * `DEC` - DECLARANTE\n  * `CYG` - CONYUGE\n  * `CBN` - CONCUBINA O CONCUBINARIO\n  * `CVV` - CONVIVIENTE\n  * `DEN` - DEPENDIENTE ECONÓMICO\n  * `CTER` - COPROPIEDAD CON TERCEROS\n",
+              "example" : "DEC"
+            },
+            "valor" : {
+              "type" : "string",
+              "description" : "Valor del titular del inmueble",
+              "example" : "DECLARANTE"
+            }
+          }
+        }
+      },
+      "nivelOrdenGobierno" : {
+        "type" : "string",
+        "description" : "Orden de gobierno en el que se encuentra",
+        "enum" : [ "FEDERAL", "ESTATAL", "MUNICIPAL/ALCALDÍA" ],
+        "example" : "FEDERAL"
+      },
+      "ambitoPublico" : {
+        "type" : "string",
+        "description" : "Naturaleza jurídica al que pertenece",
+        "enum" : [ "EJECUTIVO", "LEGISLATIVO", "JUDICIAL", "ÓRGANO AUTÓNOMO" ],
+        "example" : "ÓRGANO AUTÓNOMO"
+      },
+      "tipoParticipacion" : {
+        "type" : "object",
+        "description" : "Seleccionar de la lista desplegable una de las siguientes opciones: socio, accionista, comisario, representante, apoderado, colaborador, beneficiario u otro, especifique.",
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "enum" : [ "SCIO", "ACCI", "COMI", "REPR", "APOD", "COLB", "BENE", "OTRO" ],
+            "example" : "SCIO",
+            "description" : "Significado de Claves:\n  * `SCIO` - SOCIO\n  * `ACCI` - ACCIONISTA\n  * `COMI` - COMISARIO\n  * `REPR` - REPRESENTANTE\n  * `APOD` - APODERADO\n  * `COLB` - COLABORADOR\n  * `BENE` - BENEFICIARIO\n  * `OTRO` - OTROS (ESPECIFIQUE)\n"
+          },
+          "valor" : {
+            "type" : "string",
+            "example" : "SOCIO"
+          }
+        }
+      },
+      "ambitoSector" : {
+        "type" : "object",
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "description" : "Señalar si el empleo que reporta corresponde al sector público, privado u otro. En caso de señalar otro deberá especificar el sector en el que laboró.",
+            "example" : "PUB",
+            "enum" : [ "PUB", "PRV", "OTR" ]
+          },
+          "valor" : {
+            "type" : "string",
+            "description" : "Señalar si el empleo que reporta corresponde al sector público, privado u otro. En caso de señalar otro deberá especificar el sector en el que laboró.",
+            "example" : "Público"
+          }
+        }
+      },
+      "lugarDondeReside" : {
+        "type" : "string",
+        "description" : "Indicar si vive en México, en el extranjero o si se desconoce.",
+        "enum" : [ "MÉXICO", "EXTRANJERO", "SE DESCONOCE" ],
+        "example" : "EXTRANJERO"
+      },
+      "tipoOperacion" : {
+        "type" : "string",
+        "description" : "Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja",
+        "enum" : [ "AGREGAR", "MODIFICAR", "SIN CAMBIOS", "BAJA" ],
+        "example" : "AGREGAR"
+      },
+      "ubicacion" : {
+        "type" : "object",
+        "properties" : {
+          "pais" : {
+            "$ref" : "#/components/schemas/pais"
+          },
+          "entidadFederativa" : {
+            "$ref" : "#/components/schemas/entidadFederativa"
+          }
+        }
+      },
+      "transmisor" : {
+        "description" : "Llenar la información para cada uno de los transmisores",
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "tipoPersona" : {
+              "$ref" : "#/components/schemas/tipoPersona"
+            },
+            "nombreRazonSocial" : {
+              "type" : "string",
+              "description" : "Nombre completo del transmisor, en caso de persona moral deberá proporcionar la denominación o razón social",
+              "example" : "Juan López Pérez"
+            },
+            "rfc" : {
+              "type" : "string",
+              "description" : "RFC",
+              "example" : "CYUW1234IK90"
+            },
+            "relacion" : {
+              "$ref" : "#/components/schemas/parentescoRelacion"
+            }
+          }
+        }
+      },
+      "tercero" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "tipoPersona" : {
+              "$ref" : "#/components/schemas/tipoPersona"
+            },
+            "nombreRazonSocial" : {
+              "type" : "string",
+              "description" : "En caso de señalar copropiedad, escribir el nombre o nombres completos, así como apellidos completos sin abreviaturas y sin acentos ni signos especiales. Si se trata de persona moral deberá proporcionar la denominación o razón social de la institución tal y como se encuentra en el documento con el que se acredita la adquisición.",
+              "example" : "Jesus López"
+            },
+            "rfc" : {
+              "type" : "string",
+              "description" : "En caso de personas físicas proporcionar los trece dígitos. En caso de personas morales establecer los doce dígitos.",
+              "example" : "ABC680524P76"
+            }
+          }
+        }
+      },
+      "ninguno" : {
+        "type" : "boolean",
+        "description" : "Indica que el declarante expresa no tener información relacionada",
+        "example" : false
+      },
+      "formaPago" : {
+        "type" : "string",
+        "enum" : [ "CRÉDITO", "CONTADO", "NO APLICA" ],
+        "example" : "CONTADO"
+      }
+    }
+  }
+}

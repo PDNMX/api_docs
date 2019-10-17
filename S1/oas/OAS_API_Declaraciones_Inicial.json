@@ -644,11 +644,11 @@
                 },
                 "nivel" : {
                   "type" : "object",
-                  "description" : "El Declarante deberá elegir alguna de las siguientes opciones: primaria, secundaria, bachillerato, carrera técnica o comercial, licenciatura, especialidad, maestría odoctoradoo.",
+                  "description" : "El Declarante deberá elegir alguna de las siguientes opciones: primaria, secundaria, bachillerato, carrera técnica o comercial, licenciatura, especialidad, maestría o doctorado.",
                   "properties" : {
                     "clave" : {
                       "type" : "string",
-                      "example" : "PRI",
+                      "example" : "DOC",
                       "enum" : [ "PRI", "SEC", "CTC", "LIC", "ESP", "MAE", "DOC" ],
                       "description" : "Significado de Claves:\n* `PRI` - PRIMARIA\n* `SEC` - SECUNDARIA\n* `BCH` - BACHILLERATO\n* `CTC` - CARRERA TÉCNICA O COMERCIAL\n* `LIC` - LICENCIATURA\n* `ESP` - ESPECIALIDAD\n* `MAE` - MAESTRÍA\n* `DOC` - DOCTORADO\n"
                     },

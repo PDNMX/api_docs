@@ -251,14 +251,30 @@ input FiltrosParticularesSancionados {
   expediente: String
 
   """
-  Sanción impuesta
+  Tipo de sanción.
   """
-  tipoSancion: [TipoSancionInput]
+  tipoSancion: [TipoSancionParticularInput]
 
   """
   Los valores pueden ser:  F = Física, M = Moral
   """
   tipoPersona: TipoPersona
+}
+
+"""
+Tipo de sanción. Valores permitidos para particulares
+  * `I` - INHABILITADO
+  * `M` - MULTADO
+  * `S` - SUSPENSIÓN DE ACTIVIDADES
+  * `D` - DISOLUCIÓN DE LA SOCIEDAD
+  * `A` - AMONESTACIÓN  
+"""
+enum TipoSancionParticularInput{  
+  I,
+  M,
+  S,
+  D,
+  A
 }
 
 """

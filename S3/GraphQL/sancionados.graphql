@@ -76,33 +76,6 @@ type TipoSancion {
   valor: String
 }
 
-
-"""
-Tipo de sanción aplicada. Valores permitidos [ "I", "M", "S", "D" ]. I = Inhabilitado, M = Multado, S= Suspensión del empleo, cargo o comisión, D= Destitución del emplo, cargo o comisión
-"""
-input TipoSancionInput {
-  """
-  Tipo de sanción. Valores permitidos para particulares
-    * `I` - INHABILITADO
-    * `M` - MULTADO
-    * `S` - SUSPENSIÓN DE ACTIVIDADES
-    * `D` - DISOLUCIÓN DE LA SOCIEDAD
-    * `A` - AMONESTACIÓN
-
-  Tipo de sanción. Valores permitidos para servidores publicos
-    * `I` - INHABILITADO
-    * `M` - MULTADO
-    * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓN
-    * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN
-  """
-  clave: String
-
-  """
-  Valor del tipo de sanción
-  """
-  valor: String
-}
-
 """
 Se llena en caso de que el particular haya tenido multa económica
 """

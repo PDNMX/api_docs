@@ -483,7 +483,14 @@
                 "example" : "Secretaría de Hacienda y Crédito Público"
               },
               "tipoSancion" : {
-                "$ref" : "#/components/schemas/tipoSancion"
+                "type" : "array",
+                "uniqueItems" : true,
+                "description" : "Clave(s) del tipo de sanción aplicada. \n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓN\n  * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN\n",
+                "items" : {
+                  "type" : "string",
+                  "enum" : [ "I", "M", "S", "D" ]
+                },
+                "example" : [ "I", "M" ]
               },
               "rfcSolicitante" : {
                 "type" : "string",

@@ -655,7 +655,14 @@
                 "example" : "ABC123"
               },
               "tipoSancion" : {
-                "$ref" : "#/components/schemas/tipoSancion"
+                "type" : "array",
+                "uniqueItems" : true,
+                "description" : "Clave del Tipo de sanción. Valores permitidos\n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DE ACTIVIDADES\n  * `D` - DISOLUCIÓN DE LA SOCIEDAD\n  * `A` - AMONESTACIÓN\n",
+                "items" : {
+                  "type" : "string",
+                  "enum" : [ "I", "M", "S", "D", "A" ]
+                },
+                "example" : [ "I", "M" ]
               },
               "tipoPersona" : {
                 "type" : "string",

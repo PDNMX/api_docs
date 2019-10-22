@@ -1313,12 +1313,12 @@
       },
       "ingresos" : {
         "type" : "object",
-        "description" : "Para la declaración de inicio los ingresos a reportar son mensuales.",
+        "description" : "Para la declaración de modificación los ingresos a reportar son los del año inmediato anterior. (Como se señala en el título del 1 de enero al 31 de diciembre del año inmediato anterior).",
         "properties" : {
-          "remuneracionMensualCargoPublico" : {
+          "remuneracionAnualCargoPublico" : {
             "$ref" : "#/components/schemas/monto"
           },
-          "otrosIngresosMensualesTotal" : {
+          "otrosIngresosAnualesTotal" : {
             "$ref" : "#/components/schemas/monto"
           },
           "actividadIndustialComercialEmpresarial" : {

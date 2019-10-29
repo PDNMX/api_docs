@@ -494,7 +494,8 @@
                   "description" : "Se llena en caso de que el particular haya tenido multa económica",
                   "properties" : {
                     "monto" : {
-                      "type" : "integer",
+                      "type" : "number",
+                      "format" : "float",
                       "minimum" : 1,
                       "description" : "Monto de la multa impuesta a la empresa",
                       "example" : 5000000

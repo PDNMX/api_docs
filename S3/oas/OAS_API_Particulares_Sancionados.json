@@ -627,14 +627,14 @@
             "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
             "example" : 10
           },
-          "id" : {
-            "type" : "string",
-            "description" : "Devuelve resultados al buscar por su ID. Si se especifica este valor, el objeto query es omitido.",
-            "example" : "123abc"
-          },
           "query" : {
             "description" : "En este objeto se pasan los parametros para las busquedas por medio de los campos correspondientes",
             "properties" : {
+              "id" : {
+                "type" : "string",
+                "description" : "Devuelve resultados al buscar por su ID. Si se especifica este valor, el objeto query es omitido.",
+                "example" : "123abc"
+              },
               "nombreRazonSocial" : {
                 "type" : "string",
                 "description" : "Nombre o razón social",

@@ -620,12 +620,14 @@
           "page" : {
             "type" : "integer",
             "description" : "Número de página a mostrar",
-            "example" : 10
+            "example" : 1,
+            "default" : 1
           },
           "pageSize" : {
             "type" : "integer",
             "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
-            "example" : 10
+            "example" : 10,
+            "default" : 10
           },
           "query" : {
             "description" : "En este objeto se pasan los parametros para las busquedas por medio de los campos correspondientes",

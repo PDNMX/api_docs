@@ -619,13 +619,13 @@
           },
           "page" : {
             "type" : "integer",
-            "description" : "Número de página a mostrar",
+            "description" : "Número de página a mostrar, en caso de no recibir el parámetro, su valor será el indicado en default.",
             "example" : 1,
             "default" : 1
           },
           "pageSize" : {
             "type" : "integer",
-            "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
+            "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1, , en caso de no recibir el parámetro, su valor será el indicado en default.",
             "example" : 10,
             "default" : 10
           },

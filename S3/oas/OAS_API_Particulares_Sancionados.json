@@ -477,7 +477,6 @@
                     },
                     "url" : {
                       "type" : "string",
-                      "format" : "uri",
                       "description" : "URL que apunta al documento en formato digital de la resolución emitida por el correspondiente Organo Interno de Control",
                       "example" : "https://ejemplo.mx/archivo/documento.pdf"
                     },

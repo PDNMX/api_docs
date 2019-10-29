@@ -120,7 +120,7 @@
         "properties" : {
           "pagination" : {
             "type" : "object",
-            "required" : [ "pageSize", "page", "total", "hasNextPage" ],
+            "required" : [ "pageSize", "page", "totalRows", "hasNextPage" ],
             "properties" : {
               "pageSize" : {
                 "type" : "integer",

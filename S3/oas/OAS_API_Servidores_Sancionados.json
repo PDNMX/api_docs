@@ -487,7 +487,7 @@
               "tipoSancion" : {
                 "type" : "array",
                 "uniqueItems" : true,
-                "description" : "Clave(s) del tipo de sanción aplicada. \n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓN\n  * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN\n",
+                "description" : "Clave(s) del tipo de sanción aplicada. \n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓN\n  * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN\n\n\n*******Deberá devolver todos los registros que contengan al menos uno de los valores solicitados.\n",
                 "items" : {
                   "type" : "string",
                   "enum" : [ "I", "M", "S", "D" ]

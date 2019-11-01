@@ -1209,10 +1209,7 @@
                   "description" : "Si el dependiente económico se encuentra trabajando actualmente en el sector público",
                   "properties" : {
                     "nivelOrdenGobierno" : {
-                      "type" : "string",
-                      "description" : "Orden de gobierno en el que se encuentra",
-                      "enum" : [ "FEDERAL", "ESTATAL", "MUNICIPAL/ALCALDÍA" ],
-                      "example" : "FEDERAL"
+                      "$ref" : "#/components/schemas/nivelOrdenGobierno"
                     },
                     "ambitoPublico" : {
                       "$ref" : "#/components/schemas/ambitoPublico"

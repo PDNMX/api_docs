@@ -901,6 +901,7 @@
                   },
                   "fechaIngreso" : {
                     "type" : "string",
+                    "format" : "date",
                     "description" : "Señalar la fecha en que inició empleo, cargo o comisión.",
                     "example" : "2007-01-01"
                   },
@@ -950,6 +951,7 @@
                   },
                   "fechaIngreso" : {
                     "type" : "string",
+                    "format" : "date",
                     "description" : "Señalar la fecha en que inició empleo, cargo o comisión.",
                     "example" : "2005-07-07"
                   },
@@ -1081,6 +1083,7 @@
               },
               "fechaIngreso" : {
                 "type" : "string",
+                "format" : "date",
                 "description" : "Señalar la fecha en que inició empleo, cargo o comisión.",
                 "example" : "2010-01-01"
               }
@@ -1106,6 +1109,7 @@
               },
               "fechaIngreso" : {
                 "type" : "string",
+                "format" : "date",
                 "description" : "Señalar la fecha en que inició empleo, cargo o comisión.",
                 "example" : "2011-01-01"
               },

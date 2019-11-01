@@ -1215,10 +1215,7 @@
                       "example" : "FEDERAL"
                     },
                     "ambitoPublico" : {
-                      "type" : "string",
-                      "description" : "Naturaleza jurídica al que pertenece",
-                      "enum" : [ "EJECUTIVO", "LEGISLATIVO", "JUDICIAL", "ÓRGANO AUTÓNOMO" ],
-                      "example" : "ÓRGANO AUTÓNOMO"
+                      "$ref" : "#/components/schemas/ambitoPublico"
                     },
                     "nombreEntePublico" : {
                       "type" : "string",

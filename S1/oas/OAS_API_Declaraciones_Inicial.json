@@ -971,21 +971,7 @@
             "$ref" : "#/components/schemas/domicilioExtranjero"
           },
           "actividadLaboral" : {
-            "type" : "object",
-            "description" : "Indicar si el cónyuge, concubina/concubinario o sociedad de convivencia, se encuentra trabajando actualmente, seleccionando alguno de los siguientes campos: privado, público, otro (especificar) o ninguno",
-            "properties" : {
-              "clave" : {
-                "type" : "string",
-                "description" : "Significado de las Claves:\n* `PRI` - PRIVADO\n* `PUB` - PUBLICO\n* `NIN` - NINGUNO\n* `OTR` - OTRO (ESPECIFIQUE)\n",
-                "example" : "PRI",
-                "enum" : [ "PRI", "PUB", "NIN", "OTR" ]
-              },
-              "valor" : {
-                "type" : "string",
-                "enum" : [ "PRIVADO", "PUBLICO", "NINGUNO", "OTRO (ESPECIFIQUE)" ],
-                "example" : "PRIVADO"
-              }
-            }
+            "$ref" : "#/components/schemas/actividadLaboral"
           },
           "actividadLaboralSectorPublico" : {
             "type" : "object",
@@ -2754,8 +2740,8 @@
         "properties" : {
           "clave" : {
             "type" : "string",
-            "enum" : [ "PUB", "PRI", "OTRO", "NING" ],
-            "description" : "Significado de Claves:\n  * `PUB` - PÚBLICO\n  * `PRI` - PRIVADO\n  * `OTRO` - OTRO(ESPECIFIQUE)\n  * `NING` - NINGUNO\n",
+            "enum" : [ "PUB", "PRI", "OTRO", "NIN" ],
+            "description" : "Significado de Claves:\n  * `PUB` - PÚBLICO\n  * `PRI` - PRIVADO\n  * `OTRO` - OTRO(ESPECIFIQUE)\n  * `NIN` - NINGUNO\n",
             "example" : "PUB"
           },
           "valor" : {

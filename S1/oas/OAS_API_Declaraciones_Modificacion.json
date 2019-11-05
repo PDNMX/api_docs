@@ -449,21 +449,6 @@
                   }
                 }
               },
-              "edad" : {
-                "description" : "busqueda por edad del declarante",
-                "properties" : {
-                  "min" : {
-                    "type" : "integer",
-                    "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
-                    "example" : 18
-                  },
-                  "max" : {
-                    "type" : "integer",
-                    "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
-                    "example" : 28
-                  }
-                }
-              },
               "rfcSolicitante" : {
                 "type" : "string",
                 "description" : "RFC de la persona quien hace la consulta, si se omite este parámetro, se enviaran solo los datos públicos",

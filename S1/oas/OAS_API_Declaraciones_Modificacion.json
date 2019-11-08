@@ -626,7 +626,7 @@
                 },
                 "nivel" : {
                   "type" : "object",
-                  "description" : "El Declarante deberá elegir alguna de las siguientes opciones: primaria, secundaria, bachillerato, carrera técnica o comercial, licenciatura, especialidad, maestría odoctoradoo.",
+                  "description" : "El Declarante deberá elegir alguna de las siguientes opciones: primaria, secundaria, bachillerato, carrera técnica o comercial, licenciatura, especialidad, maestría o doctorado.",
                   "properties" : {
                     "clave" : {
                       "type" : "string",
@@ -1225,7 +1225,7 @@
                     "salarioMensualNeto" : {
                       "$ref" : "#/components/schemas/monto"
                     },
-                    "fechaIngresoEmpleo" : {
+                    "fechaIngreso" : {
                       "type" : "string",
                       "format" : "date",
                       "description" : "Formato de fechas ISO 8601 con notación yyyy-mm-dd.",
@@ -1251,7 +1251,7 @@
                       "description" : "Nombre del puesto que desempeña",
                       "example" : "Administrador de recursos"
                     },
-                    "fechaIngresoEmpleo" : {
+                    "fechaIngreso" : {
                       "type" : "string",
                       "format" : "date",
                       "description" : "Formato de fechas ISO 8601 con notación yyyy-mm-dd.",
@@ -2511,7 +2511,7 @@
           },
           "numeroInterior" : {
             "type" : "string",
-            "example" : ""
+            "example" : "12"
           },
           "ciudadLocalidad" : {
             "type" : "string",
@@ -2537,19 +2537,9 @@
         "example" : "FÍSICA"
       },
       "tipoMoneda" : {
-        "description" : "Tipo de moneda. Señalar tipo de moneda.",
-        "type" : "object",
-        "properties" : {
-          "clave" : {
-            "type" : "string",
-            "description" : "ISO 4217",
-            "example" : "MXN"
-          },
-          "valor" : {
-            "type" : "string",
-            "example" : "Peso Mexicano"
-          }
-        }
+        "type" : "string",
+        "description" : "Codigo a 3 caracteres del ISO 4217",
+        "example" : "MXN"
       },
       "formaRecepcion" : {
         "type" : "string",
@@ -2579,31 +2569,23 @@
         }
       },
       "pais" : {
-        "type" : "object",
-        "properties" : {
-          "clave" : {
-            "type" : "string",
-            "maxLength" : 2,
-            "description" : "Código alpha 2 del país especificado en estándar ISO3166",
-            "example" : "MX"
-          },
-          "valor" : {
-            "type" : "string",
-            "description" : "Nombre  del país especificado en estándar ISO3166",
-            "example" : "México"
-          }
-        }
+        "type" : "string",
+        "maxLength" : 2,
+        "description" : "Código de 2 caracteres del país especificado en el estándar ISO3166",
+        "example" : "MX"
       },
       "beneficiariosPrograma" : {
         "type" : "object",
         "properties" : {
           "clave" : {
             "type" : "string",
+            "example" : "DC",
             "enum" : [ "DC", "CY", "CON", "CONV", "HIJ", "HER", "CU", "MA", "PA", "TIO", "PRI", "SOB", "AHI", "NUE", "YER", "ABU", "NIE", "OTRO" ],
             "description" : "Significado de Claves:\n  * `DC` - DECLARANTE\n  * `CY` - CÓNYUGE\n  * `CON` - CONCUBINA O CONCUBINARIO\n  * `CONV` - CONVIVIENTE\n  * `HIJ` - HIJO(A)\n  * `HER` - HERMANO(A)\n  * `CU` - CUÑADO(A)\n  * `MA` - MADRE\n  * `PA` - PADRE\n  * `TIO` - TÍO(A)\n  * `PRI` - PRIMO(A)\n  * `SOB` - SOBRINO(A)\n  * `AHI` - AHIJADO(A)\n  * `NUE` - NUERA\n  * `YER` - YERNO\n  * `ABU` - ABUELO(A)\n  * `NIE` - NIETO(A)\n    * `OTRO` - OTRO(A)\n"
           },
           "valor" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "DECLARANTE"
           }
         }
       },
@@ -2612,11 +2594,13 @@
         "properties" : {
           "clave" : {
             "type" : "string",
+            "example" : "AGRI",
             "enum" : [ "AGRI", "MIN", "EELECT", "CONS", "INDMANU", "CMAYOR", "CMENOR", "TRANS", "MEDIOM", "SERVFIN", "SERVINM", "SERVPROF", "SERVCORP", "SERVS", "SERVESPAR", "SERVALOJ", "OTRO" ],
             "description" : "Significado de Claves:\n  * `AGRI` - AGRICULTURA\n  * `MIN` - MINERÍA\n  * `EELECT` - ENERGÍA ELÉCTRICA\n  * `CONS` - CONSTRUCCIÓN\n  * `INDMANU` - INDUSTRIA MANUFACTURERA\n  * `CMAYOR` - COMERCIO AL POR MAYOR\n  * `CMENOR` - COMERCIO AL POR MENOR\n  * `TRANS` - TRANSPORTE\n  * `MEDIOM` - MEDIOS MASIVOS\n  * `SERVFIN` - SERVICIOS FINANCIEROS\n  * `SERVINM` - SERVICIOS INMOBILIARIOS\n  * `SERVPROF` - SERVICIOS PROFESIONALES\n  * `SERVCORP` - SERVICIOS CORPORATIVOS\n  * `SERVS` - SERVICIOS DE SALUD\n  * `SERVESPAR` - SERVICIOS DE ESPARCIMIENTO\n  * `SERVALOJ` - SERVICIOS DE ALOJAMIENTO\n  * `OTRO` - OTRO (ESPECIFIQUE)\n"
           },
           "valor" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "AGRICULTURA"
           }
         }
       },

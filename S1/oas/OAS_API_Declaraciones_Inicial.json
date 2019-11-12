@@ -78,8 +78,8 @@
       "declaraciones_auth" : {
         "type" : "oauth2",
         "flows" : {
-          "implicit" : {
-            "authorizationUrl" : "/oauth",
+          "password" : {
+            "tokenUrl" : "/oauth",
             "scopes" : { }
           }
         }

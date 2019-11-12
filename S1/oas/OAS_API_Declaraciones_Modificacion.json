@@ -670,7 +670,7 @@
                 },
                 "documentoObtenido" : {
                   "type" : "string",
-                  "enum" : [ "BOLETA", "CERTIFICADO", "CONSTANCIA", "TÍTULO" ]
+                  "enum" : [ "BOLETA", "CERTIFICADO", "CONSTANCIA", "TITULO" ]
                 },
                 "fechaObtencion" : {
                   "type" : "string",
@@ -999,7 +999,7 @@
           "relacionConDeclarante" : {
             "type" : "string",
             "description" : "Seleccionar el tipo de relación entre las siguientes opciones: cónyuge, concubina/concubinario/unión libre o sociedad de convivencia.",
-            "enum" : [ "CÓNYUGE", "CONCUBINA/CONCUBINARIO/UNIÓN LIBRE", "SOCIEDAD DE CONVIVENCIA" ],
+            "enum" : [ "CONYUGE", "CONCUBINA/CONCUBINARIO/UNIÓN LIBRE", "SOCIEDAD DE CONVIVENCIA" ],
             "example" : "Cónyuge"
           },
           "ciudadanoExtranjero" : {
@@ -1181,8 +1181,8 @@
                 "lugarDondeReside" : {
                   "type" : "string",
                   "description" : "En caso de que el dependiente económico, no viva en el domicilio del Declarante, indicar si vive en México, en el extranjero o si se desconoce.",
-                  "enum" : [ "MÉXICO", "EXTRANJERO", "SE DESCONOCE" ],
-                  "example" : "MÉXICO"
+                  "enum" : [ "MEXICO", "EXTRANJERO", "SE DESCONOCE" ],
+                  "example" : "MEXICO"
                 },
                 "domicilioMexico" : {
                   "$ref" : "#/components/schemas/domicilioMexico"
@@ -2370,13 +2370,13 @@
                 },
                 "tipoFideicomiso" : {
                   "type" : "string",
-                  "enum" : [ "PÚBLICO", "PRIVADO", "MIXTO" ],
+                  "enum" : [ "PUBLICO", "PRIVADO", "MIXTO" ],
                   "description" : "Tipo de fideicomiso. Seleccionar si es público, privado o mixto.",
                   "example" : "PRIVADO"
                 },
                 "tipoParticipacion" : {
                   "type" : "string",
-                  "enum" : [ "FIDEICOMITENTE", "FIDUCIARIO", "FIDEICOMISARIO", "COMITÉ TÉCNICO" ],
+                  "enum" : [ "FIDEICOMITENTE", "FIDUCIARIO", "FIDEICOMISARIO", "COMITE TECNICO" ],
                   "description" : "Tipo de participación. Seleccionar su participación como fideicomitente, fiduciario, fideicomisario o dentro del Comité Técnico.",
                   "example" : "FIDEICOMITENTE"
                 },
@@ -2533,8 +2533,8 @@
       "tipoPersona" : {
         "type" : "string",
         "description" : "Indica si es persona física o persona moral",
-        "enum" : [ "FÍSICA", "MORAL" ],
-        "example" : "FÍSICA"
+        "enum" : [ "FISICA", "MORAL" ],
+        "example" : "FISICA"
       },
       "tipoMoneda" : {
         "type" : "string",
@@ -2581,7 +2581,7 @@
             "type" : "string",
             "example" : "DC",
             "enum" : [ "DC", "CY", "CON", "CONV", "HIJ", "HER", "CU", "MA", "PA", "TIO", "PRI", "SOB", "AHI", "NUE", "YER", "ABU", "NIE", "OTRO" ],
-            "description" : "Significado de Claves:\n  * `DC` - DECLARANTE\n  * `CY` - CÓNYUGE\n  * `CON` - CONCUBINA O CONCUBINARIO\n  * `CONV` - CONVIVIENTE\n  * `HIJ` - HIJO(A)\n  * `HER` - HERMANO(A)\n  * `CU` - CUÑADO(A)\n  * `MA` - MADRE\n  * `PA` - PADRE\n  * `TIO` - TÍO(A)\n  * `PRI` - PRIMO(A)\n  * `SOB` - SOBRINO(A)\n  * `AHI` - AHIJADO(A)\n  * `NUE` - NUERA\n  * `YER` - YERNO\n  * `ABU` - ABUELO(A)\n  * `NIE` - NIETO(A)\n    * `OTRO` - OTRO(A)\n"
+            "description" : "Significado de Claves:\n  * `DC` - DECLARANTE\n  * `CY` - CONYUGE\n  * `CON` - CONCUBINA O CONCUBINARIO\n  * `CONV` - CONVIVIENTE\n  * `HIJ` - HIJO(A)\n  * `HER` - HERMANO(A)\n  * `CU` - CUÑADO(A)\n  * `MA` - MADRE\n  * `PA` - PADRE\n  * `TIO` - TÍO(A)\n  * `PRI` - PRIMO(A)\n  * `SOB` - SOBRINO(A)\n  * `AHI` - AHIJADO(A)\n  * `NUE` - NUERA\n  * `YER` - YERNO\n  * `ABU` - ABUELO(A)\n  * `NIE` - NIETO(A)\n    * `OTRO` - OTRO(A)\n"
           },
           "valor" : {
             "type" : "string",
@@ -2669,8 +2669,8 @@
         "properties" : {
           "clave" : {
             "type" : "string",
-            "enum" : [ "ABU", "NIE", "TIOA", "AHI", "NUE", "YER", "CUN", "PAD", "HER", "PRI", "HIJ", "SOB", "MAD", "SUE", "NIN", "OTRO" ],
-            "description" : "Significado de Claves:\n  * `ABU` - ABUELO(A)\n  * `NIE` - NIETO(A)\n  * `TIOA` - TIO(A)\n  * `AHI` - AHIJADO(A)\n  * `NUE` - NUERA\n  * `YER` - YERNO\n  * `CUN` - CUÑADO(A)\n  * `PAD` - PADRE\n  * `HER` - HERMANO(A)\n  * `PRI` - PRIMO(A)\n  * `HIJ` - HIJO(A)\n  * `SOB` - SOBRINO(A)\n  * `MAD` - MADRE\n  * `SUE` - SUEGRO(A)\n  * `NIN` - NINGUNO\n  * `OTRO` - OTRO(ESPECIFIQUE)\n",
+            "enum" : [ "ABU", "NIE", "TIOA", "AHI", "NUE", "YER", "CUN", "PAD", "HER", "PRI", "HIJ", "SOB", "MAD", "SUE", "BISA", "BISN", "CONB", "CONC", "CONY", "TATA", "TATN", "NIN", "OTRO" ],
+            "description" : "Significado de Claves:\n  * `ABU` - ABUELO(A)\n  * `NIE` - NIETO(A)\n  * `TIOA` - TIO(A)\n  * `AHI` - AHIJADO(A)\n  * `NUE` - NUERA\n  * `YER` - YERNO\n  * `CUN` - CUÑADO(A)\n  * `PAD` - PADRE\n  * `HER` - HERMANO(A)\n  * `PRI` - PRIMO(A)\n  * `HIJ` - HIJO(A)\n  * `SOB` - SOBRINO(A)\n  * `MAD` - MADRE\n  * `SUE` - SUEGRO(A)\n  * `BISA` - BISABUELO(A)\n  * `BISN` - BISNIETO(A)\n  * `CONB` - CONCUBINA O CONCUBINARIO\n  * `CONC` - CONCUÑO(A)\n  * `CONY` - CÓNYUGE\n  * `TATA` - TATARABUELO(A)\n  * `TATN` - TATARANIETO(A)\n  * `NIN` - NINGUNO\n  * `OTRO` - OTRO(ESPECIFIQUE)\n",
             "example" : "HER"
           },
           "valor" : {
@@ -2686,12 +2686,12 @@
           "clave" : {
             "type" : "string",
             "enum" : [ "PUB", "PRI", "OTRO", "NIN" ],
-            "description" : "Significado de Claves:\n  * `PUB` - PÚBLICO\n  * `PRI` - PRIVADO\n  * `OTRO` - OTRO(ESPECIFIQUE)\n  * `NIN` - NINGUNO\n",
+            "description" : "Significado de Claves:\n  * `PUB` - PUBLICO\n  * `PRI` - PRIVADO\n  * `OTRO` - OTRO(ESPECIFIQUE)\n  * `NIN` - NINGUNO\n",
             "example" : "PUB"
           },
           "valor" : {
             "type" : "string",
-            "example" : "PÚBLICO"
+            "example" : "PUBLICO"
           }
         }
       },
@@ -2765,14 +2765,14 @@
       "nivelOrdenGobierno" : {
         "type" : "string",
         "description" : "Orden de gobierno en el que se encuentra",
-        "enum" : [ "FEDERAL", "ESTATAL", "MUNICIPAL/ALCALDÍA" ],
+        "enum" : [ "FEDERAL", "ESTATAL", "MUNICIPAL/ALCALDIA" ],
         "example" : "FEDERAL"
       },
       "ambitoPublico" : {
         "type" : "string",
         "description" : "Naturaleza jurídica al que pertenece",
-        "enum" : [ "EJECUTIVO", "LEGISLATIVO", "JUDICIAL", "ÓRGANO AUTÓNOMO" ],
-        "example" : "ÓRGANO AUTÓNOMO"
+        "enum" : [ "EJECUTIVO", "LEGISLATIVO", "JUDICIAL", "ORGANO AUTONOMO" ],
+        "example" : "ORGANO AUTONOMO"
       },
       "tipoParticipacion" : {
         "type" : "object",
@@ -2809,7 +2809,7 @@
       "lugarDondeReside" : {
         "type" : "string",
         "description" : "Indicar si vive en México, en el extranjero o si se desconoce.",
-        "enum" : [ "MÉXICO", "EXTRANJERO", "SE DESCONOCE" ],
+        "enum" : [ "MEXICO", "EXTRANJERO", "SE DESCONOCE" ],
         "example" : "EXTRANJERO"
       },
       "tipoOperacion" : {

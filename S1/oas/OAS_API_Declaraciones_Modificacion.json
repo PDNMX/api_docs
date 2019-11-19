@@ -125,7 +125,7 @@
               "properties" : {
                 "id" : {
                   "type" : "string",
-                  "description" : "Identificador del declarante con valor alfanumérico",
+                  "description" : "Identificador de la declaración con valor alfanumérico",
                   "example" : "a1b2c3d4"
                 },
                 "metadata" : {

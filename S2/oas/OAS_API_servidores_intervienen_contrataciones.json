@@ -182,7 +182,7 @@
           "sort" : {
             "type" : "object",
             "properties" : {
-              "nombre" : {
+              "nombres" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
                 "description" : "Campo a ordenar de forma ascendente o descente",

@@ -296,7 +296,7 @@
                   "properties" : {
                     "monto" : {
                       "type" : "number",
-                      "format" : "float",
+                      "format" : "double",
                       "description" : "Monto de la multa expresado en la moneda origen",
                       "example" : 30000.19
                     },

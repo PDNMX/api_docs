@@ -999,7 +999,7 @@
           "relacionConDeclarante" : {
             "type" : "string",
             "description" : "Seleccionar el tipo de relación entre las siguientes opciones: cónyuge, concubina/concubinario/unión libre o sociedad de convivencia.",
-            "enum" : [ "CONYUGE", "CONCUBINA/CONCUBINARIO/UNIÓN LIBRE", "SOCIEDAD DE CONVIVENCIA" ],
+            "enum" : [ "CONYUGE", "CONCUBINA_CONCUBINARIO_UNION_LIBRE", "SOCIEDAD_DE_CONVIVENCIA" ],
             "example" : "Cónyuge"
           },
           "ciudadanoExtranjero" : {
@@ -1181,7 +1181,7 @@
                 "lugarDondeReside" : {
                   "type" : "string",
                   "description" : "En caso de que el dependiente económico, no viva en el domicilio del Declarante, indicar si vive en México, en el extranjero o si se desconoce.",
-                  "enum" : [ "MEXICO", "EXTRANJERO", "SE DESCONOCE" ],
+                  "enum" : [ "MEXICO", "EXTRANJERO", "SE_DESCONOCE" ],
                   "example" : "MEXICO"
                 },
                 "domicilioMexico" : {
@@ -2376,7 +2376,7 @@
                 },
                 "tipoParticipacion" : {
                   "type" : "string",
-                  "enum" : [ "FIDEICOMITENTE", "FIDUCIARIO", "FIDEICOMISARIO", "COMITE TECNICO" ],
+                  "enum" : [ "FIDEICOMITENTE", "FIDUCIARIO", "FIDEICOMISARIO", "COMITE_TECNICO" ],
                   "description" : "Tipo de participación. Seleccionar su participación como fideicomitente, fiduciario, fideicomisario o dentro del Comité Técnico.",
                   "example" : "FIDEICOMITENTE"
                 },
@@ -2549,7 +2549,7 @@
       },
       "tipoRelacion" : {
         "type" : "string",
-        "enum" : [ "DECLARANTE", "PAREJA", "DEPENDIENTE ECONOMICO" ],
+        "enum" : [ "DECLARANTE", "PAREJA", "DEPENDIENTE_ECONOMICO" ],
         "description" : "Elegir quien es el Declarante, Pareja o dependiente económico.",
         "example" : "DECLARANTE"
       },
@@ -2765,14 +2765,14 @@
       "nivelOrdenGobierno" : {
         "type" : "string",
         "description" : "Orden de gobierno en el que se encuentra",
-        "enum" : [ "FEDERAL", "ESTATAL", "MUNICIPAL/ALCALDIA" ],
+        "enum" : [ "FEDERAL", "ESTATAL", "MUNICIPAL_ALCALDIA" ],
         "example" : "FEDERAL"
       },
       "ambitoPublico" : {
         "type" : "string",
         "description" : "Naturaleza jurídica al que pertenece",
-        "enum" : [ "EJECUTIVO", "LEGISLATIVO", "JUDICIAL", "ORGANO AUTONOMO" ],
-        "example" : "ORGANO AUTONOMO"
+        "enum" : [ "EJECUTIVO", "LEGISLATIVO", "JUDICIAL", "ORGANO_AUTONOMO" ],
+        "example" : "ORGANO_AUTONOMO"
       },
       "tipoParticipacion" : {
         "type" : "object",
@@ -2809,13 +2809,13 @@
       "lugarDondeReside" : {
         "type" : "string",
         "description" : "Indicar si vive en México, en el extranjero o si se desconoce.",
-        "enum" : [ "MEXICO", "EXTRANJERO", "SE DESCONOCE" ],
+        "enum" : [ "MEXICO", "EXTRANJERO", "SE_DESCONOCE" ],
         "example" : "EXTRANJERO"
       },
       "tipoOperacion" : {
         "type" : "string",
         "description" : "Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja",
-        "enum" : [ "AGREGAR", "MODIFICAR", "SIN CAMBIOS", "BAJA" ],
+        "enum" : [ "AGREGAR", "MODIFICAR", "SIN_CAMBIOS", "BAJA" ],
         "example" : "AGREGAR"
       },
       "ubicacion" : {

@@ -106,8 +106,8 @@
       "ssancionados_auth" : {
         "type" : "oauth2",
         "flows" : {
-          "implicit" : {
-            "authorizationUrl" : "/oauth",
+          "password" : {
+            "tokenUrl" : "/oauth",
             "scopes" : { }
           }
         }
@@ -120,7 +120,7 @@
         "properties" : {
           "pagination" : {
             "type" : "object",
-            "required" : [ "pageSize", "page", "total", "hasNextPage" ],
+            "required" : [ "pageSize", "page", "totalRows", "hasNextPage" ],
             "properties" : {
               "pageSize" : {
                 "type" : "integer",
@@ -396,13 +396,15 @@
         "properties" : {
           "pageSize" : {
             "type" : "integer",
-            "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
-            "example" : 10
+            "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1, en caso de no recibir el parámetro, su valor será el indicado en default.",
+            "example" : 10,
+            "default" : 10
           },
           "page" : {
             "type" : "integer",
-            "description" : "Número de página a mostrar",
-            "example" : 10
+            "description" : "Número de página a mostrar, en caso de no recibir el parámetro, su valor será el indicado en default.",
+            "example" : 10,
+            "default" : 1
           },
           "sort" : {
             "type" : "object",
@@ -485,7 +487,7 @@
               "tipoSancion" : {
                 "type" : "array",
                 "uniqueItems" : true,
-                "description" : "Clave(s) del tipo de sanción aplicada. \n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓN\n  * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN\n",
+                "description" : "Clave(s) del tipo de sanción aplicada. \n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓN\n  * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN\n\n\n*******Deberá devolver todos los registros que contengan al menos uno de los valores solicitados.\n",
                 "items" : {
                   "type" : "string",
                   "enum" : [ "I", "M", "S", "D" ]

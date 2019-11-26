@@ -120,8 +120,8 @@
       "psancionados_auth" : {
         "type" : "oauth2",
         "flows" : {
-          "implicit" : {
-            "authorizationUrl" : "/oauth",
+          "password" : {
+            "tokenUrl" : "/oauth",
             "scopes" : { }
           }
         }
@@ -477,7 +477,6 @@
                     },
                     "url" : {
                       "type" : "string",
-                      "format" : "url",
                       "description" : "URL que apunta al documento en formato digital de la resolución emitida por el correspondiente Organo Interno de Control",
                       "example" : "https://ejemplo.mx/archivo/documento.pdf"
                     },
@@ -494,8 +493,9 @@
                   "description" : "Se llena en caso de que el particular haya tenido multa económica",
                   "properties" : {
                     "monto" : {
-                      "type" : "integer",
-                      "minimum" : 1,
+                      "type" : "number",
+                      "format" : "float",
+                      "minimum" : 0,
                       "description" : "Monto de la multa impuesta a la empresa",
                       "example" : 5000000
                     },
@@ -618,22 +618,24 @@
           },
           "page" : {
             "type" : "integer",
-            "description" : "Número de página a mostrar",
-            "example" : 10
+            "description" : "Número de página a mostrar, en caso de no recibir el parámetro, su valor será el indicado en default.",
+            "example" : 1,
+            "default" : 1
           },
           "pageSize" : {
             "type" : "integer",
-            "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
-            "example" : 10
-          },
-          "id" : {
-            "type" : "string",
-            "description" : "Devuelve resultados al buscar por su ID. Si se especifica este valor, el objeto query es omitido.",
-            "example" : "123abc"
+            "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1, , en caso de no recibir el parámetro, su valor será el indicado en default.",
+            "example" : 10,
+            "default" : 10
           },
           "query" : {
             "description" : "En este objeto se pasan los parametros para las busquedas por medio de los campos correspondientes",
             "properties" : {
+              "id" : {
+                "type" : "string",
+                "description" : "Devuelve resultados al buscar por su ID. Si se especifica este valor, el objeto query es omitido.",
+                "example" : "123abc"
+              },
               "nombreRazonSocial" : {
                 "type" : "string",
                 "description" : "Nombre o razón social",
@@ -657,7 +659,7 @@
               "tipoSancion" : {
                 "type" : "array",
                 "uniqueItems" : true,
-                "description" : "Clave del Tipo de sanción. Valores permitidos\n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DE ACTIVIDADES\n  * `D` - DISOLUCIÓN DE LA SOCIEDAD\n  * `A` - AMONESTACIÓN\n",
+                "description" : "Clave del Tipo de sanción. Valores permitidos\n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DE ACTIVIDADES\n  * `D` - DISOLUCIÓN DE LA SOCIEDAD\n  * `A` - AMONESTACIÓN\n\n*******Deberá devolver todos los registros que contengan al menos uno de los valores solicitados.\n",
                 "items" : {
                   "type" : "string",
                   "enum" : [ "I", "M", "S", "D", "A" ]

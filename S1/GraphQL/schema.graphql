@@ -1,0 +1,3015 @@
+scalar DateTime
+
+type Query {
+  getDeclaraciones(
+    reqDeclaracionesInput: ReqDeclaracionesInput
+  ): ResDeclaraciones
+}
+
+input ReqDeclaracionesInput {
+  """
+  Numero de pagina a mostrar
+  """
+  page: Int
+
+  """
+  Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1
+  """
+  pageSize: Int
+  sort: SortInput
+  query: QueryInput
+}
+
+"""
+Enum de ordenamiento de los campos
+"""
+enum Order {
+  """
+  * `ASC` - ASCENDENTE  
+  """
+  ASC
+  """
+  * `DESC` - DESCENDENTE
+  """
+  DESC
+}
+
+"""
+Campos a ordenar de forma ascendente (asc) o descendente (desc).
+"""
+input SortInput {
+  nombres: Order
+  primerApellido: Order
+  segundoApellido: Order
+  escolaridadNivel: Order
+  datosEmpleoCargoComision: SortDatosEmpleoCargoComisionInput
+  bienesInmuebles: SortBienesInmueblesInput
+}
+
+"""
+Campos a ordenar de forma ascendente (asc) o descendente (desc).
+"""
+input SortDatosEmpleoCargoComisionInput {
+  nombreEntePublico: Order
+  entidadFederativa: Order
+  municipioAlcaldia: Order
+  empleoCargoComision: Order
+  nivelEmpleoCargoComision: Order
+  nivelOrdenGobierno: Order
+  totalIngresosMensualesNetos: Order
+}
+
+"""
+Campos a ordenar de forma ascendente (asc) o descendente (desc).
+"""
+input SortBienesInmueblesInput {
+  superficieConstruccion: Order
+  superficieTerreno: Order
+  formaAdquisicion: Order
+  valorAdquisicion: Order
+}
+
+input QueryInput {
+  """
+  Devuelve resultados al buscar una declaración por su ID. Si se especifica este valor, el objeto query es omitido.
+  """
+  id: String
+
+  """
+  Nombres o nombre de la persona.
+  """
+  nombres: String
+
+  """
+  Primer apellido de la persona.
+  """
+  primerApellido: String
+
+  """
+  Segundo apellido de la persona.
+  """
+  segundoApellido: String
+
+  """
+  codigo del nivel de estudios a buscar
+  """
+  escolaridadNivel: String
+  datosEmpleoCargoComision: DatosEmpleoCargoComisionInput
+  bienesInmuebles: BienesInmueblesInput
+
+  """
+  Valor numérico del ingreso mensual neto a buscar
+  """
+  totalIngresosMensualesNetos: RangoBusqueda
+
+  """
+  RFC de la persona quien hace la consulta, si se omite este parámetro, se enviaran solo los datos públicos
+  """
+  rfcSolicitante: String
+}
+
+input DatosEmpleoCargoComisionInput {
+  """
+  Se deberá señalar el Ente Público o entidad que corresponda en la que el Servidor Público Declarante ejerza el encargo.
+  """
+  nombreEntePublico: String
+
+  """
+  Clave de la entidad federativa del Marco Geoestadístico Nacional
+  """
+  entidadFederativa: String
+
+  """
+  Clave de municipio del Marco Geoestadístico Nacional
+  """
+  municipioAlcaldia: String
+
+  """
+  Empleo, cargo o comisión. Señalar el nombre del empleo, cargo o comisión, nombramiento, contrato u oficio de comisión.
+  """
+  empleoCargoComision: String
+
+  """
+  Codigo del nivel/orden de gobierno a buscar
+  """
+  nivelOrdenGobierno: NivelOrdenGobierno
+
+  """
+  Nivel del empleo, cargo o comisión.
+  """
+  nivelEmpleoCargoComision: String
+}
+
+input BienesInmueblesInput {
+  """
+  Se deberá señalar en metros cuadrados con valor numérico la
+  superficie correspondiente a construcción respecto del bien
+  inmueble que se declare.
+  """
+  superficieConstruccion: RangoBusqueda
+
+  """
+  Se deberá señalar en metros cuadrados la superficie total
+  correspondiente al terreno respecto del bien inmueble que se
+  declare.
+  """
+  superficieTerreno: RangoBusqueda
+
+  """
+  Código de la forma de adquisicion
+  """
+  formaAdquisicion: String
+
+  """
+  Valor númerico del precio de adquisición
+  """
+  valorAdquisicion: RangoBusqueda
+}
+
+input RangoBusqueda {
+  """
+  valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor
+  """
+  min: Int
+
+  """
+  valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor
+  """
+  max: Int
+}
+
+type ResDeclaraciones {
+  pagination: Pagination!
+  results: [Results]!
+}
+
+type Pagination {
+  """
+  Tamaño de registros mostrados por página. Por defecto son diez.
+  """
+  pageSize: Int!
+
+  """
+  Número de página actual
+  """
+  page: Int!
+
+  """
+  Total de registros
+  """
+  totalRows: Int!
+
+  """
+  Indica si existe otra página
+  """
+  hasNextPage: Boolean!
+}
+
+type Results {
+  """
+  Identificador de la declaración con valor alfanumérico
+  """
+  id: String
+  metadata: Metadata
+  declaracion: Declaraciones
+}
+
+type Metadata {
+  """
+  Fecha y hora en la que se presentó la declaración
+  """
+  actualizacion: DateTime
+
+  """
+  Institucion resposanble del sistema de captura
+  """
+  institucion: String
+
+  """
+  Correo de contacto de la persona resposanble del sistema de captura
+  """
+  contacto: String
+
+  """
+  Nombre de la persona resposanble del sistema de captura
+  """
+  personaContacto: String
+
+  """
+  indica el tipo de declaración
+  """
+  tipo: TipoDeclaracion
+}
+
+"""
+indica el tipo de declaración
+"""
+enum TipoDeclaracion {
+  INICIAL
+  MODIFICACION
+  CONCLUSION
+}
+
+type Declaraciones {
+  situacionPatrimonial: SituacionPatrimonial
+  interes: Interes
+}
+
+union SituacionPatrimonial =
+    SituacionPatrimonialInicial
+  | SituacionPatrimonialModificacion
+  | SituacionPatrimonialConclusion
+
+type SituacionPatrimonialConclusion {
+  datosGenerales: DatosGenerales
+  domicilioDeclarante: DomicilioDeclarante
+  datosCurricularesDeclarante: DatosCurricularesDeclarante
+  datosEmpleoCargoComision: DatosEmpleoCargoComision
+  experienciaLaboral: ExperienciaLaboral
+  datosPareja: DatosPareja
+
+  """
+  Proporcionar los datos de los dependientes económicos, que son aquellas
+  personas, familiares o no, cuya manutención depende principalmente de los
+  ingresos del Declarante.
+  """
+  datosDependienteEconomico: DatosDependientesEconomicos
+
+  """
+  Para la declaración de inicio los ingresos a reportar son mensuales.d
+  """
+  ingresos: IngresosConclusion
+  actividadAnualAnterior: ActividadAnualAnterior
+
+  """
+  Reportar aquellos bienes que conforme a la normatividad aplicable se consideran inmuebles.
+  """
+  bienesInmuebles: BienesInmuebles
+
+  """
+  Situación de los vehículos a la fecha de ingreso al empleo, cargo o comisión.
+  """
+  vehiculos: Vehiculos
+  bienesMuebles: BienesMuebles
+  inversiones: InversionesCuentasValores
+  adeudos: AdeudosPasivos
+  prestamoOComodato: PrestamoComodato
+}
+
+"""
+Para la declaración de inicio los ingresos a reportar son mensuales.
+"""
+type IngresosConclusion {
+  remuneracionConclusionCargoPublico: Monto
+  otrosIngresosConclusionTotal: Monto
+  actividadIndustialComercialEmpresarial: ActividadIndustialComercialEmpresarial
+  actividadFinanciera: ActividadFinanciera
+  serviciosProfesionales: ServiciosProfesionales
+  enajenacionBienes: EnajenacionBienes
+  otrosIngresos: OtrosIngresos
+  ingresoConclusionNetoDeclarante: Monto
+  ingresoConclusionNetoParejaDependiente: Monto
+  totalIngresosConclusionNetos: Monto
+
+  """
+  Aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+type SituacionPatrimonialModificacion {
+  datosGenerales: DatosGenerales
+  domicilioDeclarante: DomicilioDeclarante
+  datosCurricularesDeclarante: DatosCurricularesDeclarante
+  datosEmpleoCargoComision: DatosEmpleoCargoComisionModificacion
+  experienciaLaboral: ExperienciaLaboral
+  datosPareja: DatosPareja
+
+  """
+  Proporcionar los datos de los dependientes económicos, que son aquellas
+  personas, familiares o no, cuya manutención depende principalmente de los
+  ingresos del Declarante.
+  """
+  datosDependienteEconomico: DatosDependientesEconomicos
+
+  """
+  Para la declaración de inicio los ingresos a reportar son mensuales.
+  """
+  ingresos: IngresosModificacion
+
+  """
+  Reportar aquellos bienes que conforme a la normatividad aplicable se consideran inmuebles.
+  """
+  bienesInmuebles: BienesInmuebles
+
+  """
+  Situación de los vehículos a la fecha de ingreso al empleo, cargo o comisión.
+  """
+  vehiculos: Vehiculos
+  bienesMuebles: BienesMuebles
+  inversiones: InversionesCuentasValores
+  adeudos: AdeudosPasivos
+  prestamoOComodato: PrestamoComodato
+}
+
+type DatosEmpleoCargoComisionModificacion {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+
+  """
+  Orden de gobierno en el que se encuentra
+  """
+  nivelOrdenGobierno: NivelOrdenGobierno
+
+  """
+  Naturaleza jurídica al que pertenece
+  """
+  ambitoPublico: AmbitoPublico
+
+  """
+  Señalar el Ente Público al cual se encuentra adscrita la plaza.
+  """
+  nombreEntePublico: String
+
+  """
+  Especificar el nombre de la Unidad Administrativa u homóloga superior
+  inmediata de su adscripción. (Superior jerárquico).
+  """
+  areaAdscripcion: String
+
+  """
+  Señalar el nombre del empleo, cargo o comisión que aparece en su recibo de
+  nómina, nombramiento, contrato u oficio de comisión.
+  """
+  empleoCargoComision: String
+
+  """
+  Indicar sí o no (true o false)
+  """
+  contratadoPorHonorarios: Boolean
+
+  """
+  Elegir conforme a lo que señala su recibo de pago, en caso de no encontrarse
+  en la lista desplegable, señalar otro y especificar.
+  """
+  nivelEmpleoCargoComision: String
+
+  """
+  Señalar cuál es la función o actividad principal que desempeña en su empleo, cargo o comisión.
+  """
+  funcionPrincipal: String
+
+  """
+  Señalar la fecha en que inició/concluyó el encargo.
+  """
+  fechaTomaPosesion: DateTime
+  telefonoOficina: TelefonoOficina
+  domicilioMexico: DomicilioMexico
+  domicilioExtranjero: DomicilioExtranjero
+
+  """
+  En este espacio el Declarante podrá realizar las aclaraciones u observaciones
+  que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+
+  cuentaConOtroCargoPublico: Boolean
+
+  otroEmpleoCargoComision: OtroEmpleoCargoComision
+}
+
+type OtroEmpleoCargoComision {
+  """
+  Orden de gobierno en el que se encuentra
+  """
+  nivelOrdenGobierno: NivelOrdenGobierno
+
+  """
+  Naturaleza jurídica al que pertenece
+  """
+  ambitoPublico: AmbitoPublico
+
+  """
+  Señalar el Ente Público al cual se encuentra adscrita la plaza.
+  """
+  nombreEntePublico: String
+
+  """
+  Especificar el nombre de la Unidad Administrativa u homóloga superior
+  inmediata de su adscripción. (Superior jerárquico).
+  """
+  areaAdscripcion: String
+
+  """
+  Señalar el nombre del empleo, cargo o comisión que aparece en su recibo de
+  nómina, nombramiento, contrato u oficio de comisión.
+  """
+  empleoCargoComision: String
+
+  """
+  Indicar sí o no (true o false)
+  """
+  contratadoPorHonorarios: Boolean
+
+  """
+  Elegir conforme a lo que señala su recibo de pago, en caso de no encontrarse
+  en la lista desplegable, señalar otro y especificar.
+  """
+  nivelEmpleoCargoComision: String
+
+  """
+  Señalar cuál es la función o actividad principal que desempeña en su empleo, cargo o comisión.
+  """
+  funcionPrincipal: String
+
+  """
+  Señalar la fecha en que inició/concluyó el encargo.
+  """
+  fechaTomaPosesion: DateTime
+  telefonoOficina: TelefonoOficina
+  domicilioMexico: DomicilioMexico
+  domicilioExtranjero: DomicilioExtranjero
+
+  """
+  En este espacio el Declarante podrá realizar las aclaraciones u observaciones
+  que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+"""
+Para la declaración de inicio los ingresos a reportar son mensuales.
+"""
+type IngresosModificacion {
+  remuneracionAnualCargoPublico: Monto
+  otrosIngresosAnualTotal: Monto
+  actividadIndustialComercialEmpresarial: ActividadIndustialComercialEmpresarial
+  actividadFinanciera: ActividadFinanciera
+  serviciosProfesionales: ServiciosProfesionales
+  enajenacionBienes: EnajenacionBienes
+  otrosIngresos: OtrosIngresos
+  ingresoAnualNetoDeclarante: Monto
+  ingresoAnualNetoParejaDependiente: Monto
+  totalIngresosAnualesNetos: Monto
+
+  """
+  Aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+type SituacionPatrimonialInicial {
+  datosGenerales: DatosGenerales
+  domicilioDeclarante: DomicilioDeclarante
+  datosCurricularesDeclarante: DatosCurricularesDeclarante
+  datosEmpleoCargoComision: DatosEmpleoCargoComision
+  experienciaLaboral: ExperienciaLaboral
+  datosPareja: DatosPareja
+
+  """
+  Proporcionar los datos de los dependientes económicos, que son aquellas
+  personas, familiares o no, cuya manutención depende principalmente de los
+  ingresos del Declarante.
+  """
+  datosDependienteEconomico: DatosDependientesEconomicos
+
+  """
+  Para la declaración de inicio los ingresos a reportar son mensuales.
+  """
+  ingresos: IngresosInicial
+  actividadAnualAnterior: ActividadAnualAnterior
+
+  """
+  Reportar aquellos bienes que conforme a la normatividad aplicable se consideran inmuebles.
+  """
+  bienesInmuebles: BienesInmuebles
+
+  """
+  Situación de los vehículos a la fecha de ingreso al empleo, cargo o comisión.
+  """
+  vehiculos: Vehiculos
+  bienesMuebles: BienesMuebles
+  inversiones: InversionesCuentasValores
+  adeudos: AdeudosPasivos
+  prestamoOComodato: PrestamoComodato
+}
+
+###### REVISAR #######
+type ExperienciaLaboral {
+  """
+  Indica que el declarante expresa no tener información relacionada
+  """
+  ninguno: Boolean
+  experiencia: [Experiencia]
+
+  """
+  En este espacio el Declarante podrá realizar las aclaraciones u observaciones
+  que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+union Experiencia = ExperienciaSectorPublico | ExperienciaSectorPrivado
+
+type ExperienciaSectorPublico {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+  """
+  Señalar si el empleo que reporta corresponde al sector público, privado u otro. En caso de señalar otro deberá especificar el sector en el que laboró.
+  """
+  ambitoSector: AmbitoSector
+  """
+  Orden de gobierno en el que se encuentra
+  """
+  nivelOrdenGobierno: NivelOrdenGobierno
+  """
+  Naturaleza jurídica al que pertenece
+  """
+  ambitoPublico: AmbitoPublico
+  """
+  Señalar el Ente Público al cual se encuentra adscrita la plaza.
+  """
+  nombreEntePublico: String
+  """
+  Especificar el nombre de la Unidad Administrativa u homóloga superior inmediata de su adscripción. (Superior jerárquico).
+  """
+  areaAdscripcion: String
+  """
+  Señalar el nombre del empleo, cargo o comisión que aparece en su recibo de nómina, nombramiento, contrato u oficio de comisión.
+  """
+  empleoCargoComision: String
+  """
+  Señalar cual es la función o actividad principal que desempeñó.
+  """
+  funcionPrincipal: String
+  """
+  Señalar la fecha en que inició empleo, cargo o comisión.
+  """
+  fechaIngreso: DateTime
+  """
+  Señalar la fecha en que concluyó empleo, cargo o comisión.
+  """
+  fechaEgreso: DateTime
+  """
+  Señalar en México o en el extranjero.
+  """
+  ubicacion: Extanjero
+}
+
+type ExperienciaSectorPrivado {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+  """
+  Señalar si el empleo que reporta corresponde al sector público, privado u otro. En caso de señalar otro deberá especificar el sector en el que laboró.
+  """
+  ambitoSector: AmbitoSector
+  """
+  Proporcionar el nombre de la empresa, sociedad o asociación en la que laboró.
+  """
+  nombreEmpresaSociedadAsociacion: String
+  """
+  Proporcionar los 12 dígitos de la empresa en que laboró.
+  """
+  rfc: String
+  """
+  Proporcionar el nombre del área en la cual estaba adscrito(A).
+  """
+  area: String
+  """
+  Proporcionar el nombre del puesto que desempeñó.
+  """
+  puesto: String
+  """
+  Señalar la fecha en que inició empleo, cargo o comisión.
+  """
+  sector: Sector
+  """
+  Señalar la fecha en que inició empleo, cargo o comisión.
+  """
+  fechaIngreso: DateTime
+  """
+  Señalar la fecha en que concluyó empleo, cargo o comisión.
+  """
+  fechaEgreso: DateTime
+  """
+  Señalar en México o en el extranjero.
+  """
+  ubicacion: Extanjero
+}
+
+type AmbitoSector {
+  """
+  * `PUB` - PUBLICO
+  * `PRV` - PRIVADO
+  * `OTR` - OTRO
+    
+  """
+  clave: String
+  valor: String
+}
+
+type PrestamoComodato {
+  """
+  Indica que el declarante expresa no tener información relacionada
+  """
+  ninguno: Boolean
+  prestamo: [Prestamo]
+
+  """
+  En este espacio el Declarante podrá realizar las aclaraciones u observaciones
+  que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+type Prestamo {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+  tipoBien: TipoBienPrestamo
+  duenoTitular: DuenoTitular
+}
+
+type TipoBienPrestamo {
+  """
+  Elegir alguna de las siguientes opciones: casa, departamento, edificio, local
+  comercial, bodega, palco, rancho, terreno, otro (especifique).
+  """
+  inmueble: Inmueble
+  vehiculo: VehiculoPrestamo
+}
+
+type VehiculoPrestamo {
+  tipo: TipoVehiculoPrestamo
+
+  """
+  Elegir la marca del catálogo desplegable.
+  """
+  marca: String
+
+  """
+  Señalar el modelo del vehículo, de acuerdo a la marca. (Ejemplo marca Volkswagen, modelo Jetta).
+  """
+  modelo: String
+
+  """
+  Indicar el año del vehículo.
+  """
+  anio: Int
+
+  """
+  Número de serie o registro que aparece en la factura o tarjeta de circulación
+  """
+  numeroSerieRegistro: String
+  lugarRegistro: LugarRegistro
+}
+
+type TipoVehiculoPrestamo {
+  """
+  Significado de Claves:
+  * `AUMOT` - AUTOMÓVIL/MOTOCICLETA
+  * `AERN` - AERONAVE
+  * `BARYA` - BARCO/YATE
+  * `OTRO` - OTROS (ESPECIFIQUE)
+  """
+  clave: String
+  valor: String
+}
+
+"""
+Elegir alguna de las siguientes opciones: casa, departamento, edificio, local
+comercial, bodega, palco, rancho, terreno, otro (especifique).
+"""
+type Inmueble {
+  tipoInmueble: TipoInmueble
+  domicilioMexico: DomicilioMexico
+  domicilioExtranjero: DomicilioExtranjero
+}
+
+type TipoInmueble {
+  """
+  Significado de Claves:
+  * `CASA` - CASA
+  * `DPTO` - DEPARTAMENTO
+  * `EDIF` - EDIFICIO
+  * `LOCC` - LOCAL COMERCIAL
+  * `BODG` - BODEGA
+  * `PALC` - PALCO
+  * `RACH` - RANCHO
+  * `TERR` - TERRENO
+  * `OTRO` - OTROS (ESPECIFIQUE)
+  """
+  clave: String
+  valor: String
+}
+
+type DuenoTitular {
+  """
+  Indica si es persona física o persona moral
+  """
+  tipoDuenoTitular: TipoPersona
+
+  """
+  Deberá proporcionar el nombre completo y/o razón social del propietario del bien prestado y usado por el Declarante.
+  """
+  nombreTitular: String
+
+  """
+  En caso de personas físicas proporcionar los trece dígitos. En caso de personas morales establecer los doce dígitos.
+  """
+  rfc: String
+
+  """
+  Indicar que tipo de relación existe en entre el dueño del bien prestado y el Declarante.
+  """
+  relacionConTitular: String
+}
+
+type AdeudosPasivos {
+  """
+  Indica que el declarante expresa no tener información relacionada
+  """
+  ninguno: Boolean
+  adeudo: [Adeudo]
+
+  """
+  En este espacio el Declarante podrá realizar las aclaraciones u observaciones
+  que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+union Adeudo = AdeudoInicial | AdeudoModificacion | AdeudoConclusion
+
+type TipoAdeudo {
+  """
+  Significado de Claves:
+  * `CHIP` - CRÉDITO HIPOTECARIO
+  * `CAUT` - CRÉDITO AUTOMOTRIZ
+  * `CPER` - CRÉDITO PERSONAL
+  * `TCRN` - TARJETA DE CRÉDITO BANCARIA
+  * `TCRD` - TARJETA DE CRÉDITO DEPARTAMENTAL
+  * `PRPE` - PRÉSTAMO PERSONAL
+  * `OTRO` - OTROS (ESPECIFIQUE)
+  """
+  clave: String
+  valor: String
+}
+
+type OtorganteCredito {
+  """
+  Indica si es persona física o persona moral
+  """
+  tipoPersona: TipoPersona
+
+  """
+  Señalar el nombre de la institución donde contrajo la deuda.
+  """
+  nombreInstitucion: String
+
+  """
+  En caso de personas físicas proporcionar los trece dígitos. En caso de personas morales establecer los doce dígitos.
+  """
+  rfc: String
+}
+
+type AdeudoInicial {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+  titular: [TitularBien]
+  tipoAdeudo: TipoAdeudo
+
+  """
+  Señalar el número de contrato, cuenta o cualquier dato que permita su
+  identificación, en caso de préstamo personal se indicará no aplica.
+  """
+  numeroCuentaContrato: String
+
+  """
+  Indicar la fecha en que adquirió el adeudo.
+  """
+  fechaAdquision: String
+  montoOriginal: Monto
+  saldoInsolutoSituacionActual: Monto
+  tercero: [Tercero]
+  otorganteCredito: OtorganteCredito
+
+  """
+  Indicar si se encuentra en México o en el extranjero, debiendo señalar el país donde se localiza.
+  """
+  localizacionAdeudo: LocalizacionAdeudo
+}
+
+"""
+Indicar si se encuentra en México o en el extranjero, debiendo señalar el país donde se localiza.
+"""
+type LocalizacionAdeudo {
+  """
+  Código alpha 2 del país especificado en estándar ISO3166
+  """
+  pais: String
+}
+
+type AdeudoModificacion {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+  titular: [TitularBien]
+  tipoAdeudo: TipoAdeudo
+
+  """
+  Señalar el número de contrato, cuenta o cualquier dato que permita su
+  identificación, en caso de préstamo personal se indicará no aplica.
+  """
+  numeroCuentaContrato: String
+
+  """
+  Indicar la fecha en que adquirió el adeudo.
+  """
+  fechaAdquision: String
+  montoOriginal: Monto
+  saldoInsolutoDiciembreAnterior: Monto
+  tercero: [Tercero]
+  otorganteCredito: OtorganteCredito
+
+  """
+  Indicar si se encuentra en México o en el extranjero, debiendo señalar el país donde se localiza.
+  """
+  localizacionAdeudo: LocalizacionAdeudo
+}
+
+type AdeudoConclusion {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+  titular: [TitularBien]
+  tipoAdeudo: TipoAdeudo
+
+  """
+  Señalar el número de contrato, cuenta o cualquier dato que permita su
+  identificación, en caso de préstamo personal se indicará no aplica.
+  """
+  numeroCuentaContrato: String
+
+  """
+  Indicar la fecha en que adquirió el adeudo.
+  """
+  fechaAdquision: String
+  montoOriginal: Monto
+  saldoInsolutoFechaConclusion: Monto
+  tercero: [Tercero]
+  otorganteCredito: OtorganteCredito
+
+  """
+  Indicar si se encuentra en México o en el extranjero, debiendo señalar el país donde se localiza.
+  """
+  localizacionAdeudo: LocalizacionAdeudo
+}
+
+type InversionesCuentasValores {
+  """
+  Indica que el declarante expresa no tener información relacionada
+  """
+  ninguno: Boolean
+  inversion: [InversionInicial]
+
+  """
+  En este espacio el Declarante podrá realizar las aclaraciones u observaciones
+  que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+type InversionInicial {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+  tipoInversion: TipoInversion
+  subTipoInversion: SubTipoInversion
+  titular: [TitularBien]
+  tercero: [Tercero]
+
+  """
+  Señalar el número de cuenta, contrato, póliza o cualquier dato que permita su identificación.
+  """
+  numeroCuentaContrato: String
+
+  """
+  Indicar si se encuentra en México o en el extranjero, debiendo señalar el país donde se localiza.
+  """
+  localizacionInversion: LocalizacionInversion
+  saldoSituacionActual: Monto
+}
+
+"""
+Indicar si se encuentra en México o en el extranjero, debiendo señalar el país donde se localiza.
+"""
+type LocalizacionInversion {
+  """
+  Código alpha 2 del país especificado en estándar ISO3166
+  """
+  pais: String
+
+  """
+  Señalar el nombre de la institución donde se encuentran registradas las inversiones cuentas o valores.
+  """
+  institucionRazonSocial: String
+
+  """
+  Señalar los doce dígitos correspondientes. (Si aplica).
+  """
+  rfc: String
+}
+
+type TitularBien {
+  """
+  Significado de Claves:
+  * `DEC` - DECLARANTE
+  * `CYG` - CONYUGE
+  * `CBN` - CONCUBINA O CONCUBINARIO
+  * `CVV` - CONVIVIENTE
+  * `DEN` - DEPENDIENTE ECONÓMICO
+  * `CTER` - COPROPIEDAD CON TERCEROS
+  """
+  clave: String
+
+  """
+  Valor del titular del inmueble
+  """
+  valor: String
+}
+
+type TipoInversion {
+  """
+  Significado de Claves:
+  * `BANC` - BANCARIA
+  * `FINV` - FONDOS DE INVERSIÓN
+  * `ORPM` - ORGANIZACIONES PRIVADAS Y/O MERCANTILES
+  * `POMM` - POSESIÓN DE MONEDAS Y/O METALES
+  * `SEGR` - SEGUROS
+  * `VBUR` - VALORES BURSÁTILES
+  * `AFOT` - AFORES Y OTROS
+  """
+  clave: String
+  valor: String
+}
+
+type SubTipoInversion {
+  """
+  Significado de Claves:
+  * tipoInversion - clave - valor
+  * BANC - `CNOM` - CUENTA DE NÓMINA
+  * BANC - `CAHO` - CUENTA DE AHORRO
+  * BANC - `CCHE` - CUENTA DE CHEQUES
+  * BANC - `CMAS` - CUENTA MAESTRA
+  * BANC - `CEJE` - CUENTA EJE
+  * BANC - `DPLA` - DEPÓSITO A PLAZOS
+  * FINV - `SOIN` - SOCIEDADES DE INVERSIÓN
+  * FINV - `IFEX` - INVERSIONES FINANCIERAS EN EL EXTRANJERO
+  * ORPM - `ACCI` - ACCIONES
+  * ORPM - `CSAH` - CAJAS DE AHORRO
+  * POMM - `CENT` - CENTENARIOS
+  * POMM - `DIVS` - DIVISAS
+  * POMM - `MONN` - MONEDA NACIONAL
+  * POMM - `ONZT` - ONZAS TROY
+  * POMM - `CRIP` - CRIPTOMONEDAS
+  * SEGR - `SSIN` - SEGURO DE SEPARACIÓN INDIVIDUALIZADO
+  * SEGR - `SEGI` - SEGURO DE INVERSIÓN
+  * SEGR - `SEGV` - SEGURO DE VIDA
+  * VBUR - `ADER` - ACCIONES Y DERIVADOS
+  * VBUR - `ABAN` - ACEPTACIONES BANCARIAS
+  * VBUR - `BGUB` - BONOS GUBERNAMENTALES
+  * VBUR - `PCOM` - PAPEL COMERCIAL
+  * AFOT - `AFOR` - AFORES
+  * AFOT - `FIDE` - FIDEICOMISOS
+  * AFOT - `CTES` - CERTIFICADOS DE LA TESORERÍA
+  * AFOT - `PFTE` - PRÉSTAMOS A FAVOR DE UN TERCERO
+  """
+  clave: String
+  valor: String
+}
+
+type BienesMuebles {
+  """
+  Indica que el declarante expresa no tener información relacionada
+  """
+  ninguno: Boolean
+  bienMueble: [BienMueble]
+
+  """
+  En este espacio el Declarante podrá realizar las aclaraciones u observaciones
+  que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+type BienMueble {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+  titular: [TitularBien]
+
+  """
+  Seleccionar de la lista desplegable: menaje de casa (muebles y accesorios de
+  casa), aparatos electrónicos y electrodomésticos, joyas, colecciones, obras de
+  arte y otros, especifique.
+  """
+  tipoBien: TipoBien
+
+  """
+  Llenar la información para cada uno de los transmisores
+  """
+  transmisor: [Transmisor]
+  tercero: [Tercero]
+
+  """
+  Referir brevemente el bien reportado.
+  """
+  descripcionGeneralBien: String
+  formaAdquisicion: FormaAdquisicion
+  formaPago: String
+  valorAdquisicion: Monto
+
+  """
+  Señalar la fecha de adquisición del mueble.
+  """
+  fechaAdquisicion: String
+  motivoBaja: MotivoBaja
+}
+
+"""
+Situación de los vehículos a la fecha de ingreso al empleo, cargo o comisión.
+"""
+type Vehiculos {
+  """
+  Indica que el declarante expresa no tener información relacionada
+  """
+  ninguno: Boolean
+
+  """
+  Datos del vehículo declarado
+  """
+  vehiculo: [Vehiculo]
+
+  """
+  Aclaraciones u observaciones pertinentes respecto de algunos de los incisos de este apartado
+  """
+  aclaracionesObservaciones: String
+}
+
+type Vehiculo {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+  tipoVehiculo: TipoVehiculo
+  titular: [TitularBien]
+
+  """
+  Llenar la información para cada uno de los transmisores
+  """
+  transmisor: [Transmisor]
+
+  """
+  Marca
+  """
+  marca: String
+
+  """
+  Modelo del vehículo de acuerdo a la marca
+  """
+  modelo: String
+
+  """
+  Año del vehículo
+  """
+  anio: Int
+
+  """
+  Número de serie o registro que aparece en la factura o tarjeta de circulación
+  """
+  numeroSerieRegistro: String
+  tercero: [Tercero]
+  lugarRegistro: LugarRegistro
+  formaAdquisicion: FormaAdquisicion
+  formaPago: String
+  valorAdquisicion: Monto
+
+  """
+  Formato de fechas ISO 8601 con notación yyyy-mm-dd.
+  """
+  fechaAdquisicion: String
+  motivoBaja: MotivoBaja
+}
+
+type TipoVehiculo {
+  """
+  Significado de Claves:
+  * `AUTMOT` - AUTOMÓVIL/MOTOCICLETA
+  * `AERN` - AERONAVE
+  * `BRCYTE` - BARCO/YATE
+  * `OTRO` - OTRO(ESPECIFIQUE)
+  """
+  clave: String
+
+  """
+  Valor de la clave de tipo de vehículo
+  """
+  valor: String
+}
+
+"""
+Reportar aquellos bienes que conforme a la normatividad aplicable se consideran inmuebles.
+"""
+type BienesInmuebles {
+  """
+  Indica que el declarante expresa no tener información relacionada
+  """
+  ninguno: Boolean
+
+  """
+  Llenar toda la información de cada uno de los bienes que conforme a la normatividad aplicable se consideran inmuebles.
+  """
+  bienInmueble: [BienInmueble]
+
+  """
+  Aclaraciones u observaciones que se consideren pertinentes
+  """
+  aclaracionesObservaciones: String
+}
+
+type BienInmueble {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+  tipoInmueble: TipoInmueble
+  titular: [TitularBien]
+  porcentajePropiedad: Int
+  superficieTerreno: Superficie
+  superficieConstruccion: Superficie
+  tercero: [Tercero]
+
+  """
+  Llenar la información para cada uno de los transmisores
+  """
+  transmisor: [Transmisor]
+  formaAdquisicion: FormaAdquisicion
+  formaPago: String
+  valorAdquisicion: Monto
+
+  """
+  Formato de fechas ISO 8601 con notación yyyy-mm-dd.
+  """
+  fechaAdquiscion: DateTime
+
+  """
+  Número de escritura pública, folio real o cualquier dato que lo identifique
+  """
+  datoIdentificacion: String
+
+  """
+  Indicar si es conforme a escritura pública, sentencia o contrato
+  """
+  valorConformeA: String
+  domicilioMexico: DomicilioMexico
+  domicilioExtranjero: DomicilioExtranjero
+  motivoBaja: MotivoBaja
+}
+
+type MotivoBaja {
+  """
+  Significado de Claves:
+  * `VNT` - VENTA
+  * `DNC` - DONACIÓN
+  * `SNT` - SINIESTRO
+  * `OTRO` - OTRO(ESPECIFIQUE)
+  """
+  clave: String
+
+  """
+  Valor del motivo de baja
+  """
+  valor: String
+}
+
+type FormaAdquisicion {
+  """
+  Significado de Claves:
+  * `CPV` - COMPRAVENTA
+  * `CSN` - CESIÓN
+  * `DNC` - DONACIÓN
+  * `HRN` - HERENCIA
+  * `PRM` - PERMUTA
+  * `RST` - RIFA O SORTEO
+  * `STC` - SENTENCIA
+  """
+  clave: String
+
+  """
+  Valor de la forma de adquisición
+  """
+  valor: String
+}
+
+type Transmisor {
+  """
+  Indica si es persona física o persona moral
+  """
+  tipoPersona: TipoPersona
+
+  """
+  Nombre completo del transmisor, en caso de persona moral deberá proporcionar la denominación o razón social
+  """
+  nombreRazonSocial: String
+
+  """
+  RFC
+  """
+  rfc: String
+
+  """
+  Tipo de relación con el Declarante
+  """
+  relacion: ParentescoRelacion
+}
+
+"""
+Tipo de relación con el Declarante
+"""
+type ParentescoRelacion {
+  """
+  Significado de Claves:
+  * `ABU` - ABUELO(A)
+  * `NIE` - NIETO(A)
+  * `TIOA` - TIO(A)
+  * `AHI` - AHIJADO(A)
+  * `NUE` - NUERA
+  * `YER` - YERNO
+  * `CUN` - CUÑADO(A)
+  * `PAD` - PADRE
+  * `HER` - HERMANO(A)
+  * `PRI` - PRIMO(A)
+  * `HIJ` - HIJO(A)
+  * `SOB` - SOBRINO(A)
+  * `MAD` - MADRE
+  * `SUE` - SUEGRO(A)
+  * `BISA` - BISABUELO(A)
+  * `BISN` - BISNIETO(A)
+  * `CONB` - CONCUBINA O CONCUBINARIO
+  * `CONC` - CONCUÑO(A)
+  * `CONY` - CÓNYUGE
+  * `TATA` - TATARABUELO(A)
+  * `TATN` - TATARANIETO(A)
+  * `NIN` - NINGUNO
+  * `OTRO` - OTRO(ESPECIFIQUE)
+  """
+  clave: String
+
+  """
+  Valor del parentesco
+  """
+  valor: String
+}
+
+type Tercero {
+  """
+  Indica si es persona física o persona moral
+  """
+  tipoPersona: TipoPersona
+
+  """
+  En caso de señalar copropiedad, escribir el nombre o nombres completos, así
+  como apellidos completos sin abreviaturas y sin acentos ni signos especiales.
+  Si se trata de persona moral deberá proporcionar la denominación o razón
+  social de la institución tal y como se encuentra en el documento con el que se
+  acredita la adquisición.
+  """
+  nombreRazonSocial: String
+
+  """
+  En caso de personas físicas proporcionar los trece dígitos. En caso de personas morales establecer los doce dígitos.
+  """
+  rfc: String
+}
+
+type Superficie {
+  valor: Int
+  unidad: String
+}
+
+type ActividadAnualAnterior {
+  """
+  Indica si se desempeño como servidor público en el año inmediato anterior
+  """
+  servidorPublicoAnioAnterior: Boolean
+
+  """
+  Formato de fechas ISO 8601 con notación yyyy-mm-dd.
+  """
+  fechaIngreso: DateTime
+
+  """
+  Formato de fechas ISO 8601 con notación yyyy-mm-dd.
+  """
+  fechaConclusion: DateTime
+  remuneracionNetaCargoPublico: Monto
+  otrosIngresosTotal: Monto
+  actividadIndustialComercialEmpresarial: ActividadIndustialComercialEmpresarial
+  actividadFinanciera: ActividadFinanciera
+  serviciosProfesionales: ServiciosProfesionales
+  enajenacionBienes: EnajenacionBienes
+  otrosIngresos: OtrosIngresos
+  ingresoNetoAnualDeclarante: Monto
+  ingresoNetoAnualParejaDependiente: Monto
+  totalIngresosNetosAnuales: Monto
+
+  """
+  Aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+type EnajenacionBienes {
+  remuneracion: Monto
+
+  """
+  Significado de Claves:
+  * `MUE` - MUEBLE
+  * `INM` - INMUEBLE
+  * `VEH` - VEHICULO
+  """
+  tipoBienEnajenado: TipoBienEnajenado
+}
+
+enum TipoBienEnajenado {
+  MUEBLE
+  INMUEBLE
+  VEHICULO
+}
+
+"""
+Para la declaración de inicio los ingresos a reportar son mensuales.
+"""
+type IngresosInicial {
+  remuneracionMensualCargoPublico: Monto
+  otrosIngresosMensualesTotal: Monto
+  actividadIndustialComercialEmpresarial: ActividadIndustialComercialEmpresarial
+  actividadFinanciera: ActividadFinanciera
+  serviciosProfesionales: ServiciosProfesionales
+  otrosIngresos: OtrosIngresos
+  ingresoMensualNetoDeclarante: Monto
+  ingresoMensualNetoParejaDependiente: Monto
+  totalIngresosMensualesNetos: Monto
+
+  """
+  Aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+type OtrosIngresos {
+  remuneracion: Monto
+
+  """
+  Indicar si el ingreso derivó de arrendamiento, regalía, sorteos, concursos,
+  donaciones, seguro de vida o algún otro concepto distinto no considerado en
+  los rubros anteriores.
+  """
+  tipoIngreso: String
+}
+
+type ServiciosProfesionales {
+  remuneracion: Monto
+
+  """
+  Tipo de servicio, el tipo de participación en los consejos o
+  consultorías, así como el tipo de asesorías que llevo a cabo.
+  """
+  tipoServicio: String
+}
+
+type ActividadFinanciera {
+  remuneracion: Monto
+  tipoInstrumento: TipoInstrumento
+}
+
+type TipoInstrumento {
+  """
+  Significado de Claves:
+  * `CAP` - CAPITAL
+  * `FIN` - FONDOS DE INVERSIÓN
+  * `OPR` - ORGANIZACIONES PRIVADA
+  * `SSI` - SEGURO DE SEPARACIÓN INDIVIDUALIZADO
+  * `VBU` - VALORES BUSÁTILES
+  * `BON` - BONOS
+  * `OTRO` - OTRO(ESPECIFIQUE)
+  """
+  clave: String
+
+  """
+  Valor del tipo de inversión
+  """
+  valor: String
+}
+
+type ActividadIndustialComercialEmpresarial {
+  remuneracion: Monto
+
+  """
+  Nombre, razón social o denominación del negocio, en el cual se lleva a cabo la
+  actividad o alguna de las actividades antes mencionadas por la cual se genera el ingreso.
+  """
+  nombreRazonSocial: String
+
+  """
+  Tipo de negocio por el cual obtuvo el ingreso.
+  """
+  tipoNegocio: String
+}
+
+"""
+Proporcionar los datos de los dependientes económicos, que son aquellas
+personas, familiares o no, cuya manutención depende principalmente de los
+ingresos del Declarante.
+"""
+type DatosDependientesEconomicos {
+  """
+  Indica que el declarante expresa no tener información relacionada
+  """
+  ninguno: Boolean
+
+  """
+  Llenar toda la información por cada una de las personas que dependan económicamente del Declarante.
+  """
+  dependienteEconomico: [DependienteEconomico]
+
+  """
+  Aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+type DependienteEconomico {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+
+  """
+  Nombre del dependiente económico
+  """
+  nombre: String
+
+  """
+  Primer apellido del dependiente económico
+  """
+  primerApellido: String
+
+  """
+  Segundo apellido del dependiente económico
+  """
+  segundoApellido: String
+
+  """
+  Formato de fechas ISO 8601 con notación yyyy-mm-dd.
+  """
+  fechaNacimiento: String
+
+  """
+  Escribir los diez caracteres básicos con los tres caracteres de la homoclave
+  """
+  rfc: String
+
+  """
+  Tipo de relación con el Declarante
+  """
+  parentescoRelacion: ParentescoRelacion
+
+  """
+  Indica si es extranjero o no
+  """
+  extranjero: Boolean
+
+  """
+  Se deberá escribir los 18 caracteres de la Clave Única de
+  Registro de Población, como la emitió la Secretaría de
+  Gobernación. Este dato es información confidencial.
+  """
+  curp: String
+
+  """
+  Indicar sí o no, el dependiente económico vive en el domicilio del Declarante.
+  """
+  habitaDomicilioDeclarante: Boolean
+
+  """
+  En caso de que el dependiente económico, no viva en el domicilio del
+  Declarante, indicar si vive en México, en el extranjero o si se desconoce.
+  """
+  lugarDondeReside: LugarDondeReside
+  domicilioMexico: DomicilioMexico
+  domicilioExtranjero: DomicilioExtranjero
+  actividadLaboral: ActividadLaboral
+
+  """
+  Si el dependiente económico se encuentra trabajando actualmente en el sector público
+  """
+  actividadLaboralSectorPublico: ActividadLaboralSectorPublico
+  actividadLaboralSectorPrivadoOtro: ActividadLaboralSectorPrivadoOtro
+
+  """
+  Señala sí o no, el dependiente económico vende o presta algún servicio al gobierno
+  """
+  proveedorContratistaGobierno: Boolean
+  sector: Sector
+}
+
+type ActividadLaboralSectorPrivadoOtro {
+  """
+  Nombre de la empresa, sociedad o asociación en la que labora.
+  """
+  nombreEmpresaSociedadAsociacion: String
+
+  """
+  Los 12 dígitos de la empresa en la que labora el dependiente económico
+  """
+  rfc: String
+
+  """
+  Nombre del puesto que desempeña
+  """
+  empleoCargo: String
+
+  """
+  Formato de fechas ISO 8601 con notación yyyy-mm-dd.
+  """
+  fechaIngresoEmpleo: String
+  salarioMensualNeto: Monto
+}
+
+type DatosPareja {
+  """
+  Indica que el declarante expresa no tener información relacionada
+  """
+  ninguno: Boolean
+
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+
+  """
+  Nombre(s)
+  """
+  nombre: String
+
+  """
+  Primer Apellido
+  """
+  primerApellido: String
+
+  """
+  Segundo Apellido
+  """
+  segundoApellido: String
+
+  """
+  Señalar la fecha de nacimiento de la Pareja
+  """
+  fechaNacimiento: DateTime
+
+  """
+  Escribir los diez caracteres básicos con los tres caracteres de la homoclave.
+  """
+  rfc: String
+
+  """
+  Seleccionar el tipo de relación entre las siguientes opciones: cónyuge,
+  concubina/concubinario/unión libre o sociedad de convivencia.
+  """
+  relacionConDeclarante: RelacionConDeclarante
+
+  """
+  Deberá indicar sí o no (true/false), según el caso.
+  """
+  ciudadanoExtranjero: Boolean
+
+  """
+  Escribir los dieciocho caracteres como la emitió la Secretaría de Gobernación.
+  """
+  curp: String
+
+  """
+  Si la manutención depende principalmente de los ingresos de la persona
+  servidora pública Declarante, señalará sí, en caso contrario señalará no.
+  """
+  esDependienteEconomico: Boolean
+
+  """
+  Indicar sí o no, la Pareja vive en el domicilio del Declarante.
+  """
+  habitaDomicilioDeclarante: Boolean
+
+  """
+  Indicar si vive en México, en el extranjero o si se desconoce.
+  """
+  lugarDondeReside: LugarDondeReside
+  domicilioMexico: DomicilioMexico
+  domicilioExtranjero: DomicilioExtranjero
+
+  """
+  Indicar si el cónyuge, concubina/concubinario o sociedad de convivencia, se
+  encuentra trabajando actualmente, seleccionando alguno de los siguientes
+  campos: privado, público, otro (especificar) o ninguno
+  """
+  actividadLaboral: ActividadLaboral
+  actividadLaboralSectorPublico: ActividadLaboralSectorPublico
+  actividadLaboralSectorPrivadoOtro: DatosParejaActividadLaboralSectorPrivadoOtro
+
+  """
+  En este espacio el Declarante podrá realizar las aclaraciones u observaciones
+  que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+type DatosParejaActividadLaboralSectorPrivadoOtro {
+  """
+  Proporcionar el nombre de la empresa, sociedad o asociación en la que labora.
+  """
+  nombreEmpresaSociedadAsociacion: String
+
+  """
+  Proporcionar el nombre del puesto que desempeña.
+  """
+  empleoCargoComision: String
+
+  """
+  Proporcionar los 12 dígitos de la empresa en que labora su cónyuge, concubina/concubinario o sociedad de convivencia.
+  """
+  rfc: String
+
+  """
+  Señalar la fecha en que inició empleo, cargo o comisión.
+  """
+  fechaIngreso: String
+  sector: Sector
+  salarioMensualNeto: Monto
+
+  """
+  Señalar sí o no, la Pareja vende o presta algún servicio al gobierno.
+  """
+  proveedorContratistaGobierto: Boolean
+}
+
+"""
+Si el dependiente económico se encuentra trabajando actualmente en el sector público
+"""
+type ActividadLaboralSectorPublico {
+  """
+  Orden de gobierno en el que se encuentra
+  """
+  nivelOrdenGobierno: NivelOrdenGobierno
+
+  """
+  Naturaleza jurídica al que pertenece
+  """
+  ambitoPublico: AmbitoPublico
+
+  """
+  Ente Púbico al cual se encuentra adscrita la plaza
+  """
+  nombreEntePublico: String
+
+  """
+  El nombre de la Unidad Administrativa u homóloga superior inmediata en la que está adscrito. (Superior jerárquico).
+  """
+  areaAdscripcion: String
+
+  """
+  Nombre del empleo, cargo o comisión que se establece en su recibo de nómina, nombramiento, contrato u oficio de comisión
+  """
+  empleoCargoComision: String
+  funcionPrincipal: String
+  salarioMensualNeto: Monto
+
+  """
+  Formato de fechas ISO 8601 con notación yyyy-mm-dd.
+  """
+  fechaIngresoEmpleo: DateTime
+}
+
+"""
+Indicar si el cónyuge, concubina/concubinario o sociedad de convivencia, se
+encuentra trabajando actualmente, seleccionando alguno de los siguientes campos:
+privado, público, otro (especificar) o ninguno
+"""
+type ActividadLaboral {
+  """
+  Significado de Claves:
+  * `PUB` - PUBLICO
+  * `PRI` - PRIVADO
+  * `OTRO` - OTRO(ESPECIFIQUE)
+  * `NIN` - NINGUNO
+  """
+  clave: String
+  valor: String
+}
+
+enum LugarDondeReside {
+  MEXICO
+  EXTRANJERO
+  SE_DESCONOCE
+}
+
+"""
+Seleccionar el tipo de relación entre las siguientes opciones: cónyuge,
+concubina/concubinario/unión libre o sociedad de convivencia.
+"""
+enum RelacionConDeclarante {
+  CONYUGE
+  CONCUBINA_CONCUBINARIO_UNION_LIBRE
+  SOCIEDAD_DE_CONVIVENCIA
+}
+
+enum AmbitoPublico {
+  EJECUTIVO
+  LEGISLATIVO
+  JUDICIAL
+  ORGANO_AUTONOMO
+}
+
+type DatosEmpleoCargoComision {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+
+  """
+  Orden de gobierno en el que se encuentra
+  """
+  nivelOrdenGobierno: NivelOrdenGobierno
+
+  """
+  Naturaleza jurídica al que pertenece
+  """
+  ambitoPublico: AmbitoPublico
+
+  """
+  Señalar el Ente Público al cual se encuentra adscrita la plaza.
+  """
+  nombreEntePublico: String
+
+  """
+  Especificar el nombre de la Unidad Administrativa u homóloga superior
+  inmediata de su adscripción. (Superior jerárquico).
+  """
+  areaAdscripcion: String
+
+  """
+  Señalar el nombre del empleo, cargo o comisión que aparece en su recibo de
+  nómina, nombramiento, contrato u oficio de comisión.
+  """
+  empleoCargoComision: String
+
+  """
+  Indicar sí o no (true o false)
+  """
+  contratadoPorHonorarios: Boolean
+
+  """
+  Elegir conforme a lo que señala su recibo de pago, en caso de no encontrarse
+  en la lista desplegable, señalar otro y especificar.
+  """
+  nivelEmpleoCargoComision: String
+
+  """
+  Señalar cuál es la función o actividad principal que desempeña en su empleo, cargo o comisión.
+  """
+  funcionPrincipal: String
+
+  """
+  Señalar la fecha en que inició/concluyó el encargo.
+  """
+  fechaTomaPosesion: DateTime
+  telefonoOficina: TelefonoOficina
+  domicilioMexico: DomicilioMexico
+  domicilioExtranjero: DomicilioExtranjero
+
+  """
+  En este espacio el Declarante podrá realizar las aclaraciones u observaciones
+  que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+type TelefonoOficina {
+  """
+  Proporcionar el teléfono laboral y extensión según corresponda.
+  """
+  telefono: String
+
+  """
+  Proporcionar el teléfono laboral y extensión según corresponda.
+  """
+  extension: String
+}
+
+type DatosCurricularesDeclarante {
+  escolaridad: [Escolaridad]
+
+  """
+  En este espacio el Declarante podrá realizar las aclaraciones u observaciones
+  que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+type Escolaridad {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+
+  """
+  El Declarante deberá elegir alguna de las siguientes opciones: primaria,
+  secundaria, bachillerato, carrera técnica o comercial, licenciatura,
+  especialidad, maestría odoctoradoo.
+  """
+  nivel: Nivel
+  institucionEducativa: InstitucionEducativa
+
+  """
+  Escribir el nombre de la carrera o de los estudios realizados.
+  """
+  carreraAreaConocimiento: String
+
+  """
+  Seleccionar si se encuentra cursando los estudios, finalizado o trunco.
+  """
+  estatus: Estatus
+  documentoObtenido: DocumentoObtenido
+
+  """
+  Señalar la fecha que indica el documento obtenido.
+  """
+  fechaObtencion: DateTime
+}
+
+enum DocumentoObtenido {
+  BOLETA
+  CERTIFICADO
+  CONSTANCIA
+  TITULO
+}
+
+enum Estatus {
+  CURSANDO
+  FINALIZADO
+  TRUNCO
+}
+
+type InstitucionEducativa {
+  """
+  Institución educativa. Escribir el nombre de la institución o escuela donde se realizaron los estudios.
+  """
+  nombre: String
+
+  """
+  Señalar si se ubica en México o en el extranjero.
+  """
+  ubicacion: String
+}
+
+"""
+El Declarante deberá elegir alguna de las siguientes opciones: primaria,
+secundaria, bachillerato, carrera técnica o comercial, licenciatura,
+especialidad, maestría odoctoradoo.
+"""
+type Nivel {
+  """
+  Significado de Claves:
+  * `PRI` - PRIMARIA
+  * `SEC` - SECUNDARIA
+  * `BCH` - BACHILLERATO
+  * `CTC` - CARRERA TÉCNICA O COMERCIAL
+  * `LIC` - LICENCIATURA
+  * `ESP` - ESPECIALIDAD
+  * `MAE` - MAESTRÍA
+  * `DOC` - DOCTORADO
+  """
+  clave: String
+  valor: String
+}
+
+type DomicilioDeclarante {
+  domicilioMexico: DomicilioMexico
+  domicilioExtranjero: DomicilioExtranjero
+
+  """
+  En este espacio el Declarante podrá realizar las aclaraciones u observaciones
+  que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+type DomicilioExtranjero {
+  calle: String
+  numeroExterior: String
+  numeroInterior: String
+  ciudadLocalidad: String
+  estadoProvincia: String
+  """
+  Código alpha 2 del país especificado en estándar ISO3166
+  """
+  pais: String
+  codigoPostal: String
+}
+
+type DomicilioMexico {
+  calle: String
+  numeroExterior: String
+  numeroInterior: String
+  coloniaLocalidad: String
+  municipioAlcaldia: MunicipioAlcaldia
+  entidadFederativa: EntidadFederativa
+  codigoPostal: String
+}
+
+type MunicipioAlcaldia {
+  """
+  cve_agem del Marco Geoestadistico de INEGI
+  """
+  clave: String
+
+  """
+  nom_agem del Marco Geoestadistico de INEGI
+  """
+  valor: String
+}
+
+type DatosGenerales {
+  """
+  Nombre(s) del declarante
+  """
+  nombre: String
+
+  """
+  Primer apellido
+  """
+  primerApellido: String
+
+  """
+  Segundo apellido
+  """
+  segundoApellido: String
+
+  """
+  Escribir los dieciocho caracteres como la emitió la Secretaría de
+  Gobernación. En caso de no contar con ella, podrá consultarla en la página
+  de la Secretaría de Gobernación, en el apartado de Trámites.
+  """
+  curp: String
+  rfc: Rfc
+  correoElectronico: CorreoElectronico
+  telefono: Telefono
+  situacionPersonalEstadoCivil: SituacionPersonalEstadoCivil
+  regimenMatrimonial: RegimenMatrimonial
+  """
+  Código alpha 2 del país especificado en estándar ISO3166
+  """
+  paisNacimiento: String
+  """
+  Código alpha 2 del país especificado en estándar ISO3166
+  """
+  nacionalidad: String
+
+  """
+  En este espacio el Declarante podrá realizar las aclaraciones u observaciones
+  que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+type Rfc {
+  """
+  Registro Federal de Contribuyentes
+  """
+  rfc: String
+
+  """
+  Homoclave
+  """
+  homoClave: String
+}
+
+type CorreoElectronico {
+  """
+  Escribir la dirección de correo electrónico que le haya sido asignada por el Ente Público en el que labora.
+  """
+  institucional: String
+
+  """
+  Escribir la dirección de correo electrónico que el Declarante haya generado
+  para uso personal. En caso de no contar con él, deberá generar una cuenta.
+  """
+  personal: String
+}
+
+type Interes {
+  participaciones: Participaciones
+
+  """
+  El Declarante deberá señalar si tiene o no participación en empresas,
+  sociedades o asociaciones, tales como socio, accionista, comisario,
+  representante, apoderado, colaborador, beneficiario u otro, especifique.
+  Deberá reportar hasta los últimos dos años.
+  """
+  participacionTomaDecisiones: ParticipacionTomaDecisiones
+
+  """
+  Es la contribución monetaria o en especie que otorga un Ente Público al
+  Declarante, cónyuge o Pareja y/o dependiente económico. El apoyo en especie
+  refiere a cualquier contribución, utilizando bienes, servicios o beneficios de
+  naturaleza diferente al dinero. Deberá reportar hasta los últimos dos años.
+  """
+  apoyos: Apoyos
+
+  """
+  Es cuando el Declarante actúa a nombre de otra persona física o moral
+  (representante) o cuando una persona actúa a nombre del Declarante
+  (representado). Deberá reportar hasta los últimos dos años.
+  """
+  representacion: Representaciones
+
+  """
+  En caso de tener alguna empresa, negocio o actividad lucrativa deberá señalar
+  a sus clientes principales, siempre y cuando el beneficio o ganancia directa
+  al Declarante supere mensualmente 250 Unidades de Medida y Actualización
+  (UMA), refiriéndose al valor diario de ésta. Deberá reportar hasta los últimos dos años.
+  """
+  clientesPrincipales: ClientesPrincipales
+
+  """
+  Es la contribución monetaria o en especie que otorga una persona física o
+  moral con recursos privados al Declarante o alguna de las personas señaladas
+  en el catálogo. El apoyo en especie refiere a cualquier contribución,
+  utilizando bienes o beneficios de naturaleza diferente al dinero. Deberá
+  reportar hasta los últimos dos años.
+  """
+  beneficiosPrivados: BeneficiosPrivados
+
+  """
+  Este apartado solo lo llenaran las personas servidoras públicas que tengan
+  participación en un fideicomiso, ya sea en el carácter de fideicomitente,
+  fiduciario, fideicomisario o dentro del consejo técnico. Deberá reportar hasta
+  los últimos dos años.
+  """
+  fideicomisos: Fideicomisos
+}
+
+type Telefono {
+  """
+  Escribir el número telefónico de su domicilio, incluir lada.
+  """
+  casa: String
+
+  """
+  Escribir los diez dígitos de su número celular.
+  """
+  celularPersonal: String
+}
+
+type SituacionPersonalEstadoCivil {
+  """
+  Significado de Claves:
+  * `SOL` - SOLTERO (A)
+  * `CAS` - CASADO (A)
+  * `DIV` - DIVORCIADO (A)
+  * `VIU` - VIUDO (A)
+  * `CON` - CONCUBINA/CONCUBINARIO/UNIÓN LIBRE
+  * `SCO` - SOCIEDAD DE CONVIVENCIA
+  """
+  clave: String
+
+  """
+  Es la condición del Declarante en función de si tiene o no Pareja, según
+  sus circunstancias o situación legal respecto a ello.
+  """
+  valor: String
+}
+
+type RegimenMatrimonial {
+  """
+  Significado de las Claves:
+  * `SOC` - SOCIEDAD CONYUGAL
+  * `SBI` - SEPARACIÓN DE BIENES
+  * `OTR` - OTRO
+  """
+  clave: String
+
+  """
+  En su caso, especificar, sociedad conyugal, separación de bienes u otro/especifique.
+  """
+  valor: String
+}
+
+"""
+Este apartado solo lo llenaran las personas servidoras públicas que tengan
+participación en un fideicomiso, ya sea en el carácter de fideicomitente,
+fiduciario, fideicomisario o dentro del consejo técnico. Deberá reportar hasta
+los últimos dos años.
+"""
+type Fideicomisos {
+  """
+  Indica que el declarante expresa no tener información relacionada
+  """
+  ninguno: Boolean
+  fideicomiso: [Fideicomiso]
+
+  """
+  Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las
+  aclaraciones u observaciones que considere pertinentes respecto de alguno o
+  algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+"""
+Tipo de fideicomiso. Seleccionar si es público, privado o mixto.
+"""
+enum TipoFideicomiso {
+  PUBLICO
+  PRIVADO
+  MIXTO
+}
+
+"""
+Tipo de participación. Seleccionar su participación como fideicomitente,
+fiduciario, fideicomisario o dentro del Comité Técnico.
+"""
+enum TipoParticipacionFideicomiso {
+  FIDEICOMITENTE
+  FIDUCIARIO
+  FIDEICOMISARIO
+  COMITE_TECNICO
+}
+
+type Fideicomiso {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+
+  """
+  Elegir quien es el Declarante, Pareja o dependiente económico.
+  """
+  tipoRelacion: TipoRelacion
+
+  """
+  Tipo de fideicomiso. Seleccionar si es público, privado o mixto.
+  """
+  tipoFideicomiso: TipoFideicomiso
+
+  """
+  Tipo de participación. Seleccionar su participación como fideicomitente,
+  fiduciario, fideicomisario o dentro del Comité Técnico.
+  """
+  tipoParticipacion: TipoParticipacionFideicomiso
+
+  """
+  RFC del fideicomiso. En caso de personas físicas proporcionar los trece
+  dígitos. En caso de personas morales establecer los doce dígitos del fideicomiso.
+  """
+  rfcFideicomiso: String
+  fideicomitente: Fideicomitente
+  fiduciario: Fiduciario
+  fideicomisario: Fideicomisario
+  sector: Sector
+
+  """
+  ¿Dónde se localiza el fideicomiso? Seleccionar en México o en el extranjero.
+  """
+  extanjero: Extanjero
+}
+
+"""
+¿Dónde se localiza el fideicomiso? Seleccionar en México o en el extranjero.
+"""
+enum Extanjero {
+  MX
+  EX
+}
+
+type Fideicomitente {
+  """
+  Indica si es persona física o persona moral
+  """
+  tipoPersona: TipoPersona
+
+  """
+  Nombre o razón social del fideicomitente. Proporcionar nombre completo.
+  """
+  nombreRazonSocial: String
+
+  """
+  RFC. En caso de personas físicas proporcionar los trece dígitos. En caso de
+  personas morales establecer los doce dígitos del fideicomitente.
+  """
+  rfc: String
+}
+
+type Fiduciario {
+  """
+  Nombre o razón social del fiduciario. Proporcionar nombre completo.
+  """
+  nombreRazonSocial: String
+
+  """
+  RFC. En caso de personas físicas proporcionar los trece dígitos. En caso de
+  personas morales establecer los doce dígitos del fiduciario.
+  """
+  rfc: String
+}
+
+type Fideicomisario {
+  """
+  Indica si es persona física o persona moral
+  """
+  tipoPersona: TipoPersona
+
+  """
+  Nombre o razón social del fideicomisario. Proporcionar nombre completo.
+  """
+  nombreRazonSocial: String
+
+  """
+  RFC. En caso de personas físicas proporcionar los trece dígitos. En caso de
+  personas morales establecer los doce dígitos del fideicomisario.
+  """
+  rfc: String
+}
+
+"""
+Es la contribución monetaria o en especie que otorga una persona física o moral
+con recursos privados al Declarante o alguna de las personas señaladas en el
+catálogo. El apoyo en especie refiere a cualquier contribución, utilizando
+bienes o beneficios de naturaleza diferente al dinero. Deberá reportar hasta los
+últimos dos años.
+"""
+type BeneficiosPrivados {
+  """
+  Indica que el declarante expresa no tener información relacionada
+  """
+  ninguno: Boolean
+  beneficio: [Beneficio]
+
+  """
+  Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las
+  aclaraciones u observaciones que considere pertinentes respecto de alguno o
+  algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+type Beneficio {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+
+  """
+  Tipo de Beneficio. Seleccionar del listado el tipo de beneficio sorteo, concurso, donación u otro (especifique).
+  """
+  tipoBeneficio: TipoBeneficio
+  beneficiario: [BeneficiariosPrograma]
+  otorgante: Otorgante
+
+  """
+  Forma de recepción. Señalar si es monetario o en especie.
+  """
+  formaRecepcion: FormaRecepcion
+
+  """
+  Especifique el beneficio. En caso de haber seleccionado en especie deberá describir en que consiste el beneficio.
+  """
+  especifiqueBeneficio: String
+  montoMensualAproximado: Monto
+  sector: Sector
+}
+
+"""
+Tipo de Beneficio. Seleccionar del listado el tipo de beneficio sorteo, concurso, donación u otro (especifique).
+"""
+type TipoBeneficio {
+  """
+  Significado de Claves:
+  * `S` - SORTEO
+  * `C` - CONCURSO
+  * `D` - DONACIÓN
+  * `O` - OTRO (ESPECIFICO)
+  """
+  clave: String
+  valor: String
+}
+
+type BeneficiariosPrograma {
+  """
+  Significado de Claves:
+  * `DC` - DECLARANTE
+  * `CY` - CONYUGE
+  * `CON` - CONCUBINA O CONCUBINARIO
+  * `CONV` - CONVIVIENTE
+  * `HIJ` - HIJO(A)
+  * `HER` - HERMANO(A)
+  * `CU` - CUÑADO(A)
+  * `MA` - MADRE
+  * `PA` - PADRE
+  * `TIO` - TÍO(A)
+  * `PRI` - PRIMO(A)
+  * `SOB` - SOBRINO(A)
+  * `AHI` - AHIJADO(A)
+  * `NUE` - NUERA
+  * `YER` - YERNO
+  * `ABU` - ABUELO(A)
+  * `NIE` - NIETO(A)
+  * `OTRO` - OTRO(A)
+  """
+  clave: String
+  valor: String
+}
+
+type Otorgante {
+  """
+  Indica si es persona física o persona moral
+  """
+  tipoPersona: TipoPersona
+
+  """
+  Nombre o razón social del otorgante. Proporcionar el nombre o razón social completos de quien otorga el beneficio.
+  """
+  nombreRazonSocial: String
+
+  """
+  RFC. En caso de personas físicas proporcionar los trece dígitos. En caso de
+  personas morales establecer los doce dígitos del otorgante del beneficio.
+  """
+  rfc: String
+}
+
+"""
+En caso de tener alguna empresa, negocio o actividad lucrativa deberá señalar a
+sus clientes principales, siempre y cuando el beneficio o ganancia directa al
+Declarante supere mensualmente 250 Unidades de Medida y Actualización (UMA),
+refiriéndose al valor diario de ésta. Deberá reportar hasta los últimos dos años.
+"""
+type ClientesPrincipales {
+  """
+  Indica que el declarante expresa no tener información relacionada
+  """
+  ninguno: Boolean
+  cliente: [Cliente]
+
+  """
+  Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las
+  aclaraciones u observaciones que considere pertinentes respecto de alguno o
+  algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+type Cliente {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+
+  """
+  Realiza alguna actividad lucrativa independiente al empleo cargo o comisión. Seleccionar sí o no.
+  """
+  realizaActividadLucrativa: Boolean
+
+  """
+  Elegir quien es el Declarante, Pareja o dependiente económico.
+  """
+  tipoRelacion: TipoRelacion
+  empresa: Empresa
+  clientePrincipal: ClientePrincipal
+  sector: Sector
+  montoAproximadoGanancia: Monto
+  ubicacion: Ubicacion
+}
+
+type Empresa {
+  """
+  Nombre de la empresa o servicio que proporciona. Señalar nombre o razón social
+  completos de la empresa o en su caso el servicio que proporciona.
+  """
+  nombreEmpresaServicio: String
+
+  """
+  RFC. Establecer los doce dígitos de la empresa. Proporcionar los dígitos completos del registro federal de contribuyentes.
+  """
+  rfc: String
+}
+
+type ClientePrincipal {
+  """
+  Indica si es persona física o persona moral
+  """
+  tipoPersona: TipoPersona
+
+  """
+  Señale el nombre o razón social del cliente principal. Indicar el nombre o razón social completos del cliente principal.
+  """
+  nombreRazonSocial: String
+
+  """
+  RFC. En caso de personas físicas proporcionar los trece dígitos. En caso de
+  personas morales establecer los doce dígitos del cliente principal.
+  """
+  rfc: String
+}
+
+"""
+Es cuando el Declarante actúa a nombre de otra persona física o moral
+(representante) o cuando una persona actúa a nombre del Declarante
+(representado). Deberá reportar hasta los últimos dos años.
+"""
+type Representaciones {
+  """
+  Indica que el declarante expresa no tener información relacionada
+  """
+  ninguno: Boolean
+  representacion: [Representacion]
+
+  """
+  Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las
+  aclaraciones u observaciones que considere pertinentes respecto de alguno o
+  algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+"""
+Tipo de representación. Indicar si es representante o representado.
+"""
+enum TipoRepresentacion {
+  REPRESENTANTE
+  REPRESENTADO
+}
+
+enum TipoPersona {
+  FISICA
+  MORAL
+}
+
+type Representacion {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+
+  """
+  Elegir quien es el Declarante, Pareja o dependiente económico.
+  """
+  tipoRelacion: TipoRelacion
+
+  """
+  Tipo de representación. Indicar si es representante o representado.
+  """
+  tipoRepresentacion: TipoRepresentacion
+
+  """
+  Fecha de inicio de la representación. Indicar la fecha en que comenzó la representación.
+  """
+  fechaInicioRepresentacion: DateTime
+
+  """
+  Indica si es persona física o persona moral
+  """
+  tipoPersona: TipoPersona
+
+  """
+  Nombre o razón social del representante/representado. Indicar el nombre o
+  razón social completos de su representante o representado.
+  """
+  nombreRazonSocial: String
+
+  """
+  RFC. En caso de personas físicas proporcionar los trece dígitos. En caso de
+  personas morales establecer los doce dígitos del representante/representado.
+  """
+  rfc: String
+
+  """
+  Recibe remuneración por su representación. Indicar sí o no le pagan por representar a alguien.
+  """
+  recibeRemuneracion: Boolean
+  montoMensual: Monto
+  ubicacion: Ubicacion
+  sector: Sector
+}
+
+"""
+Es la contribución monetaria o en especie que otorga un Ente Público al
+Declarante, cónyuge o Pareja y/o dependiente económico. El apoyo en especie
+refiere a cualquier contribución, utilizando bienes, servicios o beneficios de
+naturaleza diferente al dinero. Deberá reportar hasta los últimos dos años.
+"""
+type Apoyos {
+  """
+  Indica que el declarante expresa no tener información relacionada
+  """
+  ninguno: Boolean
+  apoyo: [Apoyo]
+
+  """
+  Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las
+  aclaraciones u observaciones que considere pertinentes respecto de alguno o
+  algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+"""
+Orden de gobierno en el que se encuentra
+"""
+enum NivelOrdenGobierno {
+  FEDERAL
+  ESTATAL
+  MUNICIPAL_ALCALDIA
+}
+
+type Apoyo {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+  beneficiarioPrograma: BeneficiariosPrograma
+
+  """
+  Nombre del programa. Proporcionar el nombre del programa por el cual recibe el apoyo o beneficio público.
+  """
+  nombrePrograma: String
+
+  """
+  Institución que otorga el apoyo. Señalar el nombre de la institución que le esté dando el apoyo.
+  """
+  institucionOtorgante: String
+
+  """
+  Orden de gobierno en el que se encuentra
+  """
+  nivelOrdenGobierno: NivelOrdenGobierno
+
+  """
+  Tipo de apoyo. Seleccionar del listado desplegable: subsidio (Ayuda económica
+  que una persona recibe de un organismo oficial para satisfacer una necesidad
+  determinada), servicio (Actividad o asistencia de un Ente Público, en favor
+  del Declarante), Obra (materiales o servicios a favor del Declarante para
+  construcción), otro, especifique.
+  """
+  tipoApoyo: TipoApoyo
+
+  """
+  Forma de recepción. Señalar si es monetario o en especie.
+  """
+  formaRecepcion: FormaRecepcion
+  montoApoyoMensual: Monto
+
+  """
+  Especifique el apoyo. En caso de haber seleccionado en especie deberá describir en qué consiste el apoyo o beneficio.
+  """
+  especifiqueApoyo: String
+}
+
+"""
+Forma de recepción. Señalar si es monetario o en especie.
+"""
+enum FormaRecepcion {
+  MONETARIO
+  ESPECIE
+}
+
+"""
+Tipo de apoyo. Seleccionar del listado desplegable: subsidio (Ayuda económica
+que una persona recibe de un organismo oficial para satisfacer una necesidad
+determinada), servicio (Actividad o asistencia de un Ente Público, en favor del
+Declarante), Obra (materiales o servicios a favor del Declarante para
+construcción), otro, especifique.
+"""
+type TipoApoyo {
+  """
+  Significado de Claves:
+  * `SUB` - SUBSIDIO
+  * `SER` - SERVICIO
+  * `OBRA` - OBRA
+  * `OTRO` - OTRO (ESPECIFIQUE)
+  """
+  clave: String
+  valor: String
+}
+
+"""
+El Declarante deberá señalar si tiene o no participación en empresas, sociedades
+o asociaciones, tales como socio, accionista, comisario, representante,
+apoderado, colaborador, beneficiario u otro, especifique. Deberá reportar hasta
+los últimos dos años.
+"""
+type ParticipacionTomaDecisiones {
+  """
+  Indica que el declarante expresa no tener información relacionada
+  """
+  ninguno: Boolean
+  participacion: [TomaDecisionesParticipacion]
+
+  """
+  Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las
+  aclaraciones u observaciones que considere pertinentes respecto de alguno o
+  algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+type TomaDecisionesParticipacion {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+
+  """
+  Elegir quien es el Declarante, Pareja o dependiente económico.
+  """
+  tipoRelacion: TipoRelacion
+
+  """
+  Tipo de institución. Señalar del catálogo, alguna de las siguientes:
+  organizaciones de la sociedad civil, organizaciones benéficas, partidos
+  políticos, gremios/sindicatos, otro, especifique.
+  """
+  tipoInstitucion: TipoInstitucion
+
+  """
+  Nombre de la institución. Proporcionar la denominación o razón social de la
+  institución, tal y como se encuentra registrada formalmente.
+  """
+  nombreInstitucion: String
+
+  """
+  RFC. Proporcionar los 12 dígitos del registro de la institución.
+  """
+  rfc: String
+
+  """
+  Puesto/rol. Indicar el cargo o función que ejerce el Declarante.
+  """
+  puestoRol: String
+
+  """
+  Fecha de inicio de participación dentro de la institución. Señalar la fecha en
+  que inicio funciones en la institución u organización.
+  """
+  fechaInicioParticipacion: String
+
+  """
+  Recibe remuneración por su participación. Indicar sí o no.
+  """
+  recibeRemuneracion: Boolean
+  montoMensual: Monto
+  ubicacion: Ubicacion
+}
+
+"""
+Tipo de institución. Señalar del catálogo, alguna de las siguientes:
+organizaciones de la sociedad civil, organizaciones benéficas, partidos
+políticos, gremios/sindicatos, otro, especifique.
+"""
+type TipoInstitucion {
+  """
+  Significado de Claves:
+  * `OSC` - ORGANIZACIONES DE LA SOCIEDAD CIVIL
+  * `OB` - ORGANIZACIONES BENÉFICAS
+  * `PP` - PARTIDOS POLITICOS
+  * `GS` - GREMIOS/SINDICATOS
+  * `OTRO` - OTRO (ESPECIFIQUE)
+  """
+  clave: String
+  valor: String
+}
+
+type Participaciones {
+  """
+  Indica que el declarante expresa no tener información relacionada
+  """
+  ninguno: Boolean
+
+  """
+  Señalar quien tiene participación en la empresa sociedad o asociación.
+  """
+  participacion: [Participacion]
+
+  """
+  En este espacio el Declarante podrá realizar las aclaraciones u observaciones
+  que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.
+  """
+  aclaracionesObservaciones: String
+}
+
+"""
+Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+"""
+enum TipoOperacion {
+  AGREGAR
+  MODIFICAR
+  SIN_CAMBIOS
+  BAJA
+}
+"""
+Elegir quien es el Declarante, Pareja o dependiente económico.
+"""
+enum TipoRelacion {
+  DECLARANTE
+  PAREJA
+  DEPENDIENTE_ECONOMICO
+}
+
+type Participacion {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+
+  """
+  Elegir quien es el Declarante, Pareja o dependiente económico.
+  """
+  tipoRelacion: TipoRelacion
+
+  """
+  Señalar el nombre o razón social completo de la empresa, sociedad o
+  asociación, tal y como aparece en el documento legal en el que participe.
+  """
+  nombreEmpresaSociedadAsociacion: String
+
+  """
+  Proporcionar los 12 dígitos del registro de la empresa, sociedad o asociación en la cual participa
+  """
+  rfc: String
+
+  """
+  Indicar el porcentaje de participación en la empresa, sociedad o asociación.
+  """
+  porcentajeParticipacion: Int
+
+  """
+  Seleccionar de la lista desplegable una de las siguientes opciones: socio,
+  accionista, comisario, representante, apoderado, colaborador, beneficiario u
+  otro, especifique.
+  """
+  tipoParticipacion: TipoParticipacion
+  recibeRemuneracion: Boolean
+  montoMensual: Monto
+
+  """
+  Indicar si se encuentra en México, debiendo señalar entidad federativa o en el
+  extranjero, debiendo señalar el país donde se localiza.
+  """
+  ubicacion: Ubicacion
+  sector: Sector
+}
+
+"""
+Seleccionar de la lista desplegable una de las siguientes opciones: socio,
+accionista, comisario, representante, apoderado, colaborador, beneficiario u
+otro, especifique.
+"""
+type TipoParticipacion {
+  """
+  Significado de Claves:
+  * `SCIO` - SOCIO
+  * `ACCI` - ACCIONISTA
+  * `COMI` - COMISARIO
+  * `REPR` - REPRESENTANTE
+  * `APOD` - APODERADO
+  * `COLB` - COLABORADOR
+  * `BENE` - BENEFICIARIO
+  * `OTRO` - OTROS (ESPECIFIQUE)
+  """
+  clave: String
+  valor: String
+}
+
+type Monto {
+  """
+  Valor sin centavos
+  """
+  valor: Float
+
+  """
+  Codigo a 3 caracteres del ISO 4217
+  """
+  moneda: String
+}
+
+type Sector {
+  """
+  Significado de Claves:
+  * `AGRI` - AGRICULTURA
+  * `MIN` - MINERÍA
+  * `EELECT` - ENERGÍA ELÉCTRICA
+  * `CONS` - CONSTRUCCIÓN
+  * `INDMANU` - INDUSTRIA MANUFACTURERA
+  * `CMAYOR` - COMERCIO AL POR MAYOR
+  * `CMENOR` - COMERCIO AL POR MENOR
+  * `TRANS` - TRANSPORTE
+  * `MEDIOM` - MEDIOS MASIVOS
+  * `SERVFIN` - SERVICIOS FINANCIEROS
+  * `SERVINM` - SERVICIOS INMOBILIARIOS
+  * `SERVPROF` - SERVICIOS PROFESIONALES
+  * `SERVCORP` - SERVICIOS CORPORATIVOS
+  * `SERVS` - SERVICIOS DE SALUD
+  * `SERVESPAR` - SERVICIOS DE ESPARCIMIENTO
+  * `SERVALOJ` - SERVICIOS DE ALOJAMIENTO
+  * `OTRO` - OTRO (ESPECIFIQUE)
+  """
+  clave: String
+  valor: String
+}
+
+"""
+Indicar si se encuentra en México, debiendo señalar entidad federativa o en el
+extranjero, debiendo señalar el país donde se localiza.
+"""
+type Ubicacion {
+  """
+  Código alpha 2 del país especificado en estándar ISO3166
+  """
+  pais: String
+  entidadFederativa: EntidadFederativa
+}
+
+type EntidadFederativa {
+  """
+  cve_agee del Marco Geoestadistico de INEGI
+  """
+  clave: String
+
+  """
+  nom_agee del Marco Geoestadistico de INEGI
+  """
+  valor: String
+}
+
+type LugarRegistro {
+  """
+  Código alpha 2 del país especificado en estándar ISO3166
+  """
+  pais: String
+  entidadFederativa: EntidadFederativa
+}
+
+####################################################
+
+"""
+Seleccionar de la lista desplegable: menaje de casa (muebles y accesorios de
+casa), aparatos electrónicos y electrodomésticos, joyas, colecciones, obras de
+arte y otros, especifique.
+"""
+type TipoBien {
+  """
+  Significado de Claves:
+  * `MECA` - MENAJE DE CASA (MUEBLES Y ACCESORIOS DE CASA)
+  * `APAE` - APARATOS ELECTRÓNICOS Y ELECTRODOMÉSTICOS
+  * `JOYA` - JOYAS
+  * `COLEC` - COLECCIONES
+  * `OBRA` - OBRAS DE ARTE
+  * `OTRO` - OTROS (ESPECIFIQUE)
+  """
+  clave: String
+  valor: String
+}
+
+
+"""
+Se deberá señalar en metros cuadrados con valor numérico la
+superficie correspondiente a construcción respecto del bien
+inmueble que se declare.
+"""
+type SuperficieConstruccion {
+  """
+  valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor
+  """
+  min: Int
+
+  """
+  valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor
+  """
+  max: Int
+}
+
+"""
+Se deberá señalar en metros cuadrados la superficie total
+correspondiente al terreno respecto del bien inmueble que se
+declare.
+"""
+type SuperficieTerreno {
+  """
+  valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor
+  """
+  min: Int
+
+  """
+  valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor
+  """
+  max: Int
+}
+
+"""
+Valor númerico del precio de adquisición
+"""
+type ValorAdquisicion {
+  """
+  valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor
+  """
+  min: Int
+
+  """
+  valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor
+  """
+  max: Int
+}
+
+type InversionModificacion {
+  """
+  Indicar si el elemento fue agregado, modificado, sin cambios o dado de baja
+  """
+  tipoOperacion: TipoOperacion
+  tipoInversion: TipoInversion
+  subTipoInversion: SubTipoInversion
+  titular: [TitularBien]
+  tercero: [Tercero]
+
+  """
+  Señalar el número de cuenta, contrato, póliza o cualquier dato que permita su identificación.
+  """
+  numeroCuentaContrato: String
+
+  """
+  Indicar si se encuentra en México o en el extranjero, debiendo señalar el país donde se localiza.
+  """
+  localizacionInversion: LocalizacionInversion
+  saldoDiciembreAnterior: Monto
+}

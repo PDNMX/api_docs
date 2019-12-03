@@ -341,7 +341,7 @@
               },
               "escolaridadNivel" : {
                 "type" : "string",
-                "description" : "codigo del nivel de estudios a buscar",
+                "description" : "Significado de Claves:\n* `PRI` - PRIMARIA\n* `SEC` - SECUNDARIA\n* `BCH` - BACHILLERATO\n* `CTC` - CARRERA TÉCNICA O COMERCIAL\n* `LIC` - LICENCIATURA\n* `ESP` - ESPECIALIDAD\n* `MAE` - MAESTRÍA\n* `DOC` - DOCTORADO\n",
                 "example" : "DOC"
               },
               "datosEmpleoCargoComision" : {
@@ -370,6 +370,7 @@
                   "nivelOrdenGobierno" : {
                     "type" : "string",
                     "description" : "Codigo del nivel/orden de gobierno a buscar",
+                    "enum" : [ "FEDERAL", "ESTATAL", "MUNICIPAL_ALCALDIA" ],
                     "example" : "EST"
                   },
                   "nivelEmpleoCargoComision" : {
@@ -416,7 +417,7 @@
                   },
                   "formaAdquisicion" : {
                     "type" : "string",
-                    "description" : "Código de la forma de adquisicion",
+                    "description" : "Significado de Claves:\n* `CPV` - COMPRAVENTA\n* `CSN` - CESIÓN\n* `DNC` - DONACIÓN\n* `HRN` - HERENCIA\n* `PRM` - PERMUTA\n* `RST` - RIFA O SORTEO\n* `STC` - SENTENCIA\n",
                     "example" : "CES"
                   },
                   "valorAdquisicion" : {
@@ -1297,69 +1298,124 @@
           "actividadIndustialComercialEmpresarial" : {
             "type" : "object",
             "properties" : {
-              "remuneracion" : {
+              "remuneracionTotal" : {
                 "$ref" : "#/components/schemas/monto"
               },
-              "nombreRazonSocial" : {
-                "type" : "string",
-                "description" : "Nombre, razón social o denominación del negocio, en el cual se lleva a cabo la actividad o alguna de las actividades antes mencionadas por la cual se genera el ingreso.",
-                "example" : "La empresa"
-              },
-              "tipoNegocio" : {
-                "type" : "string",
-                "description" : "Tipo de negocio por el cual obtuvo el ingreso.",
-                "example" : "Venta de productos"
+              "actividades" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "remuneracion" : {
+                      "$ref" : "#/components/schemas/monto"
+                    },
+                    "nombreRazonSocial" : {
+                      "type" : "string",
+                      "description" : "Nombre, razón social o denominación del negocio, en el cual se lleva a cabo la actividad o alguna de las actividades antes mencionadas por la cual se genera el ingreso.",
+                      "example" : "La empresa"
+                    },
+                    "tipoNegocio" : {
+                      "type" : "string",
+                      "description" : "Tipo de negocio por el cual obtuvo el ingreso.",
+                      "example" : "Venta de productos"
+                    }
+                  }
+                }
               }
             }
           },
           "actividadFinanciera" : {
             "type" : "object",
             "properties" : {
-              "remuneracion" : {
+              "remuneracionTotal" : {
                 "$ref" : "#/components/schemas/monto"
               },
-              "tipoInstrumento" : {
-                "$ref" : "#/components/schemas/tipoInstrumento"
+              "actividades" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "remuneracion" : {
+                      "$ref" : "#/components/schemas/monto"
+                    },
+                    "tipoInstrumento" : {
+                      "$ref" : "#/components/schemas/tipoInstrumento"
+                    }
+                  }
+                }
               }
             }
           },
           "serviciosProfesionales" : {
             "type" : "object",
             "properties" : {
-              "remuneracion" : {
+              "remuneracionTotal" : {
                 "$ref" : "#/components/schemas/monto"
               },
-              "tipoServicio" : {
-                "type" : "string",
-                "description" : "Tipo de servicio que otorga, el tipo de participación en los consejos o consultorías, así como el tipo de asesorías que llevo a cabo.",
-                "example" : "Instructor de cursos"
+              "servicios" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "remuneracion" : {
+                      "$ref" : "#/components/schemas/monto"
+                    },
+                    "tipoServicio" : {
+                      "type" : "string",
+                      "description" : "Tipo de servicio que otorga, el tipo de participación en los consejos o consultorías, así como el tipo de asesorías que llevo a cabo.",
+                      "example" : "Instructor de cursos"
+                    }
+                  }
+                }
               }
             }
           },
           "enajenacionBienes" : {
             "type" : "object",
             "properties" : {
-              "remuneracion" : {
+              "remuneracionTotal" : {
                 "$ref" : "#/components/schemas/monto"
               },
-              "tipoBienEnajenado" : {
-                "type" : "string",
-                "enum" : [ "MUEBLE", "INMUEBLE", "VEHICULO" ],
-                "description" : "Significado de Claves:\n  * `MUE` - MUEBLE\n  * `INM` - INMUEBLE\n  * `VEH` - VEHICULO\n",
-                "example" : "MUEBLE"
+              "bienes" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "remuneracion" : {
+                      "$ref" : "#/components/schemas/monto"
+                    },
+                    "tipoBienEnajenado" : {
+                      "type" : "string",
+                      "enum" : [ "MUEBLE", "INMUEBLE", "VEHICULO" ],
+                      "description" : "Significado de Claves:\n  * `MUE` - MUEBLE\n  * `INM` - INMUEBLE\n  * `VEH` - VEHICULO\n",
+                      "example" : "MUEBLE"
+                    }
+                  }
+                }
               }
             }
           },
           "otrosIngresos" : {
             "type" : "object",
             "properties" : {
-              "remuneracion" : {
+              "remuneracionTotal" : {
                 "$ref" : "#/components/schemas/monto"
               },
-              "tipoIngreso" : {
-                "type" : "string",
-                "description" : "Indicar si el ingreso derivó de arrendamiento, regalía, sorteos, concursos, donaciones, seguro de vida o algún otro concepto distinto no considerado en los rubros anteriores.",
-                "example" : "Sorteo"
+              "ingresos" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "remuneracion" : {
+                      "$ref" : "#/components/schemas/monto"
+                    },
+                    "tipoIngreso" : {
+                      "type" : "string",
+                      "description" : "Indicar si el ingreso derivó de arrendamiento, regalía, sorteos, concursos, donaciones, seguro de vida o algún otro concepto distinto no considerado en los rubros anteriores.",
+                      "example" : "Sorteo"
+                    }
+                  }
+                }
               }
             }
           },

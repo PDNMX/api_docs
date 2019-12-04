@@ -1384,6 +1384,11 @@ type ActividadAnualAnterior {
 }
 
 type EnajenacionBienes {
+  remuneracionTotal: Monto
+  bienes: [EnajBienes]
+}
+
+type EnajBienes {
   remuneracion: Monto
 
   """
@@ -1422,6 +1427,11 @@ type IngresosInicial {
 }
 
 type OtrosIngresos {
+  remuneracionTotal: Monto
+  ingresos: [OtrIng]
+}
+
+type OtrIng {
   remuneracion: Monto
 
   """
@@ -1433,6 +1443,11 @@ type OtrosIngresos {
 }
 
 type ServiciosProfesionales {
+  remuneracionTotal: Monto
+  servicios: [ServPro]
+}
+
+type ServPro {
   remuneracion: Monto
 
   """
@@ -1443,6 +1458,11 @@ type ServiciosProfesionales {
 }
 
 type ActividadFinanciera {
+  remuneracionTotal: Monto
+  actividades: [ActFin]
+}
+
+type ActFin {
   remuneracion: Monto
   tipoInstrumento: TipoInstrumento
 }
@@ -1467,6 +1487,11 @@ type TipoInstrumento {
 }
 
 type ActividadIndustialComercialEmpresarial {
+  remuneracionTotal: Monto
+  actividades: [ActIndusComerEmpresa]
+}
+
+type ActIndusComerEmpresa {
   remuneracion: Monto
 
   """

@@ -1295,6 +1295,7 @@
       },
       "ingresos" : {
         "type" : "object",
+        "required" : [ "remuneracionAnualCargoPublico", "ingresoAnualNetoDeclarante", "totalIngresosAnualesNetos" ],
         "description" : "Para la declaración de modificación los ingresos a reportar son los del año inmediato anterior. (Como se señala en el título del 1 de enero al 31 de diciembre del año inmediato anterior).",
         "properties" : {
           "remuneracionAnualCargoPublico" : {

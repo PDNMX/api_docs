@@ -185,6 +185,7 @@
                 },
                 "institucionDependencia" : {
                   "type" : "object",
+                  "required" : [ "nombre" ],
                   "properties" : {
                     "nombre" : {
                       "type" : "string",

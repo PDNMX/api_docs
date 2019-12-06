@@ -384,7 +384,7 @@
             "institucionDependencia" : {
               "description" : "Indicar el nombre de la institución donde se encuentren registradas las inversiones, cuentas o valores",
               "type" : "object",
-              "required" : [ "nombre", "siglas" ],
+              "required" : [ "nombre" ],
               "properties" : {
                 "nombre" : {
                   "type" : "string",

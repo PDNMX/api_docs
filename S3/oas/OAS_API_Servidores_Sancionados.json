@@ -150,6 +150,7 @@
             "type" : "array",
             "items" : {
               "type" : "object",
+              "required" : [ "id", "fechaCaptura", "institucionDependencia", "servidorPublicoSancionado", "tipoSancion", "causaMotivoHechos" ],
               "properties" : {
                 "id" : {
                   "type" : "string",
@@ -275,7 +276,7 @@
                 },
                 "resolucion" : {
                   "type" : "object",
-                  "required" : [ "url", "fechaResolucion" ],
+                  "required" : [ "fechaResolucion" ],
                   "properties" : {
                     "url" : {
                       "type" : "string",

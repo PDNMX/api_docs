@@ -287,7 +287,7 @@
         "type" : "array",
         "items" : {
           "type" : "object",
-          "required" : [ "nombres", "primerApellido", "tipoProcedimiento", "institucionDependencia" ],
+          "required" : [ "id", "nombres", "fechaCaptura", "primerApellido", "tipoProcedimiento", "institucionDependencia", "puesto" ],
           "properties" : {
             "id" : {
               "type" : "string",

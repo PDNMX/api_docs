@@ -165,6 +165,7 @@
             "type" : "array",
             "items" : {
               "type" : "object",
+              "required" : [ "id", "fechaCaptura", "institucionDependencia", "particularSancionado", "autoridadSancionadora", "tipoSancion", "causaMotivoHechos" ],
               "properties" : {
                 "id" : {
                   "type" : "string",
@@ -204,6 +205,7 @@
                 },
                 "particularSancionado" : {
                   "type" : "object",
+                  "required" : [ "nombreRazonSocial", "tipoPersona" ],
                   "properties" : {
                     "nombreRazonSocial" : {
                       "type" : "string",

@@ -122,6 +122,7 @@
             "type" : "array",
             "items" : {
               "type" : "object",
+              "required" : [ "id", "metadata", "declaracion" ],
               "properties" : {
                 "id" : {
                   "type" : "string",
@@ -130,6 +131,7 @@
                 },
                 "metadata" : {
                   "type" : "object",
+                  "required" : [ "actualizacion", "institucion", "contacto", "personaContacto", "tipo" ],
                   "properties" : {
                     "actualizacion" : {
                       "type" : "string",
@@ -163,9 +165,11 @@
                 },
                 "declaracion" : {
                   "type" : "object",
+                  "required" : [ "situacionPatrimonial" ],
                   "properties" : {
                     "situacionPatrimonial" : {
                       "type" : "object",
+                      "required" : [ "datosGenerales", "domicilioDeclarante", "datosCurricularesDeclarante", "datosEmpleoCargoComision", "experienciaLaboral", "ingresos", "actividadAnualAnterior" ],
                       "properties" : {
                         "datosGenerales" : {
                           "$ref" : "#/components/schemas/datosGenerales"
@@ -490,6 +494,7 @@
       },
       "datosGenerales" : {
         "type" : "object",
+        "required" : [ "nombre", "primerApellido" ],
         "properties" : {
           "nombre" : {
             "type" : "string",
@@ -623,6 +628,7 @@
       },
       "datosCurricularesDeclarante" : {
         "type" : "object",
+        "required" : [ "escolaridad" ],
         "properties" : {
           "escolaridad" : {
             "type" : "array",
@@ -698,6 +704,7 @@
       },
       "datosEmpleoCargoComision" : {
         "type" : "object",
+        "required" : [ "nombreEntePublico", "empleoCargoComision" ],
         "properties" : {
           "tipoOperacion" : {
             "$ref" : "#/components/schemas/tipoOperacion"
@@ -773,6 +780,7 @@
       },
       "experienciaLaboral" : {
         "type" : "object",
+        "required" : [ "ninguno" ],
         "properties" : {
           "ninguno" : {
             "$ref" : "#/components/schemas/ninguno"
@@ -1213,6 +1221,7 @@
       },
       "ingresos" : {
         "type" : "object",
+        "required" : [ "remuneracionMensualCargoPublico", "ingresoMensualNetoDeclarante", "totalIngresosMensualesNetos" ],
         "description" : "Para la declaración de inicio los ingresos a reportar son mensuales.",
         "properties" : {
           "remuneracionMensualCargoPublico" : {
@@ -1338,6 +1347,7 @@
       },
       "actividadAnualAnterior" : {
         "type" : "object",
+        "required" : [ "servidorPublicoAnioAnterior" ],
         "properties" : {
           "servidorPublicoAnioAnterior" : {
             "type" : "boolean",

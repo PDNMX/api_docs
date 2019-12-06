@@ -170,6 +170,7 @@
                 },
                 "institucionDependencia" : {
                   "type" : "object",
+                  "required" : [ "nombre" ],
                   "properties" : {
                     "nombre" : {
                       "type" : "string",
@@ -190,6 +191,7 @@
                 },
                 "servidorPublicoSancionado" : {
                   "type" : "object",
+                  "required" : [ "nombres", "primerApellido", "puesto" ],
                   "properties" : {
                     "rfc" : {
                       "type" : "string",

@@ -169,7 +169,7 @@
                   "properties" : {
                     "situacionPatrimonial" : {
                       "type" : "object",
-                      "required" : [ "datosGenerales", "domicilioDeclarante", "datosCurricularesDeclarante", "datosEmpleoCargoComision", "experienciaLaboral", "ingresos", "actividadAnualAnterior" ],
+                      "required" : [ "datosGenerales", "datosCurricularesDeclarante", "datosEmpleoCargoComision", "experienciaLaboral", "ingresos", "actividadAnualAnterior" ],
                       "properties" : {
                         "datosGenerales" : {
                           "$ref" : "#/components/schemas/datosGenerales"

@@ -1221,7 +1221,7 @@
       },
       "ingresos" : {
         "type" : "object",
-        "required" : [ "remuneracionMensualCargoPublico", "ingresoMensualNetoDeclarante", "totalIngresosMensualesNetos" ],
+        "required" : [ "remuneracionConclusionCargoPublico", "ingresoConclusionNetoDeclarante", "totalIngresosConclusionNetos" ],
         "description" : "Para la declaración de inicio los ingresos a reportar son mensuales.",
         "properties" : {
           "remuneracionConclusionCargoPublico" : {

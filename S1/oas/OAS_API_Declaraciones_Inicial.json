@@ -299,11 +299,14 @@
                   },
                   "nivelOrdenGobierno" : {
                     "$ref" : "#/components/schemas/ordenamiento"
-                  },
-                  "totalIngresosMensualesNetos" : {
-                    "$ref" : "#/components/schemas/ordenamiento"
                   }
                 }
+              },
+              "totalIngresosNetos" : {
+                "type" : "string",
+                "enum" : [ "asc", "desc" ],
+                "description" : "Ordenamiento sobre los datos de ingresoMensualNetoDeclarante(INICIAL), ingresoAnualNetoDeclarante (MODIFICACIÓN), ingresoConclusionNetoDeclarante (CONCLUSIÓN)",
+                "example" : "asc"
               },
               "bienesInmuebles" : {
                 "type" : "object",
@@ -445,9 +448,9 @@
                   }
                 }
               },
-              "totalIngresosMensualesNetos" : {
+              "totalIngresosNetos" : {
                 "type" : "object",
-                "description" : "Valor numérico del ingreso mensual neto a buscar",
+                "description" : "Busqueda sobre los datos de ingresoMensualNetoDeclarante(INICIAL), ingresoAnualNetoDeclarante (MODIFICACIÓN), ingresoConclusionNetoDeclarante (CONCLUSIÓN)",
                 "properties" : {
                   "min" : {
                     "type" : "integer",

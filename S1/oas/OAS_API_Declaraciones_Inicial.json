@@ -1046,7 +1046,7 @@
               "salarioMensualNeto" : {
                 "$ref" : "#/components/schemas/monto"
               },
-              "proveedorContratistaGobierto" : {
+              "proveedorContratistaGobierno" : {
                 "type" : "boolean",
                 "description" : "Señalar sí o no, la Pareja vende o presta algún servicio al gobierno.",
                 "example" : true

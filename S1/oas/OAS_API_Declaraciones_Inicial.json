@@ -1564,7 +1564,7 @@
                 "valorAdquisicion" : {
                   "$ref" : "#/components/schemas/monto"
                 },
-                "fechaAdquiscion" : {
+                "fechaAdquisicion" : {
                   "type" : "string",
                   "format" : "date",
                   "description" : "Formato de fechas ISO 8601 con notación yyyy-mm-dd.",
@@ -1885,7 +1885,7 @@
                   "description" : "Señalar el número de contrato, cuenta o cualquier dato que permita su identificación, en caso de préstamo personal se indicará no aplica.",
                   "example" : "abcd1234"
                 },
-                "fechaAdquision" : {
+                "fechaAdquisicion" : {
                   "type" : "string",
                   "description" : "Indicar la fecha en que adquirió el adeudo.",
                   "example" : "2010-12-01"

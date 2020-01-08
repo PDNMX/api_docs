@@ -2770,7 +2770,9 @@
         }
       },
       "unidadMedida" : {
-        "type" : "string"
+        "type" : "string",
+        "enum" : [ "m2", "ha", "km2" ],
+        "description" : "Significado de Claves:\n  * `m2 ` - METRO CUADRADO\n  * `ha ` - HECTÁREA\n  * `km2 ` - KILÓMETRO CUADRADO\n"
       },
       "tipoInstrumento" : {
         "type" : "object",

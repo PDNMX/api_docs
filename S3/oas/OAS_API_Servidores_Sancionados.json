@@ -548,14 +548,14 @@
       },
       "tipoSancion" : {
         "type" : "array",
-        "description" : "La sanción impuesta al servidor público, puede ser más de una. Ej. Inhabilitado y Multado",
+        "description" : "La sanción impuesta al servidor público, puede ser más de una. Ej. Inhabilitado y Multado. En caso de ser OTRO, en el atributo valor se deberá enviar la cadena correspondiente.",
         "items" : {
           "type" : "object",
           "properties" : {
             "clave" : {
               "type" : "string",
-              "enum" : [ "I", "M", "S", "D" ],
-              "description" : "Tipo de sanción aplicada. \n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓN\n  * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN\n",
+              "enum" : [ "I", "M", "S", "D", "O" ],
+              "description" : "Tipo de sanción aplicada. \n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓN\n  * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN\n  * `O` - OTRO\n",
               "example" : "M"
             },
             "valor" : {
@@ -564,7 +564,14 @@
               "example" : "MULTADO"
             }
           }
-        }
+        },
+        "example" : [ {
+          "clave" : "O",
+          "valor" : "AMONESTACIÓN"
+        }, {
+          "clave" : "M",
+          "valor" : "MULTADO"
+        } ]
       }
     }
   }

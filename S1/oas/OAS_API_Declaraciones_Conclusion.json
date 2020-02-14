@@ -144,17 +144,6 @@
                       "description" : "Institucion resposanble del sistema de captura",
                       "example" : "Secretaría de Educación Pública"
                     },
-                    "contacto" : {
-                      "type" : "string",
-                      "format" : "email",
-                      "description" : "Correo de contacto de la persona resposanble del sistema de captura",
-                      "example" : "usuario@dominio.org"
-                    },
-                    "personaContacto" : {
-                      "type" : "string",
-                      "description" : "Nombre de la persona resposanble del sistema de captura",
-                      "example" : "José John"
-                    },
                     "tipo" : {
                       "type" : "string",
                       "description" : "indica el tipo de declaración",
@@ -381,7 +370,7 @@
                     "type" : "string",
                     "description" : "Codigo del nivel/orden de gobierno a buscar",
                     "enum" : [ "FEDERAL", "ESTATAL", "MUNICIPAL_ALCALDIA" ],
-                    "example" : "EST"
+                    "example" : "ESTATAL"
                   },
                   "nivelEmpleoCargoComision" : {
                     "type" : "string",
@@ -428,7 +417,7 @@
                   "formaAdquisicion" : {
                     "type" : "string",
                     "description" : "Significado de Claves:\n* `CPV` - COMPRAVENTA\n* `CSN` - CESIÓN\n* `DNC` - DONACIÓN\n* `HRN` - HERENCIA\n* `PRM` - PERMUTA\n* `RST` - RIFA O SORTEO\n* `STC` - SENTENCIA\n",
-                    "example" : "CES"
+                    "example" : "CSN"
                   },
                   "valorAdquisicion" : {
                     "type" : "object",
@@ -706,78 +695,81 @@
         }
       },
       "datosEmpleoCargoComision" : {
-        "type" : "object",
-        "required" : [ "nombreEntePublico", "empleoCargoComision" ],
-        "properties" : {
-          "tipoOperacion" : {
-            "$ref" : "#/components/schemas/tipoOperacion"
-          },
-          "nivelOrdenGobierno" : {
-            "$ref" : "#/components/schemas/nivelOrdenGobierno"
-          },
-          "ambitoPublico" : {
-            "$ref" : "#/components/schemas/ambitoPublico"
-          },
-          "nombreEntePublico" : {
-            "type" : "string",
-            "description" : "Señalar el Ente Público al cual se encuentra adscrita la plaza.",
-            "example" : "Instituto Federal de Telecomunicaciones"
-          },
-          "areaAdscripcion" : {
-            "type" : "string",
-            "description" : "Especificar el nombre de la Unidad Administrativa u homóloga superior inmediata de su adscripción. (Superior jerárquico).",
-            "example" : "Unidad del Espectro Radioelectrico"
-          },
-          "empleoCargoComision" : {
-            "type" : "string",
-            "description" : "Señalar el nombre del empleo, cargo o comisión que aparece en su recibo de nómina, nombramiento, contrato u oficio de comisión.",
-            "example" : "Director del Sistema Nacional de Infraestructura"
-          },
-          "contratadoPorHonorarios" : {
-            "type" : "boolean",
-            "description" : "Indicar sí o no (true o false)",
-            "example" : false
-          },
-          "nivelEmpleoCargoComision" : {
-            "type" : "string",
-            "description" : "Elegir conforme a lo que señala su recibo de pago, en caso de no encontrarse en la lista desplegable, señalar otro y especificar.",
-            "example" : "L31"
-          },
-          "funcionPrincipal" : {
-            "type" : "string",
-            "description" : "Señalar cuál es la función o actividad principal que desempeña en su empleo, cargo o comisión.",
-            "example" : "Coordinar, Dirigir, etc."
-          },
-          "fechaTomaPosesion" : {
-            "type" : "string",
-            "description" : "Señalar la fecha en que inició/concluyó el encargo.",
-            "example" : "2010-11-29"
-          },
-          "telefonoOficina" : {
-            "type" : "object",
-            "properties" : {
-              "telefono" : {
-                "type" : "string",
-                "description" : "Proporcionar el teléfono laboral y extensión según corresponda.",
-                "example" : "5522221212"
-              },
-              "extension" : {
-                "type" : "string",
-                "description" : "Proporcionar el teléfono laboral y extensión según corresponda.",
-                "example" : "1010"
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "required" : [ "nombreEntePublico", "empleoCargoComision" ],
+          "properties" : {
+            "tipoOperacion" : {
+              "$ref" : "#/components/schemas/tipoOperacion"
+            },
+            "nivelOrdenGobierno" : {
+              "$ref" : "#/components/schemas/nivelOrdenGobierno"
+            },
+            "ambitoPublico" : {
+              "$ref" : "#/components/schemas/ambitoPublico"
+            },
+            "nombreEntePublico" : {
+              "type" : "string",
+              "description" : "Señalar el Ente Público al cual se encuentra adscrita la plaza.",
+              "example" : "Instituto Federal de Telecomunicaciones"
+            },
+            "areaAdscripcion" : {
+              "type" : "string",
+              "description" : "Especificar el nombre de la Unidad Administrativa u homóloga superior inmediata de su adscripción. (Superior jerárquico).",
+              "example" : "Unidad del Espectro Radioelectrico"
+            },
+            "empleoCargoComision" : {
+              "type" : "string",
+              "description" : "Señalar el nombre del empleo, cargo o comisión que aparece en su recibo de nómina, nombramiento, contrato u oficio de comisión.",
+              "example" : "Director del Sistema Nacional de Infraestructura"
+            },
+            "contratadoPorHonorarios" : {
+              "type" : "boolean",
+              "description" : "Indicar sí o no (true o false)",
+              "example" : false
+            },
+            "nivelEmpleoCargoComision" : {
+              "type" : "string",
+              "description" : "Elegir conforme a lo que señala su recibo de pago, en caso de no encontrarse en la lista desplegable, señalar otro y especificar.",
+              "example" : "L31"
+            },
+            "funcionPrincipal" : {
+              "type" : "string",
+              "description" : "Señalar cuál es la función o actividad principal que desempeña en su empleo, cargo o comisión.",
+              "example" : "Coordinar, Dirigir, etc."
+            },
+            "fechaTomaPosesion" : {
+              "type" : "string",
+              "description" : "Señalar la fecha en que inició/concluyó el encargo.",
+              "example" : "2010-11-29"
+            },
+            "telefonoOficina" : {
+              "type" : "object",
+              "properties" : {
+                "telefono" : {
+                  "type" : "string",
+                  "description" : "Proporcionar el teléfono laboral y extensión según corresponda.",
+                  "example" : "5522221212"
+                },
+                "extension" : {
+                  "type" : "string",
+                  "description" : "Proporcionar el teléfono laboral y extensión según corresponda.",
+                  "example" : "1010"
+                }
               }
+            },
+            "domicilioMexico" : {
+              "$ref" : "#/components/schemas/domicilioMexico"
+            },
+            "domicilioExtranjero" : {
+              "$ref" : "#/components/schemas/domicilioExtranjero"
+            },
+            "aclaracionesObservaciones" : {
+              "type" : "string",
+              "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+              "example" : "Observaciones"
             }
-          },
-          "domicilioMexico" : {
-            "$ref" : "#/components/schemas/domicilioMexico"
-          },
-          "domicilioExtranjero" : {
-            "$ref" : "#/components/schemas/domicilioExtranjero"
-          },
-          "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "Observaciones"
           }
         }
       },
@@ -1492,7 +1484,6 @@
                     "tipoBienEnajenado" : {
                       "type" : "string",
                       "enum" : [ "MUEBLE", "INMUEBLE", "VEHICULO" ],
-                      "description" : "Significado de Claves:\n  * `MUE` - MUEBLE\n  * `INM` - INMUEBLE\n  * `VEH` - VEHICULO\n",
                       "example" : "MUEBLE"
                     }
                   }
@@ -1564,7 +1555,7 @@
                 },
                 "porcentajePropiedad" : {
                   "type" : "integer",
-                  "minimum" : 1,
+                  "minimum" : 0,
                   "maximum" : 100,
                   "example" : 50
                 },
@@ -1997,19 +1988,7 @@
                       "type" : "object",
                       "properties" : {
                         "tipo" : {
-                          "type" : "object",
-                          "properties" : {
-                            "clave" : {
-                              "type" : "string",
-                              "enum" : [ "AUMOT", "AERN", "BARYA", "OTRO" ],
-                              "description" : "Significado de Claves:\n  * `AUMOT` - AUTOMÓVIL/MOTOCICLETA\n  * `AERN` - AERONAVE\n  * `BARYA` - BARCO/YATE\n  * `OTRO` - OTROS (ESPECIFIQUE)\n",
-                              "example" : "AUMOT"
-                            },
-                            "valor" : {
-                              "type" : "string",
-                              "example" : "AUTOMÓVIL/MOTOCICLETA"
-                            }
-                          }
+                          "$ref" : "#/components/schemas/tipoVehiculo"
                         },
                         "marca" : {
                           "type" : "string",
@@ -2604,7 +2583,7 @@
                 "sector" : {
                   "$ref" : "#/components/schemas/sector"
                 },
-                "extanjero" : {
+                "extranjero" : {
                   "type" : "string",
                   "enum" : [ "MX", "EX" ],
                   "description" : "¿Dónde se localiza el fideicomiso? Seleccionar en México o en el extranjero.",
@@ -2900,9 +2879,9 @@
         "properties" : {
           "clave" : {
             "type" : "string",
-            "enum" : [ "AUTMOT", "AERN", "BRCYTE", "OTRO" ],
-            "description" : "Significado de Claves:\n  * `AUTMOT` - AUTOMÓVIL/MOTOCICLETA\n  * `AERN` - AERONAVE\n  * `BRCYTE` - BARCO/YATE\n  * `OTRO` - OTRO(ESPECIFIQUE)\n",
-            "example" : "AUTMOT"
+            "enum" : [ "AUMOT", "AERN", "BARYA", "OTRO" ],
+            "description" : "Significado de Claves:\n  * `AUMOT` - AUTOMÓVIL/MOTOCICLETA\n  * `AERN` - AERONAVE\n  * `BARYA` - BARCO/YATE\n  * `OTRO` - OTROS (ESPECIFIQUE)\n",
+            "example" : "AUMOT"
           },
           "valor" : {
             "type" : "string",
@@ -2963,7 +2942,7 @@
         "properties" : {
           "clave" : {
             "type" : "string",
-            "description" : "Señalar si el empleo que reporta corresponde al sector público, privado u otro. En caso de señalar otro deberá especificar el sector en el que laboró.",
+            "description" : "Significado de Claves:\n  * `PUB` - Público\n  * `PRV` - Privado\n  * `OTR` - Otro (Especifique)́.\n",
             "example" : "PUB",
             "enum" : [ "PUB", "PRV", "OTR" ]
           },

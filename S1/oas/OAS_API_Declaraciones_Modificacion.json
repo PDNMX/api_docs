@@ -131,7 +131,7 @@
                 },
                 "metadata" : {
                   "type" : "object",
-                  "required" : [ "actualizacion", "institucion", "contacto", "personaContacto", "tipo" ],
+                  "required" : [ "actualizacion", "institucion", "tipo" ],
                   "properties" : {
                     "actualizacion" : {
                       "type" : "string",

@@ -936,7 +936,7 @@
             "type" : "string",
             "description" : "Seleccionar el tipo de relación entre las siguientes opciones: cónyuge, concubina/concubinario/unión libre o sociedad de convivencia.",
             "enum" : [ "CONYUGE", "CONCUBINA_CONCUBINARIO_UNION_LIBRE", "SOCIEDAD_DE_CONVIVENCIA" ],
-            "example" : "Cónyuge"
+            "example" : "CONYUGE"
           },
           "ciudadanoExtranjero" : {
             "type" : "boolean",
@@ -2459,7 +2459,8 @@
               "clave" : {
                 "type" : "string",
                 "description" : "cve_agem del Marco Geoestadistico de INEGI",
-                "example" : "0001"
+                "example" : "001",
+                "pattern" : "^\\d{3}$"
               },
               "valor" : {
                 "type" : "string",
@@ -2537,8 +2538,9 @@
         "properties" : {
           "clave" : {
             "type" : "string",
-            "example" : "001",
-            "description" : "cve_agee del Marco Geoestadistico de INEGI"
+            "example" : "01",
+            "description" : "cve_agee del Marco Geoestadistico de INEGI",
+            "pattern" : "^\\d{2}$"
           },
           "valor" : {
             "type" : "string",
@@ -2651,8 +2653,8 @@
         "properties" : {
           "clave" : {
             "type" : "string",
-            "enum" : [ "ABU", "BISA", "BISN", "CONB", "CONC", "CONY", "CUN", "HER", "HIJ", "MAD", "PAD", "PRI", "SOB", "SUE", "TATA", "TATN", "TIOA", "NIE", "NIN", "OTRO" ],
-            "description" : "Significado de Claves:\n  * `ABU` - ABUELO(A)\n  * `BISA` - BISABUELO(A)\n  * `BISN` - BISNIETO(A)\n  * `CONB` - CONCUBINA O CONCUBINARIO\n  * `CONC` - CONCUÑO(A)\n  * `CONY` - CÓNYUGE\n  * `CUN` - CUÑADO(A)\n  * `HER` - HERMANO(A)\n  * `HIJ` - HIJO(A)\n  * `MAD` - MADRE\n  * `PAD` - PADRE\n  * `PRI` - PRIMO(A)\n  * `SOB` - SOBRINO(A)\n  * `SUE` - SUEGRO(A)\n  * `TATA` - TATARABUELO(A)\n  * `TATN` - TATARANIETO(A)\n  * `TIOA` - TIO(A)\n  * `NIE` - NIETO(A)\n  * `NIN` - NINGUNO\n  * `OTRO` - OTRO(ESPECIFIQUE)\n",
+            "enum" : [ "ABU", "BISA", "BISN", "CONB", "CONC", "CONY", "CUN", "HER", "HIJ", "MAD", "PAD", "PRI", "SOB", "SUE", "TATA", "TATN", "TIOA", "NIE", "NIN", "AHI", "NUE", "YER", "OTRO" ],
+            "description" : "Significado de Claves:\n  * `ABU` - ABUELO(A)\n  * `BISA` - BISABUELO(A)\n  * `BISN` - BISNIETO(A)\n  * `CONB` - CONCUBINA O CONCUBINARIO\n  * `CONC` - CONCUÑO(A)\n  * `CONY` - CÓNYUGE\n  * `CUN` - CUÑADO(A)\n  * `HER` - HERMANO(A)\n  * `HIJ` - HIJO(A)\n  * `MAD` - MADRE\n  * `PAD` - PADRE\n  * `PRI` - PRIMO(A)\n  * `SOB` - SOBRINO(A)\n  * `SUE` - SUEGRO(A)\n  * `TATA` - TATARABUELO(A)\n  * `TATN` - TATARANIETO(A)\n  * `TIOA` - TIO(A)\n  * `NIE` - NIETO(A)\n  * `NIN` - NINGUNO\n  * `AHI` - AHIJADO(A)\n  * `NUE` - NUERA\n  * `YER` - YERNO\n  * `OTRO` - OTRO(ESPECIFIQUE)\n",
             "example" : "HER"
           },
           "valor" : {

@@ -2,7 +2,7 @@
   "openapi" : "3.0.0",
   "info" : {
     "version" : "2.0",
-    "title" : "API de las declaraciones de los servidores públicos"
+    "title" : "API de las declaraciones de los servidores públicos."
   },
   "paths" : {
     "/v2/declaraciones" : {

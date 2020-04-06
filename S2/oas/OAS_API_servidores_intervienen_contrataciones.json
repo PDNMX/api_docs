@@ -305,25 +305,6 @@
               "description" : "Ejercicio fiscal",
               "example" : "2018"
             },
-            "periodoEjercicio" : {
-              "description" : "E.g., 2018",
-              "type" : "object",
-              "required" : [ "fechaInicial", "fechaFinal" ],
-              "properties" : {
-                "fechaInicial" : {
-                  "type" : "string",
-                  "format" : "date",
-                  "description" : "Fecha inicial del periodo del ejercicio. Fecha en formato ISO 8601",
-                  "example" : "2018-01-01"
-                },
-                "fechaFinal" : {
-                  "type" : "string",
-                  "format" : "date",
-                  "description" : "Fecha final del periodo del ejercicio. Fecha en formato ISO 8601",
-                  "example" : "2018-12-31"
-                }
-              }
-            },
             "ramo" : {
               "type" : "object",
               "properties" : {

@@ -1,7 +1,7 @@
 {
   "openapi" : "3.0.0",
   "info" : {
-    "version" : "1.0.0",
+    "version" : "1.1",
     "title" : "API del Registro de Servidores públicos de la Administración Pública Federal que intervienen en procedimientos de contrataciones públicas."
   },
   "paths" : {
@@ -276,7 +276,7 @@
               },
               "rfcSolicitante" : {
                 "type" : "string",
-                "description" : "RFC de la persona quien hace la consulta, si se omite este parametro, se enviaran solo los datos públicos",
+                "description" : "RFC de la persona quien hace la consulta.",
                 "example" : "GOAP780710RH7"
               }
             }
@@ -304,25 +304,6 @@
               "type" : "string",
               "description" : "Ejercicio fiscal",
               "example" : "2018"
-            },
-            "periodoEjercicio" : {
-              "description" : "E.g., 2018",
-              "type" : "object",
-              "required" : [ "fechaInicial", "fechaFinal" ],
-              "properties" : {
-                "fechaInicial" : {
-                  "type" : "string",
-                  "format" : "date",
-                  "description" : "Fecha inicial del periodo del ejercicio. Fecha en formato ISO 8601",
-                  "example" : "2018-01-01"
-                },
-                "fechaFinal" : {
-                  "type" : "string",
-                  "format" : "date",
-                  "description" : "Fecha final del periodo del ejercicio. Fecha en formato ISO 8601",
-                  "example" : "2018-12-31"
-                }
-              }
             },
             "ramo" : {
               "type" : "object",
@@ -451,21 +432,40 @@
               "type" : "array",
               "uniqueItems" : true,
               "items" : {
-                "type" : "string",
-                "enum" : [ "A", "T", "R" ]
+                "type" : "object",
+                "properties" : {
+                  "clave" : {
+                    "type" : "string",
+                    "enum" : [ "A", "T", "R" ],
+                    "example" : "A"
+                  },
+                  "valor" : {
+                    "type" : "string",
+                    "enum" : [ "ATENCIÓN", "TRAMITACIÓN", "RESOLUCIÓN" ],
+                    "example" : "ATENCIÓN"
+                  }
+                }
               },
-              "example" : [ "A", "T" ],
               "description" : "Nivel de responsabilidad.\nSignificado de Claves:\n  * `A` - ATENCIÓN\n  * `T` - TRAMITACIÓN\n  * `R` - RESOLUCIÓN\n"
             },
             "tipoProcedimiento" : {
               "type" : "array",
               "uniqueItems" : true,
               "items" : {
-                "type" : "integer",
-                "minimum" : 1,
-                "description" : "Tipos de procedimiento en los que puede participar el Servidor Público.\n* `1` - CONTRATACIONES PÚBLICAS \n* `2` - CONCESIONES, LICENCIAS, PERMISOS, AUTORIZACIONES Y PRÓRROGAS \n* `3` - ENAJENACIÓN DE BIENES MUEBLES \n* `4` - ASIGNACIÓN Y EMISIÓN DE DICTÁMENES DE AVALÚOS NACIONALES\n"
+                "type" : "object",
+                "properties" : {
+                  "clave" : {
+                    "type" : "integer",
+                    "minimum" : 1,
+                    "example" : 1
+                  },
+                  "valor" : {
+                    "type" : "string",
+                    "enum" : [ "CONTRATACIONES PÚBLICAS", "CONCESIONES, LICENCIAS, PERMISOS, AUTORIZACIONES Y PRÓRROGAS", "ENAJENACIÓN DE BIENES MUEBLES", "ASIGNACIÓN Y EMISION DE DICTAMENES DE AVALÚOS NACIONALES" ]
+                  }
+                }
               },
-              "example" : [ 1, 2 ]
+              "description" : "Tipos de procedimiento en los que puede participar el Servidor Público.\n* `1` - CONTRATACIONES PÚBLICAS \n* `2` - CONCESIONES, LICENCIAS, PERMISOS, AUTORIZACIONES Y PRÓRROGAS \n* `3` - ENAJENACIÓN DE BIENES MUEBLES \n* `4` - ASIGNACIÓN Y EMISIÓN DE DICTÁMENES DE AVALÚOS NACIONALES\n"
             },
             "superiorInmediato" : {
               "type" : "object",

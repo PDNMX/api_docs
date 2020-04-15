@@ -141,7 +141,7 @@
                     },
                     "institucion" : {
                       "type" : "string",
-                      "description" : "Institucion resposanble del sistema de captura",
+                      "description" : "Institución responsable del sistema de captura",
                       "example" : "Secretaría de Educación Pública"
                     },
                     "tipo" : {
@@ -247,7 +247,7 @@
           },
           "pageSize" : {
             "type" : "integer",
-            "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
+            "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el mínimo 1",
             "example" : 10
           },
           "sort" : {
@@ -337,7 +337,7 @@
               },
               "escolaridadNivel" : {
                 "type" : "string",
-                "description" : "Significado de Claves:\n* `PRI` - PRIMARIA\n* `SEC` - SECUNDARIA\n* `BCH` - BACHILLERATO\n* `CTC` - CARRERA TÉCNICA O COMERCIAL\n* `LIC` - LICENCIATURA\n* `ESP` - ESPECIALIDAD\n* `MAE` - MAESTRÍA\n* `DOC` - DOCTORADO\n",
+                "description" : "Significado de Claves:\n* `PRI` - PRIMARIA\n* `SEC` - SECUNDARIA\n* `BCH` - BACHILLERATO\n* `CTC` - CARRERA TÉCNICA O COMERCIAL\n* `LIC` - LICENCIATURA\n* `ESP` - ESPECIALIDAD\n* `MAE` - MAESTRÍA\n* `DOC` - DOCTORADO\n",
                 "example" : "DOC"
               },
               "datosEmpleoCargoComision" : {
@@ -365,7 +365,7 @@
                   },
                   "nivelOrdenGobierno" : {
                     "type" : "string",
-                    "description" : "Codigo del nivel/orden de gobierno a buscar",
+                    "description" : "Código del nivel/orden de gobierno a buscar",
                     "enum" : [ "FEDERAL", "ESTATAL", "MUNICIPAL_ALCALDIA" ],
                     "example" : "ESTATAL"
                   },
@@ -385,12 +385,12 @@
                     "properties" : {
                       "min" : {
                         "type" : "integer",
-                        "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
+                        "description" : "valor mínimo de búsqueda, si solo existe este dato se buscarán todos los datos igual o superior al valor",
                         "example" : 2000
                       },
                       "max" : {
                         "type" : "integer",
-                        "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
+                        "description" : "valor máximo de búsqueda, si solo existe este dato se buscarán todos los datos igual o menor al valor",
                         "example" : 4000
                       }
                     }
@@ -401,12 +401,12 @@
                     "properties" : {
                       "min" : {
                         "type" : "integer",
-                        "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
+                        "description" : "valor mínimo de búsqueda, si solo existe este dato se buscarán todos los datos igual o superior al valor",
                         "example" : 2000
                       },
                       "max" : {
                         "type" : "integer",
-                        "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
+                        "description" : "valor máximo de búsqueda, si solo existe este dato se buscarán todos los datos igual o menor al valor",
                         "example" : 4000
                       }
                     }
@@ -418,16 +418,16 @@
                   },
                   "valorAdquisicion" : {
                     "type" : "object",
-                    "description" : "Valor númerico del precio de adquisición",
+                    "description" : "Valor numérico del precio de adquisición",
                     "properties" : {
                       "min" : {
                         "type" : "integer",
-                        "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
+                        "description" : "valor mínimo de búsqueda, si solo existe este dato se buscarán todos los datos igual o superior al valor",
                         "example" : 2000
                       },
                       "max" : {
                         "type" : "integer",
-                        "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
+                        "description" : "valor máximo de búsqueda, si solo existe este dato se buscarán todos los datos igual o menor al valor",
                         "example" : 4000
                       }
                     }
@@ -436,16 +436,16 @@
               },
               "totalIngresosNetos" : {
                 "type" : "object",
-                "description" : "Busqueda sobre los datos de ingresoMensualNetoDeclarante(INICIAL), ingresoAnualNetoDeclarante (MODIFICACIÓN), ingresoConclusionNetoDeclarante (CONCLUSIÓN)",
+                "description" : "Búsqueda sobre los datos de ingresoMensualNetoDeclarante(INICIAL), ingresoAnualNetoDeclarante (MODIFICACIÓN), ingresoConclusionNetoDeclarante (CONCLUSIÓN)",
                 "properties" : {
                   "min" : {
                     "type" : "integer",
-                    "description" : "valor minimo de busqueda, si solo existe este dato se buscaran todos los datos igual o superior al valor",
+                    "description" : "valor mínimo de búsqueda, si solo existe este dato se buscarán todos los datos igual o superior al valor",
                     "example" : 2000
                   },
                   "max" : {
                     "type" : "integer",
-                    "description" : "valor máximo de busqueda, si solo existe este dato se buscaran todos los datos igual o menor al valor",
+                    "description" : "valor máximo de búsqueda, si solo existe este dato se buscarán todos los datos igual o menor al valor",
                     "example" : 4000
                   }
                 }
@@ -503,7 +503,7 @@
           "curp" : {
             "type" : "string",
             "maxLength" : 18,
-            "description" : "Escribir los dieciocho caracteres como la emitió la Secretaría de Gobernación. En caso de no contar con ella, podrá consultarla en la página de la Secretaría de Gobernación, en el apartado de Trámites.",
+            "description" : "Escribir los dieciocho caracteres como la emitió la Secretaría de Gobernación. En caso de no contar con ella, podrá consultarla en la página de la Secretaría de Gobernación, en el apartado de Trámites.",
             "example" : "BADD110313HCMLNS09"
           },
           "rfc" : {
@@ -528,12 +528,12 @@
             "properties" : {
               "institucional" : {
                 "type" : "string",
-                "description" : "Escribir la dirección de correo electrónico que le haya sido asignada por el Ente Público en el que labora.",
+                "description" : "Escribir la dirección de correo electrónico que le haya sido asignada por el Ente Público en el que labora.",
                 "example" : "pedro.perez@dependencia.gob.mx"
               },
               "personal" : {
                 "type" : "string",
-                "description" : "Escribir la dirección de correo electrónico que el Declarante haya generado para uso personal. En caso de no contar con él, deberá generar una cuenta.",
+                "description" : "Escribir la dirección de correo electrónico que el Declarante haya generado para uso personal. En caso de no contar con él, deberá generar una cuenta.",
                 "example" : "pedro.perez@xmail.mx"
               }
             }
@@ -543,12 +543,12 @@
             "properties" : {
               "casa" : {
                 "type" : "string",
-                "description" : "Escribir el número telefónico de su domicilio, incluir lada.",
+                "description" : "Escribir el número telefónico de su domicilio, incluir lada.",
                 "example" : "5556655555"
               },
               "celularPersonal" : {
                 "type" : "string",
-                "description" : "Escribir los diez dígitos de su número celular.",
+                "description" : "Escribir los diez dígitos de su número celular.",
                 "example" : "5555778833"
               }
             }
@@ -559,13 +559,13 @@
               "clave" : {
                 "type" : "string",
                 "enum" : [ "SOL", "CAS", "DIV", "VIU", "CON", "SCO" ],
-                "description" : "Significado de Claves:\n  * `SOL` - SOLTERO (A)\n  * `CAS` - CASADO (A)\n  * `DIV` - DIVORCIADO (A)\n  * `VIU` - VIUDO (A)\n  * `CON` - CONCUBINA/CONCUBINARIO/UNIÓN LIBRE\n  * `SCO` - SOCIEDAD DE CONVIVENCIA\n",
+                "description" : "Significado de Claves:\n  * `SOL` - SOLTERO (A)\n  * `CAS` - CASADO (A)\n  * `DIV` - DIVORCIADO (A)\n  * `VIU` - VIUDO (A)\n  * `CON` - CONCUBINA/CONCUBINARIO/UNIÓN LIBRE\n  * `SCO` - SOCIEDAD DE CONVIVENCIA\n",
                 "example" : "CAS"
               },
               "valor" : {
                 "type" : "string",
-                "enum" : [ "SOLTERO (A)", "CASADO (A)", "DIVORCIADO (A)", "VIUDO (A)", "CONCUBINA/CONCUBINARIO/UNIÓN LIBRE", "SOCIEDAD DE CONVIVENCIA" ],
-                "description" : "Es la condición del Declarante en función de si tiene o no Pareja, según sus circunstancias o situación legal respecto a ello.",
+                "enum" : [ "SOLTERO (A)", "CASADO (A)", "DIVORCIADO (A)", "VIUDO (A)", "CONCUBINA/CONCUBINARIO/UNIÓN LIBRE", "SOCIEDAD DE CONVIVENCIA" ],
+                "description" : "Es la condición del Declarante en función de si tiene o no Pareja, según sus circunstancias o situación legal respecto a ello.",
                 "example" : "CASADO (A)"
               }
             }
@@ -581,7 +581,7 @@
               },
               "valor" : {
                 "type" : "string",
-                "description" : "En su caso, especificar, sociedad conyugal, separación de bienes u otro/especifique.",
+                "description" : "En su caso, especificar, sociedad conyugal, separación de bienes u otro/especifique.",
                 "example" : "Separación de Bienes"
               }
             }
@@ -593,9 +593,7 @@
             "$ref" : "#/components/schemas/pais"
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "Observaciones"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -609,9 +607,7 @@
             "$ref" : "#/components/schemas/domicilioExtranjero"
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "Observaciones"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -629,17 +625,17 @@
                 },
                 "nivel" : {
                   "type" : "object",
-                  "description" : "El Declarante deberá elegir alguna de las siguientes opciones: primaria, secundaria, bachillerato, carrera técnica o comercial, licenciatura, especialidad, maestría o doctorado.",
+                  "description" : "El Declarante deberá elegir alguna de las siguientes opciones: primaria, secundaria, bachillerato, carrera técnica o comercial, licenciatura, especialidad, maestría o doctorado.",
                   "properties" : {
                     "clave" : {
                       "type" : "string",
                       "example" : "DOC",
                       "enum" : [ "PRI", "SEC", "BCH", "CTC", "LIC", "ESP", "MAE", "DOC" ],
-                      "description" : "Significado de Claves:\n* `PRI` - PRIMARIA\n* `SEC` - SECUNDARIA\n* `BCH` - BACHILLERATO\n* `CTC` - CARRERA TÉCNICA O COMERCIAL\n* `LIC` - LICENCIATURA\n* `ESP` - ESPECIALIDAD\n* `MAE` - MAESTRÍA\n* `DOC` - DOCTORADO\n"
+                      "description" : "Significado de Claves:\n* `PRI` - PRIMARIA\n* `SEC` - SECUNDARIA\n* `BCH` - BACHILLERATO\n* `CTC` - CARRERA TÉCNICA O COMERCIAL\n* `LIC` - LICENCIATURA\n* `ESP` - ESPECIALIDAD\n* `MAE` - MAESTRÍA\n* `DOC` - DOCTORADO\n"
                     },
                     "valor" : {
                       "type" : "string",
-                      "enum" : [ "PRIMARIA", "SECUNDARIA", "BACHILLERATO", "CARRERA TÉCNICA O COMERCIAL", "LICENCIATURA", "ESPECIALIDAD", "MAESTRÍA", "DOCTORADO" ],
+                      "enum" : [ "PRIMARIA", "SECUNDARIA", "BACHILLERATO", "CARRERA TÉCNICA O COMERCIAL", "LICENCIATURA", "ESPECIALIDAD", "MAESTRÍA", "DOCTORADO" ],
                       "example" : "DOCTORADO"
                     }
                   }
@@ -650,12 +646,12 @@
                     "nombre" : {
                       "type" : "string",
                       "description" : "Institución educativa. Escribir el nombre de la institución o escuela donde se realizaron los estudios.",
-                      "example" : "Institúto Politécnico Nacional"
+                      "example" : "Instituto Politécnico Nacional"
                     },
                     "ubicacion" : {
                       "type" : "string",
                       "enum" : [ "MX", "EX" ],
-                      "description" : "Señalar si se ubica en México o en el extranjero.",
+                      "description" : "Señalar si se ubica en Mexico o en el extranjero.",
                       "example" : "MX"
                     }
                   }
@@ -678,16 +674,14 @@
                 "fechaObtencion" : {
                   "type" : "string",
                   "format" : "date",
-                  "description" : "Señalar la fecha que indica el documento obtenido.",
+                  "description" : "Señalar la fecha que indica el documento obtenido.",
                   "example" : "2017-11-29"
                 }
               }
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "Observaciones"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -706,17 +700,17 @@
           },
           "nombreEntePublico" : {
             "type" : "string",
-            "description" : "Señalar el Ente Público al cual se encuentra adscrita la plaza.",
+            "description" : "Señalar el Ente Público al cual se encuentra adscrita la plaza.",
             "example" : "Instituto Federal de Telecomunicaciones"
           },
           "areaAdscripcion" : {
             "type" : "string",
-            "description" : "Especificar el nombre de la Unidad Administrativa u homóloga superior inmediata de su adscripción. (Superior jerárquico).",
-            "example" : "Unidad del Espectro Radioelectrico"
+            "description" : "Especificar el nombre de la Unidad Administrativa u homóloga superior inmediata de su adscripción. (Superior jerárquico).",
+            "example" : "Unidad del Espectro Radioeléctrico"
           },
           "empleoCargoComision" : {
             "type" : "string",
-            "description" : "Señalar el nombre del empleo, cargo o comisión que aparece en su recibo de nómina, nombramiento, contrato u oficio de comisión.",
+            "description" : "Señalar el nombre del empleo, cargo o comisión que aparece en su recibo de nómina, nombramiento, contrato u oficio de comisión.",
             "example" : "Director del Sistema Nacional de Infraestructura"
           },
           "contratadoPorHonorarios" : {
@@ -726,17 +720,17 @@
           },
           "nivelEmpleoCargoComision" : {
             "type" : "string",
-            "description" : "Elegir conforme a lo que señala su recibo de pago, en caso de no encontrarse en la lista desplegable, señalar otro y especificar.",
+            "description" : "Elegir conforme a lo que señala su recibo de pago, en caso de no encontrarse en la lista desplegable, señalar otro y especificar.",
             "example" : "L31"
           },
           "funcionPrincipal" : {
             "type" : "string",
-            "description" : "Señalar cuál es la función o actividad principal que desempeña en su empleo, cargo o comisión.",
+            "description" : "Señalar cuál es la función o actividad principal que desempeña en su empleo, cargo o comisión.",
             "example" : "Coordinar, Dirigir, etc."
           },
           "fechaTomaPosesion" : {
             "type" : "string",
-            "description" : "Señalar la fecha en que inició/concluyó el encargo.",
+            "description" : "Señalar la fecha en que inició/concluyó el encargo.",
             "example" : "2010-11-29"
           },
           "telefonoOficina" : {
@@ -744,12 +738,12 @@
             "properties" : {
               "telefono" : {
                 "type" : "string",
-                "description" : "Proporcionar el teléfono laboral y extensión según corresponda.",
+                "description" : "Proporcionar el telefono laboral y extensión según corresponda.",
                 "example" : "5522221212"
               },
               "extension" : {
                 "type" : "string",
-                "description" : "Proporcionar el teléfono laboral y extensión según corresponda.",
+                "description" : "Proporcionar el telefono laboral y extensión según corresponda.",
                 "example" : "1010"
               }
             }
@@ -761,13 +755,11 @@
             "$ref" : "#/components/schemas/domicilioExtranjero"
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "Observaciones"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           },
           "cuentaConOtroCargoPublico" : {
             "type" : "boolean",
-            "description" : "¿Cuenta con otro empleo, cargo, comisión en el servicio público distingo al declarado?",
+            "description" : "¿Cuenta con otro empleo, cargo, comisión en el servicio público distinto al declarado?",
             "example" : true
           },
           "otroEmpleoCargoComision" : {
@@ -802,39 +794,39 @@
                   },
                   "nombreEntePublico" : {
                     "type" : "string",
-                    "description" : "Señalar el Ente Público al cual se encuentra adscrita la plaza.",
+                    "description" : "Señalar el Ente Público al cual se encuentra adscrita la plaza.",
                     "example" : "Comisión Federal de Electricidad"
                   },
                   "areaAdscripcion" : {
                     "type" : "string",
-                    "description" : "Especificar el nombre de la Unidad Administrativa u homóloga superior inmediata de su adscripción. (Superior jerárquico).",
+                    "description" : "Especificar el nombre de la Unidad Administrativa u homóloga superior inmediata de su adscripción. (Superior jerárquico).",
                     "example" : "Unidad de Concesiones y Servicios"
                   },
                   "empleoCargoComision" : {
                     "type" : "string",
-                    "description" : "Señalar el nombre del empleo, cargo o comisión que aparece en su recibo de nómina, nombramiento, contrato u oficio de comisión.",
+                    "description" : "Señalar el nombre del empleo, cargo o comisión que aparece en su recibo de nómina, nombramiento, contrato u oficio de comisión.",
                     "example" : "Titular de Unidad"
                   },
                   "funcionPrincipal" : {
                     "type" : "string",
-                    "description" : "Señalar cual es la función o actividad principal que desempeñó.",
+                    "description" : "Señalar cuál es la función o actividad principal que desempeña.",
                     "example" : "Dirigir, coordinar"
                   },
                   "fechaIngreso" : {
                     "type" : "string",
                     "format" : "date",
-                    "description" : "Señalar la fecha en que inició empleo, cargo o comisión.",
+                    "description" : "Señalar la fecha en que inició empleo, cargo o comisión.",
                     "example" : "2007-01-01"
                   },
                   "fechaEgreso" : {
                     "type" : "string",
-                    "description" : "Señalar la fecha en que concluyó empleo, cargo o comisión.",
+                    "description" : "Señalar la fecha en que concluyó empleo, cargo o comisión.",
                     "example" : "2010-01-01"
                   },
                   "ubicacion" : {
                     "type" : "string",
                     "enum" : [ "MX", "EX" ],
-                    "description" : "Señalar en México o en el extranjero.",
+                    "description" : "Señalar en México o en el extranjero.",
                     "example" : "MX"
                   }
                 }
@@ -849,22 +841,22 @@
                   },
                   "nombreEmpresaSociedadAsociacion" : {
                     "type" : "string",
-                    "description" : "Proporcionar el nombre de la empresa, sociedad o asociación en la que laboró.",
+                    "description" : "Proporcionar el nombre de la empresa, sociedad o asociación en la que laboro.",
                     "example" : "Patito SA de CV"
                   },
                   "rfc" : {
                     "type" : "string",
-                    "description" : "Proporcionar los 12 dígitos de la empresa en que laboró.",
+                    "description" : "Proporcionar los 12 dígitos de la empresa en que laboro.",
                     "example" : "IFZ110924CX1"
                   },
                   "area" : {
                     "type" : "string",
-                    "description" : "Proporcionar el nombre del área en la cual estaba adscrito(A).",
+                    "description" : "Proporcionar el nombre del área en la cual estaba adscrito(A).",
                     "example" : "Recursos Humanos"
                   },
                   "puesto" : {
                     "type" : "string",
-                    "description" : "Proporcionar el nombre del puesto que desempeñó.",
+                    "description" : "Proporcionar el nombre del puesto que desempeno.",
                     "example" : "Reclutador"
                   },
                   "sector" : {
@@ -873,28 +865,26 @@
                   "fechaIngreso" : {
                     "type" : "string",
                     "format" : "date",
-                    "description" : "Señalar la fecha en que inició empleo, cargo o comisión.",
+                    "description" : "Señalar la fecha en que inició empleo, cargo o comisión.",
                     "example" : "2005-07-07"
                   },
                   "fechaEgreso" : {
                     "type" : "string",
-                    "description" : "Señalar la fecha en que concluyó empleo, cargo o comisión.",
+                    "description" : "Señalar la fecha en que concluyó empleo, cargo o comisión.",
                     "example" : "2012-12-31"
                   },
                   "ubicacion" : {
                     "type" : "string",
                     "enum" : [ "MX", "EX" ],
                     "example" : "MX",
-                    "description" : "Señalar si se ubica en México o en el extranjero"
+                    "description" : "Señalar si se ubica en Mexico o en el extranjero"
                   }
                 }
               } ]
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "Observaciones"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -924,38 +914,38 @@
           },
           "fechaNacimiento" : {
             "type" : "string",
-            "description" : "Señalar la fecha de nacimiento de la Pareja",
+            "description" : "Señalar la fecha de nacimiento de la Pareja",
             "example" : "1990-12-01"
           },
           "rfc" : {
             "type" : "string",
-            "description" : "Escribir los diez caracteres básicos con los tres caracteres de la homoclave.",
+            "description" : "Escribir los diez caracteres básicos con los tres caracteres de la homoclave.",
             "example" : "MOGO901201B21"
           },
           "relacionConDeclarante" : {
             "type" : "string",
-            "description" : "Seleccionar el tipo de relación entre las siguientes opciones: cónyuge, concubina/concubinario/unión libre o sociedad de convivencia.",
+            "description" : "Seleccionar el tipo de relación entre las siguientes opciones: cónyuge, concubina/concubinario/unión libre o sociedad de convivencia.",
             "enum" : [ "CONYUGE", "CONCUBINA_CONCUBINARIO_UNION_LIBRE", "SOCIEDAD_DE_CONVIVENCIA" ],
             "example" : "CONYUGE"
           },
           "ciudadanoExtranjero" : {
             "type" : "boolean",
-            "description" : "Deberá indicar sí o no (true/false), según el caso.",
+            "description" : "Deberá indicar si o no (true/false), según el caso.",
             "example" : false
           },
           "curp" : {
             "type" : "string",
-            "description" : "Escribir los dieciocho caracteres como la emitió la Secretaría de Gobernación.",
+            "description" : "Escribir los dieciocho caracteres como la emitió la Secretaría de Gobernación.",
             "example" : "MOGO901201HVZRVR03"
           },
           "esDependienteEconomico" : {
             "type" : "boolean",
-            "description" : "Si la manutención depende principalmente de los ingresos de la persona servidora pública Declarante, señalará sí, en caso contrario señalará no.",
+            "description" : "Si la manutención depende principalmente de los ingresos de la persona servidora pública Declarante, señalará si, en caso contrario señalará no.",
             "example" : true
           },
           "habitaDomicilioDeclarante" : {
             "type" : "boolean",
-            "description" : "Indicar sí o no, la Pareja vive en el domicilio del Declarante.",
+            "description" : "Indicar si o no, la Pareja vive en el domicilio del Declarante.",
             "example" : true
           },
           "lugarDondeReside" : {
@@ -981,22 +971,22 @@
               },
               "nombreEntePublico" : {
                 "type" : "string",
-                "description" : "Señalar el Ente Público al cual se encuentra adscrita la plaza.",
+                "description" : "Señalar el Ente Público al cual se encuentra adscrita la plaza.",
                 "example" : "Secretaría de Comunicaciones y Transportes"
               },
               "areaAdscripcion" : {
                 "type" : "string",
-                "description" : "Especificar el nombre de la Unidad Administrativa u homóloga superior inmediata en la que está adscrito. (Superior jerárquico).",
+                "description" : "Especificar el nombre de la Unidad Administrativa u homóloga superior inmediata en la que está adscrito. (Superior jerárquico).",
                 "example" : "Unidad de Asuntos Jurídicos"
               },
               "empleoCargoComision" : {
                 "type" : "string",
-                "description" : "Señalar el nombre del empleo, cargo o comisión que se establece en su recibo de nómina, nombramiento, contrato u oficio de comisión.",
+                "description" : "Señalar el nombre del empleo, cargo o comisión que se establece en su recibo de nómina, nombramiento, contrato u oficio de comisión.",
                 "example" : "Titular de unidad"
               },
               "funcionPrincipal" : {
                 "type" : "string",
-                "description" : "Señalar cual es la función o actividad principal que desempeña su Pareja.",
+                "description" : "Señalar cuál es la función o actividad principal que desempeña su Pareja.",
                 "example" : "Dirigir, coordinar, etc."
               },
               "salarioMensualNeto" : {
@@ -1005,7 +995,7 @@
               "fechaIngreso" : {
                 "type" : "string",
                 "format" : "date",
-                "description" : "Señalar la fecha en que inició empleo, cargo o comisión.",
+                "description" : "Señalar la fecha en que inició empleo, cargo o comisión.",
                 "example" : "2010-01-01"
               }
             }
@@ -1015,23 +1005,23 @@
             "properties" : {
               "nombreEmpresaSociedadAsociacion" : {
                 "type" : "string",
-                "description" : "Proporcionar el nombre de la empresa, sociedad o asociación en la que labora.",
+                "description" : "Proporcionar el nombre de la empresa, sociedad o asociación en la que labora.",
                 "example" : "Patito SA de CV"
               },
               "empleoCargoComision" : {
                 "type" : "string",
-                "description" : "Proporcionar el nombre del puesto que desempeña.",
+                "description" : "Proporcionar el nombre del puesto que desempeña.",
                 "example" : "Reclutador"
               },
               "rfc" : {
                 "type" : "string",
-                "description" : "Proporcionar los 12 dígitos de la empresa en que labora su cónyuge, concubina/concubinario o sociedad de convivencia.",
+                "description" : "Proporcionar los 12 dígitos de la empresa en que labora su cónyuge, concubina/concubinario o sociedad de convivencia.",
                 "example" : "IFD130924CX1"
               },
               "fechaIngreso" : {
                 "type" : "string",
                 "format" : "date",
-                "description" : "Señalar la fecha en que inició empleo, cargo o comisión.",
+                "description" : "Señalar la fecha en que inició empleo, cargo o comisión.",
                 "example" : "2011-01-01"
               },
               "sector" : {
@@ -1042,15 +1032,13 @@
               },
               "proveedorContratistaGobierno" : {
                 "type" : "boolean",
-                "description" : "Señalar sí o no, la Pareja vende o presta algún servicio al gobierno.",
+                "description" : "Señalar si o no, la Pareja vende o presta algún servicio al gobierno.",
                 "example" : true
               }
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "Observaciones"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -1141,7 +1129,7 @@
                     },
                     "nombreEntePublico" : {
                       "type" : "string",
-                      "description" : "Ente Púbico al cual se encuentra adscrita la plaza",
+                      "description" : "Ente Público al cual se encuentra adscrita la plaza",
                       "example" : "INSTITUTO NACIONAL ELECTORAL"
                     },
                     "areaAdscripcion" : {
@@ -1210,9 +1198,7 @@
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "Aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "Esta es una aclaración"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -1294,7 +1280,7 @@
                     },
                     "tipoServicio" : {
                       "type" : "string",
-                      "description" : "Tipo de servicio que otorga, el tipo de participación en los consejos o consultorías, así como el tipo de asesorías que llevo a cabo.",
+                      "description" : "Tipo de servicio que otorga, el tipo de participación en los consejos o consultorías, así como el tipo de asesorías que llevó a cabo.",
                       "example" : "Instructor de cursos"
                     }
                   }
@@ -1360,9 +1346,7 @@
             "$ref" : "#/components/schemas/monto"
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "Aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "Esta es una aclaración"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -1445,9 +1429,7 @@
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "Aclaraciones u observaciones que se consideren pertinentes",
-            "example" : "Esta es una aclaración"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -1532,9 +1514,7 @@
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "Aclaraciones u observaciones pertinentes respecto de algunos de los incisos de este apartado",
-            "example" : "Esta es una observación    "
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -1604,9 +1584,7 @@
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "Soy una observación o aclaración"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -1693,9 +1671,7 @@
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "Soy una observación"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -1781,9 +1757,7 @@
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "Soy una observación"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -1878,7 +1852,7 @@
                     },
                     "relacionConTitular" : {
                       "type" : "string",
-                      "description" : "Indicar que tipo de relación existe en entre el dueño del bien prestado y el Declarante.",
+                      "description" : "Indicar que tipo de relación existe entre el dueño del bien prestado y el Declarante.",
                       "example" : "Amigo"
                     }
                   }
@@ -1887,9 +1861,7 @@
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "Soy una aclaración u observación"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -1901,7 +1873,7 @@
           },
           "participacion" : {
             "type" : "array",
-            "description" : "Señalar quien tiene participación en la empresa sociedad o asociación.",
+            "description" : "Señalar quién tiene participación en la empresa sociedad o asociación.",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -1957,9 +1929,7 @@
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "Soy una observación o aclaración"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -1988,7 +1958,7 @@
                     "clave" : {
                       "type" : "string",
                       "enum" : [ "OSC", "OB", "PP", "GS", "OTRO" ],
-                      "description" : "Significado de Claves:\n  * `OSC` - ORGANIZACIONES DE LA SOCIEDAD CIVIL\n  * `OB` - ORGANIZACIONES BENÉFICAS\n  * `PP` - PARTIDOS POLITICOS\n  * `GS` - GREMIOS/SINDICATOS\n  * `OTRO` - OTRO (ESPECIFIQUE)\n",
+                      "description" : "Significado de Claves:\n  * `OSC` - ORGANIZACIONES DE LA SOCIEDAD CIVIL\n  * `OB` - ORGANIZACIONES BENÉFICAS\n  * `PP` - PARTIDOS POLÍTICOS\n  * `GS` - GREMIOS/SINDICATOS\n  * `OTRO` - OTRO (ESPECIFIQUE)\n",
                       "example" : "OSC"
                     },
                     "valor" : {
@@ -2000,7 +1970,7 @@
                 "nombreInstitucion" : {
                   "description" : "Nombre de la institución. Proporcionar la denominación o razón social de la institución, tal y como se encuentra registrada formalmente.",
                   "type" : "string",
-                  "example" : "Institucion"
+                  "example" : "Institución"
                 },
                 "rfc" : {
                   "description" : "RFC. Proporcionar los 12 dígitos del registro de la institución.",
@@ -2015,7 +1985,7 @@
                   "example" : "rol"
                 },
                 "fechaInicioParticipacion" : {
-                  "description" : "Fecha de inicio de participación dentro de la institución. Señalar la fecha en que inicio funciones en la institución u organización.",
+                  "description" : "Fecha de inicio de participación dentro de la institución. Señalar la fecha en que inició funciones en la institución u organización.",
                   "type" : "string",
                   "format" : "date",
                   "example" : "2019-12-01"
@@ -2035,9 +2005,7 @@
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "esto es una aclaración"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -2067,7 +2035,7 @@
                 "institucionOtorgante" : {
                   "description" : "Institución que otorga el apoyo. Señalar el nombre de la institución que le esté dando el apoyo.",
                   "type" : "string",
-                  "example" : "Institucion que otorga el apoyo"
+                  "example" : "Institución que otorga el apoyo"
                 },
                 "nivelOrdenGobierno" : {
                   "$ref" : "#/components/schemas/nivelOrdenGobierno"
@@ -2097,15 +2065,13 @@
                 "especifiqueApoyo" : {
                   "description" : "Especifique el apoyo. En caso de haber seleccionado en especie deberá describir en qué consiste el apoyo o beneficio.",
                   "type" : "string",
-                  "example" : "informacion del apoyo"
+                  "example" : "información del apoyo"
                 }
               }
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "esto es una aclaración"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -2170,9 +2136,7 @@
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "esto es una aclaración"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -2244,9 +2208,7 @@
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "esto es una aclaración"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -2296,7 +2258,7 @@
                     "nombreRazonSocial" : {
                       "description" : "Nombre o razón social del otorgante. Proporcionar el nombre o razón social completos de quien otorga el beneficio.",
                       "type" : "string",
-                      "example" : "Colorantes marioposa SA de CV"
+                      "example" : "Colorantes mariposa SA de CV"
                     },
                     "rfc" : {
                       "description" : "RFC. En caso de personas físicas proporcionar los trece dígitos. En caso de personas morales establecer los doce dígitos del otorgante del beneficio.",
@@ -2310,7 +2272,7 @@
                 },
                 "especifiqueBeneficio" : {
                   "type" : "string",
-                  "description" : "Especifique el beneficio. En caso de haber seleccionado en especie deberá describir en que consiste el beneficio.",
+                  "description" : "Especifique el beneficio. En caso de haber seleccionado en especie deberá describir en qué consiste el beneficio.",
                   "example" : "especifique el beneficio"
                 },
                 "montoMensualAproximado" : {
@@ -2323,9 +2285,7 @@
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "esto es una aclaración"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -2428,9 +2388,7 @@
             }
           },
           "aclaracionesObservaciones" : {
-            "type" : "string",
-            "description" : "Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-            "example" : "esto es una aclaración"
+            "$ref" : "#/components/schemas/aclaracionesObservaciones"
           }
         }
       },
@@ -2458,13 +2416,13 @@
             "properties" : {
               "clave" : {
                 "type" : "string",
-                "description" : "cve_agem del Marco Geoestadistico de INEGI",
+                "description" : "cve_agem del Marco Geoestadístico del INEGI",
                 "example" : "001",
                 "pattern" : "^\\d{3}$"
               },
               "valor" : {
                 "type" : "string",
-                "description" : "nom_agem del Marco Geoestadistico de INEGI",
+                "description" : "nom_agem del Marco Geoestadístico del INEGI",
                 "example" : "Benito Juarez"
               }
             }
@@ -2518,7 +2476,7 @@
       },
       "tipoMoneda" : {
         "type" : "string",
-        "description" : "Codigo a 3 caracteres del ISO 4217",
+        "description" : "Código a 3 caracteres del ISO 4217",
         "example" : "MXN"
       },
       "formaRecepcion" : {
@@ -2539,13 +2497,13 @@
           "clave" : {
             "type" : "string",
             "example" : "01",
-            "description" : "cve_agee del Marco Geoestadistico de INEGI",
+            "description" : "cve_agee del Marco Geoestadístico del INEGI",
             "pattern" : "^\\d{2}$"
           },
           "valor" : {
             "type" : "string",
             "example" : "Aguascalientes",
-            "description" : "nom_agee del Marco Geoestadistico de INEGI"
+            "description" : "nom_agee del Marco Geoestadístico del INEGI"
           }
         }
       },
@@ -2562,7 +2520,7 @@
             "type" : "string",
             "example" : "DC",
             "enum" : [ "DC", "CY", "CON", "CONV", "HIJ", "HER", "CU", "MA", "PA", "TIO", "PRI", "SOB", "AHI", "NUE", "YER", "ABU", "NIE", "OTRO" ],
-            "description" : "Significado de Claves:\n  * `DC` - DECLARANTE\n  * `CY` - CONYUGE\n  * `CON` - CONCUBINA O CONCUBINARIO\n  * `CONV` - CONVIVIENTE\n  * `HIJ` - HIJO(A)\n  * `HER` - HERMANO(A)\n  * `CU` - CUÑADO(A)\n  * `MA` - MADRE\n  * `PA` - PADRE\n  * `TIO` - TÍO(A)\n  * `PRI` - PRIMO(A)\n  * `SOB` - SOBRINO(A)\n  * `AHI` - AHIJADO(A)\n  * `NUE` - NUERA\n  * `YER` - YERNO\n  * `ABU` - ABUELO(A)\n  * `NIE` - NIETO(A)\n  * `OTRO` - OTRO(A)\n"
+            "description" : "Significado de Claves:\n  * `DC` - DECLARANTE\n  * `CY` - CÓNYUGE\n  * `CON` - CONCUBINA O CONCUBINARIO\n  * `CONV` - CONVIVIENTE\n  * `HIJ` - HIJO(A)\n  * `HER` - HERMANO(A)\n  * `CU` - CUÑADO(A)\n  * `MA` - MADRE\n  * `PA` - PADRE\n  * `TIO` - TÍO(A)\n  * `PRI` - PRIMO(A)\n  * `SOB` - SOBRINO(A)\n  * `AHI` - AHIJADO(A)\n  * `NUE` - NUERA\n  * `YER` - YERNO\n  * `ABU` - ABUELO(A)\n  * `NIE` - NIETO(A)\n  * `OTRO` - OTRO(A)\n"
           },
           "valor" : {
             "type" : "string",
@@ -2622,7 +2580,7 @@
           "clave" : {
             "type" : "string",
             "enum" : [ "CAP", "FIN", "OPR", "SSI", "VBU", "BON", "OTRO" ],
-            "description" : "Significado de Claves:\n  * `CAP` - CAPITAL\n  * `FIN` - FONDOS DE INVERSIÓN\n  * `OPR` - ORGANIZACIONES PRIVADA\n  * `SSI` - SEGURO DE SEPARACIÓN INDIVIDUALIZADO\n  * `VBU` - VALORES BUSÁTILES\n  * `BON` - BONOS\n  * `OTRO` - OTRO(ESPECIFIQUE)\n",
+            "description" : "Significado de Claves:\n  * `CAP` - CAPITAL\n  * `FIN` - FONDOS DE INVERSIÓN\n  * `OPR` - ORGANIZACIONES PRIVADA\n  * `SSI` - SEGURO DE SEPARACIÓN INDIVIDUALIZADO\n  * `VBU` - VALORES BURSÁTILES\n  * `BON` - BONOS\n  * `OTRO` - OTRO(ESPECIFIQUE)\n",
             "example" : "SSI"
           },
           "valor" : {
@@ -2735,7 +2693,7 @@
             "clave" : {
               "type" : "string",
               "enum" : [ "DEC", "CYG", "CBN", "CVV", "DEN", "CTER" ],
-              "description" : "Significado de Claves:\n  * `DEC` - DECLARANTE\n  * `CYG` - CONYUGE\n  * `CBN` - CONCUBINA O CONCUBINARIO\n  * `CVV` - CONVIVIENTE\n  * `DEN` - DEPENDIENTE ECONÓMICO\n  * `CTER` - COPROPIEDAD CON TERCEROS\n",
+              "description" : "Significado de Claves:\n  * `DEC` - DECLARANTE\n  * `CYG` - CÓNYUGE\n  * `CBN` - CONCUBINA O CONCUBINARIO\n  * `CVV` - CONVIVIENTE\n  * `DEN` - DEPENDIENTE ECONÓMICO\n  * `CTER` - COPROPIEDAD CON TERCEROS\n",
               "example" : "DEC"
             },
             "valor" : {
@@ -2785,14 +2743,14 @@
           },
           "valor" : {
             "type" : "string",
-            "description" : "Señalar si el empleo que reporta corresponde al sector público, privado u otro. En caso de señalar otro deberá especificar el sector en el que laboró.",
+            "description" : "Señalar si el empleo que reporta corresponde al sector público, privado u otro. En caso de señalar otro deberá especificar el sector en el que laboro.",
             "example" : "Público"
           }
         }
       },
       "lugarDondeReside" : {
         "type" : "string",
-        "description" : "Indicar si vive en México, en el extranjero o si se desconoce.",
+        "description" : "Indicar si vive en México, en el extranjero o si se desconoce.",
         "enum" : [ "MEXICO", "EXTRANJERO", "SE_DESCONOCE" ],
         "example" : "EXTRANJERO"
       },
@@ -2849,7 +2807,7 @@
             "nombreRazonSocial" : {
               "type" : "string",
               "description" : "En caso de señalar copropiedad, escribir el nombre o nombres completos, así como apellidos completos sin abreviaturas y sin acentos ni signos especiales. Si se trata de persona moral deberá proporcionar la denominación o razón social de la institución tal y como se encuentra en el documento con el que se acredita la adquisición.",
-              "example" : "Jesus López"
+              "example" : "Jesús López"
             },
             "rfc" : {
               "type" : "string",
@@ -2882,17 +2840,17 @@
             },
             "nombreEntePublico" : {
               "type" : "string",
-              "description" : "Señalar el Ente Público al cual se encuentra adscrita la plaza.",
+              "description" : "Señalar el Ente Público al cual se encuentra adscrita la plaza.",
               "example" : "Instituto Federal de Telecomunicaciones"
             },
             "areaAdscripcion" : {
               "type" : "string",
-              "description" : "Especificar el nombre de la Unidad Administrativa u homóloga superior inmediata de su adscripción. (Superior jerárquico).",
-              "example" : "Unidad del Espectro Radioelectrico"
+              "description" : "Especificar el nombre de la Unidad Administrativa u homóloga superior inmediata de su adscripción. (Superior jerárquico).",
+              "example" : "Unidad del Espectro Radioeléctrico"
             },
             "empleoCargoComision" : {
               "type" : "string",
-              "description" : "Señalar el nombre del empleo, cargo o comisión que aparece en su recibo de nómina, nombramiento, contrato u oficio de comisión.",
+              "description" : "Señalar el nombre del empleo, cargo o comisión que aparece en su recibo de nómina, nombramiento, contrato u oficio de comisión.",
               "example" : "Director del Sistema Nacional de Infraestructura"
             },
             "contratadoPorHonorarios" : {
@@ -2902,17 +2860,17 @@
             },
             "nivelEmpleoCargoComision" : {
               "type" : "string",
-              "description" : "Elegir conforme a lo que señala su recibo de pago, en caso de no encontrarse en la lista desplegable, señalar otro y especificar.",
+              "description" : "Elegir conforme a lo que señala su recibo de pago, en caso de no encontrarse en la lista desplegable, señalar otro y especificar.",
               "example" : "L31"
             },
             "funcionPrincipal" : {
               "type" : "string",
-              "description" : "Señalar cuál es la función o actividad principal que desempeña en su empleo, cargo o comisión.",
+              "description" : "Señalar cuál es la función o actividad principal que desempeña en su empleo, cargo o comisión.",
               "example" : "Coordinar, Dirigir, etc."
             },
             "fechaTomaPosesion" : {
               "type" : "string",
-              "description" : "Señalar la fecha en que inició/concluyó el encargo.",
+              "description" : "Señalar la fecha en que inició/concluyó el encargo.",
               "example" : "2010-11-29"
             },
             "telefonoOficina" : {
@@ -2920,12 +2878,12 @@
               "properties" : {
                 "telefono" : {
                   "type" : "string",
-                  "description" : "Proporcionar el teléfono laboral y extensión según corresponda.",
+                  "description" : "Proporcionar el telefono laboral y extensión según corresponda.",
                   "example" : "5522221212"
                 },
                 "extension" : {
                   "type" : "string",
-                  "description" : "Proporcionar el teléfono laboral y extensión según corresponda.",
+                  "description" : "Proporcionar el telefono laboral y extensión según corresponda.",
                   "example" : "1010"
                 }
               }
@@ -2937,12 +2895,15 @@
               "$ref" : "#/components/schemas/domicilioExtranjero"
             },
             "aclaracionesObservaciones" : {
-              "type" : "string",
-              "description" : "En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
-              "example" : "Observaciones"
+              "$ref" : "#/components/schemas/aclaracionesObservaciones"
             }
           }
         }
+      },
+      "aclaracionesObservaciones" : {
+        "type" : "string",
+        "description" : "Aclaraciones/observaciones. En este espacio el Declarante podrá realizar las aclaraciones u observaciones que considere pertinentes respecto de alguno o algunos de los incisos de este apartado.",
+        "example" : "Observaciones"
       }
     }
   }

@@ -2184,6 +2184,9 @@
                 "tipoOperacion" : {
                   "$ref" : "#/components/schemas/tipoOperacion"
                 },
+                "tipoPersona" : {
+                  "$ref" : "#/components/schemas/tipoPersona"
+                },
                 "beneficiarioPrograma" : {
                   "$ref" : "#/components/schemas/beneficiariosPrograma"
                 },

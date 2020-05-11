@@ -395,7 +395,7 @@
                 "nivel" : {
                   "type" : "string",
                   "maxLength" : 12,
-                  "description" : "Nivel del puesto del Servidor Público",
+                  "description" : "Nivel o identificador del puesto del Servidor Público",
                   "example" : "1234567890"
                 }
               }

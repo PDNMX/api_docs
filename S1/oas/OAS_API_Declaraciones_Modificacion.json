@@ -1666,6 +1666,13 @@
                 },
                 "saldoDiciembreAnterior" : {
                   "$ref" : "#/components/schemas/monto"
+                },
+                "porcentajeIncrementoDecremento" : {
+                  "type" : "number",
+                  "description" : "porcentaje de incremento(+) o decremento(-) del saldo",
+                  "example" : -80,
+                  "minimum" : -100,
+                  "maximum" : 100
                 }
               }
             }
@@ -1722,6 +1729,13 @@
                 },
                 "saldoInsolutoDiciembreAnterior" : {
                   "$ref" : "#/components/schemas/monto"
+                },
+                "porcentajeIncrementoDecremento" : {
+                  "type" : "number",
+                  "description" : "porcentaje de incremento(+) o decremento(-) del saldo",
+                  "example" : 80,
+                  "minimum" : -100,
+                  "maximum" : 100
                 },
                 "tercero" : {
                   "$ref" : "#/components/schemas/tercero"
@@ -2229,6 +2243,9 @@
               "properties" : {
                 "tipoOperacion" : {
                   "$ref" : "#/components/schemas/tipoOperacion"
+                },
+                "tipoPersona" : {
+                  "$ref" : "#/components/schemas/tipoPersona"
                 },
                 "tipoBeneficio" : {
                   "description" : "Tipo de Beneficio. Seleccionar del listado el tipo de beneficio sorteo, concurso, donación u otro (especifique).",

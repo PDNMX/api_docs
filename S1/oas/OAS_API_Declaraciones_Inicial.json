@@ -2365,6 +2365,9 @@
                 "tipoOperacion" : {
                   "$ref" : "#/components/schemas/tipoOperacion"
                 },
+                "tipoPersona" : {
+                  "$ref" : "#/components/schemas/tipoPersona"
+                },
                 "tipoBeneficio" : {
                   "description" : "Tipo de Beneficio. Seleccionar del listado el tipo de beneficio sorteo, concurso, donación u otro (especifique).",
                   "type" : "object",

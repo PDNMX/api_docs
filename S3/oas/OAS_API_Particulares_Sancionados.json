@@ -1,7 +1,7 @@
 {
   "openapi" : "3.0.0",
   "info" : {
-    "version" : "1.0.0",
+    "version" : "1.1.0",
     "title" : "API de particulares sancionados"
   },
   "paths" : {
@@ -552,6 +552,7 @@
                   "type" : "array",
                   "items" : {
                     "type" : "object",
+                    "required" : [ "id", "titulo", "descripcion", "url", "fecha" ],
                     "properties" : {
                       "id" : {
                         "type" : "string",
@@ -662,7 +663,7 @@
               "tipoSancion" : {
                 "type" : "array",
                 "uniqueItems" : true,
-                "description" : "Clave del Tipo de sanción. Valores permitidos\n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DE ACTIVIDADES\n  * `D` - DISOLUCIÓN DE LA SOCIEDAD\n  * `A` - AMONESTACIÓN\n\n*******Deberá devolver todos los registros que contengan al menos uno de los valores solicitados.\n",
+                "description" : "Clave del Tipo de sanción. Valores permitidos\n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DE ACTIVIDADES\n  * `D` - DISOLUCIÓN DE LA SOCIEDAD\n  * `A` - AMONESTACIÓN\n  * `IND` - INDEMNIZACIÓN POR LOS DAÑOS Y PERJUICIOS OCASIONADOS A LA HACIENDA PÚBLICA FEDERAL, LOCAL O MUNICIPAL, O AL PATRIMONIO DE LOS ENTES PÚBLICOS.\n  * `SE` - SANCIÓN ECONÓMICA\n  * `O` - OTRO\n\n*******Deberá devolver todos los registros que contengan al menos uno de los valores solicitados.\n",
                 "items" : {
                   "type" : "string",
                   "enum" : [ "I", "M", "S", "D", "A" ]
@@ -688,6 +689,7 @@
         "type" : "array",
         "items" : {
           "type" : "object",
+          "required" : [ "nombre" ],
           "properties" : {
             "nombre" : {
               "type" : "string",
@@ -732,16 +734,22 @@
           "properties" : {
             "clave" : {
               "type" : "string",
-              "description" : "Tipo de sanción. Valores permitidos\n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DE ACTIVIDADES\n  * `D` - DISOLUCIÓN DE LA SOCIEDAD\n  * `A` - AMONESTACIÓN\n",
-              "enum" : [ "I", "M", "S", "D", "A" ],
+              "description" : "Tipo de sanción. Valores permitidos\n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DE ACTIVIDADES\n  * `D` - DISOLUCIÓN DE LA SOCIEDAD\n  * `A` - AMONESTACIÓN\n  * `IND` - INDEMNIZACIÓN POR LOS DAÑOS Y PERJUICIOS OCASIONADOS A LA HACIENDA PÚBLICA FEDERAL, LOCAL O MUNICIPAL, O AL PATRIMONIO DE LOS ENTES PÚBLICOS.\n  * `SE` - SANCIÓN ECONÓMICA\n  * `O` - OTRO\n",
+              "enum" : [ "I", "M", "S", "D", "A", "IND", "SE", "O" ],
               "example" : "I"
             },
             "valor" : {
               "type" : "string",
               "description" : "Valor del tipo de sanción",
               "example" : "INHABILITADO"
+            },
+            "descripcion" : {
+              "type" : "string",
+              "description" : "Descripción o nota aclaratoria.",
+              "example" : "Inhabilitación temporal para participar en adquisiciones, arrendamientos, servicios u obras públicas"
             }
-          }
+          },
+          "required" : [ "clave", "valor" ]
         },
         "example" : [ {
           "clave" : "I",

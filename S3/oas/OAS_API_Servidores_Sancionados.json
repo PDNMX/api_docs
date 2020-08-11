@@ -1,7 +1,7 @@
 {
   "openapi" : "3.0.0",
   "info" : {
-    "version" : "1.0.0",
+    "version" : "1.1.0",
     "title" : "API de servidores sancionados"
   },
   "paths" : {
@@ -150,7 +150,7 @@
             "type" : "array",
             "items" : {
               "type" : "object",
-              "required" : [ "id", "fechaCaptura", "institucionDependencia", "servidorPublicoSancionado", "tipoSancion", "causaMotivoHechos" ],
+              "required" : [ "id", "fechaCaptura", "institucionDependencia", "servidorPublicoSancionado", "tipoSancion", "causaMotivoHechos", "tipoFalta" ],
               "properties" : {
                 "id" : {
                   "type" : "string",
@@ -252,21 +252,7 @@
                   "example" : "Organo Interno de Control"
                 },
                 "tipoFalta" : {
-                  "description" : "Falta cometida por el servidor público",
-                  "type" : "object",
-                  "properties" : {
-                    "clave" : {
-                      "type" : "string",
-                      "enum" : [ "NAD", "VPC", "VLNP", "AUT", "CEX", "IDSP", "DCSP", "EIFM", "VDH", "AG", "ANG", "AC", "OTRO" ],
-                      "description" : "Clave del tipo de falta cometida. Valores permitidos\n  * `NAD` - NEGLIGENCIA ADMINISTRATIVA\n  * `VPC` - VIOLACION PROCEDIMIENTOS DE CONTRATACION\n  * `VLNP` - VIOLACION LEYES Y NORMATIVIDAD PRESUPUESTAL\n  * `AUT` - ABUSO DE AUTORIDAD\n  * `CEX` - COHECHO O EXTORSION\n  * `IDSP` - INCUMPLIMIENTO EN DECLARACION DE SITUACION PATRIMONIAL\n  * `DCSP` - DELITO COMETIDO POR SERVIDORES PUBLICOS\n  * `EIFM` - EJERCICIO INDEBIDO DE SUS FUNCIONES EN MATERIA MIGRATORIA\n  * `VDH` - VIOLACIÓN A LOS DERECHOS HUMANOS\n  * `AG` - ADMINISTRATIVA GRAVE\n  * `ANG` - ADMINISTRATIVA NO GRAVE\n  * `AC` - ACTO DE CORRUPCIÓN\n  * `OTRO` - OTRO  \n",
-                      "example" : "AG"
-                    },
-                    "valor" : {
-                      "type" : "string",
-                      "description" : "Valor del tipo de falta",
-                      "example" : "ADMINISTRATIVA GRAVE"
-                    }
-                  }
+                  "$ref" : "#/components/schemas/tipoFalta"
                 },
                 "tipoSancion" : {
                   "$ref" : "#/components/schemas/tipoSancion"
@@ -551,17 +537,22 @@
         "description" : "La sanción impuesta al servidor público, puede ser más de una. Ej. Inhabilitado y Multado. En caso de ser OTRO, en el atributo valor se deberá enviar la cadena correspondiente.",
         "items" : {
           "type" : "object",
+          "required" : [ "clave", "valor" ],
           "properties" : {
             "clave" : {
               "type" : "string",
-              "enum" : [ "I", "M", "S", "D", "O" ],
-              "description" : "Tipo de sanción aplicada. \n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓN\n  * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN\n  * `O` - OTRO\n",
+              "enum" : [ "I", "M", "S", "D", "IRSC", "SE", "O" ],
+              "description" : "Tipo de sanción aplicada. \n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓN\n  * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN\n  * `IRSC` - INDEMNIZACIÓN RESARCITORIA\n  * `SE` - SANCIÓN ECONÓMICA\n  * `O` - OTRO\n",
               "example" : "M"
             },
             "valor" : {
               "type" : "string",
               "description" : "Valor del tipo de sanción",
               "example" : "MULTADO"
+            },
+            "descripcion" : {
+              "type" : "string",
+              "description" : "Descripción o nota aclaratoria"
             }
           }
         },
@@ -572,6 +563,28 @@
           "clave" : "M",
           "valor" : "MULTADO"
         } ]
+      },
+      "tipoFalta" : {
+        "description" : "Falta cometida por el servidor público",
+        "type" : "object",
+        "required" : [ "clave", "valor" ],
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "enum" : [ "NAD", "VPC", "VLNP", "AUT", "CEX", "IDSP", "DCSP", "EIFM", "VDH", "AG", "ANG", "AC", "HSEX", "ASEX", "PEC", "DRP", "UII", "AFN", "ABCI", "CIND", "EOCI", "TINF", "ENCB", "DSCT", "OJUST", "OTRO" ],
+            "description" : "Clave del tipo de falta cometida. Valores permitidos\n* `NAD` - NEGLIGENCIA ADMINISTRATIVA\n* `VPC` - VIOLACION PROCEDIMIENTOS DE CONTRATACION\n* `VLNP` - VIOLACION LEYES Y NORMATIVIDAD PRESUPUESTAL\n* `AUT` - ABUSO DE AUTORIDAD\n* `CEX` - COHECHO O EXTORSION\n* `IDSP` - INCUMPLIMIENTO EN DECLARACION DE SITUACION PATRIMONIAL\n* `DCSP` - DELITO COMETIDO POR SERVIDORES PUBLICOS\n* `EIFM` - EJERCICIO INDEBIDO DE SUS FUNCIONES EN MATERIA MIGRATORIA\n* `VDH` - VIOLACIÓN A LOS DERECHOS HUMANOS\n* `AG` - ADMINISTRATIVA GRAVE\n* `ANG` - ADMINISTRATIVA NO GRAVE\n* `AC` - ACTO DE CORRUPCIÓN\n* `HSEX` - COMETER O TOLERAR CONDUCTAS DE HOSTIGAMIENTO SEXUAL\n* `ASEX` - COMETER O TOLERAR CONDUCTAS DE ACOSO SEXUAL\n* `PEC` - PECULADO\n* `DRP` - DESVÍO DE RECURSOS PÚBLICOS\n* `UII` - UTILIZACIÓN INDEBIDA DE INFORMACIÓN\n* `AFN` - ABUSO DE FUNCIONES\n* `ABCI` - ACTUACIÓN BAJO CONFLICTO DE INTERÉS\n* `CIND` - CONTRATACIÓN INDEBIDA\n* `EOCI` - ENRIQUECIMIENTO OCULTO U OCULTAMIENTO DE CONFLICTO DE INTERÉS\n* `TINF` - TRÁFICO DE INFLUENCIAS\n* `ENCB` - ENCUBRIMIENTO\n* `DSCT` - DESACATO\n* `OJUST` -\tOBSTRUCCIÓN DE LA JUSTICIA\n* `OTRO` - OTRO  \nexample: AG\n"
+          },
+          "valor" : {
+            "type" : "string",
+            "description" : "Valor del tipo de falta",
+            "example" : "ADMINISTRATIVA GRAVE"
+          },
+          "descripcion" : {
+            "type" : "string",
+            "description" : "Descripción o nota aclaratoria.",
+            "example" : "Administrativa grave"
+          }
+        }
       }
     }
   }

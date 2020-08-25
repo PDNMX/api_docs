@@ -457,15 +457,15 @@
                   "clave" : {
                     "type" : "integer",
                     "minimum" : 1,
-                    "example" : 1
+                    "example" : 1,
+                    "enum" : [ 1, 2, 3, 4, 5 ]
                   },
                   "valor" : {
-                    "type" : "string",
-                    "enum" : [ "CONTRATACIONES PÚBLICAS", "CONCESIONES, LICENCIAS, PERMISOS, AUTORIZACIONES Y PRÓRROGAS", "ENAJENACIÓN DE BIENES MUEBLES", "ASIGNACIÓN Y EMISION DE DICTAMENES DE AVALÚOS NACIONALES" ]
+                    "type" : "string"
                   }
                 }
               },
-              "description" : "Tipos de procedimiento en los que puede participar el Servidor Público.\n* `1` - CONTRATACIONES PÚBLICAS \n* `2` - CONCESIONES, LICENCIAS, PERMISOS, AUTORIZACIONES Y PRÓRROGAS \n* `3` - ENAJENACIÓN DE BIENES MUEBLES \n* `4` - ASIGNACIÓN Y EMISIÓN DE DICTÁMENES DE AVALÚOS NACIONALES\n"
+              "description" : "Tipos de procedimiento en los que puede participar el Servidor Público.\n* `1` - CONTRATACIONES PÚBLICAS \n* `2` - CONCESIONES, LICENCIAS, PERMISOS, AUTORIZACIONES Y PRÓRROGAS \n* `3` - ENAJENACIÓN DE BIENES MUEBLES \n* `4` - ASIGNACIÓN Y EMISIÓN DE DICTÁMENES DE AVALÚOS NACIONALES\n* `5` - OTRO\n"
             },
             "superiorInmediato" : {
               "type" : "object",

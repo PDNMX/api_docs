@@ -476,10 +476,10 @@
               "tipoSancion" : {
                 "type" : "array",
                 "uniqueItems" : true,
-                "description" : "Clave(s) del tipo de sanción aplicada. \n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓN\n  * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN\n\n\n*******Deberá devolver todos los registros que contengan al menos uno de los valores solicitados.\n",
+                "description" : "Clave(s) del tipo de sanción aplicada. \n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓN\n  * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN\n  * `IRSC` - INDEMNIZACIÓN RESARCITORIA\n  * `SE` - SANCIÓN ECONÓMICA\n  * `O` - OTRO\n\n*******Deberá devolver todos los registros que contengan al menos uno de los valores solicitados.\n",
                 "items" : {
                   "type" : "string",
-                  "enum" : [ "I", "M", "S", "D" ]
+                  "enum" : [ "I", "M", "S", "D", "IRSC", "SE", "O" ]
                 },
                 "example" : [ "I", "M" ]
               },
@@ -572,7 +572,7 @@
           "clave" : {
             "type" : "string",
             "enum" : [ "NAD", "VPC", "VLNP", "AUT", "CEX", "IDSP", "DCSP", "EIFM", "VDH", "AG", "ANG", "AC", "HSEX", "ASEX", "PEC", "DRP", "UII", "AFN", "ABCI", "CIND", "EOCI", "TINF", "ENCB", "DSCT", "OJUST", "OTRO" ],
-            "description" : "Clave del tipo de falta cometida. Valores permitidos\n* `NAD` - NEGLIGENCIA ADMINISTRATIVA\n* `VPC` - VIOLACION PROCEDIMIENTOS DE CONTRATACION\n* `VLNP` - VIOLACION LEYES Y NORMATIVIDAD PRESUPUESTAL\n* `AUT` - ABUSO DE AUTORIDAD\n* `CEX` - COHECHO O EXTORSION\n* `IDSP` - INCUMPLIMIENTO EN DECLARACION DE SITUACION PATRIMONIAL\n* `DCSP` - DELITO COMETIDO POR SERVIDORES PUBLICOS\n* `EIFM` - EJERCICIO INDEBIDO DE SUS FUNCIONES EN MATERIA MIGRATORIA\n* `VDH` - VIOLACIÓN A LOS DERECHOS HUMANOS\n* `AG` - ADMINISTRATIVA GRAVE\n* `ANG` - ADMINISTRATIVA NO GRAVE\n* `AC` - ACTO DE CORRUPCIÓN\n* `HSEX` - COMETER O TOLERAR CONDUCTAS DE HOSTIGAMIENTO SEXUAL\n* `ASEX` - COMETER O TOLERAR CONDUCTAS DE ACOSO SEXUAL\n* `PEC` - PECULADO\n* `DRP` - DESVÍO DE RECURSOS PÚBLICOS\n* `UII` - UTILIZACIÓN INDEBIDA DE INFORMACIÓN\n* `AFN` - ABUSO DE FUNCIONES\n* `ABCI` - ACTUACIÓN BAJO CONFLICTO DE INTERÉS\n* `CIND` - CONTRATACIÓN INDEBIDA\n* `EOCI` - ENRIQUECIMIENTO OCULTO U OCULTAMIENTO DE CONFLICTO DE INTERÉS\n* `TINF` - TRÁFICO DE INFLUENCIAS\n* `ENCB` - ENCUBRIMIENTO\n* `DSCT` - DESACATO\n* `OJUST` -\tOBSTRUCCIÓN DE LA JUSTICIA\n* `OTRO` - OTRO  \nexample: AG\n"
+            "description" : "Clave del tipo de falta cometida. Valores permitidos\n* `NAD` - NEGLIGENCIA ADMINISTRATIVA\n* `VPC` - VIOLACION PROCEDIMIENTOS DE CONTRATACION\n* `VLNP` - VIOLACION LEYES Y NORMATIVIDAD PRESUPUESTAL\n* `AUT` - ABUSO DE AUTORIDAD\n* `CEX` - COHECHO O EXTORSION\n* `IDSP` - INCUMPLIMIENTO EN DECLARACION DE SITUACION PATRIMONIAL\n* `DCSP` - DELITO COMETIDO POR SERVIDORES PUBLICOS\n* `EIFM` - EJERCICIO INDEBIDO DE SUS FUNCIONES EN MATERIA MIGRATORIA\n* `VDH` - VIOLACIÓN A LOS DERECHOS HUMANOS\n* `AG` - ADMINISTRATIVA GRAVE\n* `ANG` - ADMINISTRATIVA NO GRAVE\n* `AC` - ACTO DE CORRUPCIÓN\n* `HSEX` - COMETER O TOLERAR CONDUCTAS DE HOSTIGAMIENTO SEXUAL\n* `ASEX` - COMETER O TOLERAR CONDUCTAS DE ACOSO SEXUAL\n* `PEC` - PECULADO\n* `DRP` - DESVÍO DE RECURSOS PÚBLICOS\n* `UII` - UTILIZACIÓN INDEBIDA DE INFORMACIÓN\n* `AFN` - ABUSO DE FUNCIONES\n* `ABCI` - ACTUACIÓN BAJO CONFLICTO DE INTERÉS\n* `CIND` - CONTRATACIÓN INDEBIDA\n* `EOCI` - ENRIQUECIMIENTO OCULTO U OCULTAMIENTO DE CONFLICTO DE INTERÉS\n* `TINF` - TRÁFICO DE INFLUENCIAS\n* `ENCB` - ENCUBRIMIENTO\n* `DSCT` - DESACATO\n* `OJUST` -  OBSTRUCCIÓN DE LA JUSTICIA\n* `OTRO` - OTRO  \nexample: AG\n"
           },
           "valor" : {
             "type" : "string",

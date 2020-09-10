@@ -387,7 +387,8 @@
             "type" : "integer",
             "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1, en caso de no recibir el parámetro, su valor será el indicado en default.",
             "example" : 10,
-            "default" : 10
+            "default" : 10,
+            "maximum" : 200
           },
           "page" : {
             "type" : "integer",
@@ -440,43 +441,43 @@
             "properties" : {
               "id" : {
                 "type" : "string",
-                "description" : "Devuelve resultados al buscar una declaración por su ID. Si se especifica este valor, los demas filtros son omitidos.",
+                "description" : "Devuelve resultados al buscar una declaración por su ID. Si se especifica este valor, los demas filtros son omitidos. En caso de enviar cadena vacía, el filtro debe ser omitido.",
                 "example" : "123abc"
               },
               "nombres" : {
                 "type" : "string",
-                "description" : "Nombres o nombre del servidor público sancionado.",
+                "description" : "Nombres o nombre del servidor público sancionado. Si se envía cadena vacía se debe omitir el filtro.",
                 "example" : "Juan Pedro"
               },
               "primerApellido" : {
                 "type" : "string",
-                "description" : "Primer apellido del servidor público sancionado.",
+                "description" : "Primer apellido del servidor público sancionado. Si se envía cadena vacía se debe omitir el filtro.",
                 "example" : "Tenorio"
               },
               "segundoApellido" : {
                 "type" : "string",
-                "description" : "Segundo apellido del servidor público sancionado.",
+                "description" : "Segundo apellido del servidor público sancionado. Si se envía cadena vacía se debe omitir el filtro.",
                 "example" : "Calderon"
               },
               "rfc" : {
                 "type" : "string",
-                "description" : "RFC del Servidor Público con homoclave",
+                "description" : "RFC del Servidor Público con homoclave. Si se envía cadena vacía se debe omitir el filtro.",
                 "example" : "PAT21343213"
               },
               "curp" : {
                 "type" : "string",
-                "description" : "CURP del Servidor Público",
+                "description" : "CURP del Servidor Público. Si se envía cadena vacía se debe omitir el filtro.",
                 "example" : "ABCD780814MDFAXL"
               },
               "institucionDependencia" : {
                 "type" : "string",
-                "description" : "Nombre de la institución dependencia a la que pertenece el servidor público sancionado.",
+                "description" : "Nombre de la institución dependencia a la que pertenece el servidor público sancionado. Si se envía cadena vacía se debe omitir el filtro.",
                 "example" : "Secretaría de Hacienda y Crédito Público"
               },
               "tipoSancion" : {
                 "type" : "array",
                 "uniqueItems" : true,
-                "description" : "Clave(s) del tipo de sanción aplicada. \n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓN\n  * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN\n  * `IRSC` - INDEMNIZACIÓN RESARCITORIA\n  * `SE` - SANCIÓN ECONÓMICA\n  * `O` - OTRO\n\n*******Deberá devolver todos los registros que contengan al menos uno de los valores solicitados.\n",
+                "description" : "Clave(s) del tipo de sanción aplicada. \n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DEL EMPLEO, CARGO O COMISIÓN\n  * `D` - DESTITUCIÓN DEL EMPLO, CARGO O COMISIÓN\n  * `IRSC` - INDEMNIZACIÓN RESARCITORIA\n  * `SE` - SANCIÓN ECONÓMICA\n  * `O` - OTRO\n\n*******Deberá devolver todos los registros que contengan al menos uno de los valores solicitados en el arreglo. En caso de enviar arreglo vacio se deberá omitir el filtro.\n",
                 "items" : {
                   "type" : "string",
                   "enum" : [ "I", "M", "S", "D", "IRSC", "SE", "O" ]

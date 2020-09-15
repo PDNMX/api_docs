@@ -666,7 +666,7 @@
                 "description" : "Clave del Tipo de sanción. Valores permitidos\n  * `I` - INHABILITADO \n  * `M` - MULTADO\n  * `S` - SUSPENSIÓN DE ACTIVIDADES\n  * `D` - DISOLUCIÓN DE LA SOCIEDAD\n  * `A` - AMONESTACIÓN\n  * `IND` - INDEMNIZACIÓN POR LOS DAÑOS Y PERJUICIOS OCASIONADOS A LA HACIENDA PÚBLICA FEDERAL, LOCAL O MUNICIPAL, O AL PATRIMONIO DE LOS ENTES PÚBLICOS.\n  * `SE` - SANCIÓN ECONÓMICA\n  * `O` - OTRO\n\n*******Deberá devolver todos los registros que contengan al menos uno de los valores solicitados.\n",
                 "items" : {
                   "type" : "string",
-                  "enum" : [ "I", "M", "S", "D", "A" ]
+                  "enum" : [ "I", "M", "S", "D", "A", "IND", "SE", "O" ]
                 },
                 "example" : [ "I", "M" ]
               },

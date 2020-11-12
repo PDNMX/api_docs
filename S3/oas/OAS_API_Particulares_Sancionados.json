@@ -139,7 +139,7 @@
               "pageSize" : {
                 "type" : "number",
                 "minimum" : 1,
-                "description" : "Total de páginas",
+                "description" : "Número de registros a mostrar por página, el máximo permitido es 200 y el minimo 1",
                 "example" : 30
               },
               "page" : {

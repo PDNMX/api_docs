@@ -398,6 +398,7 @@
           },
           "sort" : {
             "type" : "object",
+            "description" : "El ordenamiento a emplear deberá ser lexicográfico basado en idioma Español",
             "properties" : {
               "rfc" : {
                 "type" : "string",

@@ -181,6 +181,7 @@
         "properties" : {
           "sort" : {
             "type" : "object",
+            "description" : "El ordenamiento a emplear deberá ser lexicográfico basado en idioma Español",
             "properties" : {
               "nombres" : {
                 "type" : "string",

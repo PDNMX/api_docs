@@ -131,7 +131,7 @@
                 },
                 "metadata" : {
                   "type" : "object",
-                  "required" : [ "actualizacion", "institucion", "tipo" ],
+                  "required" : [ "actualizacion", "institucion", "tipo", "declaracionCompleta", "actualizacionConflictoInteres" ],
                   "properties" : {
                     "actualizacion" : {
                       "type" : "string",
@@ -149,6 +149,15 @@
                       "description" : "indica el tipo de declaración",
                       "enum" : [ "INICIAL", "MODIFICACIÓN", "CONCLUSIÓN" ],
                       "example" : "MODIFICACIÓN"
+                    },
+                    "declaracionCompleta" : {
+                      "type" : "boolean",
+                      "description" : "indica si la declaración es completa(true) o simplificada(false)"
+                    },
+                    "actualizacionConflictoInteres" : {
+                      "type" : "boolean",
+                      "description" : "indica si se ha realizado una actualización de conflicto de intereses",
+                      "default" : false
                     }
                   }
                 },
@@ -1183,16 +1192,16 @@
                     },
                     "salarioMensualNeto" : {
                       "$ref" : "#/components/schemas/monto"
+                    },
+                    "proveedorContratistaGobierno" : {
+                      "type" : "boolean",
+                      "description" : "Señala sí o no, el dependiente económico vende o presta algún servicio al gobierno",
+                      "example" : false
+                    },
+                    "sector" : {
+                      "$ref" : "#/components/schemas/sector"
                     }
                   }
-                },
-                "proveedorContratistaGobierno" : {
-                  "type" : "boolean",
-                  "description" : "Señala sí o no, el dependiente económico vende o presta algún servicio al gobierno",
-                  "example" : false
-                },
-                "sector" : {
-                  "$ref" : "#/components/schemas/sector"
                 }
               }
             }
@@ -1213,7 +1222,7 @@
           "otrosIngresosAnualesTotal" : {
             "$ref" : "#/components/schemas/monto"
           },
-          "actividadIndustialComercialEmpresarial" : {
+          "actividadIndustrialComercialEmpresarial" : {
             "type" : "object",
             "properties" : {
               "remuneracionTotal" : {

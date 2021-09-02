@@ -437,17 +437,17 @@
                 "properties" : {
                   "clave" : {
                     "type" : "string",
-                    "enum" : [ "A", "T", "R" ],
+                    "enum" : [ "A", "T", "R", "O" ],
                     "example" : "A"
                   },
                   "valor" : {
                     "type" : "string",
-                    "enum" : [ "ATENCIÓN", "TRAMITACIÓN", "RESOLUCIÓN" ],
+                    "enum" : [ "ATENCIÓN", "TRAMITACIÓN", "RESOLUCIÓN", "OTRO" ],
                     "example" : "ATENCIÓN"
                   }
                 }
               },
-              "description" : "Nivel de responsabilidad.\nSignificado de Claves:\n  * `A` - ATENCIÓN\n  * `T` - TRAMITACIÓN\n  * `R` - RESOLUCIÓN\n"
+              "description" : "Nivel de responsabilidad.\nSignificado de Claves:\n  * `A` - ATENCIÓN\n  * `T` - TRAMITACIÓN\n  * `R` - RESOLUCIÓN\n  * `O` - OTRO\n"
             },
             "tipoProcedimiento" : {
               "type" : "array",

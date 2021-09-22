@@ -512,6 +512,10 @@
                   }
                 }
               }
+            },
+            "observaciones" : {
+              "type" : "string",
+              "description" : "Aclaraciones y observaciones"
             }
           }
         }

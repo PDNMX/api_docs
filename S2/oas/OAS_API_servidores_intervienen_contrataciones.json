@@ -466,7 +466,7 @@
                   }
                 }
               },
-              "description" : "Tipos de procedimiento en los que puede participar el Servidor Público.\n* `1` - CONTRATACIONES PÚBLICAS \n* `2` - CONCESIONES, LICENCIAS, PERMISOS, AUTORIZACIONES Y PRÓRROGAS \n* `3` - ENAJENACIÓN DE BIENES MUEBLES \n* `4` - ASIGNACIÓN Y EMISIÓN DE DICTÁMENES DE AVALÚOS NACIONALES\n* `5` - OTRO\n"
+              "description" : "Tipos de procedimiento en los que puede participar el Servidor Público.\n* `1` - CONTRATACIONES PÚBLICAS \n* `2` - CONCESIONES, LICENCIAS, PERMISOS, AUTORIZACIONES Y SUS PRÓRROGAS \n* `3` - ENAJENACIÓN DE BIENES MUEBLES \n* `4` - ASIGNACIÓN Y EMISIÓN DE DICTÁMENES DE AVALÚOS NACIONALES\n* `5` - OTRO\n"
             },
             "superiorInmediato" : {
               "type" : "object",

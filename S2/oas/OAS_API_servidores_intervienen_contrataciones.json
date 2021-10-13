@@ -8,7 +8,7 @@
     "/v1/spic" : {
       "post" : {
         "tags" : [ "spic" ],
-        "summary" : "Servidores públicos que intervienen en contrataciones.",
+        "summary" : "Servidores públicos que intervienen en contrataciones",
         "operationId" : "post_spic",
         "requestBody" : {
           "description" : "JSON para peticiones de busqueda avanzada",

@@ -1,0 +1,265 @@
+{
+  "openapi" : "3.0.3",
+  "info" : {
+    "title" : "Open Contracting Releases Packages.",
+    "description" : "The release package contains a list of releases along with some publishing metadata.",
+    "contact" : {
+      "email" : "pdn@sesna.gob.mx"
+    },
+    "license" : {
+      "name" : "MIT",
+      "url" : "https://opensource.org/licenses/MIT"
+    },
+    "version" : "1.0"
+  },
+  "externalDocs" : {
+    "description" : "Más información.",
+    "url" : "https://github.com/PDNMX/api_docs"
+  },
+  "tags" : [ {
+    "name" : "contrataciones-abiertas",
+    "description" : "Endpoint de la lista de contrataciones abiertas disponibles"
+  } ],
+  "paths" : {
+    "/contrataciones-abiertas" : {
+      "post" : {
+        "tags" : [ "contrataciones-abiertas" ],
+        "summary" : "Muestra la lista de contrataciones abiertas disponibles",
+        "operationId" : "post_open-contracting",
+        "requestBody" : {
+          "description" : "JSON para peticiones de busqueda avanzada",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/requestOpenContracting"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "allOf" : [ {
+                    "$ref" : "#/components/schemas/paginatedResult"
+                  }, {
+                    "type" : "object",
+                    "required" : [ "pagination", "results" ],
+                    "properties" : {
+                      "results" : {
+                        "type" : "array",
+                        "items" : {
+                          "$ref" : "https://standard.open-contracting.org/1.1/es/_downloads/923a57528bfa8bcabcc16c449b636b26/release-schema.json"
+                        },
+                        "description" : "https://standard.open-contracting.org/1.1/es/schema/reference/"
+                      }
+                    }
+                  } ]
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Página inválida",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/responseError"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "No tienes permisos",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/responseError"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/responseError"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "auth" : [ ]
+        } ]
+      }
+    }
+  },
+  "components" : {
+    "securitySchemes" : {
+      "auth" : {
+        "type" : "oauth2",
+        "flows" : {
+          "password" : {
+            "tokenUrl" : "/oauth",
+            "scopes" : { }
+          }
+        }
+      }
+    },
+    "schemas" : {
+      "requestOpenContracting" : {
+        "type" : "object",
+        "properties" : {
+          "sort" : {
+            "type" : "object",
+            "description" : "El ordenamiento a emplear deberá ser lexicográfico basado en idioma Español",
+            "properties" : {
+              "title" : {
+                "type" : "string",
+                "enum" : [ "asc", "desc" ],
+                "description" : "Título de la adjudicación, el campo a ordenar de forma ascendente o descente",
+                "example" : "asc"
+              },
+              "buyer" : {
+                "type" : "string",
+                "enum" : [ "asc", "desc" ],
+                "description" : "Nombre del comprador, el campo a ordenar de forma ascendente o descente",
+                "example" : "asc"
+              }
+            }
+          },
+          "page" : {
+            "type" : "integer",
+            "description" : "Número de página a mostrar, por default 1",
+            "example" : 1,
+            "default" : 1
+          },
+          "pageSize" : {
+            "type" : "integer",
+            "description" : "Número de registros a mostrar por página, el máximo permitido es doscientos y el mínimo uno, por defecto muestra diez registros. Por default 10",
+            "example" : 10,
+            "default" : 10
+          },
+          "query" : {
+            "properties" : {
+              "ocid" : {
+                "type" : "string",
+                "description" : "Devuelve resultados al buscar un servidor público por su ID de Contrataciones Abiertas (OCID).",
+                "example" : "OM-DGRMSG-004-13"
+              },
+              "title" : {
+                "type" : "string",
+                "description" : "Título de la adjudicación.",
+                "example" : "Compra de zapatos"
+              },
+              "buyer" : {
+                "type" : "string",
+                "description" : "Nombre del comprador",
+                "example" : "Presidencia de la República"
+              },
+              "procurementMethod" : {
+                "type" : "array",
+                "description" : "El método de adquisición.",
+                "uniqueItems" : true,
+                "items" : {
+                  "type" : "string",
+                  "enum" : [ "open", "selective", "limited", "direct" ],
+                  "description" : "Significado de Claves:\n  * `open` - Todos los proveedores interesados pueden hacer una oferta.\n  * `selective` - Sólo los proveedores calificados son invitados a enviar una propuesta.\n  * `limited` - La entidad licitadora contacta a un número de proveedores de su elección.\n  * `direct` - El contrato se otorga a un solo proveedor sin competencia.\n",
+                  "example" : "open"
+                }
+              },
+              "awardStatus" : {
+                "type" : "array",
+                "description" : "Estatus de la adjudicación.",
+                "uniqueItems" : true,
+                "items" : {
+                  "type" : "string",
+                  "enum" : [ "active", "pending", "cancelled", "unsuccessful" ],
+                  "description" : "Significado de Claves:\n  * `active` - Se ha adjudicado y está en proceso.\n  * `pending` - Esta adjudicación se ha propuesto pero no ha entrado en vigor. Esto puede ser por un período de reflexión o algún otro proceso.\n  * `cancelled` - Esta adjudicación se ha cancelado.\n  * `unsuccessful` - Esa adjudicación no pudo realizarse exitosamente. Si los artículos o detalles del proveedor se incluyen en la sección de adjudicación, estos limitan el alcance de la licitación fallida (e.j. si la adjudicación de artículos notados o una adjudicación al proveedor notado no fue exitosa, pero puede haber otras adjudicaciones exitosas para diferentes artículos en la oferta, o para distintos proveedores).\n",
+                  "example" : "active"
+                }
+              },
+              "suppliers" : {
+                "type" : "string",
+                "description" : "Los proveedores adjudicados",
+                "example" : "Los Desconocidos"
+              },
+              "tenderStartDate" : {
+                "type" : "string",
+                "format" : "date-time",
+                "description" : "La fecha de inicio del proceso de contratación",
+                "example" : "2019-01-21T17:32:28Z"
+              },
+              "tenderEndDate" : {
+                "type" : "string",
+                "format" : "date-time",
+                "description" : "La fecha de conclusión del proceso de contratación",
+                "example" : "2020-01-21T17:32:28Z"
+              },
+              "awardsItems" : {
+                "type" : "string",
+                "description" : "Los bienes y/o servicios adjudicados en la adjudicación.",
+                "example" : "Zapatos"
+              },
+              "numberOfTenderers" : {
+                "type" : "integer",
+                "description" : "El número total de propuestas recibidas.",
+                "example" : 2
+              }
+            }
+          }
+        }
+      },
+      "responseError" : {
+        "description" : "Estos valores son definidos por el sistema del API.",
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "string",
+            "description" : "Código alfa numérico del error de la consulta.",
+            "example" : "abc123"
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Texto descriptivo para el usuario final del error en la consulta",
+            "example" : "Error al formar la consulta, revise el formato de los campos."
+          }
+        }
+      },
+      "paginatedResult" : {
+        "type" : "object",
+        "required" : [ "pageSize", "page", "totalRows", "hasNextPage" ],
+        "properties" : {
+          "pageSize" : {
+            "type" : "integer",
+            "minimum" : 1,
+            "description" : "Número de registros mostrados, por defecto muestra diez.",
+            "example" : 100
+          },
+          "page" : {
+            "type" : "integer",
+            "minimum" : 1,
+            "description" : "Número de página actual",
+            "example" : 20
+          },
+          "totalRows" : {
+            "type" : "integer",
+            "minimum" : 1,
+            "description" : "Total de registros",
+            "example" : 30
+          },
+          "hasNextPage" : {
+            "type" : "boolean",
+            "description" : "Indica si existe otra página",
+            "example" : true
+          }
+        }
+      }
+    }
+  }
+}

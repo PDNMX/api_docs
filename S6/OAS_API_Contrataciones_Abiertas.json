@@ -157,7 +157,7 @@
                 "description" : "Título de la adjudicación.",
                 "example" : "Compra de zapatos"
               },
-              "buyer" : {
+              "buyerName" : {
                 "type" : "string",
                 "description" : "Nombre del comprador",
                 "example" : "Presidencia de la República"
@@ -184,7 +184,7 @@
                   "example" : "active"
                 }
               },
-              "suppliers" : {
+              "supplierName" : {
                 "type" : "string",
                 "description" : "Los proveedores adjudicados",
                 "example" : "Los Desconocidos"
@@ -201,7 +201,7 @@
                 "description" : "La fecha de conclusión del proceso de contratación",
                 "example" : "2020-01-21T17:32:28Z"
               },
-              "awardsItems" : {
+              "itemDescription" : {
                 "type" : "string",
                 "description" : "Los bienes y/o servicios adjudicados en la adjudicación.",
                 "example" : "Zapatos"

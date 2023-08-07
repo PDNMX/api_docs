@@ -125,7 +125,7 @@
                 "description" : "Título de la adjudicación, el campo a ordenar de forma ascendente o descente",
                 "example" : "asc"
               },
-              "buyer" : {
+              "buyerName" : {
                 "type" : "string",
                 "enum" : [ "asc", "desc" ],
                 "description" : "Nombre del comprador, el campo a ordenar de forma ascendente o descente",

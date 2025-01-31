@@ -2256,7 +2256,15 @@
         "properties": {
           "clave": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "Elegir una o varias sanciones, según corresponda, conforme al catálogo y que fueron dictaminadas en la resolución definitiva. Se podrán elegir de las siguientes opciones",
+            "enum": [
+              "SUSPENSION",
+              "DESTITUCION",
+              "SANCION_ECONOMICA",
+              "INHABILITACION",
+              "OTRO"
+            ]
           },
           "sancionEconomica": {
             "description": "Llenar este apartado en caso de que la persona servidora pública sea acreedora de una sanción económica",
@@ -2502,15 +2510,7 @@
         "properties": {
           "clave": {
             "type": "string",
-            "nullable": true,
-            "description": "Elegir una o varias sanciones, según corresponda, conforme al catálogo y que fueron dictaminadas en la resolución definitiva. Se podrán elegir de las siguientes opciones",
-            "enum": [
-              "SUSPENSION",
-              "DESTITUCION",
-              "SANCION_ECONOMICA",
-              "INHABILITACION",
-              "OTRO"
-            ]
+            "nullable": true
           },
           "inhabilitacion": {
             "description": "Se deberá llenar si en la resolución se determinó sancionar con una inhabilitación",

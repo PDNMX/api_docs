@@ -13,9 +13,7 @@
   "paths": {
     "/items/faltas_administrativas_graves": {
       "get": {
-        "tags": [
-          "ItemsFaltasAdministrativasGraves"
-        ],
+        "tags": ["ItemsFaltasAdministrativasGraves"],
         "summary": "List Items",
         "description": "List the faltas_administrativas_graves items.",
         "operationId": "readItemsFaltasAdministrativasGraves",
@@ -142,9 +140,7 @@
     },
     "/items/faltas_graves_personas_morales": {
       "get": {
-        "tags": [
-          "ItemsFaltasGravesPersonasMorales"
-        ],
+        "tags": ["ItemsFaltasGravesPersonasMorales"],
         "summary": "List Items",
         "description": "List the faltas_graves_personas_morales items.",
         "operationId": "readItemsFaltasGravesPersonasMorales",
@@ -271,9 +267,7 @@
     },
     "/items/faltas_administrativas_no_graves": {
       "get": {
-        "tags": [
-          "ItemsFaltasAdministrativasNoGraves"
-        ],
+        "tags": ["ItemsFaltasAdministrativasNoGraves"],
         "summary": "List Items",
         "description": "List the faltas_administrativas_no_graves items.",
         "operationId": "readItemsFaltasAdministrativasNoGraves",
@@ -400,9 +394,7 @@
     },
     "/items/faltas_graves_personas_fisicas": {
       "get": {
-        "tags": [
-          "ItemsFaltasGravesPersonasFisicas"
-        ],
+        "tags": ["ItemsFaltasGravesPersonasFisicas"],
         "summary": "List Items",
         "description": "List the faltas_graves_personas_fisicas items.",
         "operationId": "readItemsFaltasGravesPersonasFisicas",
@@ -924,12 +916,14 @@
           "nivelOrdenGobierno": {
             "type": "string",
             "description": "Seleccionar el nivel u orden de gobierno",
-            "nullable": true
+            "nullable": true,
+            "enum": ["FEDERAL", "ESTATAL", "MUNICIPAL_ALCALDIA"]
           },
           "ambitoPublico": {
             "type": "string",
             "description": "Seleccionar el ámbito público",
-            "nullable": true
+            "nullable": true,
+            "enum": ["EJECUTIVO", "LEGISLATIVO", "JUDICIAL", "ORGANO_AUTONOMO"]
           },
           "nombreEntePublico": {
             "type": "string",
@@ -972,7 +966,20 @@
         "properties": {
           "clave": {
             "type": "string",
-            "nullable": true
+            "description": "Seleccionar el nivel jerárquico del empleo, cargo o comisión",
+            "nullable": true,
+            "enum": [
+              "OPERATIVO_HOMOLOGO",
+              "ENLACE_HOMOLOGO",
+              "JEFATURA_DEPTO_HOMOLOGO",
+              "SUBDIRECCION_HOMOLOGO",
+              "DIRECCION_HOMOLOGO",
+              "DG_HOMOLOGO",
+              "JEFATURA_UNIDAD_HOMOLOGO",
+              "SUBSECRETARIA_HOMOLOGO",
+              "SECRETARIA_HOMOLOGO",
+              "OTRO"
+            ]
           },
           "valor": {
             "type": "string",
@@ -988,12 +995,14 @@
           "nivelOrdenGobierno": {
             "type": "string",
             "description": "Seleccionar el nivel u orden de gobierno",
-            "nullable": true
+            "nullable": true,
+            "enum": ["FEDERAL", "ESTATAL", "MUNICIPAL_ALCALDIA"]
           },
           "ambitoPublico": {
             "type": "string",
             "description": "Seleccionar el ámbito público",
-            "nullable": true
+            "nullable": true,
+            "enum": ["EJECUTIVO", "LEGISLATIVO", "JUDICIAL", "ORGANO_AUTONOMO"]
           },
           "nombreEntePublico": {
             "type": "string",
@@ -1442,7 +1451,19 @@
           "clave": {
             "type": "string",
             "description": "Seleccionar conforme el catálogo el (los) tipo (s) de falta (s) cometida (s) por la persona servidora pública",
-            "nullable": true
+            "nullable": true,
+            "enum": [
+              "CUMPLIR_FUNCIONES",
+              "DENUNCIAR_FALTAS",
+              "ATENDER_INSTRUCCIONES",
+              "DECLARACIONES",
+              "CUSTODIAR_DOCUMENTACION",
+              "SUPERVISAR_ART_49_LGRA",
+              "RENDIR_CUENTAS",
+              "COLABORAR_PROCEDIMIENTOS",
+              "CAUSAR_DANOS",
+              "OTRO"
+            ]
           },
           "valor": {
             "type": "string",
@@ -1797,7 +1818,8 @@
           "sexo": {
             "type": "string",
             "description": "Seleccionar la opción que corresponda",
-            "nullable": true
+            "nullable": true,
+            "enum": ["HOMBRE", "MUJER"]
           }
         },
         "x-collection": "datos_generales_no_graves"
@@ -2163,7 +2185,8 @@
           "sexo": {
             "type": "string",
             "description": "Seleccionar la opción que corresponda",
-            "nullable": true
+            "nullable": true,
+            "enum": ["HOMBRE", "MUJER"]
           },
           "rfc": {
             "type": "string",
@@ -2398,7 +2421,15 @@
         "properties": {
           "clave": {
             "type": "string",
-            "nullable": true
+            "description": "Elegir una o varias sanciones conforme al catálogo y que fueron dictaminadas en la resolución definitiva. Se podrán elegir de las siguientes opciones",
+            "nullable": true,
+            "enum": [
+              "AMONESTACION",
+              "SUSPENSION",
+              "DESTITUCION",
+              "INHABILITACION",
+              "OTRO"
+            ]
           },
           "suspensionEmpleo": {
             "description": "Se deberá llenar si en la resolución definitiva se impuso la suspensión del empleo, cargo o comisión",
@@ -2454,7 +2485,8 @@
           "tipo": {
             "type": "string",
             "description": "Seleccionar el tipo de amonestación",
-            "nullable": true
+            "nullable": true,
+            "enum":["PUBLICA", "PRIVADA"]
           }
         },
         "x-collection": "amonestacion_sancion"
@@ -2855,12 +2887,7 @@
         "explode": true,
         "schema": {
           "type": "string",
-          "enum": [
-            "csv",
-            "json",
-            "xml",
-            "yaml"
-          ]
+          "enum": ["csv", "json", "xml", "yaml"]
         }
       },
       "Version": {

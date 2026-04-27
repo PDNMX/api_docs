@@ -2698,14 +2698,15 @@
         "properties" : {
           "valor" : {
             "type" : "number",
-            "minimum": 0,
             "example" : 20000,
+            "minimum": 0,
             "description" : "Valor sin centavos. No se aceptan valores negativos"
           },
           "moneda" : {
             "$ref" : "#/components/schemas/tipoMoneda"
           }
-        }
+        },
+        "required": ["valor", "moneda"]
       },
       "superficie" : {
         "type" : "object",

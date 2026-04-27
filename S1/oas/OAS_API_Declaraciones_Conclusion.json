@@ -2744,7 +2744,8 @@
           "moneda" : {
             "$ref" : "#/components/schemas/tipoMoneda"
           }
-        }
+        },
+        "required": ["valor", "moneda"]
       },
       "superficie" : {
         "type" : "object",

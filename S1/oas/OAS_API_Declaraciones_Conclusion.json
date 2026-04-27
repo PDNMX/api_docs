@@ -2738,7 +2738,7 @@
           "valor" : {
             "type" : "number",
             "example" : 20000,
-            "minimun": 0,
+            "minimum": 0,
             "description" : "Valor sin centavos. No se aceptan valores negativos"
           },
           "moneda" : {

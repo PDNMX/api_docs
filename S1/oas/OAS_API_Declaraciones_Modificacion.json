@@ -2578,7 +2578,8 @@
           "valor" : {
             "type" : "number",
             "example" : 20000,
-            "description" : "Valor sin centavos"
+            "minimum": 0,
+            "description" : "Valor sin centavos. No se aceptan valores negativos"
           },
           "moneda" : {
             "$ref" : "#/components/schemas/tipoMoneda"

@@ -2698,8 +2698,9 @@
         "properties" : {
           "valor" : {
             "type" : "number",
+            "minimum": 0,
             "example" : 20000,
-            "description" : "Valor sin centavos"
+            "description" : "Valor sin centavos. No se aceptan valores negativos"
           },
           "moneda" : {
             "$ref" : "#/components/schemas/tipoMoneda"
